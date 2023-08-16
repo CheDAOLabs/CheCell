@@ -8,12 +8,9 @@ struct Cell {
     init:bool,
     name:felt252,
     seed:felt252,
-    hp:u32,
     exp:u32,
     breed_count:u32,
     body_size:u8,
-    x:u8,
-    y:u8,
     category:u8,
     state:u8
 }

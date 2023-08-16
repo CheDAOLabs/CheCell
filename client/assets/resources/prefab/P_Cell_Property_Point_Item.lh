@@ -1,0 +1,42 @@
+{
+  "_$ver": 1,
+  "_$id": "qq5pra06lm",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 16,
+  "height": 16,
+  "_$comp": [
+    {
+      "_$type": "43e59e28-6664-484f-abde-2012a0cec5ca",
+      "scriptPath": "../src/ui/cellinfo/CellPropertyPointItem.ts",
+      "img": {
+        "_$ref": "46stmghj"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "46stmghj",
+      "_$type": "Image",
+      "name": "Image",
+      "width": 16,
+      "height": 16,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "srce3dpn",
+      "_$type": "Image",
+      "name": "Frame",
+      "x": -36,
+      "y": -36,
+      "width": 100,
+      "height": 100,
+      "skin": "res://c13c1b8e-c516-4a0f-98ad-e356f45f0365",
+      "useSourceSize": true,
+      "color": "#ffffff"
+    }
+  ]
+}

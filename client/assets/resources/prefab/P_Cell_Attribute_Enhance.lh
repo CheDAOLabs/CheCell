@@ -8,22 +8,6 @@
   "mouseEnabled": true,
   "_$child": [
     {
-      "_$id": "hw7rqe6x",
-      "_$type": "Image",
-      "name": "Image",
-      "x": -778,
-      "y": -220,
-      "width": 1920,
-      "height": 1080,
-      "visible": false,
-      "alpha": 0.47,
-      "right": -54,
-      "bottom": -60,
-      "skin": "res://f997a129-e0b1-4293-b487-d342471520e4",
-      "useSourceSize": true,
-      "color": "#ffffff"
-    },
-    {
       "_$id": "3t5md4yx",
       "_$type": "Image",
       "name": "cell_img",

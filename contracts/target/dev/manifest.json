@@ -43,7 +43,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x40ee4ac917ced49061b732ee5b363273ad1ca254075e9ea90ca0d08f6a37fa",
+      "class_hash": "0x2c3ab7c1429a62b89eea89f5458debb0596960f9e8d80a5ce1e585b6cbbd601",
       "dependencies": []
     },
     {
@@ -55,7 +55,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x41249888e5b9435963a1a00529fdcd63be4c8b3f9595ac153fa147b7ca45c25",
+      "class_hash": "0x48d45183030eb7ab35fee218a20b51840ff3fa3a0cb265fc4a5845cad57db11",
       "dependencies": []
     },
     {
@@ -71,7 +71,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x29f2cd93e667cf9e7a30801db76404102e80dacf33e8bc387a5e286270e396e",
+      "class_hash": "0x65cdb005062fbc9bc8527b945bd3091005a7dc9763e86503d3bdbf8ab29dea9",
       "dependencies": []
     },
     {
@@ -162,11 +162,6 @@
           "key": false
         },
         {
-          "name": "hp",
-          "type": "u32",
-          "key": false
-        },
-        {
           "name": "exp",
           "type": "u32",
           "key": false
@@ -182,16 +177,6 @@
           "key": false
         },
         {
-          "name": "x",
-          "type": "u8",
-          "key": false
-        },
-        {
-          "name": "y",
-          "type": "u8",
-          "key": false
-        },
-        {
           "name": "category",
           "type": "u8",
           "key": false
@@ -202,7 +187,7 @@
           "key": false
         }
       ],
-      "class_hash": "0x7234f5d6be554b4ca666cd131d89ecc8823a1cc2f3e82f842e5331b1d49f4b6"
+      "class_hash": "0x52407b28372de87cbaee8bdb5e3295732731aa25948b4f9fd229ad19da0fc2e"
     },
     {
       "name": "CellProperty",

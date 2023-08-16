@@ -24,12 +24,12 @@ mod CreateCell {
         world_key_arr.append(WORLD_ID);
  
         let world_key = poseidon::poseidon_hash_span(world_key_arr.span());
-        let mut world_info = get !(
+        let mut world = get !(
             ctx.world,
             world_key, 
             WorldInfo
         );
-        assert(world_info.init == true , 'world is invaild');
+        assert(world.init == true , 'world is invaild');
 
         let mut account_key_arr:Array<felt252> = ArrayTrait::new();
         account_key_arr.append(3);
@@ -45,8 +45,7 @@ mod CreateCell {
         );
         assert(account.init == true , 'account is invaild');
  
-
-        account.cell_number = account.cell_number+1;
+        account.cell_number += 1_u32;
 
         let mut cell_key_arr:Array<felt252> = ArrayTrait::new();
         cell_key_arr.append(4);
@@ -63,8 +62,7 @@ mod CreateCell {
         cell.init = true;
         cell.name = nickName;
         cell.seed = initSeed;
-        cell.hp = 100;
-        cell.breed_count = 10;
+        cell.breed_count = 9;
         cell.body_size = 1;
 
         let mut category_seed_arr:Array<felt252> = ArrayTrait::new();
@@ -106,7 +104,7 @@ mod CreateCell {
  
         set !(
             ctx.world,
-            (world_info)
+            (account)
         );
  
         set !(
@@ -150,12 +148,12 @@ mod AddCellSize {
         world_key_arr.append(WORLD_ID);
  
         let world_key = poseidon::poseidon_hash_span(world_key_arr.span());
-        let mut world_info = get !(
+        let mut world = get !(
             ctx.world,
             world_key, 
             WorldInfo
         );
-        assert(world_info.init == true , 'world is invaild');
+        assert(world.init == true , 'world is invaild');
 
         let mut account_key_arr:Array<felt252> = ArrayTrait::new();
         account_key_arr.append(3);
@@ -252,16 +250,17 @@ mod AddCellProperty {
         world_key_arr.append(WORLD_ID);
  
         let world_key = poseidon::poseidon_hash_span(world_key_arr.span());
-        let mut world_info = get !(
+        let mut world = get !(
             ctx.world,
             world_key, 
             WorldInfo
         );
-        assert(world_info.init == true , 'world is invaild');
+        assert(world.init == true , 'world is invaild');
 
         let mut account_key_arr:Array<felt252> = ArrayTrait::new();
         account_key_arr.append(3);
         account_key_arr.append(GAME_ID);
+        account_key_arr.append(WORLD_ID);
         account_key_arr.append(ctx.origin.into());
  
         let account_key = poseidon::poseidon_hash_span(account_key_arr.span());

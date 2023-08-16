@@ -10,6 +10,19 @@
   "name": "Scene2D",
   "_$child": [
     {
+      "_$id": "7zvzj116",
+      "_$type": "Image",
+      "name": "Image",
+      "x": -1088,
+      "y": -1508,
+      "width": 4096,
+      "height": 4096,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#000000"
+    },
+    {
       "_$id": "qkuor7tf",
       "_$type": "Image",
       "name": "bg",
@@ -190,7 +203,16 @@
               "active": true,
               "x": 0,
               "y": 0,
-              "visible": true
+              "visible": true,
+              "_$child": [
+                {
+                  "_$override": [
+                    "5jcpi0qv",
+                    "9zzugmk0"
+                  ],
+                  "selectedIndex": -1
+                }
+              ]
             },
             {
               "_$id": "7s0es3js",
@@ -202,6 +224,23 @@
               "visible": false
             }
           ]
+        },
+        {
+          "_$id": "8uxv0psc",
+          "_$var": true,
+          "_$type": "Label",
+          "name": "address_text",
+          "x": 1604,
+          "y": 40,
+          "width": 260,
+          "height": 33,
+          "text": "0x123",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(196, 143, 255, 1)",
+          "fitContent": "height",
+          "leading": 2,
+          "padding": "0,0,0,0"
         }
       ]
     }

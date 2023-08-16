@@ -44,12 +44,9 @@ export function defineContractComponents(world: World) {
           init:RecsType.Boolean,
           name:RecsType.BigInt,
           seed: RecsType.BigInt,
-          hp:RecsType.Number,
           exp:RecsType.Number,
-          breed_count:RecsType.Number,
+          bread_count:RecsType.Number,
           body_size:RecsType.Number,
-          x: RecsType.Number,
-          y: RecsType.Number,
           category:RecsType.Number,
           state:RecsType.Number
         },

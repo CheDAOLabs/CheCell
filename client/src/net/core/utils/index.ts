@@ -90,8 +90,10 @@ export function setComponentFromEntitiesQuery(component: Component, entities: bi
 
 export function setComponentFromEvent(components: Components, eventData: string[]) {
     // retrieve the component name
+    
     const componentName = hex_to_ascii(eventData[0]);
-
+    console.log('componentName   ',componentName);
+     
     // retrieve the component from name
     const component = components[componentName];
 
@@ -113,12 +115,10 @@ export function setComponentFromEvent(components: Components, eventData: string[
     // create component object from values with schema
     const componentValues = Object.keys(component.schema).reduce((acc: Schema, key, index) => {
       const value = values[index];
-     // console.log(index);
-     // console.log(value);
       acc[key] = BigInt(value);
       return acc;
     }, {});
-
+    console.log('componentValues  ',componentValues);
     // set component
     setComponent(component, entityIndex, componentValues);
 

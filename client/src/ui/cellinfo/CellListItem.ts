@@ -11,6 +11,9 @@ export class CellListItem extends Laya.Script {
         this.button.on(Laya.Event.CLICK,this,this.onButtonEvent.bind(this));
       
     }
+    SetName(name:string){
+        this.button.label = name;
+    }
     SetIndex(index:number){
         this.index = index;
     }

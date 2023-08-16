@@ -11,5 +11,6 @@ export class HomeBase extends Laya.Scene {
     public leaderborad_button!: Laya.Button;
     public market_button!: Laya.Button;
     public page_stack!: Laya.ViewStack;
+    public address_text!: Laya.Label;
 }
 

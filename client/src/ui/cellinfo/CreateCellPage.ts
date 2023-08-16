@@ -45,7 +45,6 @@ export class CreateCellPage extends CreateCellPageBase {
  
         this.baseColor.r = v;
         this.cell_image.color = rgbToHex(this.baseColor.r,this.baseColor.g,this.baseColor.b);
-        console.log(this.baseColor.r);
         this.attack_cur_value_label.text = this.baseColor.r.toString();
         this.changeAttrTitle();
     }

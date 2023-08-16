@@ -1,3 +1,4 @@
+import { number } from "starknet";
 import { Color } from "./Config";
 
 export function rgbToHex(r:number, g:number, b:number) {
@@ -18,4 +19,10 @@ export function hexToRgb(hex:string) {
     return { r:r, g:g, b:b } as Color;
 }
 
+export function truncateString(str:string, n:number) {
+    if (str.length <= n) {
+      return str;
+    }
+    return str.slice(0, n) + "...";
+  }
  

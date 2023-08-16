@@ -2,7 +2,7 @@
   "resolution": {
     "designWidth": 1920,
     "designHeight": 1080,
-    "scaleMode": "exactfit"
+    "alignH": "center"
   },
   "3D": {
     "lightClusterCount": {
