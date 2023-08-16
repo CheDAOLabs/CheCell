@@ -1,0 +1,255 @@
+{
+  "world": {
+    "name": "world",
+    "address": null,
+    "class_hash": "0x3ed514d5b7fc8f581abad713ad97ab839e1c4478c8e67fb7fad966e803783f3"
+  },
+  "executor": {
+    "name": "executor",
+    "address": null,
+    "class_hash": "0x7b79892389a0c9fe22f74b1d28a9e9185c7b6d2c60cc1df814053e47e9078c2"
+  },
+  "systems": [
+    {
+      "name": "InitAccount",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@DevilCell::systems::account::accountSystem::InitAccount::ContractState"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x1eaadcb8d581949026b2fed4ceadf8c622df5ba3bf70344dfbe2575590d4819",
+      "dependencies": []
+    },
+    {
+      "name": "CreateCell",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@DevilCell::systems::game::cellSystem::CreateCell::ContractState"
+        },
+        {
+          "name": "nickName",
+          "type": "core::felt252"
+        },
+        {
+          "name": "initSeed",
+          "type": "core::felt252"
+        },
+        {
+          "name": "property",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x40ee4ac917ced49061b732ee5b363273ad1ca254075e9ea90ca0d08f6a37fa",
+      "dependencies": []
+    },
+    {
+      "name": "AddCellSize",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@DevilCell::systems::game::cellSystem::AddCellSize::ContractState"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x41249888e5b9435963a1a00529fdcd63be4c8b3f9595ac153fa147b7ca45c25",
+      "dependencies": []
+    },
+    {
+      "name": "AddCellProperty",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@DevilCell::systems::game::cellSystem::AddCellProperty::ContractState"
+        },
+        {
+          "name": "property",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x29f2cd93e667cf9e7a30801db76404102e80dacf33e8bc387a5e286270e396e",
+      "dependencies": []
+    },
+    {
+      "name": "InitWorld",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@DevilCell::systems::game::worldSystem::InitWorld::ContractState"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x1f9444a96af7b1823879f4f86d4322b21bfbc67dfb6d81a9b0d35707eed33d3",
+      "dependencies": []
+    },
+    {
+      "name": "library_call",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@dojo::world::library_call::ContractState"
+        },
+        {
+          "name": "class_hash",
+          "type": "core::starknet::class_hash::ClassHash"
+        },
+        {
+          "name": "entrypoint",
+          "type": "core::felt252"
+        },
+        {
+          "name": "calladata",
+          "type": "core::array::Span::<core::felt252>"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "core::array::Span::<core::felt252>"
+        }
+      ],
+      "class_hash": "0x5c3f8568adfef908692f02fcfcc80e303c237183fe864f6cff8c34d29d3f130",
+      "dependencies": []
+    }
+  ],
+  "contracts": [],
+  "components": [
+    {
+      "name": "Account",
+      "members": [
+        {
+          "name": "id",
+          "type": "felt252",
+          "key": true
+        },
+        {
+          "name": "init",
+          "type": "bool",
+          "key": false
+        },
+        {
+          "name": "cell_number",
+          "type": "u32",
+          "key": false
+        }
+      ],
+      "class_hash": "0x2eb7924471e59a0856115aceaf4688a189988fa44f256674a6558c486a87680"
+    },
+    {
+      "name": "Cell",
+      "members": [
+        {
+          "name": "id",
+          "type": "felt252",
+          "key": true
+        },
+        {
+          "name": "init",
+          "type": "bool",
+          "key": false
+        },
+        {
+          "name": "name",
+          "type": "felt252",
+          "key": false
+        },
+        {
+          "name": "seed",
+          "type": "felt252",
+          "key": false
+        },
+        {
+          "name": "hp",
+          "type": "u32",
+          "key": false
+        },
+        {
+          "name": "exp",
+          "type": "u32",
+          "key": false
+        },
+        {
+          "name": "breed_count",
+          "type": "u32",
+          "key": false
+        },
+        {
+          "name": "body_size",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "x",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "y",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "category",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "state",
+          "type": "u8",
+          "key": false
+        }
+      ],
+      "class_hash": "0x7234f5d6be554b4ca666cd131d89ecc8823a1cc2f3e82f842e5331b1d49f4b6"
+    },
+    {
+      "name": "CellProperty",
+      "members": [
+        {
+          "name": "id",
+          "type": "felt252",
+          "key": true
+        },
+        {
+          "name": "init",
+          "type": "bool",
+          "key": false
+        },
+        {
+          "name": "p1",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p2",
+          "type": "u8",
+          "key": false
+        },
+        {
+          "name": "p3",
+          "type": "u8",
+          "key": false
+        }
+      ],
+      "class_hash": "0x237b0945174cf2fb35307ef60689524e17ae6144f6e8dcb0018e8e24e0e6b5c"
+    },
+    {
+      "name": "WorldInfo",
+      "members": [
+        {
+          "name": "id",
+          "type": "felt252",
+          "key": true
+        },
+        {
+          "name": "init",
+          "type": "bool",
+          "key": false
+        }
+      ],
+      "class_hash": "0x477ed6b41b30fee93af808f18859a9d1a30dc5f945ad84fe292ab285e2c90e2"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "allowJs": true, 
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true, // 需要开启
+    "strict": true,
+    "strictNullChecks": false,
+    "noEmitHelpers": true,
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true
+  },
+  "include": [
+    "./assets",
+    "./src",
+    "./engine"
+  ]
+}

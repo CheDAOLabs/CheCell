@@ -1,0 +1,35 @@
+{
+  "_$ver": 1,
+  "_$id": "j9fo4n50",
+  "_$type": "Image",
+  "name": "alphabet",
+  "width": 48,
+  "height": 48,
+  "mouseEnabled": true,
+  "hitTestPrior": true,
+  "color": "#ffffff",
+  "_$comp": [
+    {
+      "_$type": "7e141d25-8680-47b8-ba7a-591891ac425f",
+      "scriptPath": "../src/game/GameCard.ts",
+      "alphabet": {
+        "_$ref": "j9fo4n50"
+      },
+      "Text": {
+        "_$ref": "1xlp69gw"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "1xlp69gw",
+      "_$type": "Text",
+      "name": "Text",
+      "width": 48,
+      "height": 48,
+      "fontSize": 26,
+      "color": "#FFFFFF",
+      "leading": 0
+    }
+  ]
+}

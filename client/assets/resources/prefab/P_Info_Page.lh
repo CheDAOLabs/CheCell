@@ -1,0 +1,74 @@
+{
+  "_$ver": 1,
+  "_$id": "0v46w6wj7v",
+  "_$runtime": "res://9161308f-1a38-4f24-8fc5-fe984ee70a6b",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 1920,
+  "height": 860,
+  "mouseEnabled": true,
+  "_$child": [
+    {
+      "_$id": "9jk6f92x",
+      "_$var": true,
+      "_$type": "Tab",
+      "name": "item0Tab",
+      "x": 50,
+      "width": 272,
+      "height": 136,
+      "mouseEnabled": true,
+      "skin": "res://37380fbc-6d3a-4689-8160-18c0b04c7ada",
+      "stateNum": null,
+      "labels": "CREATE,CELL LIST",
+      "space": 8,
+      "direction": "vertical",
+      "selectedIndex": 0,
+      "labelFont": "res://138f23ad-1310-42de-8811-0055f0a577a5",
+      "labelSize": 28,
+      "labelColors": "#7b67b7,#7b67b7,#f6daff",
+      "labelStroke": null,
+      "labelStrokeColor": null,
+      "labelAlign": null,
+      "strokeColors": null
+    },
+    {
+      "_$id": "2vru7ltp",
+      "_$var": true,
+      "_$type": "ViewStack",
+      "name": "item0Page",
+      "x": 338,
+      "width": 1528,
+      "height": 800,
+      "mouseEnabled": true,
+      "left": 338,
+      "bottom": 60,
+      "selectedIndex": 0,
+      "_$child": [
+        {
+          "_$id": "bs8b3u1p",
+          "_$prefab": "901459b0-7fe2-45b9-8c8c-ec3772c2056e",
+          "name": "item0",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        },
+        {
+          "_$id": "5jcpi0qv",
+          "_$prefab": "f0770ef4-b3ba-4465-830a-62a3eba48ecf",
+          "name": "item1",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": false,
+          "_$child": [
+            {
+              "_$override": "9zzugmk0",
+              "selectedIndex": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

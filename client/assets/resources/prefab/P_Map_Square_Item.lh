@@ -1,0 +1,33 @@
+{
+  "_$ver": 1,
+  "_$id": "iuj84vwdlr",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 106,
+  "height": 106,
+  "_$child": [
+    {
+      "_$id": "p7b8stid",
+      "_$type": "Image",
+      "name": "line_1",
+      "width": 106,
+      "height": 106,
+      "skin": "res://03776223-97de-4ebf-a96c-61f122ad4c90",
+      "useSourceSize": true,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "ubstln3s",
+      "_$type": "Image",
+      "name": "line_2",
+      "x": 106,
+      "y": 106,
+      "width": 106,
+      "height": 106,
+      "rotation": 180,
+      "skin": "res://03776223-97de-4ebf-a96c-61f122ad4c90",
+      "useSourceSize": true,
+      "color": "#ffffff"
+    }
+  ]
+}
