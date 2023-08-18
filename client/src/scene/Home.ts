@@ -5,8 +5,9 @@ import { Query, Utils } from '../net/core';
 import { EntityIndex, getComponentValue } from '@latticexyz/recs';
 import { HomeBase } from './Home.generated';
  
-import { CreateCellData, GAMEID, HomeManagerEvent, WORLDID } from '../common/Config';
+import { CreateCellData, GAMEID, HomeManagerEvent, NetManagerEvent, WORLDID } from '../common/Config';
 import { truncateString } from '../common/Tool';
+import { MapInfoPage } from '../ui/map/mapInfoPage';
 @regClass()
 export class Home extends HomeBase {
  
@@ -17,8 +18,13 @@ export class Home extends HomeBase {
        
         this.onSelect(0);
 
-        Laya.stage.on(HomeManagerEvent.OnCreateCellEvent,this,this.onCreateCellEvent.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnCreateCell,this,this.onCreateCellEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnPlayGame,this,this.onOnPlayGameEvent.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnEnhanceCellBodySizeConfirm,this,this.OnEnhanceCellBodySizeConfirmEvent.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnEnhanceCellPropertyConfirm,this,this.onEnhanceCellPropertyConfirmEvent.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnExplore,this,this.onExploreEvent.bind(this));
+
+         
     }
  
     async onOpened(param: any): Promise<void> {
@@ -93,49 +99,53 @@ export class Home extends HomeBase {
   
            const name = Utils.strTofelt252Felt(data.name);
            const seed = Utils.strTofelt252Felt(data.seed);
-           await CreateCell(name,seed,property);
+           const result = await CreateCell(name,seed,property);
+           Laya.stage.event(NetManagerEvent.OnCreateCellCB,result);
            console.log('net:  ',NetMgr.GetInstance().GetNet());
           
      }
      onOnPlayGameEvent(param: any): void {
         this.onSelect(1);
+        (this.page_stack.selection as MapInfoPage).SetData(param);
     }
-      
-     async onGetButtonEvent( ){
-         const {
-             network:{
-                 account,
-                 syncWorker,
-                 provider
-             },
-             components:{
-                 Account,
-                 WorldInfo,
-                 Cell,
-             },
+    async OnEnhanceCellBodySizeConfirmEvent(param: any){
+ 
+        const {
+            systemCalls:{
+                AddCellBodySize
+            }
+           } = NetMgr.GetInstance().GetNet();
     
-            } = NetMgr.GetInstance().GetNet();
- 
-            const value = getComponentValue(WorldInfo,Utils.getEntityIdFromKeys([BigInt('1261689743971040193644'),BigInt('512970878052')]));
-          
-            console.log('value:  ',value);
-          // const entityid = account.address;
-        //    const value = getComponentValue(Cell,Utils.getEntityIdFromKeys([BigInt('1261689743971040193644'),BigInt('512970878052'),BigInt(entityid),BigInt(1)]));
-         //   console.log(this.net);
-         //   console.log(value);
-  /*
-  const GAME_ID:felt252 = 1261689743971040193644;
- const WORLD_ID:felt252 = 512970878052;
-            const value = getComponentValue(Cell,Utils.getEntityIdFromKeys([BigInt(entityid),BigInt(1)]));
-            console.log(this.net);
-            console.log(Utils.felt252ToStr(value.name));
- 
-            const value1 = getComponentValue(WorldInfo,Utils.getEntityIdFromKeys([BigInt(5201314)]));
+           const result = await AddCellBodySize(param);
+           Laya.stage.event(NetManagerEvent.OnEnhanceCellBodySizeCB,result);
             
-            console.log(BigInt(value1.init_category));
-         
-     */
-           // console.log(Utils.felt252ToStr(String(value.name)));
-     };
+           console.log('net:  ',NetMgr.GetInstance().GetNet());
+    }
+    async onEnhanceCellPropertyConfirmEvent(param: any){
+       
+        const {
+            systemCalls:{
+                AddCellProperty
+            }
+           } = NetMgr.GetInstance().GetNet();
+           let property = param.color.r;
+           property += param.color.g<<8;
+           property += param.color.b<<16;
+           await AddCellProperty(param.c_id,param.p_id,property);
+           console.log('net:  ',NetMgr.GetInstance().GetNet());
+    }
+    async onExploreEvent(param: any){
+        console.log('onExploreEvent');
+ 
+        const {
+            systemCalls:{
+                CellExplore
+            }
+           } = NetMgr.GetInstance().GetNet();
+ 
+           await CellExplore(param.c_id,param.time);
+           console.log('net:  ',NetMgr.GetInstance().GetNet());
+    }
+ 
 }
  

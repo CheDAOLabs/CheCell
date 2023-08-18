@@ -1,0 +1,21 @@
+{
+  "_$ver": 1,
+  "_$id": "8zdu4mwlzp",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 106,
+  "height": 106,
+  "_$child": [
+    {
+      "_$id": "jdijgn9p",
+      "_$type": "Image",
+      "name": "Image",
+      "width": 106,
+      "height": 106,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://79b81769-0207-4880-91cd-9930cded61d1",
+      "color": "#ffffff"
+    }
+  ]
+}

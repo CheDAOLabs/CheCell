@@ -2,7 +2,7 @@
   "world": {
     "name": "world",
     "address": null,
-    "class_hash": "0x3ed514d5b7fc8f581abad713ad97ab839e1c4478c8e67fb7fad966e803783f3"
+    "class_hash": "0x1527b232cbd77c7f021fdc129339d7623edfd9a9c79a1b9add29c9064961497"
   },
   "executor": {
     "name": "executor",
@@ -43,19 +43,23 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x2c3ab7c1429a62b89eea89f5458debb0596960f9e8d80a5ce1e585b6cbbd601",
+      "class_hash": "0x5663ebdb6ecb55093ef6a2542cd5956ac54dddbdb10b32e0deeb2aa740cfbcd",
       "dependencies": []
     },
     {
-      "name": "AddCellSize",
+      "name": "AddCellBodySize",
       "inputs": [
         {
           "name": "self",
-          "type": "@DevilCell::systems::game::cellSystem::AddCellSize::ContractState"
+          "type": "@DevilCell::systems::game::cellSystem::AddCellBodySize::ContractState"
+        },
+        {
+          "name": "c_id",
+          "type": "core::integer::u32"
         }
       ],
       "outputs": [],
-      "class_hash": "0x48d45183030eb7ab35fee218a20b51840ff3fa3a0cb265fc4a5845cad57db11",
+      "class_hash": "0x57080cf6472e90ea9eeca63b26d56f04afb51b32b02687b364921ca6e7d1953",
       "dependencies": []
     },
     {
@@ -66,12 +70,40 @@
           "type": "@DevilCell::systems::game::cellSystem::AddCellProperty::ContractState"
         },
         {
+          "name": "c_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "p_id",
+          "type": "core::integer::u32"
+        },
+        {
           "name": "property",
           "type": "core::integer::u32"
         }
       ],
       "outputs": [],
-      "class_hash": "0x65cdb005062fbc9bc8527b945bd3091005a7dc9763e86503d3bdbf8ab29dea9",
+      "class_hash": "0x6756a70483ba0f74139155749d15acc29af0f57d3c1e12a407547612ec2ee64",
+      "dependencies": []
+    },
+    {
+      "name": "CellExplore",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@DevilCell::systems::game::cellSystem::CellExplore::ContractState"
+        },
+        {
+          "name": "c_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "time",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x4a455c74c4a8a61f12c599a8345b1f8130d28941f4e2a34aab650ad67572966",
       "dependencies": []
     },
     {
@@ -185,9 +217,14 @@
           "name": "state",
           "type": "u8",
           "key": false
+        },
+        {
+          "name": "explore_end_time",
+          "type": "u64",
+          "key": false
         }
       ],
-      "class_hash": "0x52407b28372de87cbaee8bdb5e3295732731aa25948b4f9fd229ad19da0fc2e"
+      "class_hash": "0x2ebe261390a2253ee250600f5ed5a6b1ff51d99ed30078df8d4cc15355354b2"
     },
     {
       "name": "CellProperty",

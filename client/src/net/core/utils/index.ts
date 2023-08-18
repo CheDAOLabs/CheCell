@@ -92,7 +92,6 @@ export function setComponentFromEvent(components: Components, eventData: string[
     // retrieve the component name
     
     const componentName = hex_to_ascii(eventData[0]);
-    console.log('componentName   ',componentName);
      
     // retrieve the component from name
     const component = components[componentName];
@@ -118,7 +117,7 @@ export function setComponentFromEvent(components: Components, eventData: string[
       acc[key] = BigInt(value);
       return acc;
     }, {});
-    console.log('componentValues  ',componentValues);
+ 
     // set component
     setComponent(component, entityIndex, componentValues);
 

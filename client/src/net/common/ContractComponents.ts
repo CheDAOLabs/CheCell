@@ -48,7 +48,8 @@ export function defineContractComponents(world: World) {
           bread_count:RecsType.Number,
           body_size:RecsType.Number,
           category:RecsType.Number,
-          state:RecsType.Number
+          state:RecsType.Number,
+          explore_end_time:RecsType.BigInt
         },
         {
           metadata: {

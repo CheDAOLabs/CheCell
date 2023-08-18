@@ -9,13 +9,24 @@ export const enum CommonManagerEvent {
 
 export const enum HomeManagerEvent {
     OnTouchCellListButton = 'OnTouchCellListButton',
-    OnCreateCellEvent = 'OnCreateCellEvent',
+    OnCreateCell = 'OnCreateCell',
+    OnUpdateCreateCell = 'OnUpdateCreateCell',
     OnUpdateCellList = 'OnUpdateCellList',
-    OnEnhanceCellBodySize = "OnEnhanceCellBodySize",
+    OnEnhanceCellBodySize = 'OnEnhanceCellBodySize',
+    OnEnhanceCellBodySizeConfirm = 'OnEnhanceCellBodySizeConfirm',
+    OnEnhanceCellProperty = 'OnEnhanceCellProperty',
+    OnEnhanceCellPropertyConfirm = 'OnEnhanceCellPropertyConfirm',
+    OnTouchCellPropertyPoint = 'OnTouchCellPropertyPoint',
     OnPlayGame = 'OnPlayGame',
-    
+    OnExplore = 'OnExplore',
 };
- 
+
+export const enum NetManagerEvent {
+      OnCreateCellCB = 'OnCreateCellCB',
+      OnEnhanceCellBodySizeCB = 'OnEnhanceCellBodySizeCB',
+      OnEnhanceCellPropertyCB = 'OnEnhanceCellPropertyCB',
+      OnExploreCB = 'OnExploreCB',
+  };
 export interface Color{
 
       r:number;
@@ -23,6 +34,8 @@ export interface Color{
       g:number;
       
       b:number;
+
+
 }
 
 export interface CreateCellData{

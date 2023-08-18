@@ -11,6 +11,7 @@ export class CellBodyEnhancePageBase extends Laya.Box {
     public agility_cur_value_label!: Laya.Label;
     public attack_cur_value_label!: Laya.Label;
     public category_cur_value_label!: Laya.Label;
+    public cost_cur_value_label!: Laya.Label;
     public desc_label_1!: Laya.Label;
     public exp_cur_value_label!: Laya.Label;
     public confirm_button!: Laya.Button;

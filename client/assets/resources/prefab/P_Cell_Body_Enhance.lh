@@ -33,7 +33,7 @@
       "height": 516,
       "right": 58,
       "top": 88,
-      "bgColor": "rgba(252, 251, 255, 1)"
+      "bgColor": "rgba(10, 3, 22, 1)"
     },
     {
       "_$id": "8u1vwpw5",
@@ -41,6 +41,7 @@
       "name": "item_img",
       "width": 26,
       "height": 26,
+      "visible": false,
       "skin": "res://4d6cb8e3-db6c-4abb-bc81-06e99e796465",
       "useSourceSize": true,
       "color": "#ffffff"
@@ -289,6 +290,7 @@
     },
     {
       "_$id": "djrugdtu",
+      "_$var": true,
       "_$type": "Label",
       "name": "cost_cur_value_label",
       "x": 635,
@@ -334,7 +336,6 @@
       "y": 600,
       "width": 302,
       "height": 33,
-      "visible": false,
       "left": 623,
       "top": 600,
       "text": "Choose point to enhance",

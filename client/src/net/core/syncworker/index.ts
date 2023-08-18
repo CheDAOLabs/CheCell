@@ -29,7 +29,7 @@ export class SyncWorker<C extends Components> {
     console.log('SyncWorker initialized');
     }
 
-    public async sync(txHash: string) {
+    public async sync(txHash: string):Promise<boolean> {
         const receipt = await this.provider.provider.getTransactionReceipt(txHash);
         console.log(receipt);
         receipt.events.filter((event) => {
@@ -39,5 +39,6 @@ export class SyncWorker<C extends Components> {
             console.log("event    ---  ",event);
             setComponentFromEvent(this.components, event.data);
         });
+        return receipt.events.length != 0;
     }
 }

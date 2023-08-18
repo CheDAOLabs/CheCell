@@ -49,7 +49,7 @@ export class RPCProvider extends IProvider {
         const call: Call = {
             entrypoint: WorldEntryPoints.entities,
             contractAddress: this.getWorldAddress(),
-            calldata: [strTofelt252Felt(component),partition,length]
+            calldata: [strTofelt252Felt(component),0,length]
         }
  
         console.log(call);

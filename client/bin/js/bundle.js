@@ -51533,7 +51533,7 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
     }
     __name(Subscription2, "Subscription");
     Subscription2.prototype.unsubscribe = function() {
-      var e_1, _a3, e_2, _b3;
+      var e_1, _a4, e_2, _b4;
       var errors;
       if (!this.closed) {
         this.closed = true;
@@ -51550,8 +51550,8 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
               e_1 = { error: e_1_1 };
             } finally {
               try {
-                if (_parentage_1_1 && !_parentage_1_1.done && (_a3 = _parentage_1.return))
-                  _a3.call(_parentage_1);
+                if (_parentage_1_1 && !_parentage_1_1.done && (_a4 = _parentage_1.return))
+                  _a4.call(_parentage_1);
               } finally {
                 if (e_1)
                   throw e_1.error;
@@ -51590,8 +51590,8 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
             e_2 = { error: e_2_1 };
           } finally {
             try {
-              if (_finalizers_1_1 && !_finalizers_1_1.done && (_b3 = _finalizers_1.return))
-                _b3.call(_finalizers_1);
+              if (_finalizers_1_1 && !_finalizers_1_1.done && (_b4 = _finalizers_1.return))
+                _b4.call(_finalizers_1);
             } finally {
               if (e_2)
                 throw e_2.error;
@@ -51604,7 +51604,7 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
       }
     };
     Subscription2.prototype.add = function(teardown) {
-      var _a3;
+      var _a4;
       if (teardown && teardown !== this) {
         if (this.closed) {
           execFinalizer(teardown);
@@ -51615,7 +51615,7 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
             }
             teardown._addParent(this);
           }
-          (this._finalizers = (_a3 = this._finalizers) !== null && _a3 !== void 0 ? _a3 : []).push(teardown);
+          (this._finalizers = (_a4 = this._finalizers) !== null && _a4 !== void 0 ? _a4 : []).push(teardown);
         }
       }
     };
@@ -51741,7 +51741,7 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
       }
       cb3();
       if (isRoot) {
-        var _a3 = context, errorThrown = _a3.errorThrown, error = _a3.error;
+        var _a4 = context, errorThrown = _a4.errorThrown, error = _a4.error;
         context = null;
         if (errorThrown) {
           throw error;
@@ -51977,7 +51977,7 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
       var _this = this;
       var subscriber = isSubscriber(observerOrNext) ? observerOrNext : new SafeSubscriber(observerOrNext, error, complete);
       errorContext(function() {
-        var _a3 = _this, operator = _a3.operator, source = _a3.source;
+        var _a4 = _this, operator = _a4.operator, source = _a4.source;
         subscriber.add(operator ? operator.call(subscriber, source) : source ? _this._subscribe(subscriber) : _this._trySubscribe(subscriber));
       });
       return subscriber;
@@ -52009,8 +52009,8 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
       });
     };
     Observable2.prototype._subscribe = function(subscriber) {
-      var _a3;
-      return (_a3 = this.source) === null || _a3 === void 0 ? void 0 : _a3.subscribe(subscriber);
+      var _a4;
+      return (_a4 = this.source) === null || _a4 === void 0 ? void 0 : _a4.subscribe(subscriber);
     };
     Observable2.prototype[observable] = function() {
       return this;
@@ -52042,8 +52042,8 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
     return Observable2;
   }();
   function getPromiseCtor(promiseCtor) {
-    var _a3;
-    return (_a3 = promiseCtor !== null && promiseCtor !== void 0 ? promiseCtor : config.Promise) !== null && _a3 !== void 0 ? _a3 : Promise;
+    var _a4;
+    return (_a4 = promiseCtor !== null && promiseCtor !== void 0 ? promiseCtor : config.Promise) !== null && _a4 !== void 0 ? _a4 : Promise;
   }
   __name(getPromiseCtor, "getPromiseCtor");
   function isObserver(value) {
@@ -52091,14 +52091,14 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
     Subject2.prototype.next = function(value) {
       var _this = this;
       errorContext(function() {
-        var e_1, _a3;
+        var e_1, _a4;
         _this._throwIfClosed();
         if (!_this.isStopped) {
           if (!_this.currentObservers) {
             _this.currentObservers = Array.from(_this.observers);
           }
           try {
-            for (var _b3 = __values(_this.currentObservers), _c3 = _b3.next(); !_c3.done; _c3 = _b3.next()) {
+            for (var _b4 = __values(_this.currentObservers), _c3 = _b4.next(); !_c3.done; _c3 = _b4.next()) {
               var observer = _c3.value;
               observer.next(value);
             }
@@ -52106,8 +52106,8 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
             e_1 = { error: e_1_1 };
           } finally {
             try {
-              if (_c3 && !_c3.done && (_a3 = _b3.return))
-                _a3.call(_b3);
+              if (_c3 && !_c3.done && (_a4 = _b4.return))
+                _a4.call(_b4);
             } finally {
               if (e_1)
                 throw e_1.error;
@@ -52149,8 +52149,8 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
     };
     Object.defineProperty(Subject2.prototype, "observed", {
       get: function() {
-        var _a3;
-        return ((_a3 = this.observers) === null || _a3 === void 0 ? void 0 : _a3.length) > 0;
+        var _a4;
+        return ((_a4 = this.observers) === null || _a4 === void 0 ? void 0 : _a4.length) > 0;
       },
       enumerable: false,
       configurable: true
@@ -52166,7 +52166,7 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
     };
     Subject2.prototype._innerSubscribe = function(subscriber) {
       var _this = this;
-      var _a3 = this, hasError = _a3.hasError, isStopped = _a3.isStopped, observers = _a3.observers;
+      var _a4 = this, hasError = _a4.hasError, isStopped = _a4.isStopped, observers = _a4.observers;
       if (hasError || isStopped) {
         return EMPTY_SUBSCRIPTION;
       }
@@ -52178,7 +52178,7 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
       });
     };
     Subject2.prototype._checkFinalizedStatuses = function(subscriber) {
-      var _a3 = this, hasError = _a3.hasError, thrownError = _a3.thrownError, isStopped = _a3.isStopped;
+      var _a4 = this, hasError = _a4.hasError, thrownError = _a4.thrownError, isStopped = _a4.isStopped;
       if (hasError) {
         subscriber.error(thrownError);
       } else if (isStopped) {
@@ -52205,20 +52205,20 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
     }
     __name(AnonymousSubject2, "AnonymousSubject");
     AnonymousSubject2.prototype.next = function(value) {
-      var _a3, _b3;
-      (_b3 = (_a3 = this.destination) === null || _a3 === void 0 ? void 0 : _a3.next) === null || _b3 === void 0 ? void 0 : _b3.call(_a3, value);
+      var _a4, _b4;
+      (_b4 = (_a4 = this.destination) === null || _a4 === void 0 ? void 0 : _a4.next) === null || _b4 === void 0 ? void 0 : _b4.call(_a4, value);
     };
     AnonymousSubject2.prototype.error = function(err2) {
-      var _a3, _b3;
-      (_b3 = (_a3 = this.destination) === null || _a3 === void 0 ? void 0 : _a3.error) === null || _b3 === void 0 ? void 0 : _b3.call(_a3, err2);
+      var _a4, _b4;
+      (_b4 = (_a4 = this.destination) === null || _a4 === void 0 ? void 0 : _a4.error) === null || _b4 === void 0 ? void 0 : _b4.call(_a4, err2);
     };
     AnonymousSubject2.prototype.complete = function() {
-      var _a3, _b3;
-      (_b3 = (_a3 = this.destination) === null || _a3 === void 0 ? void 0 : _a3.complete) === null || _b3 === void 0 ? void 0 : _b3.call(_a3);
+      var _a4, _b4;
+      (_b4 = (_a4 = this.destination) === null || _a4 === void 0 ? void 0 : _a4.complete) === null || _b4 === void 0 ? void 0 : _b4.call(_a4);
     };
     AnonymousSubject2.prototype._subscribe = function(subscriber) {
-      var _a3, _b3;
-      return (_b3 = (_a3 = this.source) === null || _a3 === void 0 ? void 0 : _a3.subscribe(subscriber)) !== null && _b3 !== void 0 ? _b3 : EMPTY_SUBSCRIPTION;
+      var _a4, _b4;
+      return (_b4 = (_a4 = this.source) === null || _a4 === void 0 ? void 0 : _a4.subscribe(subscriber)) !== null && _b4 !== void 0 ? _b4 : EMPTY_SUBSCRIPTION;
     };
     return AnonymousSubject2;
   }(Subject);
@@ -52369,10 +52369,10 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
   }
   __name(createIndexer, "createIndexer");
   function defineComponent(world2, schema, options) {
-    var _a3;
+    var _a4;
     if (Object.keys(schema).length === 0)
       throw new Error("Component schema must have at least one key");
-    const id3 = (_a3 = options === null || options === void 0 ? void 0 : options.id) !== null && _a3 !== void 0 ? _a3 : uuid();
+    const id3 = (_a4 = options === null || options === void 0 ? void 0 : options.id) !== null && _a4 !== void 0 ? _a4 : uuid();
     const values = mapObject(schema, () => /* @__PURE__ */ new Map());
     const update$ = new Subject();
     const metadata = options === null || options === void 0 ? void 0 : options.metadata;
@@ -52385,15 +52385,15 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
   }
   __name(defineComponent, "defineComponent");
   function setComponent(component, entity, value) {
-    var _a3, _b3, _c3, _d3, _e3;
+    var _a4, _b4, _c3, _d3, _e3;
     const prevValue = getComponentValue(component, entity);
     for (const [key, val] of Object.entries(value)) {
       if (component.values[key]) {
         component.values[key].set(entity, val);
       } else {
-        const isTableFieldIndex = ((_a3 = component.metadata) === null || _a3 === void 0 ? void 0 : _a3.tableId) && /^\d+$/.test(key);
+        const isTableFieldIndex = ((_a4 = component.metadata) === null || _a4 === void 0 ? void 0 : _a4.tableId) && /^\d+$/.test(key);
         if (!isTableFieldIndex) {
-          console.warn("Component definition for", (_e3 = (_c3 = (_b3 = component.metadata) === null || _b3 === void 0 ? void 0 : _b3.tableId) !== null && _c3 !== void 0 ? _c3 : (_d3 = component.metadata) === null || _d3 === void 0 ? void 0 : _d3.contractId) !== null && _e3 !== void 0 ? _e3 : component.id, "is missing key", key, ", ignoring value", val, "for entity", entity, ". Existing keys: ", Object.keys(component.values));
+          console.warn("Component definition for", (_e3 = (_c3 = (_b4 = component.metadata) === null || _b4 === void 0 ? void 0 : _b4.tableId) !== null && _c3 !== void 0 ? _c3 : (_d3 = component.metadata) === null || _d3 === void 0 ? void 0 : _d3.contractId) !== null && _e3 !== void 0 ? _e3 : component.id, "is missing key", key, ", ignoring value", val, "for entity", entity, ". Existing keys: ", Object.keys(component.values));
         }
       }
     }
@@ -52527,7 +52527,8 @@ ${a.tx_failure_reason.error_message}` : a.tx_status, l = new Error(f);
             bread_count: Type.Number,
             body_size: Type.Number,
             category: Type.Number,
-            state: Type.Number
+            state: Type.Number,
+            explore_end_time: Type.BigInt
           },
           {
             metadata: {
@@ -66272,7 +66273,6 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   __name(setComponentFromEntitiesQuery, "setComponentFromEntitiesQuery");
   function setComponentFromEvent(components, eventData) {
     const componentName = hex_to_ascii(eventData[0]);
-    console.log("componentName   ", componentName);
     const component = components[componentName];
     const keysNumber = parseInt(eventData[1]);
     let index = 2 + keysNumber + 1;
@@ -66285,7 +66285,6 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       acc[key] = BigInt(value);
       return acc;
     }, {});
-    console.log("componentValues  ", componentValues);
     setComponent(component, entityIndex, componentValues);
   }
   __name(setComponentFromEvent, "setComponentFromEvent");
@@ -66345,7 +66344,7 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       const call = {
         entrypoint: "entities" /* entities */,
         contractAddress: this.getWorldAddress(),
-        calldata: [strTofelt252Felt(component), partition, length]
+        calldata: [strTofelt252Felt(component), 0, length]
       };
       console.log(call);
       try {
@@ -66425,13 +66424,14 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
         console.log("event    ---  ", event);
         setComponentFromEvent(this.components, event.data);
       });
+      return receipt.events.length != 0;
     }
   };
 
   // src/net/common/SetupNetwork.ts
   var KATANA_ACCOUNT_1_ADDRESS = "0x3ee9e18edc71a6df30ac3aca2e0b02a198fbce19b7480a63a0d71cbd76652e0";
   var KATANA_ACCOUNT_1_PRIVATEKEY = "0x300001800000000300000180000000000030000000000003006001800006600";
-  var WORLD_ADDRESS = "0x2252e62e4b1ecd3047e04189dc2338b438345095e77169685ad5c89407c6732";
+  var WORLD_ADDRESS = "0xf870873e1b4e39573900e0ce08ef9f3dfc0bbf6ed32678c6986b9f72acabca";
   var EVENT_KEY = "0x1a2f334228cee715f1f0f54053bb6b5eac54fa336e0bc1aacf7516decb0471d";
   async function SetupNetwork() {
     const contractComponents = defineContractComponents(world);
@@ -66464,25 +66464,35 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   function CreateSystemCalls({ execute, syncWorker }) {
     const InitWorld = /* @__PURE__ */ __name(async () => {
       const tx2 = await execute("InitWorld", []);
-      await syncWorker.sync(tx2.transaction_hash);
+      return await syncWorker.sync(tx2.transaction_hash);
     }, "InitWorld");
     const InitAccount = /* @__PURE__ */ __name(async () => {
       const tx2 = await execute("InitAccount", []);
-      await syncWorker.sync(tx2.transaction_hash);
+      return await syncWorker.sync(tx2.transaction_hash);
     }, "InitAccount");
-    const CreateCell = /* @__PURE__ */ __name(async (nickname, seed, property10) => {
-      const tx2 = await execute("CreateCell", [nickname, seed, property10]);
-      await syncWorker.sync(tx2.transaction_hash);
+    const CreateCell = /* @__PURE__ */ __name(async (nickname, seed, property13) => {
+      const tx2 = await execute("CreateCell", [nickname, seed, property13]);
+      return await syncWorker.sync(tx2.transaction_hash);
     }, "CreateCell");
-    const AddCellToMap = /* @__PURE__ */ __name(async (index) => {
-      const tx2 = await execute("AddCellToMap", [index]);
-      await syncWorker.sync(tx2.transaction_hash);
-    }, "AddCellToMap");
+    const AddCellBodySize = /* @__PURE__ */ __name(async (c_id) => {
+      const tx2 = await execute("AddCellBodySize", [c_id]);
+      return await syncWorker.sync(tx2.transaction_hash);
+    }, "AddCellBodySize");
+    const AddCellProperty = /* @__PURE__ */ __name(async (c_id, p_id, property13) => {
+      const tx2 = await execute("AddCellProperty", [c_id, p_id, property13]);
+      return await syncWorker.sync(tx2.transaction_hash);
+    }, "AddCellProperty");
+    const CellExplore = /* @__PURE__ */ __name(async (c_id, time) => {
+      const tx2 = await execute("CellExplore", [c_id, time]);
+      return await syncWorker.sync(tx2.transaction_hash);
+    }, "CellExplore");
     return {
       InitWorld,
       InitAccount,
       CreateCell,
-      AddCellToMap
+      AddCellBodySize,
+      AddCellProperty,
+      CellExplore
     };
   }
   __name(CreateSystemCalls, "CreateSystemCalls");
@@ -66570,6 +66580,18 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
     return str.slice(0, n) + "...";
   }
   __name(truncateString, "truncateString");
+  function secondsToMinutes(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    const formattedMinutes = String(minutes).padStart(2, "0");
+    const formattedSeconds = String(remainingSeconds).padStart(2, "0");
+    return `${formattedMinutes}:${formattedSeconds}`;
+  }
+  __name(secondsToMinutes, "secondsToMinutes");
+  function getCurrentTimestamp() {
+    return Math.floor(Date.now() / 1e3);
+  }
+  __name(getCurrentTimestamp, "getCurrentTimestamp");
 
   // src/scene/Home.ts
   var { regClass, property } = Laya;
@@ -66578,8 +66600,11 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       console.log("Home start");
       this.info_button.on(Laya.Event.CLICK, this, this.onInfoButtonEvent.bind(this));
       this.onSelect(0);
-      Laya.stage.on("OnCreateCellEvent" /* OnCreateCellEvent */, this, this.onCreateCellEvent.bind(this));
+      Laya.stage.on("OnCreateCell" /* OnCreateCell */, this, this.onCreateCellEvent.bind(this));
       Laya.stage.on("OnPlayGame" /* OnPlayGame */, this, this.onOnPlayGameEvent.bind(this));
+      Laya.stage.on("OnEnhanceCellBodySizeConfirm" /* OnEnhanceCellBodySizeConfirm */, this, this.OnEnhanceCellBodySizeConfirmEvent.bind(this));
+      Laya.stage.on("OnEnhanceCellPropertyConfirm" /* OnEnhanceCellPropertyConfirm */, this, this.onEnhanceCellPropertyConfirmEvent.bind(this));
+      Laya.stage.on("OnExplore" /* OnExplore */, this, this.onExploreEvent.bind(this));
     }
     async onOpened(param) {
       await NetMgr.GetInstance().setup();
@@ -66641,32 +66666,50 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
         }
       } = NetMgr.GetInstance().GetNet();
       console.log("add---");
-      let property10 = data.color.r;
-      property10 += data.color.g << 8;
-      property10 += data.color.b << 16;
+      let property13 = data.color.r;
+      property13 += data.color.g << 8;
+      property13 += data.color.b << 16;
       const name = utils_exports2.strTofelt252Felt(data.name);
       const seed = utils_exports2.strTofelt252Felt(data.seed);
-      await CreateCell(name, seed, property10);
+      const result = await CreateCell(name, seed, property13);
+      Laya.stage.event("OnCreateCellCB" /* OnCreateCellCB */, result);
       console.log("net:  ", NetMgr.GetInstance().GetNet());
     }
     onOnPlayGameEvent(param) {
       this.onSelect(1);
+      this.page_stack.selection.SetData(param);
     }
-    async onGetButtonEvent() {
+    async OnEnhanceCellBodySizeConfirmEvent(param) {
       const {
-        network: {
-          account,
-          syncWorker,
-          provider
-        },
-        components: {
-          Account: Account3,
-          WorldInfo,
-          Cell
+        systemCalls: {
+          AddCellBodySize
         }
       } = NetMgr.GetInstance().GetNet();
-      const value = getComponentValue(WorldInfo, utils_exports2.getEntityIdFromKeys([BigInt("1261689743971040193644"), BigInt("512970878052")]));
-      console.log("value:  ", value);
+      const result = await AddCellBodySize(param);
+      Laya.stage.event("OnEnhanceCellBodySizeCB" /* OnEnhanceCellBodySizeCB */, result);
+      console.log("net:  ", NetMgr.GetInstance().GetNet());
+    }
+    async onEnhanceCellPropertyConfirmEvent(param) {
+      const {
+        systemCalls: {
+          AddCellProperty
+        }
+      } = NetMgr.GetInstance().GetNet();
+      let property13 = param.color.r;
+      property13 += param.color.g << 8;
+      property13 += param.color.b << 16;
+      await AddCellProperty(param.c_id, param.p_id, property13);
+      console.log("net:  ", NetMgr.GetInstance().GetNet());
+    }
+    async onExploreEvent(param) {
+      console.log("onExploreEvent");
+      const {
+        systemCalls: {
+          CellExplore
+        }
+      } = NetMgr.GetInstance().GetNet();
+      await CellExplore(param.c_id, param.time);
+      console.log("net:  ", NetMgr.GetInstance().GetNet());
     }
   };
   __name(Home, "Home");
@@ -66689,76 +66732,241 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   var Login = class extends LoginBase {
     net;
     onAwake() {
-      console.log("Login start");
-      this.init_button.on(Laya.Event.CLICK, this, this.onInitButtonEvent.bind(this));
-      this.add_button.on(Laya.Event.CLICK, this, this.onAddButtonEvent.bind(this));
-      this.get_button.on(Laya.Event.CLICK, this, this.onGetButtonEvent.bind(this));
-    }
-    async onOpened(param) {
-      this.net = await NetMgr.GetInstance().setup();
-      console.log("net   ", this.net);
-    }
-    async onInitButtonEvent() {
-      const {
-        network: {
-          account
-        },
-        systemCalls: {
-          InitWorld,
-          InitAccount
-        }
-      } = this.net;
-      console.log("init----");
-      await InitWorld();
-      await InitAccount();
-      console.log(this.net);
-    }
-    async onAddButtonEvent() {
-      const {
-        systemCalls: {
-          CreateCell
-        }
-      } = this.net;
-      console.log("add---");
-      let p = 1;
-      p += 2 << 8;
-      p += 3 << 16;
-      p += 4 << 24;
-      const name = utils_exports2.strTofelt252Felt("add");
-      console.log(name);
-      console.log(utils_exports2.felt252ToStr(name));
-      await CreateCell(name, 123, 1, p);
-      console.log(this.net);
-    }
-    async onGetButtonEvent() {
-      const {
-        network: {
-          account,
-          syncWorker,
-          provider
-        },
-        components: {
-          Account: Account3,
-          WorldInfo,
-          Cell
-        }
-      } = this.net;
-      console.log("get---");
-      const entityid = account.address;
-      const value = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([BigInt("1261689743971040193644"), BigInt("512970878052"), BigInt(entityid), BigInt(1)]));
-      console.log(this.net);
-      console.log(value);
-    }
-    onChangeScene() {
-      Laya.Scene.open("resources/scene/Home.ls", true, null, null, null);
-      Laya.Scene.close("resources/scene/Login.ls");
-      Laya.Scene.destroy("resources/scene/Login.ls");
     }
   };
   __name(Login, "Login");
   Login = __decorateClass([
     regClass2("b33edd45-b3d0-4823-b4f3-d9d1f05f0101", "../src/scene/Login.ts")
   ], Login);
+
+  // src/ui/cellinfo/CellAttributeEnhancePage.generated.ts
+  var CellAttributeEnhancePageBase = class extends Laya.Box {
+    static {
+      __name(this, "CellAttributeEnhancePageBase");
+    }
+    cell_image;
+    name_value_label;
+    perception_total_value_label;
+    agility_total_value_label;
+    attack_total_value_label;
+    category_value_label;
+    cost_cur_value_label;
+    exp_cur_value_label;
+    perception_cur_value_label;
+    agility_cur_value_label;
+    attack_cur_value_label;
+    attack_bar;
+    agility_bar;
+    perception_bar;
+    confirm_button;
+  };
+
+  // src/logic/gamelogic.ts
+  function getEnhanceAttrCost(base, cur) {
+    return (cur.r - base.r + (cur.g - base.g) + (cur.b - base.b)) * 2;
+  }
+  __name(getEnhanceAttrCost, "getEnhanceAttrCost");
+  function getEnhanceBodyCost(body) {
+    return 5;
+  }
+  __name(getEnhanceBodyCost, "getEnhanceBodyCost");
+  function getCellInfo1(c_id) {
+    const {
+      network: {
+        account
+      },
+      components: {
+        Cell,
+        CellProperty
+      }
+    } = NetMgr.GetInstance().GetNet();
+    const entityid = account.address;
+    const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(c_id)]));
+    const property_number = Number(cell_info.body_size);
+    let property_info = {
+      p1: 0,
+      p2: 0,
+      p3: 0
+    };
+    for (let i = 0; i < property_number; i++) {
+      const cell_property_info = getComponentValue(CellProperty, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(c_id), BigInt(i + 1)]));
+      property_info.p1 += Number(cell_property_info.p1);
+      property_info.p2 += Number(cell_property_info.p2);
+      property_info.p3 += Number(cell_property_info.p3);
+    }
+    return {
+      cell_info,
+      property_info
+    };
+  }
+  __name(getCellInfo1, "getCellInfo1");
+
+  // src/ui/cellinfo/CellAttributeEnhancePage.ts
+  var { regClass: regClass3, property: property3 } = Laya;
+  var CellAttributeEnhancePage = class extends CellAttributeEnhancePageBase {
+    c_id;
+    p_id;
+    baseColor;
+    curColor;
+    onAwake() {
+      this.baseColor = {
+        r: 0,
+        g: 0,
+        b: 0
+      };
+      this.curColor = {
+        r: 0,
+        g: 0,
+        b: 0
+      };
+      this.attack_bar.changeHandler = new Laya.Handler(this, this.onChangeR);
+      this.agility_bar.changeHandler = new Laya.Handler(this, this.onChangeG);
+      this.perception_bar.changeHandler = new Laya.Handler(this, this.onChangeB);
+      this.attack_bar.slider.allowClickBack = false;
+      this.attack_bar.slider.bar.mouseEnabled = false;
+      this.agility_bar.slider.allowClickBack = false;
+      this.agility_bar.slider.bar.mouseEnabled = false;
+      this.perception_bar.slider.allowClickBack = false;
+      this.perception_bar.slider.bar.mouseEnabled = false;
+      this.attack_bar.upButton.disabled = true;
+      this.agility_bar.upButton.disabled = true;
+      this.perception_bar.upButton.disabled = true;
+      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
+    }
+    onConfirmButtonEvent(param) {
+      let data = {
+        c_id: this.c_id,
+        p_id: this.p_id,
+        color: {
+          r: this.curColor.r - this.baseColor.r,
+          g: this.curColor.g - this.baseColor.g,
+          b: this.curColor.b - this.baseColor.b
+        }
+      };
+      Laya.stage.event("OnEnhanceCellPropertyConfirm" /* OnEnhanceCellPropertyConfirm */, data);
+    }
+    onChangeR(value) {
+      let v = Math.trunc(value);
+      if (v + this.curColor.g + this.curColor.b >= this.attack_bar.slider.max) {
+        this.attack_bar.downButton.disabled = true;
+        this.agility_bar.downButton.disabled = true;
+        this.perception_bar.downButton.disabled = true;
+        if (v + this.curColor.g + this.curColor.b > this.attack_bar.slider.max) {
+          return;
+        }
+      } else {
+        this.attack_bar.downButton.disabled = false;
+        this.agility_bar.downButton.disabled = false;
+        this.perception_bar.downButton.disabled = false;
+      }
+      if (v <= this.baseColor.r) {
+        this.attack_bar.upButton.disabled = true;
+      } else {
+        this.attack_bar.upButton.disabled = false;
+      }
+      this.curColor.r = v;
+      this.cell_image.color = rgbToHex(this.curColor.r, this.curColor.g, this.curColor.b);
+      this.attack_cur_value_label.text = this.curColor.r.toString();
+      this.UpdateCost();
+    }
+    onChangeG(value) {
+      let v = Math.trunc(value);
+      if (v + this.curColor.r + this.curColor.b >= this.agility_bar.slider.max) {
+        this.attack_bar.downButton.disabled = true;
+        this.agility_bar.downButton.disabled = true;
+        this.perception_bar.downButton.disabled = true;
+        if (v + this.curColor.r + this.curColor.b > this.agility_bar.slider.max) {
+          return;
+        }
+      } else {
+        this.attack_bar.downButton.disabled = false;
+        this.agility_bar.downButton.disabled = false;
+        this.perception_bar.downButton.disabled = false;
+      }
+      if (v <= this.baseColor.g) {
+        this.agility_bar.upButton.disabled = true;
+      } else {
+        this.agility_bar.upButton.disabled = false;
+      }
+      this.curColor.g = v;
+      this.cell_image.color = rgbToHex(this.curColor.r, this.curColor.g, this.curColor.b);
+      this.agility_cur_value_label.text = this.curColor.g.toString();
+      this.UpdateCost();
+    }
+    onChangeB(value) {
+      let v = Math.trunc(value);
+      if (v + this.curColor.r + this.curColor.g >= this.perception_bar.slider.max) {
+        this.attack_bar.downButton.disabled = true;
+        this.agility_bar.downButton.disabled = true;
+        this.perception_bar.downButton.disabled = true;
+        if (v + this.curColor.r + this.curColor.g > this.perception_bar.slider.max) {
+          return;
+        }
+      } else {
+        this.attack_bar.downButton.disabled = false;
+        this.agility_bar.downButton.disabled = false;
+        this.perception_bar.downButton.disabled = false;
+      }
+      if (v <= this.baseColor.b) {
+        this.perception_bar.upButton.disabled = true;
+      } else {
+        this.perception_bar.upButton.disabled = false;
+      }
+      this.curColor.b = v;
+      this.cell_image.color = rgbToHex(this.curColor.r, this.curColor.g, this.curColor.b);
+      this.perception_cur_value_label.text = this.curColor.b.toString();
+      this.UpdateCost();
+    }
+    SetData(c_id, p_id) {
+      console.log("----");
+      this.c_id = c_id;
+      this.p_id = p_id;
+      const data = getCellInfo1(c_id);
+      this.name_value_label.text = felt252ToStr(data.cell_info.name);
+      this.exp_cur_value_label.text = data.cell_info.exp.toString();
+      this.category_value_label.text = data.cell_info.category.toString();
+      this.attack_total_value_label.text = data.property_info.p1.toString();
+      this.agility_total_value_label.text = data.property_info.p2.toString();
+      this.perception_total_value_label.text = data.property_info.p3.toString();
+      this.UpdateSingleProperty();
+    }
+    UpdateCost() {
+      this.cost_cur_value_label.text = getEnhanceAttrCost(this.baseColor, this.curColor).toString();
+    }
+    UpdateSingleProperty() {
+      const {
+        network: {
+          account
+        },
+        components: {
+          CellProperty
+        }
+      } = NetMgr.GetInstance().GetNet();
+      const entityid = account.address;
+      const property_info = getComponentValue(CellProperty, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(this.c_id.toString()), BigInt(this.p_id.toString())]));
+      this.attack_cur_value_label.text = property_info.p1.toString();
+      this.agility_cur_value_label.text = property_info.p2.toString();
+      this.perception_cur_value_label.text = property_info.p3.toString();
+      this.attack_bar.value = Number(property_info.p1);
+      this.agility_bar.value = Number(property_info.p2);
+      this.perception_bar.value = Number(property_info.p3);
+      this.baseColor = {
+        r: Number(property_info.p1),
+        g: Number(property_info.p2),
+        b: Number(property_info.p3)
+      };
+      this.curColor = {
+        r: Number(property_info.p1),
+        g: Number(property_info.p2),
+        b: Number(property_info.p3)
+      };
+      this.UpdateCost();
+    }
+  };
+  __name(CellAttributeEnhancePage, "CellAttributeEnhancePage");
+  CellAttributeEnhancePage = __decorateClass([
+    regClass3("82dd6225-405f-432c-a620-ed8ca338eb5d", "../src/ui/cellinfo/CellAttributeEnhancePage.ts")
+  ], CellAttributeEnhancePage);
 
   // src/ui/cellinfo/CellBodyEnhancePage.generated.ts
   var CellBodyEnhancePageBase = class extends Laya.Box {
@@ -66771,29 +66979,80 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
     agility_cur_value_label;
     attack_cur_value_label;
     category_cur_value_label;
+    cost_cur_value_label;
     desc_label_1;
     exp_cur_value_label;
     confirm_button;
     enhance_button;
   };
 
+  // src/logic/rand.ts
+  var _a3 = 214013;
+  var _b3 = 2531011;
+  var _m3 = 4294967296;
+  function random(minNum, maxNum, seed) {
+    seed = (seed * _a3 + _b3) % _m3;
+    const value = seed % (maxNum - minNum + 1) + minNum;
+    return {
+      seed,
+      value
+    };
+  }
+  __name(random, "random");
+
   // src/ui/cellinfo/CellBodyEnhancePage.ts
-  var { regClass: regClass3, property: property3 } = Laya;
+  var { regClass: regClass4, property: property4 } = Laya;
   var CellBodyEnhancePage = class extends CellBodyEnhancePageBase {
     index;
+    selected_property_node;
     onAwake() {
+      Laya.stage.on("OnTouchCellPropertyPoint" /* OnTouchCellPropertyPoint */, this, this.onTouchCellPropertyPoint.bind(this));
+      Laya.stage.on("OnEnhanceCellBodySizeCB" /* OnEnhanceCellBodySizeCB */, this, this.onEnhanceCellBodySizeCBEvent.bind(this));
+      this.enhance_button.on(Laya.Event.CLICK, this, this.onEnhanceButtonEvent.bind(this));
+      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
     }
-    SetData(index, baseInfo, propertyInfo) {
+    SetData(index) {
       this.index = index;
-      this.name_cur_value_label.text = felt252ToStr(baseInfo.name);
-      this.exp_cur_value_label.text = baseInfo.exp;
-      this.category_cur_value_label.text = baseInfo.category;
-      this.attack_cur_value_label.text = propertyInfo.p1;
-      this.agility_cur_value_label.text = propertyInfo.p2;
-      this.perception_cur_value_label.text = propertyInfo.p3;
-      this.updateCellPropertyPointImg(baseInfo.seed, baseInfo.body_size);
+      const data = getCellInfo1(this.index);
+      this.name_cur_value_label.text = felt252ToStr(data.cell_info.name);
+      this.exp_cur_value_label.text = data.cell_info.exp.toString();
+      this.category_cur_value_label.text = data.cell_info.category.toString();
+      this.attack_cur_value_label.text = data.property_info.p1.toString();
+      this.agility_cur_value_label.text = data.property_info.p2.toString();
+      this.perception_cur_value_label.text = data.property_info.p3.toString();
+      this.selected_property_node = void 0;
+      this.updateCellPropertyPointImage(Number(data.cell_info.seed), Number(data.cell_info.body_size));
+      this.updateEnhanceBody(Number(data.cell_info.body_size));
     }
-    updateCellPropertyPointImg(seed, point_number) {
+    onEnhanceButtonEvent(param) {
+      if (this.selected_property_node == void 0) {
+        return;
+      }
+      const id3 = this.selected_property_node.getComponent(Laya.Script).GetIndex();
+      let data = {
+        c_id: this.index,
+        p_id: id3 + 1
+      };
+      Laya.stage.event("OnEnhanceCellProperty" /* OnEnhanceCellProperty */, data);
+    }
+    onConfirmButtonEvent(param) {
+      Laya.stage.event("OnEnhanceCellBodySizeConfirm" /* OnEnhanceCellBodySizeConfirm */, this.index);
+    }
+    onTouchCellPropertyPoint(param) {
+      if (this.selected_property_node != void 0) {
+        this.selected_property_node.getComponent(Laya.Script).Select(false);
+      }
+      this.selected_property_node = this.cell_property_point_panel.getChildAt(param);
+      this.selected_property_node.getComponent(Laya.Script).Select(true);
+    }
+    onEnhanceCellBodySizeCBEvent(param) {
+      if (param == false) {
+      }
+      console.log(param);
+      this.SetData(this.index);
+    }
+    updateCellPropertyPointImage(seed, point_number) {
+      this.cell_property_point_panel.removeChildren();
       Laya.loader.load("resources/prefab/P_Cell_Property_Point_Item.lh").then((res) => {
         const {
           network: {
@@ -66804,26 +67063,44 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
           }
         } = NetMgr.GetInstance().GetNet();
         const entityid = account.address;
+        let random_arr = [];
+        for (let i10 = 0; i10 < 256; i10++) {
+          random_arr.push(i10);
+        }
+        ;
+        let data = {
+          seed: Number(seed),
+          value: 0
+        };
         for (var i = 0; i < point_number; i++) {
           let item = res.create();
           let script = item.getComponent(Laya.Script);
           const property_info = getComponentValue(CellProperty, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(this.index.toString()), BigInt(i + 1)]));
-          script.SetData(i, rgbToHex(Number(property_info.r), Number(property_info.g), Number(property_info.b)));
+          console.log("property_info   ", property_info);
+          script.SetData(i, rgbToHex(Number(property_info.p1), Number(property_info.p2), Number(property_info.p3)));
           if (i == 0) {
-            console.log(this.cell_property_point_panel.width);
-            console.log(this.cell_property_point_panel.height);
+            random_arr[64] = random_arr[random_arr.length - 1];
             item.x = this.cell_property_point_panel.width / 2;
             item.y = this.cell_property_point_panel.height / 2;
           } else {
+            data = random(0, random_arr.length - 1, data.seed);
+            item.x = this.cell_property_point_panel.width / 2 + Math.ceil(random_arr[data.value] / 16 - 8) * 16;
+            item.y = this.cell_property_point_panel.height / 2 + Math.ceil(random_arr[data.value] % 16 - 8) * 16;
+            random_arr[data.value] = random_arr[random_arr.length - 1];
           }
+          random_arr.pop();
           this.cell_property_point_panel.addChildAt(item, i);
         }
       });
     }
+    updateEnhanceBody(size) {
+      const v = getEnhanceBodyCost(size);
+      this.cost_cur_value_label.text = v.toString();
+    }
   };
   __name(CellBodyEnhancePage, "CellBodyEnhancePage");
   CellBodyEnhancePage = __decorateClass([
-    regClass3("061652ef-83a4-4744-b84c-80374c6155cd", "../src/ui/cellinfo/CellBodyEnhancePage.ts")
+    regClass4("061652ef-83a4-4744-b84c-80374c6155cd", "../src/ui/cellinfo/CellBodyEnhancePage.ts")
   ], CellBodyEnhancePage);
 
   // src/ui/cellinfo/CellInfoPage.generated.ts
@@ -66836,7 +67113,7 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   };
 
   // src/ui/cellinfo/CellInfoPage.ts
-  var { regClass: regClass4, property: property4 } = Laya;
+  var { regClass: regClass5, property: property5 } = Laya;
   var CellInfoPage = class extends CellInfoPageBase {
     onAwake() {
       this.onSelect(this.item0Tab.selectedIndex);
@@ -66846,6 +67123,7 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       this.item0Page.selectedIndex = index;
       switch (index) {
         case 0:
+          Laya.stage.event("OnUpdateCreateCell" /* OnUpdateCreateCell */);
           break;
         case 1:
           Laya.stage.event("OnUpdateCellList" /* OnUpdateCellList */);
@@ -66857,7 +67135,7 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   };
   __name(CellInfoPage, "CellInfoPage");
   CellInfoPage = __decorateClass([
-    regClass4("9161308f-1a38-4f24-8fc5-fe984ee70a6b", "../src/ui/cellinfo/CellInfoPage.ts")
+    regClass5("9161308f-1a38-4f24-8fc5-fe984ee70a6b", "../src/ui/cellinfo/CellInfoPage.ts")
   ], CellInfoPage);
 
   // src/ui/cellinfo/CellInfoSubPage.generated.ts
@@ -66866,6 +67144,7 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       __name(this, "CellInfoSubPageBase");
     }
     cell_bg_img;
+    breading_bg_img;
     name_cur_value_label;
     bread_count_cur_value_label;
     perception_cur_value_label;
@@ -66880,7 +67159,7 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   };
 
   // src/ui/cellinfo/CellInfoSubPage.ts
-  var { regClass: regClass5, property: property5 } = Laya;
+  var { regClass: regClass6, property: property6 } = Laya;
   var CellInfoSubPage = class extends CellInfoSubPageBase {
     index;
     onAwake() {
@@ -66902,16 +67181,16 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       Laya.stage.event("OnEnhanceCellBodySize" /* OnEnhanceCellBodySize */, this.index);
     }
     onPlayButtonEvent(param) {
-      Laya.stage.event("OnPlayGame" /* OnPlayGame */);
+      Laya.stage.event("OnPlayGame" /* OnPlayGame */, this.index);
     }
   };
   __name(CellInfoSubPage, "CellInfoSubPage");
   CellInfoSubPage = __decorateClass([
-    regClass5("1e141417-30b8-4ce7-b0d2-9b851bf407a5", "../src/ui/cellinfo/CellInfoSubPage.ts")
+    regClass6("1e141417-30b8-4ce7-b0d2-9b851bf407a5", "../src/ui/cellinfo/CellInfoSubPage.ts")
   ], CellInfoSubPage);
 
   // src/ui/cellinfo/CellListItem.ts
-  var { regClass: regClass6, property: property6 } = Laya;
+  var { regClass: regClass7, property: property7 } = Laya;
   var CellListItem = class extends Laya.Script {
     button;
     index;
@@ -66933,10 +67212,10 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   };
   __name(CellListItem, "CellListItem");
   __decorateClass([
-    property6({ type: Laya.Button })
+    property7({ type: Laya.Button })
   ], CellListItem.prototype, "button", 2);
   CellListItem = __decorateClass([
-    regClass6("d375e3fe-1286-4fd4-9e5b-5775cdf3e7b4", "../src/ui/cellinfo/CellListItem.ts")
+    regClass7("d375e3fe-1286-4fd4-9e5b-5775cdf3e7b4", "../src/ui/cellinfo/CellListItem.ts")
   ], CellListItem);
 
   // src/ui/cellinfo/CellListPage.generated.ts
@@ -66949,13 +67228,14 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   };
 
   // src/ui/cellinfo/CellListPage.ts
-  var { regClass: regClass7, property: property7 } = Laya;
+  var { regClass: regClass8, property: property8 } = Laya;
   var CellListPage = class extends CellListPageBase {
     selected_node;
     onAwake() {
       Laya.stage.on("OnTouchCellListButton" /* OnTouchCellListButton */, this, this.onTouchCellItemEvent.bind(this));
       Laya.stage.on("OnUpdateCellList" /* OnUpdateCellList */, this, this.onUpdateCellList.bind(this));
       Laya.stage.on("OnEnhanceCellBodySize" /* OnEnhanceCellBodySize */, this, this.onEnhanceCellBodySize.bind(this));
+      Laya.stage.on("OnEnhanceCellProperty" /* OnEnhanceCellProperty */, this, this.onEnhanceCellProperty.bind(this));
       this.item0Page.selectedIndex = -1;
     }
     onEnable() {
@@ -66978,6 +67258,9 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
         } = NetMgr.GetInstance().GetNet();
         const entityid = account.address;
         const value = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid)]));
+        if (value === void 0) {
+          return;
+        }
         const cell_max = Number(value.cell_number);
         for (var i = 0; i < cell_max; i++) {
           let item = res.create();
@@ -66997,78 +67280,63 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       });
     }
     onTouchCellItemEvent(param) {
-      console.log(param);
       this.selected_node.getComponent(Laya.Script).onSelected(false);
       this.selected_node = this.cell_list.getChildAt(param);
       this.selected_node.getComponent(Laya.Script).onSelected(true);
       this.onSelect(0);
-      const cell_data = this.getCellInfo(param + 1);
-      console.log(this.item0Page.selection);
+      const cell_data = getCellInfo1(param + 1);
       this.item0Page.selection.SetData(param + 1, cell_data.cell_info, cell_data.property_info);
     }
     onEnhanceCellBodySize(param) {
-      console.log(param);
       this.item0Page.selectedIndex = 1;
-      const cell_data = this.getCellInfo(param);
-      this.item0Page.selection.SetData(param, cell_data.cell_info, cell_data.property_info);
+      this.item0Page.selection.SetData(param);
+    }
+    onEnhanceCellProperty(param) {
+      this.item0Page.selectedIndex = 2;
+      this.item0Page.selection.SetData(param.c_id, param.p_id);
     }
     onSelect(index) {
       this.item0Page.selectedIndex = index;
     }
-    getCellInfo(index) {
-      const {
-        network: {
-          account
-        },
-        components: {
-          Cell,
-          CellProperty
-        }
-      } = NetMgr.GetInstance().GetNet();
-      const entityid = account.address;
-      const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(index)]));
-      console.log("cell_info : ", cell_info);
-      const property_number = Number(cell_info.body_size);
-      let property_info = {
-        p1: 0,
-        p2: 0,
-        p3: 0
-      };
-      for (let i = 0; i < property_number; i++) {
-        const cell_property_info = getComponentValue(CellProperty, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(index), BigInt(i + 1)]));
-        property_info.p1 = Number(cell_property_info.p1);
-        property_info.p2 = Number(cell_property_info.p2);
-        property_info.p3 = Number(cell_property_info.p3);
-      }
-      return {
-        cell_info,
-        property_info
-      };
-    }
   };
   __name(CellListPage, "CellListPage");
   CellListPage = __decorateClass([
-    regClass7("bf2bf7a7-afd2-446a-a118-cb322a1d0423", "../src/ui/cellinfo/CellListPage.ts")
+    regClass8("bf2bf7a7-afd2-446a-a118-cb322a1d0423", "../src/ui/cellinfo/CellListPage.ts")
   ], CellListPage);
 
   // src/ui/cellinfo/CellPropertyPointItem.ts
-  var { regClass: regClass8, property: property8 } = Laya;
+  var { regClass: regClass9, property: property9 } = Laya;
   var CellPropertyPointItem = class extends Laya.Script {
-    img;
+    bg_image;
+    selected_image;
     index;
     onAwake() {
+      this.bg_image.on(Laya.Event.CLICK, this, this.onClickEvent.bind(this));
     }
     SetData(index, color) {
+      console.log("color", color);
       this.index = index;
-      this.img.color = color;
+      this.bg_image.color = color;
+    }
+    GetIndex() {
+      return this.index;
+    }
+    Select(visible) {
+      this.selected_image.visible = visible;
+    }
+    onClickEvent(param) {
+      Laya.stage.event("OnTouchCellPropertyPoint" /* OnTouchCellPropertyPoint */, this.index);
     }
   };
   __name(CellPropertyPointItem, "CellPropertyPointItem");
   __decorateClass([
-    property8({ type: Laya.Image })
-  ], CellPropertyPointItem.prototype, "img", 2);
+    property9({ type: Laya.Image })
+  ], CellPropertyPointItem.prototype, "bg_image", 2);
+  __decorateClass([
+    property9({ type: Laya.Image })
+  ], CellPropertyPointItem.prototype, "selected_image", 2);
   CellPropertyPointItem = __decorateClass([
-    regClass8("43e59e28-6664-484f-abde-2012a0cec5ca", "../src/ui/cellinfo/CellPropertyPointItem.ts")
+    regClass9("43e59e28-6664-484f-abde-2012a0cec5ca", "../src/ui/cellinfo/CellPropertyPointItem.ts")
   ], CellPropertyPointItem);
 
   // src/ui/cellinfo/CreateCellPage.generated.ts
@@ -67090,10 +67358,12 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
   };
 
   // src/ui/cellinfo/CreateCellPage.ts
-  var { regClass: regClass9, property: property9 } = Laya;
+  var { regClass: regClass10, property: property10 } = Laya;
   var CreateCellPage = class extends CreateCellPageBase {
     baseColor;
     onAwake() {
+      Laya.stage.on("OnUpdateCreateCell" /* OnUpdateCreateCell */, this, this.onUpdateCreateCellEvent.bind(this));
+      Laya.stage.on("OnCreateCellCB" /* OnCreateCellCB */, this, this.onCreateCellCBEvent.bind(this));
       this.attack_bar.changeHandler = new Laya.Handler(this, this.onChangeR);
       this.agility_bar.changeHandler = new Laya.Handler(this, this.onChangeG);
       this.perception_bar.changeHandler = new Laya.Handler(this, this.onChangeB);
@@ -67103,8 +67373,55 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       this.agility_bar.slider.bar.mouseEnabled = false;
       this.perception_bar.slider.allowClickBack = false;
       this.perception_bar.slider.bar.mouseEnabled = false;
+      this.attack_bar.upButton.disabled = true;
+      this.agility_bar.upButton.disabled = true;
+      this.perception_bar.upButton.disabled = true;
       this.baseColor = { r: 0, g: 0, b: 0 };
       this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
+    }
+    onUpdateCreateCellEvent(param) {
+      this.attack_bar.slider.allowClickBack = false;
+      this.attack_bar.slider.bar.mouseEnabled = false;
+      this.agility_bar.slider.allowClickBack = false;
+      this.agility_bar.slider.bar.mouseEnabled = false;
+      this.perception_bar.slider.allowClickBack = false;
+      this.perception_bar.slider.bar.mouseEnabled = false;
+      this.attack_bar.upButton.disabled = true;
+      this.agility_bar.upButton.disabled = true;
+      this.perception_bar.upButton.disabled = true;
+      this.baseColor = { r: 0, g: 0, b: 0 };
+      this.onChangeR(0);
+      this.onChangeG(0);
+      this.onChangeB(0);
+      this.attack_bar.slider.value = 0;
+      this.agility_bar.slider.value = 0;
+      this.perception_bar.slider.value = 0;
+      this.name_input.text = "";
+      this.seed_input.text = "";
+    }
+    onCreateCellCBEvent(param) {
+      console.log("onCreateCellCBEvent", param);
+      if (param == false) {
+        return;
+      }
+      this.attack_bar.slider.allowClickBack = false;
+      this.attack_bar.slider.bar.mouseEnabled = false;
+      this.agility_bar.slider.allowClickBack = false;
+      this.agility_bar.slider.bar.mouseEnabled = false;
+      this.perception_bar.slider.allowClickBack = false;
+      this.perception_bar.slider.bar.mouseEnabled = false;
+      this.attack_bar.upButton.disabled = true;
+      this.agility_bar.upButton.disabled = true;
+      this.perception_bar.upButton.disabled = true;
+      this.baseColor = { r: 0, g: 0, b: 0 };
+      this.onChangeR(0);
+      this.onChangeG(0);
+      this.onChangeB(0);
+      this.attack_bar.slider.value = 0;
+      this.agility_bar.slider.value = 0;
+      this.perception_bar.slider.value = 0;
+      this.name_input.text = "";
+      this.seed_input.text = "";
     }
     onChangeR(value) {
       let v = Math.trunc(value);
@@ -67119,6 +67436,11 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
         this.attack_bar.downButton.disabled = false;
         this.agility_bar.downButton.disabled = false;
         this.perception_bar.downButton.disabled = false;
+      }
+      if (v <= 0) {
+        this.attack_bar.upButton.disabled = true;
+      } else {
+        this.attack_bar.upButton.disabled = false;
       }
       this.baseColor.r = v;
       this.cell_image.color = rgbToHex(this.baseColor.r, this.baseColor.g, this.baseColor.b);
@@ -67139,6 +67461,11 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
         this.agility_bar.downButton.disabled = false;
         this.perception_bar.downButton.disabled = false;
       }
+      if (v <= 0) {
+        this.agility_bar.upButton.disabled = true;
+      } else {
+        this.agility_bar.upButton.disabled = false;
+      }
       this.baseColor.g = v;
       this.cell_image.color = rgbToHex(this.baseColor.r, this.baseColor.g, this.baseColor.b);
       this.agility_cur_value_label.text = this.baseColor.g.toString();
@@ -67157,6 +67484,11 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
         this.attack_bar.downButton.disabled = false;
         this.agility_bar.downButton.disabled = false;
         this.perception_bar.downButton.disabled = false;
+      }
+      if (v <= 0) {
+        this.perception_bar.upButton.disabled = true;
+      } else {
+        this.perception_bar.upButton.disabled = false;
       }
       this.baseColor.b = v;
       this.cell_image.color = rgbToHex(this.baseColor.r, this.baseColor.g, this.baseColor.b);
@@ -67185,13 +67517,122 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
         seed: this.seed_input.text,
         color: this.baseColor
       };
-      Laya.stage.event("OnCreateCellEvent" /* OnCreateCellEvent */, data);
+      Laya.stage.event("OnCreateCell" /* OnCreateCell */, data);
     }
   };
   __name(CreateCellPage, "CreateCellPage");
   CreateCellPage = __decorateClass([
-    regClass9("ce81901f-d9c5-44f7-b178-065ff256a7fd", "../src/ui/cellinfo/CreateCellPage.ts")
+    regClass10("ce81901f-d9c5-44f7-b178-065ff256a7fd", "../src/ui/cellinfo/CreateCellPage.ts")
   ], CreateCellPage);
+
+  // src/ui/map/ExplorationSetupDialog.generated.ts
+  var ExplorationSetupDialogBase = class extends Laya.Dialog {
+    static {
+      __name(this, "ExplorationSetupDialogBase");
+    }
+    time_cur_label;
+    time_bar;
+    confirm_button;
+    cancel_button;
+  };
+
+  // src/ui/map/ExplorationSetupDialog.ts
+  var { regClass: regClass11, property: property11 } = Laya;
+  var ExplorationSetupDialog = class extends ExplorationSetupDialogBase {
+    c_id;
+    onAwake() {
+      this.cancel_button.on(Laya.Event.CLICK, this, this.onCancelButtonEvent.bind(this));
+      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
+      this.time_bar.changeHandler = new Laya.Handler(this, this.onChange);
+    }
+    onOpened(param) {
+      this.c_id = param;
+    }
+    onCancelButtonEvent(param) {
+      this.close();
+    }
+    onConfirmButtonEvent(param) {
+      let data = {
+        c_id: this.c_id,
+        time: Number(this.time_cur_label.text)
+      };
+      Laya.stage.event("OnExplore" /* OnExplore */, data);
+      this.close();
+    }
+    onChange(value) {
+      let v = Math.trunc(value);
+      this.time_cur_label.text = v.toString();
+    }
+  };
+  __name(ExplorationSetupDialog, "ExplorationSetupDialog");
+  ExplorationSetupDialog = __decorateClass([
+    regClass11("300ca383-3e20-4124-a237-6ccc87f8ef68", "../src/ui/map/ExplorationSetupDialog.ts")
+  ], ExplorationSetupDialog);
+
+  // src/ui/map/MapInfoPage.generated.ts
+  var MapInfoPageBase = class extends Laya.Box {
+    static {
+      __name(this, "MapInfoPageBase");
+    }
+    name_cur_value_label;
+    explore_button;
+    count_down_image;
+    count_down_value_label;
+    cell_avatar;
+  };
+
+  // src/ui/map/MapInfoPage.ts
+  var { regClass: regClass12, property: property12 } = Laya;
+  var MapInfoPage = class extends MapInfoPageBase {
+    c_id;
+    onAwake() {
+      this.explore_button.on(Laya.Event.CLICK, this, this.onExploreButtonEvent.bind(this));
+    }
+    SetData(c_id) {
+      this.c_id = c_id;
+      const {
+        network: {
+          account
+        },
+        components: {
+          Cell
+        }
+      } = NetMgr.GetInstance().GetNet();
+      const entityid = account.address;
+      const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(c_id)]));
+      this.name_cur_value_label.text = felt252ToStr(cell_info.name);
+      Laya.Tween.clearAll(this.cell_avatar);
+      Laya.timer.clearAll(this);
+      if (cell_info.state == 1) {
+        this.explore_button.disabled = true;
+        this.count_down_image.visible = true;
+        this.onCellAvatarAction1();
+        if (Number(cell_info.explore_end_time) > getCurrentTimestamp()) {
+          Laya.timer.loop(1e3, this, () => {
+            let time = Number(cell_info.explore_end_time) - getCurrentTimestamp();
+            this.count_down_value_label.text = secondsToMinutes(time);
+          });
+        }
+      } else {
+        this.count_down_image.visible = false;
+      }
+    }
+    onExploreButtonEvent(param) {
+      Laya.Scene.open("resources/prefab/P_Exploration_Setup_Dialog.lh", false, this.c_id);
+    }
+    onCellAvatarAction1() {
+      Laya.Tween.to(this.cell_avatar, { alpha: 0 }, 2e3, Laya.Ease.expoInOut, Laya.Handler.create(this, this.onCellAvatarAction2.bind(this)));
+    }
+    onCellAvatarAction2(args) {
+      this.cell_avatar.x = Math.ceil(Math.random() * 15) * 106 + 106;
+      this.cell_avatar.y = Math.ceil(Math.random() * 5) * 106 + 106;
+      Laya.Tween.to(this.cell_avatar, { alpha: 1 }, 2e3, Laya.Ease.expoInOut, Laya.Handler.create(this, this.onCellAvatarAction1.bind(this)));
+    }
+  };
+  __name(MapInfoPage, "MapInfoPage");
+  MapInfoPage = __decorateClass([
+    regClass12("f4a816ef-c795-4a66-a280-e163b4de8e9c", "../src/ui/map/MapInfoPage.ts")
+  ], MapInfoPage);
 })();
 /*! Bundled license information:
 

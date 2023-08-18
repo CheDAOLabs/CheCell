@@ -12,7 +12,8 @@ struct Cell {
     breed_count:u32,
     body_size:u8,
     category:u8,
-    state:u8
+    state:u8,
+    explore_end_time:u64
 }
 
 #[derive(Component, Copy, Drop, Serde, SerdeLen)]
@@ -25,4 +26,10 @@ struct CellProperty {
     p2:u8,
     p3:u8,
 }
+
+#[derive(Drop, starknet::Event)]
+struct CreateCellEvent {
+    address: felt252,
+    number:u32,
+} 
  

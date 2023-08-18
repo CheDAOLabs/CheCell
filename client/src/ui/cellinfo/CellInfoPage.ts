@@ -15,7 +15,7 @@ export class CellInfoPage extends CellInfoPageBase {
         this.item0Page.selectedIndex = index;
         switch (index) {
             case 0:
-                
+                Laya.stage.event(HomeManagerEvent.OnUpdateCreateCell);
                 break;
             case 1:
                 Laya.stage.event(HomeManagerEvent.OnUpdateCellList);  

@@ -25,4 +25,14 @@ export function truncateString(str:string, n:number) {
     }
     return str.slice(0, n) + "...";
   }
- 
+export function secondsToMinutes(seconds:number) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+    return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+export function getCurrentTimestamp() {
+    return Math.floor(Date.now() / 1000);
+  }

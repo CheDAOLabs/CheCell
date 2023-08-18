@@ -30,6 +30,6 @@ export class CellInfoSubPage extends CellInfoSubPageBase {
         Laya.stage.event(HomeManagerEvent.OnEnhanceCellBodySize,this.index);  
     }
     onPlayButtonEvent(param: any): void {
-        Laya.stage.event(HomeManagerEvent.OnPlayGame);  
+        Laya.stage.event(HomeManagerEvent.OnPlayGame,this.index);  
     }
 }

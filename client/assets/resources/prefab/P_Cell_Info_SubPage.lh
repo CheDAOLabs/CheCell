@@ -19,11 +19,12 @@
       "height": 376,
       "left": 53,
       "top": 139,
-      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
-      "color": "#0a0316"
+      "skin": "res://79b81769-0207-4880-91cd-9930cded61d1",
+      "color": "#fffeff"
     },
     {
       "_$id": "68pkms58",
+      "_$var": true,
       "_$type": "Image",
       "name": "breading_bg_img",
       "x": 429,
@@ -31,11 +32,35 @@
       "width": 111,
       "height": 27,
       "anchorX": 1,
+      "visible": false,
       "left": 318,
       "top": 142,
       "skin": "res://5a6f994b-e518-42cd-801d-08183e0de2ba",
       "sizeGrid": "10,4,10,11,0",
-      "color": "#ffffff"
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "tp348w9d",
+          "_$type": "Label",
+          "name": "breading_label",
+          "x": 111,
+          "y": -6,
+          "width": 104,
+          "height": 33,
+          "anchorX": 1,
+          "left": 7,
+          "top": -6,
+          "text": "Breading",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(47, 37, 100, 1)",
+          "fitContent": "yes",
+          "align": "right",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        }
+      ]
     },
     {
       "_$id": "bcyoxhdc",
@@ -221,27 +246,6 @@
       "color": "rgba(246, 218, 255, 1)",
       "fitContent": "yes",
       "align": "center",
-      "valign": "middle",
-      "leading": 2,
-      "padding": "0,0,0,0"
-    },
-    {
-      "_$id": "tp348w9d",
-      "_$type": "Label",
-      "name": "breading_label",
-      "x": 428,
-      "y": 136,
-      "width": 104,
-      "height": 33,
-      "anchorX": 1,
-      "left": 324,
-      "top": 136,
-      "text": "Breading",
-      "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
-      "fontSize": 32,
-      "color": "rgba(47, 37, 100, 1)",
-      "fitContent": "yes",
-      "align": "right",
       "valign": "middle",
       "leading": 2,
       "padding": "0,0,0,0"

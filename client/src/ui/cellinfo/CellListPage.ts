@@ -1,9 +1,11 @@
 const { regClass, property } = Laya;
  
 import { GAMEID, HomeManagerEvent, WORLDID } from '../../common/Config';
+import { getCellInfo1,getCellInfo2 } from '../../logic/gamelogic';
 import { NetMgr } from '../../net/NetMgr';
 import { Utils } from '../../net/core';
 import { felt252ToStr } from '../../net/core/utils';
+import { CellAttributeEnhancePage } from './CellAttributeEnhancePage';
 import { CellBodyEnhancePage } from './CellBodyEnhancePage';
 import { CellInfoSubPage } from './CellInfoSubPage';
 import { CellListItem } from './CellListItem';
@@ -17,6 +19,7 @@ export class CellListPage extends CellListPageBase {
         Laya.stage.on(HomeManagerEvent.OnTouchCellListButton,this,this.onTouchCellItemEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnUpdateCellList,this,this.onUpdateCellList.bind(this));
         Laya.stage.on(HomeManagerEvent.OnEnhanceCellBodySize,this,this.onEnhanceCellBodySize.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnEnhanceCellProperty,this,this.onEnhanceCellProperty.bind(this));
 
 
         this.item0Page.selectedIndex = -1;
@@ -45,7 +48,9 @@ export class CellListPage extends CellListPageBase {
      
                 const entityid = account.address;
                 const value = getComponentValue(Account,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid)]));
-               
+                if (value === undefined) {
+                    return;
+                }
                 const cell_max = Number(value.cell_number);
                 for (var i: number = 0; i < cell_max; i++) {
                     let item = res.create();
@@ -67,55 +72,28 @@ export class CellListPage extends CellListPageBase {
         
      }
     onTouchCellItemEvent(param: any): void {
-        console.log(param);
+        
         (this.selected_node.getComponent(Laya.Script) as CellListItem).onSelected(false);
          
         this.selected_node =  this.cell_list.getChildAt(param);
         (this.selected_node.getComponent(Laya.Script) as CellListItem).onSelected(true);
         this.onSelect(0);
-        const cell_data = this.getCellInfo(param+1)
-        console.log(this.item0Page.selection);
- 
+        const cell_data =  getCellInfo1(param+1);
+        
         (this.item0Page.selection as CellInfoSubPage).SetData(param+1,cell_data.cell_info,cell_data.property_info);
      }
      onEnhanceCellBodySize(param: any): void {
-        console.log(param);
         this.item0Page.selectedIndex = 1;
-        const cell_data = this.getCellInfo(param);
-        (this.item0Page.selection as CellBodyEnhancePage).SetData(param,cell_data.cell_info,cell_data.property_info);
+        (this.item0Page.selection as CellBodyEnhancePage).SetData(param);
+     }
+     onEnhanceCellProperty(param: any): void {
+ 
+        this.item0Page.selectedIndex = 2;
+        (this.item0Page.selection as CellAttributeEnhancePage).SetData(param.c_id,param.p_id);
      }
     private onSelect(index: number): void {
         this.item0Page.selectedIndex = index;
     }
-    private getCellInfo(index:number){
-        const {
-            network:{
-                account,
-            },
-            components:{
-                Cell,
-                CellProperty
-            },
-           } = NetMgr.GetInstance().GetNet();
-           const entityid = account.address;
-           const cell_info = getComponentValue(Cell,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid),BigInt(index)]));
-           console.log('cell_info : ',cell_info);
-           const property_number = Number(cell_info.body_size);
-           let property_info = {
-            p1:0,
-            p2:0,
-            p3:0
-           }
-           for (let i = 0; i < property_number; i++) {
-                const cell_property_info = getComponentValue(CellProperty,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid),BigInt(index),BigInt(i+1)]));
-                property_info.p1 = Number(cell_property_info.p1);
-                property_info.p2 = Number(cell_property_info.p2);
-                property_info.p3 = Number(cell_property_info.p3);
-           }
-           return {
-             cell_info,
-             property_info
-           }
-    }
+ 
 }
  
