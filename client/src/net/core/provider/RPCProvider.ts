@@ -55,7 +55,7 @@ export class RPCProvider extends IProvider {
         console.log(call);
         try {
             const response = await this.provider.callContract(call);
-           
+           console.log('response:  ',response);
             return response.result as unknown as Array<bigint>;
         } catch (error) {
             throw error;

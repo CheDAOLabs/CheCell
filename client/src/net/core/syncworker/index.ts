@@ -2,6 +2,8 @@ import { Components } from "@latticexyz/recs";
 import { Providers } from "..";
 import { setComponentFromEntitiesQuery, setComponentFromEvent } from "../utils";
 import { Event } from "starknet";
+import { getEntities } from "../network/graphql";
+import { GetGraphQLUrl } from "../constants";
 
 export class SyncWorker<C extends Components> {
   private provider: Providers.RPCProvider;
@@ -28,7 +30,20 @@ export class SyncWorker<C extends Components> {
         }
     console.log('SyncWorker initialized');
     }
-
+    public async initGQL() {
+        for (const key of Object.keys(this.components)) {
+             const component = this.components[key];
+             if (component.metadata && component.metadata.name) {
+                 // call provider.entities for each component to get all entities linked to that component
+                 
+               //  const data = await getEntities(GetGraphQLUrl(),component.metadata.name as String,component.schema);
+               //  console.log(data);
+                const entities = await this.provider.entities(component.metadata.name as string, "0", Object.keys(component.schema).length);
+                 setComponentFromEntitiesQuery(component, entities);
+                 }
+             }
+         console.log('SyncWorker initialized');
+         }
     public async sync(txHash: string):Promise<boolean> {
         const receipt = await this.provider.provider.getTransactionReceipt(txHash);
         console.log(receipt);

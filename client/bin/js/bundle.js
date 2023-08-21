@@ -66349,6 +66349,7 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       console.log(call);
       try {
         const response = await this.provider.callContract(call);
+        console.log("response:  ", response);
         return response.result;
       } catch (error) {
         throw error;
@@ -66415,6 +66416,16 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
       }
       console.log("SyncWorker initialized");
     }
+    async initGQL() {
+      for (const key of Object.keys(this.components)) {
+        const component = this.components[key];
+        if (component.metadata && component.metadata.name) {
+          const entities = await this.provider.entities(component.metadata.name, "0", Object.keys(component.schema).length);
+          setComponentFromEntitiesQuery(component, entities);
+        }
+      }
+      console.log("SyncWorker initialized");
+    }
     async sync(txHash) {
       const receipt = await this.provider.provider.getTransactionReceipt(txHash);
       console.log(receipt);
@@ -66438,7 +66449,7 @@ ${res.tx_failure_reason.error_message}` : res.tx_status;
     const provider = new provider_exports.RPCProvider(WORLD_ADDRESS);
     const account = new Account(provider.provider, KATANA_ACCOUNT_1_ADDRESS, KATANA_ACCOUNT_1_PRIVATEKEY);
     const syncWorker = new SyncWorker(provider, contractComponents, EVENT_KEY);
-    await syncWorker.init();
+    await syncWorker.initGQL();
     return {
       contractComponents,
       provider,

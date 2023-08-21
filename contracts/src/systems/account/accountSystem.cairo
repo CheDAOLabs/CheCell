@@ -31,7 +31,7 @@ mod InitAccount {
         assert(account.init == false, 'account already register');
 
         account.init = true;
-        set !(
+        set!(
             ctx.world,
             (account)
         )

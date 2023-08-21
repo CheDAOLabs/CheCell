@@ -14,8 +14,7 @@ export const getEntities = async (url: string, componentName: string, componentS
     const fieldSelections = fields.join('\n');
     // TODO: issue, need to change limit
     const query = `query {
-        entities(keys: ["%"], limit: 100, componentName: "${componentName}") {
-        keys
+        entities(keys: ["%%"]) {
         components {
             __typename
             ... on ${componentName} {
@@ -24,7 +23,7 @@ export const getEntities = async (url: string, componentName: string, componentS
         }
         }
     }`;
-
+    console.log(query);
     const GET_ENTITIES_QUERY = gql`
     ${query}
     `;

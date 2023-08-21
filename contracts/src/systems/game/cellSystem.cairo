@@ -103,17 +103,17 @@ mod CreateCell {
         let init_total_value = cell_property.p1+cell_property.p2+cell_property.p3;
         assert(init_total_value <= PROPERTY_INIT_TOTAL_VALUE, 'init property total is invaild');
  
-        set !(
+        set!(
             ctx.world,
             (account)
         );
  
-        set !(
+        set!(
             ctx.world,
             (cell)
         );
 
-        set !(
+        set!(
             ctx.world,
             (cell_property)
         );

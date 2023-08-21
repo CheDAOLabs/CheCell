@@ -32,7 +32,7 @@ mod InitWorld {
         assert(world.init == false, 'world is invaild');
         world.init = true;
        
-        set !(
+        set!(
             ctx.world,
             (world)
         )

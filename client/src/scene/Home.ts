@@ -8,6 +8,8 @@ import { HomeBase } from './Home.generated';
 import { CreateCellData, GAMEID, HomeManagerEvent, NetManagerEvent, WORLDID } from '../common/Config';
 import { truncateString } from '../common/Tool';
 import { MapInfoPage } from '../ui/map/mapInfoPage';
+import { getEntities } from '../net/core/network/graphql';
+import { GetGraphQLUrl } from '../net/core/constants';
 @regClass()
 export class Home extends HomeBase {
  
@@ -42,9 +44,11 @@ export class Home extends HomeBase {
            console.log('init----');
      
            await InitWorld();
-           await InitAccount();
-           const entityid = account.address;
+            await InitAccount();
+            const entityid = account.address;
             this.address_text.text = truncateString(entityid,10);
+
+          
            console.log('net:  ',NetMgr.GetInstance().GetNet());
      
     }

@@ -31,7 +31,8 @@ export async function SetupNetwork() {
     const account =   new Account(provider.provider, KATANA_ACCOUNT_1_ADDRESS,KATANA_ACCOUNT_1_PRIVATEKEY);
      
     const syncWorker = new SyncWorker(provider, contractComponents, EVENT_KEY);
-    await syncWorker.init();
+   // await syncWorker.init();
+    await syncWorker.initGQL();
 
     return {
         contractComponents,
