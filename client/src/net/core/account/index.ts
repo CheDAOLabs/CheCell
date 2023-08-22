@@ -1,11 +1,12 @@
-import { Provider, Account, stark,ec } from "starknet";
 import { GetBaseUrl } from "../constants";
-
+import { Provider, Account, num,ec, stark, RpcProvider } from "starknet";
+ 
 export class HotAccount {
     public account: Account
     public address: string
 
     public GetInitAccount(){
+        
      // initialize provider
         const provider = new Provider({ sequencer: { baseUrl:GetBaseUrl() } });
     // initialize existing pre-deployed account 0 of Devnet
@@ -22,9 +23,11 @@ export class HotAccount {
           this.account = new Account(provider, accountAddress, privateKey);
     }
     public GetAccountByPrivateKey(privateKey:string){
-        
         const provider = new Provider({ sequencer: { baseUrl:GetBaseUrl() } });
         const accountAddress = ec.starkCurve.getStarkKey(privateKey);
         this.account = new Account(provider, accountAddress, privateKey);
     }
+     
 }
+
+ 

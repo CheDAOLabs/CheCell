@@ -2,7 +2,7 @@
 
 
 /**
- * resources/prefab/P_Map_Page.lh
+ * resources/prefab/map/P_Map_Page.lh
  */
 export class MapInfoPageBase extends Laya.Box {
     public name_cur_value_label!: Laya.Label;
@@ -10,5 +10,6 @@ export class MapInfoPageBase extends Laya.Box {
     public count_down_image!: Laya.Image;
     public count_down_value_label!: Laya.Label;
     public cell_avatar!: Laya.Image;
+    public gain_button!: Laya.Button;
 }
 

@@ -19,6 +19,7 @@ export const enum HomeManagerEvent {
     OnTouchCellPropertyPoint = 'OnTouchCellPropertyPoint',
     OnPlayGame = 'OnPlayGame',
     OnExplore = 'OnExplore',
+    OnGain = 'OnGain',
 };
 
 export const enum NetManagerEvent {
@@ -26,6 +27,7 @@ export const enum NetManagerEvent {
       OnEnhanceCellBodySizeCB = 'OnEnhanceCellBodySizeCB',
       OnEnhanceCellPropertyCB = 'OnEnhanceCellPropertyCB',
       OnExploreCB = 'OnExploreCB',
+      OnGainCB = 'OnGainCB',
   };
 export interface Color{
 

@@ -33,8 +33,6 @@ export class RPCProvider extends IProvider {
             ]
         }
 
-        console.log(call)
-
         try {
             const response = await this.provider.callContract(call);
 
@@ -45,14 +43,14 @@ export class RPCProvider extends IProvider {
     }
 
     public async entities(component: string, partition: string, length: number): Promise<Array<bigint>> {
-        console.log(component);
+ 
         const call: Call = {
             entrypoint: WorldEntryPoints.entities,
             contractAddress: this.getWorldAddress(),
             calldata: [strTofelt252Felt(component),0,length]
         }
  
-        console.log(call);
+ 
         try {
             const response = await this.provider.callContract(call);
            console.log('response:  ',response);
@@ -78,7 +76,18 @@ export class RPCProvider extends IProvider {
             throw error;
         }
     }
-
+    public async eventsList(){
+        const lastBlock = await this.provider.getBlock('latest');
+        const list =  await this.provider.getEvents({
+            address: this.getWorldAddress(),
+            from_block: {block_number: 0},
+            to_block: {block_number: lastBlock.block_number},
+            chunk_size: 400,
+            keys:null
+        });
+     //   console.log(list);
+        return list.events;
+    }
     public async execute(account: Account, system: string, call_data:BigNumberish[]): Promise<InvokeFunctionResponse> {
 
         // DISCUSS: is this needed?

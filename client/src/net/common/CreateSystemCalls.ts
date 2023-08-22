@@ -31,12 +31,17 @@ export function CreateSystemCalls(
         const tx = await execute("CellExplore", [c_id,time]);
         return await syncWorker.sync(tx.transaction_hash);
     }
+    const CellExploreGain = async (c_id:number) => {
+        const tx = await execute("CellExploreGain", [c_id]);
+        return await syncWorker.sync(tx.transaction_hash);
+    }
     return {
         InitWorld,
         InitAccount,
         CreateCell,
         AddCellBodySize,
         AddCellProperty,
-        CellExplore
+        CellExplore,
+        CellExploreGain
     };
 }

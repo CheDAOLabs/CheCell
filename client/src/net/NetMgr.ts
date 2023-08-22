@@ -1,5 +1,4 @@
 import { Provider, Contract, Account, ec, json,constants,CallData, cairo } from "starknet";
-import { connect } from "@argent/get-starknet"
 import { SetupNetwork } from "./common/SetupNetwork";
 import { CreateClientComponents } from "./common/CreateClientComponents";
 import { CreateSystemCalls } from "./common/CreateSystemCalls";
@@ -24,6 +23,7 @@ export class NetMgr {
  
     public async InitArgentX(){
         // Let the user pick a wallet (on button click)
+        /*
         this.starknet = await connect();
         if (!this.starknet) {
             throw Error("User rejected wallet selection or silent connect found nothing")
@@ -38,6 +38,7 @@ export class NetMgr {
         } else {
            console.log("error");
         }
+        */
     }
     public GetNet():any{
         if(NetMgr.GetInstance().net === undefined){

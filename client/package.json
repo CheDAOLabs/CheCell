@@ -10,13 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "starknet": "^5.13.2",
-    "@argent/get-starknet":"^6.4.3",
-    "ws": "^8.8.1",
-    "@latticexyz/recs":"^2.0.0-alpha.1.268",
+    "@latticexyz/recs": "^2.0.0-alpha.1.268",
+    "get-starknet": "^3.0.1",
     "graphql": "^16.6.0",
     "graphql-request": "^6.1.0",
-    "graphql-tag": "^2.12.6"
+    "graphql-tag": "^2.12.6",
+    "starknet": "^5.19.2",
+    "ws": "^8.8.1"
   },
   "devDependencies": {
     "@types/events": "^3.0.0"

@@ -49,6 +49,7 @@ export function defineContractComponents(world: World) {
           body_size:RecsType.Number,
           category:RecsType.Number,
           state:RecsType.Number,
+          explore_time:RecsType.Number,
           explore_end_time:RecsType.BigInt
         },
         {

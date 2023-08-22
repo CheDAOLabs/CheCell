@@ -28,7 +28,12 @@ export class SyncWorker<C extends Components> {
             setComponentFromEntitiesQuery(component, entities);
             }
         }
-    console.log('SyncWorker initialized');
+        const events = await this.provider.eventsList();
+        for (let i = 0; i < events.length; i++) {
+            const tx_hash = events[i].transaction_hash;
+            await this.sync(tx_hash);
+        }
+        console.log('SyncWorker initialized');
     }
     public async initGQL() {
         for (const key of Object.keys(this.components)) {
@@ -36,10 +41,10 @@ export class SyncWorker<C extends Components> {
              if (component.metadata && component.metadata.name) {
                  // call provider.entities for each component to get all entities linked to that component
                  
-               //  const data = await getEntities(GetGraphQLUrl(),component.metadata.name as String,component.schema);
-               //  console.log(data);
-                const entities = await this.provider.entities(component.metadata.name as string, "0", Object.keys(component.schema).length);
-                 setComponentFromEntitiesQuery(component, entities);
+                const data = await getEntities(GetGraphQLUrl(),component.metadata.name as String,component.schema);
+                console.log(data);
+              //  const entities = await this.provider.entities(component.metadata.name as string, "0", Object.keys(component.schema).length);
+             //    setComponentFromEntitiesQuery(component, entities);
                  }
              }
          console.log('SyncWorker initialized');

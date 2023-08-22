@@ -16,8 +16,7 @@ export const getEntities = async (url: string, componentName: string, componentS
     const query = `query {
         entities(keys: ["%%"]) {
         components {
-            __typename
-            ... on ${componentName} {
+            ${componentName} {
             ${fieldSelections}
             }
         }

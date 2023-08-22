@@ -7,9 +7,10 @@ import { HomeBase } from './Home.generated';
  
 import { CreateCellData, GAMEID, HomeManagerEvent, NetManagerEvent, WORLDID } from '../common/Config';
 import { truncateString } from '../common/Tool';
-import { MapInfoPage } from '../ui/map/mapInfoPage';
 import { getEntities } from '../net/core/network/graphql';
 import { GetGraphQLUrl } from '../net/core/constants';
+import { MapInfoPage } from '../ui/map/MapInfoPage';
+import { CellInfoPage } from '../ui/info/CellInfoPage';
 @regClass()
 export class Home extends HomeBase {
  
@@ -17,7 +18,7 @@ export class Home extends HomeBase {
         console.log("Home start");
         this.info_button.on(Laya.Event.CLICK,this,this.onInfoButtonEvent.bind(this));
        // this.map_button.on(Laya.Event.CLICK,this,this.onMapButtonEvent.bind(this));
-       
+       this.evolution_button.on(Laya.Event.CLICK,this,this.onEvolutionButtonEvent.bind(this));
         this.onSelect(0);
 
         Laya.stage.on(HomeManagerEvent.OnCreateCell,this,this.onCreateCellEvent.bind(this));
@@ -25,46 +26,38 @@ export class Home extends HomeBase {
         Laya.stage.on(HomeManagerEvent.OnEnhanceCellBodySizeConfirm,this,this.OnEnhanceCellBodySizeConfirmEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnEnhanceCellPropertyConfirm,this,this.onEnhanceCellPropertyConfirmEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnExplore,this,this.onExploreEvent.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnGain,this,this.onGainEvent.bind(this));
 
          
     }
  
     async onOpened(param: any): Promise<void> {
-        await NetMgr.GetInstance().setup();
+       
         const {
             network:{
                 account,
-                WorldInfo,
             },
-            systemCalls:{
-                InitWorld,
-                InitAccount,
-            }
+  
            } = NetMgr.GetInstance().GetNet();
-           console.log('init----');
-     
-           await InitWorld();
-            await InitAccount();
+            console.log('net  ',NetMgr.GetInstance().GetNet());
             const entityid = account.address;
-            this.address_text.text = truncateString(entityid,10);
-
-          
-           console.log('net:  ',NetMgr.GetInstance().GetNet());
-     
+            this.address_text.text = truncateString(entityid,10);    
     }
     onInfoButtonEvent(param: any): void {
         this.onSelect(0);
-       // this.onGetButtonEvent();
+        (this.page_stack.selection as CellInfoPage).onRefresh();
     }
 
     onMapButtonEvent(param: any): void {
         this.onSelect(1);
     }
-
+    onEvolutionButtonEvent(param: any): void {
+        this.onSelect(2);
+    }
     private onSelect(index: number): void {
         this.info_button.selected = false;
         this.map_button.selected = false;
-        this.reproduce_button.selected = false;
+        this.evolution_button.selected = false;
         this.leaderborad_button.selected = false;
         this.market_button.selected = false;
         switch (index) {
@@ -75,7 +68,7 @@ export class Home extends HomeBase {
                 this.map_button.selected = true;
                 break;
             case 2:
-                this.reproduce_button.selected = true;
+                this.evolution_button.selected = true;
                 break;
             case 3:
                 this.leaderborad_button.selected = true;
@@ -122,8 +115,7 @@ export class Home extends HomeBase {
     
            const result = await AddCellBodySize(param);
            Laya.stage.event(NetManagerEvent.OnEnhanceCellBodySizeCB,result);
-            
-           console.log('net:  ',NetMgr.GetInstance().GetNet());
+         
     }
     async onEnhanceCellPropertyConfirmEvent(param: any){
        
@@ -135,21 +127,31 @@ export class Home extends HomeBase {
            let property = param.color.r;
            property += param.color.g<<8;
            property += param.color.b<<16;
-           await AddCellProperty(param.c_id,param.p_id,property);
-           console.log('net:  ',NetMgr.GetInstance().GetNet());
+           const result = await AddCellProperty(param.c_id,param.p_id,property);
+           Laya.stage.event(NetManagerEvent.OnEnhanceCellPropertyCB,result);
+
     }
     async onExploreEvent(param: any){
-        console.log('onExploreEvent');
- 
+        
         const {
             systemCalls:{
                 CellExplore
             }
            } = NetMgr.GetInstance().GetNet();
  
-           await CellExplore(param.c_id,param.time);
-           console.log('net:  ',NetMgr.GetInstance().GetNet());
+           const result = await CellExplore(param.c_id,param.time);
+           Laya.stage.event(NetManagerEvent.OnExploreCB,result);
     }
- 
+    async onGainEvent(param: any){
+       
+        const {
+            systemCalls:{
+                CellExploreGain
+            }
+           } = NetMgr.GetInstance().GetNet();
+           console.log('-------------',param);
+           const result = await CellExploreGain(param);
+           Laya.stage.event(NetManagerEvent.OnGainCB,result);
+    }
 }
  

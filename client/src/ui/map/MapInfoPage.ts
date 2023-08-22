@@ -2,7 +2,7 @@ import { getComponentValue } from "@latticexyz/recs";
 import { NetMgr } from "../../net/NetMgr";
 import { MapInfoPageBase } from "./MapInfoPage.generated";
 import { Utils } from "../../net/core";
-import { GAMEID, WORLDID } from "../../common/Config";
+import { GAMEID, HomeManagerEvent, NetManagerEvent, WORLDID } from "../../common/Config";
 import { felt252ToStr } from "../../net/core/utils";
 import { random } from "../../logic/rand";
 import { getCurrentTimestamp, secondsToMinutes } from "../../common/Tool";
@@ -15,6 +15,9 @@ export class MapInfoPage extends MapInfoPageBase {
     onAwake() {
      
        this.explore_button.on(Laya.Event.CLICK,this,this.onExploreButtonEvent.bind(this));
+       this.gain_button.on(Laya.Event.CLICK,this,this.onGainButtonEvent.bind(this));
+       Laya.stage.on(NetManagerEvent.OnExploreCB,this,this.onExploreCBEvent.bind(this));
+       Laya.stage.on(NetManagerEvent.OnGainCB,this,this.onGainCBEvent.bind(this));
     }
     SetData(c_id:number){
         this.c_id = c_id;
@@ -38,21 +41,73 @@ export class MapInfoPage extends MapInfoPageBase {
         Laya.timer.clearAll(this);
         if(cell_info.state == 1){
             this.explore_button.disabled = true;
+            this.count_down_value_label.text = secondsToMinutes(Number(cell_info.explore_end_time)-getCurrentTimestamp());
             this.count_down_image.visible = true;
             this.onCellAvatarAction1();
             if(Number(cell_info.explore_end_time) > getCurrentTimestamp()){
+                this.onExploreUI(1);
                 Laya.timer.loop(1000, this, () => {
-                    let time = Number(cell_info.explore_end_time)-getCurrentTimestamp();
-                    this.count_down_value_label.text = secondsToMinutes(time);
+                    if(Number(cell_info.explore_end_time) > getCurrentTimestamp()){
+                        let time = Number(cell_info.explore_end_time)-getCurrentTimestamp();
+                        this.count_down_value_label.text = secondsToMinutes(time);
+                    }else{
+                        Laya.timer.clearAll(this);
+                        Laya.Tween.clearAll(this.cell_avatar);
+                        this.onExploreUI(2);
+                    }
                 })
+            }else{
+                this.onExploreUI(2);
             }
              
         }else{
+            this.onExploreUI(0);
+        }
+    }
+    onExploreUI(type:number){
+        if(type == 0){
+            this.explore_button.visible = true;
+            this.gain_button.visible = false;
+            this.count_down_image.visible = false;
+        }else if(type == 1){
+            this.explore_button.visible = false;
+            this.gain_button.visible = false;
+            this.count_down_image.visible = true;
+        }else{
+            this.explore_button.visible = false;
+            this.gain_button.visible = true;
             this.count_down_image.visible = false;
         }
     }
     onExploreButtonEvent(param: any): void {
-        Laya.Scene.open("resources/prefab/P_Exploration_Setup_Dialog.lh",false,this.c_id);
+        Laya.Scene.open("resources/prefab/map/P_Exploration_Setup_Dialog.lh",false,this.c_id);
+    }
+    onGainButtonEvent(param: any): void {
+        Laya.stage.event(HomeManagerEvent.OnGain,this.c_id);  
+    }
+
+     
+    onExploreCBEvent(param: any){
+        let message ='';
+        if(param){
+            message = 'Start explore success!';
+        }else{
+            message = 'Start explore error!';
+        }
+         
+        Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, {"text":message});
+        this.SetData(this.c_id);
+    }
+    onGainCBEvent(param: any){
+        let message ='';
+        if(param){
+            message = 'Get reword success!';
+        }else{
+            message = 'Get reword error!';
+        }
+         
+        Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, {"text":message});
+        this.SetData(this.c_id);
     }
     onCellAvatarAction1(){
         Laya.Tween.to(this.cell_avatar, {alpha:0}, 2000, Laya.Ease.expoInOut,Laya.Handler.create(this,this.onCellAvatarAction2.bind(this)))
