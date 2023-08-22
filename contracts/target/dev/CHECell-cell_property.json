@@ -51,7 +51,7 @@
     "0x1baeba72e79e9db2587cf44fedb2f3700b2075a5e8e39a562584862c4b71f62",
     "0x13",
     "0x14",
-    "0x33101d6d0d2c6447a34306a2a1436931e4417c2b7176ab2085a273429e7273d",
+    "0xd284c00dc240257f2955ca5902c40a503d33b30b85b5a2ae59d2f82de4c6b6",
     "0x4275696c74696e436f737473",
     "0x9931c641b913035ae674b400b61a51476d506bbe8bba2ff8a6272790aba9e6",
     "0x15",
@@ -488,7 +488,7 @@
       ],
       [
         22,
-        "DevilCell::components::cell::cell_property::ContractState"
+        "CHECell::components::cell::cell_property::ContractState"
       ],
       [
         23,
@@ -618,15 +618,15 @@
       ],
       [
         27,
-        "struct_construct<DevilCell::components::cell::cell_property::ContractState>"
+        "struct_construct<CHECell::components::cell::cell_property::ContractState>"
       ],
       [
         28,
-        "snapshot_take<DevilCell::components::cell::cell_property::ContractState>"
+        "snapshot_take<CHECell::components::cell::cell_property::ContractState>"
       ],
       [
         29,
-        "drop<DevilCell::components::cell::cell_property::ContractState>"
+        "drop<CHECell::components::cell::cell_property::ContractState>"
       ],
       [
         30,
@@ -698,11 +698,11 @@
       ],
       [
         47,
-        "store_temp<DevilCell::components::cell::cell_property::ContractState>"
+        "store_temp<CHECell::components::cell::cell_property::ContractState>"
       ],
       [
         48,
-        "function_call<user@DevilCell::components::cell::cell_property::schema>"
+        "function_call<user@CHECell::components::cell::cell_property::schema>"
       ],
       [
         49,
@@ -972,15 +972,15 @@
     "user_func_names": [
       [
         0,
-        "DevilCell::components::cell::cell_property::__external::name"
+        "CHECell::components::cell::cell_property::__external::name"
       ],
       [
         1,
-        "DevilCell::components::cell::cell_property::__external::size"
+        "CHECell::components::cell::cell_property::__external::size"
       ],
       [
         2,
-        "DevilCell::components::cell::cell_property::__external::schema"
+        "CHECell::components::cell::cell_property::__external::schema"
       ],
       [
         3,
@@ -1000,7 +1000,7 @@
       ],
       [
         7,
-        "DevilCell::components::cell::cell_property::schema"
+        "CHECell::components::cell::cell_property::schema"
       ],
       [
         8,
@@ -1093,7 +1093,7 @@
     },
     {
       "type": "event",
-      "name": "DevilCell::components::cell::cell_property::Event",
+      "name": "CHECell::components::cell::cell_property::Event",
       "kind": "enum",
       "variants": []
     }

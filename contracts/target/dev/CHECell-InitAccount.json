@@ -58,8 +58,8 @@
     "0x426f78",
     "0x29d7d57c04a880978e7b3689f6218e507f3be17588744b58dc17762447ad0e7",
     "0x18",
-    "0x3e15487e0f52f228aa4180f36ea62e3d730ad1f608782c690a4426578d594d3",
-    "0x2a663c4ed014c6cdd623b5d4f633b9737f6f9ef7fde6e09fece9ffb1941c69f",
+    "0x118f6cb54856950cd5d6d1e86a4aafe6f7bf624ee18b5a8feb4f2bc3e8948",
+    "0x6e6291941662d81634a836446a930739fd832b7a88ed4bd6056f0117491caa",
     "0x1a",
     "0x74584e9f10ffb1a40aa5a3582e203f6758defc4a497d1a2d5a89f274a320e9",
     "0x1c",
@@ -91,7 +91,7 @@
     "0x6e4e02481efb638c40e4ac7d532ed2fc8713cb91918899c09df15d2a5c619d",
     "0x1c8abca6657f50b346de48aef52966bf3fe52224a278391ce8e3a59e80741d7",
     "0x31",
-    "0x3adcda6603c2f0ff9cae6d4f4bc7bc38ddc28ac1506f89532faad31a5b85b1",
+    "0x1f04eb2950da8744acca01c2b8143396f9f91dc42c9ca04ce984988ddb4ebe6",
     "0x4275696c74696e436f737473",
     "0x9931c641b913035ae674b400b61a51476d506bbe8bba2ff8a6272790aba9e6",
     "0x33",
@@ -1103,11 +1103,11 @@
       ],
       [
         26,
-        "DevilCell::components::account::Account"
+        "CHECell::components::account::Account"
       ],
       [
         27,
-        "core::option::Option::<DevilCell::components::account::Account>"
+        "core::option::Option::<CHECell::components::account::Account>"
       ],
       [
         28,
@@ -1207,7 +1207,7 @@
       ],
       [
         52,
-        "DevilCell::systems::account::accountSystem::InitAccount::ContractState"
+        "CHECell::systems::account::accountSystem::InitAccount::ContractState"
       ],
       [
         53,
@@ -1333,15 +1333,15 @@
       ],
       [
         27,
-        "struct_construct<DevilCell::systems::account::accountSystem::InitAccount::ContractState>"
+        "struct_construct<CHECell::systems::account::accountSystem::InitAccount::ContractState>"
       ],
       [
         28,
-        "snapshot_take<DevilCell::systems::account::accountSystem::InitAccount::ContractState>"
+        "snapshot_take<CHECell::systems::account::accountSystem::InitAccount::ContractState>"
       ],
       [
         29,
-        "drop<DevilCell::systems::account::accountSystem::InitAccount::ContractState>"
+        "drop<CHECell::systems::account::accountSystem::InitAccount::ContractState>"
       ],
       [
         30,
@@ -1413,7 +1413,7 @@
       ],
       [
         47,
-        "store_temp<DevilCell::systems::account::accountSystem::InitAccount::ContractState>"
+        "store_temp<CHECell::systems::account::accountSystem::InitAccount::ContractState>"
       ],
       [
         48,
@@ -1421,7 +1421,7 @@
       ],
       [
         49,
-        "function_call<user@DevilCell::systems::account::accountSystem::InitAccount::execute>"
+        "function_call<user@CHECell::systems::account::accountSystem::InitAccount::execute>"
       ],
       [
         50,
@@ -1641,15 +1641,15 @@
       ],
       [
         104,
-        "function_call<user@DevilCell::components::account::AccountSerde::deserialize>"
+        "function_call<user@CHECell::components::account::AccountSerde::deserialize>"
       ],
       [
         105,
-        "enum_match<core::option::Option::<DevilCell::components::account::Account>>"
+        "enum_match<core::option::Option::<CHECell::components::account::Account>>"
       ],
       [
         106,
-        "struct_deconstruct<DevilCell::components::account::Account>"
+        "struct_deconstruct<CHECell::components::account::Account>"
       ],
       [
         107,
@@ -1701,23 +1701,23 @@
       ],
       [
         119,
-        "struct_construct<DevilCell::components::account::Account>"
+        "struct_construct<CHECell::components::account::Account>"
       ],
       [
         120,
-        "snapshot_take<DevilCell::components::account::Account>"
+        "snapshot_take<CHECell::components::account::Account>"
       ],
       [
         121,
-        "drop<DevilCell::components::account::Account>"
+        "drop<CHECell::components::account::Account>"
       ],
       [
         122,
-        "store_temp<DevilCell::components::account::Account>"
+        "store_temp<CHECell::components::account::Account>"
       ],
       [
         123,
-        "dup<DevilCell::components::account::Account>"
+        "dup<CHECell::components::account::Account>"
       ],
       [
         124,
@@ -2029,15 +2029,15 @@
       ],
       [
         201,
-        "enum_init<core::option::Option::<DevilCell::components::account::Account>, 0>"
+        "enum_init<core::option::Option::<CHECell::components::account::Account>, 0>"
       ],
       [
         202,
-        "store_temp<core::option::Option::<DevilCell::components::account::Account>>"
+        "store_temp<core::option::Option::<CHECell::components::account::Account>>"
       ],
       [
         203,
-        "enum_init<core::option::Option::<DevilCell::components::account::Account>, 1>"
+        "enum_init<core::option::Option::<CHECell::components::account::Account>, 1>"
       ],
       [
         204,
@@ -2239,11 +2239,11 @@
     "user_func_names": [
       [
         0,
-        "DevilCell::systems::account::accountSystem::InitAccount::__external::name"
+        "CHECell::systems::account::accountSystem::InitAccount::__external::name"
       ],
       [
         1,
-        "DevilCell::systems::account::accountSystem::InitAccount::__external::execute"
+        "CHECell::systems::account::accountSystem::InitAccount::__external::execute"
       ],
       [
         2,
@@ -2259,7 +2259,7 @@
       ],
       [
         5,
-        "DevilCell::systems::account::accountSystem::InitAccount::execute"
+        "CHECell::systems::account::accountSystem::InitAccount::execute"
       ],
       [
         6,
@@ -2295,7 +2295,7 @@
       ],
       [
         14,
-        "DevilCell::components::account::AccountSerde::deserialize"
+        "CHECell::components::account::AccountSerde::deserialize"
       ],
       [
         15,
@@ -2424,7 +2424,7 @@
     },
     {
       "type": "event",
-      "name": "DevilCell::systems::account::accountSystem::InitAccount::Event",
+      "name": "CHECell::systems::account::accountSystem::InitAccount::Event",
       "kind": "enum",
       "variants": []
     }

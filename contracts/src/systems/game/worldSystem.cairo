@@ -8,9 +8,9 @@ mod InitWorld {
     use poseidon::poseidon_hash_span;
  
 
-    use DevilCell::utils::constants::{GAME_ID,WORLD_ID,ADMIN_ADRESS};  
+    use CHECell::utils::constants::{GAME_ID,WORLD_ID,ADMIN_ADRESS};  
 
-    use DevilCell::components::worldInfo::{WorldInfo};
+    use CHECell::components::worldInfo::{WorldInfo};
  
     fn execute(ctx: Context) {
 

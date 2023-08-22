@@ -7,10 +7,10 @@ mod InitAccount {
 
     use dojo::world::Context;
 
-    use DevilCell::utils::constants::{GAME_ID,WORLD_ID};  
+    use CHECell::utils::constants::{GAME_ID,WORLD_ID};  
  
-    use DevilCell::components::worldInfo::{WorldInfo};
-    use DevilCell::components::account::{Account};
+    use CHECell::components::worldInfo::{WorldInfo};
+    use CHECell::components::account::{Account};
 
     fn execute(ctx: Context) {
 

@@ -13,6 +13,7 @@ struct Cell {
     body_size:u8,
     category:u8,
     state:u8,
+    explore_time:u32,
     explore_end_time:u64
 }
 

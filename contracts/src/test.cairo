@@ -18,11 +18,11 @@ use dojo::world::{IWorldDispatcher, IWorldDispatcherTrait};
  
     use dojo::test_utils::spawn_test_world;
 
-    use DevilCell::components::position::{position,Position};
-    use DevilCell::components::account::{account,Account};
-    use DevilCell::systems::game::gameSystem::InitPosition;
-    use DevilCell::systems::game::gameSystem::AddPosition; 
-    use DevilCell::systems::account::accountSystem::InitAccount;
+    use CHECell::components::position::{position,Position};
+    use CHECell::components::account::{account,Account};
+    use CHECell::systems::game::gameSystem::InitPosition;
+    use CHECell::systems::game::gameSystem::AddPosition; 
+    use CHECell::systems::account::accountSystem::InitAccount;
     
 
     #[test]

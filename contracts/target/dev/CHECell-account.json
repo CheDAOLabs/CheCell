@@ -51,7 +51,7 @@
     "0x1baeba72e79e9db2587cf44fedb2f3700b2075a5e8e39a562584862c4b71f62",
     "0x13",
     "0x14",
-    "0xa3d87aed72543032192256ccbe54112d1bcb6a9d286a021cefdcea00ec4c08",
+    "0x1ec19f9bc5897894565f5024addaa6759239ac622c3b88eaf828d37f7c99d9b",
     "0x4275696c74696e436f737473",
     "0x9931c641b913035ae674b400b61a51476d506bbe8bba2ff8a6272790aba9e6",
     "0x15",
@@ -470,7 +470,7 @@
       ],
       [
         22,
-        "DevilCell::components::account::account::ContractState"
+        "CHECell::components::account::account::ContractState"
       ],
       [
         23,
@@ -600,15 +600,15 @@
       ],
       [
         27,
-        "struct_construct<DevilCell::components::account::account::ContractState>"
+        "struct_construct<CHECell::components::account::account::ContractState>"
       ],
       [
         28,
-        "snapshot_take<DevilCell::components::account::account::ContractState>"
+        "snapshot_take<CHECell::components::account::account::ContractState>"
       ],
       [
         29,
-        "drop<DevilCell::components::account::account::ContractState>"
+        "drop<CHECell::components::account::account::ContractState>"
       ],
       [
         30,
@@ -680,11 +680,11 @@
       ],
       [
         47,
-        "store_temp<DevilCell::components::account::account::ContractState>"
+        "store_temp<CHECell::components::account::account::ContractState>"
       ],
       [
         48,
-        "function_call<user@DevilCell::components::account::account::schema>"
+        "function_call<user@CHECell::components::account::account::schema>"
       ],
       [
         49,
@@ -946,15 +946,15 @@
     "user_func_names": [
       [
         0,
-        "DevilCell::components::account::account::__external::name"
+        "CHECell::components::account::account::__external::name"
       ],
       [
         1,
-        "DevilCell::components::account::account::__external::size"
+        "CHECell::components::account::account::__external::size"
       ],
       [
         2,
-        "DevilCell::components::account::account::__external::schema"
+        "CHECell::components::account::account::__external::schema"
       ],
       [
         3,
@@ -974,7 +974,7 @@
       ],
       [
         7,
-        "DevilCell::components::account::account::schema"
+        "CHECell::components::account::account::schema"
       ],
       [
         8,
@@ -1067,7 +1067,7 @@
     },
     {
       "type": "event",
-      "name": "DevilCell::components::account::account::Event",
+      "name": "CHECell::components::account::account::Event",
       "kind": "enum",
       "variants": []
     }
