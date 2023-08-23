@@ -1,0 +1,346 @@
+{
+  "_$ver": 1,
+  "_$id": "0v46w6wj7v",
+  "_$runtime": "res://ef3c4680-953e-4f27-9072-69bc6e18abd3",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 1920,
+  "height": 860,
+  "mouseEnabled": true,
+  "_$child": [
+    {
+      "_$id": "edn5ptzs",
+      "_$type": "Image",
+      "name": "page_bg",
+      "x": 384,
+      "width": 1480,
+      "height": 800,
+      "mouseEnabled": true,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#252641"
+    },
+    {
+      "_$id": "9jk6f92x",
+      "_$var": true,
+      "_$type": "Tab",
+      "name": "item0Tab",
+      "x": 50,
+      "width": 272,
+      "height": 136,
+      "mouseEnabled": true,
+      "skin": "res://37380fbc-6d3a-4689-8160-18c0b04c7ada",
+      "stateNum": null,
+      "labels": "EXP,CELL",
+      "space": 8,
+      "direction": "vertical",
+      "selectedIndex": 0,
+      "labelFont": "res://138f23ad-1310-42de-8811-0055f0a577a5",
+      "labelSize": 28,
+      "labelColors": "#7b67b7,#7b67b7,#f6daff",
+      "labelStroke": null,
+      "labelStrokeColor": null,
+      "labelAlign": null,
+      "strokeColors": null
+    },
+    {
+      "_$id": "s8c2eck1",
+      "_$type": "Box",
+      "name": "Box",
+      "x": 386,
+      "width": 1480,
+      "height": 800,
+      "mouseEnabled": true,
+      "right": 54,
+      "_$child": [
+        {
+          "_$id": "gyh0wxnm",
+          "_$type": "Label",
+          "name": "ranking_label",
+          "x": 57,
+          "y": 15,
+          "width": 110,
+          "height": 29,
+          "left": 57,
+          "top": 15,
+          "text": "RANKING",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 28,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "leading": 2,
+          "padding": "0,0,0,0",
+          "underlineColor": "rgba(255, 255, 255, 1)"
+        },
+        {
+          "_$id": "pgygzj4c",
+          "_$type": "Label",
+          "name": "player_label",
+          "x": 342,
+          "y": 15,
+          "width": 95,
+          "height": 29,
+          "left": 342,
+          "top": 15,
+          "text": "PLAYER",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 28,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "leading": 2,
+          "padding": "0,0,0,0",
+          "underlineColor": "rgba(255, 255, 255, 1)"
+        },
+        {
+          "_$id": "e5ezqpu3",
+          "_$type": "Label",
+          "name": "number_label",
+          "x": 616,
+          "y": 15,
+          "width": 173,
+          "height": 29,
+          "left": 616,
+          "top": 15,
+          "text": "CELL NUMBER",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 28,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "leading": 2,
+          "padding": "0,0,0,0",
+          "underlineColor": "rgba(255, 255, 255, 1)"
+        },
+        {
+          "_$id": "jzftvn07",
+          "_$type": "Label",
+          "name": "exprank_label",
+          "x": 904,
+          "y": 15,
+          "width": 126,
+          "height": 29,
+          "right": 450,
+          "top": 15,
+          "text": "EXP RANK",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 28,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "leading": 2,
+          "padding": "0,0,0,0",
+          "underlineColor": "rgba(255, 255, 255, 1)"
+        },
+        {
+          "_$id": "efevawu5",
+          "_$type": "Label",
+          "name": "float_label",
+          "x": 1179,
+          "y": 14,
+          "width": 173,
+          "height": 29,
+          "right": 128,
+          "top": 14,
+          "text": "FLOAT STATE",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 28,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "leading": 2,
+          "padding": "0,0,0,0",
+          "underlineColor": "rgba(255, 255, 255, 1)"
+        },
+        {
+          "_$id": "tcx6dheo",
+          "_$var": true,
+          "_$type": "VBox",
+          "name": "top_list",
+          "x": 28,
+          "y": 59,
+          "width": 1424,
+          "height": 176,
+          "left": 28,
+          "top": 59,
+          "space": 4,
+          "align": "left",
+          "_$child": [
+            {
+              "_$id": "s91f3h4x",
+              "_$prefab": "e0650d3a-ef83-4860-8872-d920deb04554",
+              "name": "rank_1",
+              "active": true,
+              "x": 0,
+              "y": 0,
+              "visible": true
+            },
+            {
+              "_$id": "hy8n9xw8",
+              "_$prefab": "e0650d3a-ef83-4860-8872-d920deb04554",
+              "name": "rank_2",
+              "active": true,
+              "x": 0,
+              "y": 60,
+              "visible": true,
+              "_$child": [
+                {
+                  "_$override": "fgva33rl",
+                  "skin": "res://9877225e-1816-4f58-9392-e819decc6359",
+                  "left": 37
+                },
+                {
+                  "_$override": "4ngdmemp",
+                  "color": "rgba(234, 189, 164, 1)",
+                  "text": "2"
+                }
+              ]
+            },
+            {
+              "_$id": "9dudflbs",
+              "_$prefab": "e0650d3a-ef83-4860-8872-d920deb04554",
+              "name": "rank_3",
+              "active": true,
+              "x": 0,
+              "y": 120,
+              "visible": true,
+              "_$child": [
+                {
+                  "_$override": "fgva33rl",
+                  "skin": "res://d74b9db2-e3c2-40eb-98b9-a42f3ad6f388",
+                  "left": 42
+                },
+                {
+                  "_$override": "4ngdmemp",
+                  "color": "rgba(211, 119, 227, 1)",
+                  "text": "3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_$id": "xkscjgou",
+          "_$var": true,
+          "_$type": "VBox",
+          "name": "normal_list",
+          "x": 28,
+          "y": 256,
+          "width": 1424,
+          "height": 416,
+          "left": 28,
+          "top": 256,
+          "space": 4,
+          "align": "left",
+          "_$child": [
+            {
+              "_$id": "s9zu1zw6",
+              "_$prefab": "b97b02a7-3b50-4f92-af87-c37830c9d84e",
+              "name": "rank_4",
+              "active": true,
+              "x": 0,
+              "y": 0,
+              "visible": true
+            },
+            {
+              "_$id": "pwpq2u51",
+              "_$prefab": "b97b02a7-3b50-4f92-af87-c37830c9d84e",
+              "name": "rank_5",
+              "active": true,
+              "x": 0,
+              "y": 60,
+              "visible": true
+            },
+            {
+              "_$id": "p912xjh8",
+              "_$prefab": "b97b02a7-3b50-4f92-af87-c37830c9d84e",
+              "name": "rank_6",
+              "active": true,
+              "x": 0,
+              "y": 120,
+              "visible": true
+            },
+            {
+              "_$id": "1dxk9m9s",
+              "_$prefab": "b97b02a7-3b50-4f92-af87-c37830c9d84e",
+              "name": "rank_7",
+              "active": true,
+              "x": 0,
+              "y": 180,
+              "visible": true
+            },
+            {
+              "_$id": "j1tslv0f",
+              "_$prefab": "b97b02a7-3b50-4f92-af87-c37830c9d84e",
+              "name": "rank_8",
+              "active": true,
+              "x": 0,
+              "y": 240,
+              "visible": true
+            },
+            {
+              "_$id": "eammqx8k",
+              "_$prefab": "b97b02a7-3b50-4f92-af87-c37830c9d84e",
+              "name": "rank_9",
+              "active": true,
+              "x": 0,
+              "y": 300,
+              "visible": true
+            },
+            {
+              "_$id": "fj0nbyoh",
+              "_$prefab": "b97b02a7-3b50-4f92-af87-c37830c9d84e",
+              "name": "rank_10",
+              "active": true,
+              "x": 0,
+              "y": 360,
+              "visible": true
+            }
+          ]
+        },
+        {
+          "_$id": "1oocklcb",
+          "_$prefab": "b97b02a7-3b50-4f92-af87-c37830c9d84e",
+          "_$var": true,
+          "name": "self_info",
+          "active": true,
+          "x": 28,
+          "y": 720,
+          "visible": true,
+          "bottom": 24,
+          "centerX": 0
+        },
+        {
+          "_$id": "0328qt7b",
+          "_$var": true,
+          "_$type": "Button",
+          "name": "left_button",
+          "x": 602,
+          "y": 706,
+          "width": 20,
+          "height": 22,
+          "rotation": 180,
+          "mouseEnabled": true,
+          "bottom": 72,
+          "centerX": -128,
+          "skin": "res://71a96764-46b5-42d2-b786-9f5d7aa2d8a1",
+          "label": "",
+          "labelSize": 20,
+          "labelVAlign": "middle"
+        },
+        {
+          "_$id": "i1nqy6ge",
+          "_$var": true,
+          "_$type": "Button",
+          "name": "right_button",
+          "x": 818,
+          "y": 684,
+          "width": 20,
+          "height": 22,
+          "mouseEnabled": true,
+          "bottom": 94,
+          "centerX": 88,
+          "skin": "res://71a96764-46b5-42d2-b786-9f5d7aa2d8a1",
+          "label": "",
+          "labelSize": 20,
+          "labelVAlign": "middle"
+        }
+      ]
+    }
+  ]
+}

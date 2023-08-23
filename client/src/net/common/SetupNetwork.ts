@@ -6,9 +6,9 @@ import { Account,BigNumberish } from "starknet";
 import { Provider, Contract, ec, json,constants,CallData, cairo } from "starknet";
 import { connect, disconnect } from "get-starknet";
 
-export const KATANA_ACCOUNT_1_ADDRESS = "0x3ee9e18edc71a6df30ac3aca2e0b02a198fbce19b7480a63a0d71cbd76652e0"
-export const KATANA_ACCOUNT_1_PRIVATEKEY = "0x300001800000000300000180000000000030000000000003006001800006600"
-export const WORLD_ADDRESS = "0x4c23334226cae585677471fcb7c1c07ad168c6492ff4675fc893e5d62c9e76b"
+export const KATANA_ACCOUNT_1_ADDRESS = "0x33c627a3e5213790e246a917770ce23d7e562baa5b4d2917c23b1be6d91961c"
+export const KATANA_ACCOUNT_1_PRIVATEKEY = "0x333803103001800039980190300d206608b0070db0012135bd1fb5f6282170b"
+export const WORLD_ADDRESS = "0x2601d6be817c7720dfa00435672e579e4ac3ae7d231af36b47352d31fb680dd"
 export const EVENT_KEY = "0x1a2f334228cee715f1f0f54053bb6b5eac54fa336e0bc1aacf7516decb0471d"
 
 

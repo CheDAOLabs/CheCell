@@ -1,0 +1,37 @@
+{
+  "_$ver": 1,
+  "_$id": "demcmj6wk9",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 376,
+  "height": 56,
+  "mouseEnabled": true,
+  "_$comp": [
+    {
+      "_$type": "9d83bd3a-b532-4ee5-8dac-8a73102c3bf3",
+      "scriptPath": "../src/ui/common/CellListItem.ts",
+      "button": {
+        "_$ref": "4rh1ksio"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "4rh1ksio",
+      "_$type": "Button",
+      "name": "Button",
+      "width": 376,
+      "height": 56,
+      "mouseEnabled": true,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://35ccce58-0821-446a-961f-767f3d5b8d8f",
+      "sizeGrid": "8,6,8,6,0",
+      "label": "0x123213123",
+      "labelFont": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "labelSize": 32,
+      "labelColors": "#755ba0,#755ba0,#ffffff",
+      "labelVAlign": "middle"
+    }
+  ]
+}

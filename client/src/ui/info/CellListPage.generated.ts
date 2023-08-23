@@ -2,7 +2,7 @@
 
 
 /**
- * resources/prefab/P_Cell_List.lh
+ * resources/prefab/info/P_Info_Page_Cell_List.lh
  */
 export class CellListPageBase extends Laya.Box {
     public cell_list!: Laya.VBox;

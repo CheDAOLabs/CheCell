@@ -1,6 +1,7 @@
 {
   "_$ver": 1,
   "_$id": "0v46w6wj7v",
+  "_$runtime": "res://d99aec04-9eb8-4796-8b82-5dc9412638bb",
   "_$type": "Box",
   "name": "Box",
   "width": 1920,
@@ -23,8 +24,9 @@
       "_$type": "Tab",
       "name": "item0Tab",
       "x": 50,
-      "width": 320,
-      "height": null,
+      "width": 272,
+      "height": 136,
+      "visible": false,
       "mouseEnabled": true,
       "skin": "res://37380fbc-6d3a-4689-8160-18c0b04c7ada",
       "stateNum": null,
@@ -51,39 +53,21 @@
       "mouseEnabled": true,
       "left": 391,
       "bottom": 60,
-      "selectedIndex": null,
+      "selectedIndex": 0,
       "_$child": [
+        {
+          "_$id": "gmjvzkh5",
+          "_$prefab": "aab532cd-cd08-443e-b7f7-8257de0a3ade",
+          "name": "item0",
+          "active": true,
+          "x": 5.684341886080802e-14,
+          "y": 0,
+          "visible": true
+        },
         {
           "_$id": "99hxlz59",
           "_$prefab": "c0fd399b-6913-4114-88bd-557a9361b640",
-          "name": "item0",
-          "active": true,
-          "x": 0,
-          "y": 0,
-          "visible": false
-        },
-        {
-          "_$id": "i7tsadyw",
-          "_$prefab": "18e48a7e-ac42-4267-aca9-46021234a225",
           "name": "item1",
-          "active": true,
-          "x": 0,
-          "y": 0,
-          "visible": false
-        },
-        {
-          "_$id": "8cwwlgj9",
-          "_$prefab": "fcabfbdd-834b-46b6-8893-57e07bb1892f",
-          "name": "item2",
-          "active": true,
-          "x": 0,
-          "y": 0,
-          "visible": false
-        },
-        {
-          "_$id": "nchdmaz0",
-          "_$prefab": "c31bc585-7e6d-4657-a228-aab60c96dede",
-          "name": "item3",
           "active": true,
           "x": 0,
           "y": 0,

@@ -1,0 +1,145 @@
+{
+  "_$ver": 1,
+  "_$id": "7zrxtye3dr",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 1424,
+  "height": 56,
+  "_$comp": [
+    {
+      "_$type": "44c62272-25f5-43e7-aee5-7c6a2d2c9147",
+      "scriptPath": "../src/ui/leaderboard/LeaderBoardPageItem2.ts",
+      "rank_number_label": {
+        "_$ref": "4ngdmemp"
+      },
+      "player_name_label": {
+        "_$ref": "we72wf7r"
+      },
+      "cell_number_label": {
+        "_$ref": "yolwrv4p"
+      },
+      "exp_number_label": {
+        "_$ref": "wcx3f3il"
+      }
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "r21epgw3",
+      "_$type": "Image",
+      "name": "bg",
+      "width": 1424,
+      "height": 56,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#32305a"
+    },
+    {
+      "_$id": "qirweofh",
+      "_$type": "Image",
+      "name": "state_icon",
+      "x": 1224,
+      "y": 28,
+      "width": 28,
+      "height": 28,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "visible": false,
+      "left": 1210,
+      "centerY": 0,
+      "skin": "res://5b10e5d1-b288-4686-aa90-e1e0681a9a71",
+      "useSourceSize": true,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "4ngdmemp",
+      "_$type": "Label",
+      "name": "rank_value_label",
+      "x": 86,
+      "y": 10,
+      "width": 14,
+      "height": 33,
+      "left": 86,
+      "centerY": -2,
+      "text": "4",
+      "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "fontSize": 32,
+      "color": "rgba(246, 218, 255, 1)",
+      "fitContent": "yes",
+      "leading": 2,
+      "padding": "0,0,0,0"
+    },
+    {
+      "_$id": "we72wf7r",
+      "_$type": "Label",
+      "name": "name_value_label",
+      "x": 280,
+      "y": 10,
+      "width": 156,
+      "height": 33,
+      "left": 280,
+      "centerY": -2,
+      "text": "0x1234567891",
+      "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "fontSize": 32,
+      "color": "rgba(246, 218, 255, 1)",
+      "fitContent": "yes",
+      "leading": 2,
+      "padding": "0,0,0,0"
+    },
+    {
+      "_$id": "yolwrv4p",
+      "_$type": "Label",
+      "name": "cell_number_value_label",
+      "x": 662,
+      "y": 12,
+      "width": 22,
+      "height": 33,
+      "left": 662,
+      "centerY": 0,
+      "text": "10",
+      "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "fontSize": 32,
+      "color": "rgba(246, 218, 255, 1)",
+      "fitContent": "yes",
+      "leading": 2,
+      "padding": "0,0,0,0"
+    },
+    {
+      "_$id": "wcx3f3il",
+      "_$type": "Label",
+      "name": "exp_rank_value_label",
+      "x": 920,
+      "y": 12,
+      "width": 56,
+      "height": 33,
+      "left": 920,
+      "centerY": 0,
+      "text": "9999",
+      "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "fontSize": 32,
+      "color": "rgba(246, 218, 255, 1)",
+      "fitContent": "yes",
+      "leading": 2,
+      "padding": "0,0,0,0"
+    },
+    {
+      "_$id": "jdqzx725",
+      "_$type": "Label",
+      "name": "floatestate_value_label",
+      "x": 1246,
+      "y": 12,
+      "width": 22,
+      "height": 33,
+      "visible": false,
+      "left": 1246,
+      "centerY": 0,
+      "text": "15",
+      "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "fontSize": 32,
+      "color": "rgba(246, 218, 255, 1)",
+      "fitContent": "yes",
+      "leading": 2,
+      "padding": "0,0,0,0"
+    }
+  ]
+}

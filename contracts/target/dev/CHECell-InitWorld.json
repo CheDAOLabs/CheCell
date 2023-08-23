@@ -53,8 +53,8 @@
     "0x426f78",
     "0x29d7d57c04a880978e7b3689f6218e507f3be17588744b58dc17762447ad0e7",
     "0x14",
-    "0x91c5dc23ea4090efc87cbafeadcca50f33f2da66cf13494f04595a9533537d",
-    "0x23326abcd28267fb542877393fa5074df68870ecfdd0f270c034cd3da6587e1",
+    "0x21bbf288f3a5bddd0e9c6cfd63e71b2393d89fd03d64c526532c614be5c6778",
+    "0x99669d8265fc9fb524270da87f0e990dfad2b44a85d4fe07f1b07c683033ab",
     "0x16",
     "0x74584e9f10ffb1a40aa5a3582e203f6758defc4a497d1a2d5a89f274a320e9",
     "0x18",
@@ -85,7 +85,7 @@
     "0x6e4e02481efb638c40e4ac7d532ed2fc8713cb91918899c09df15d2a5c619d",
     "0x1c8abca6657f50b346de48aef52966bf3fe52224a278391ce8e3a59e80741d7",
     "0x2c",
-    "0x17b17524a9cd01a87b52157d76832cb43b31e86ba8357bc2520ff6aae03e326",
+    "0x153b768d0e3f050e3e3703aadb47728a74191caa6de07a47bd5f8ed14cdf2f5",
     "0x4275696c74696e436f737473",
     "0x9931c641b913035ae674b400b61a51476d506bbe8bba2ff8a6272790aba9e6",
     "0x2e",
@@ -1020,11 +1020,11 @@
       ],
       [
         22,
-        "CHECell::components::worldInfo::WorldInfo"
+        "CheCell::components::worldInfo::WorldInfo"
       ],
       [
         23,
-        "core::option::Option::<CHECell::components::worldInfo::WorldInfo>"
+        "core::option::Option::<CheCell::components::worldInfo::WorldInfo>"
       ],
       [
         24,
@@ -1120,7 +1120,7 @@
       ],
       [
         47,
-        "CHECell::systems::game::worldSystem::InitWorld::ContractState"
+        "CheCell::systems::game::worldSystem::InitWorld::ContractState"
       ],
       [
         48,
@@ -1250,15 +1250,15 @@
       ],
       [
         27,
-        "struct_construct<CHECell::systems::game::worldSystem::InitWorld::ContractState>"
+        "struct_construct<CheCell::systems::game::worldSystem::InitWorld::ContractState>"
       ],
       [
         28,
-        "snapshot_take<CHECell::systems::game::worldSystem::InitWorld::ContractState>"
+        "snapshot_take<CheCell::systems::game::worldSystem::InitWorld::ContractState>"
       ],
       [
         29,
-        "drop<CHECell::systems::game::worldSystem::InitWorld::ContractState>"
+        "drop<CheCell::systems::game::worldSystem::InitWorld::ContractState>"
       ],
       [
         30,
@@ -1330,7 +1330,7 @@
       ],
       [
         47,
-        "store_temp<CHECell::systems::game::worldSystem::InitWorld::ContractState>"
+        "store_temp<CheCell::systems::game::worldSystem::InitWorld::ContractState>"
       ],
       [
         48,
@@ -1338,7 +1338,7 @@
       ],
       [
         49,
-        "function_call<user@CHECell::systems::game::worldSystem::InitWorld::execute>"
+        "function_call<user@CheCell::systems::game::worldSystem::InitWorld::execute>"
       ],
       [
         50,
@@ -1566,15 +1566,15 @@
       ],
       [
         106,
-        "function_call<user@CHECell::components::worldInfo::WorldInfoSerde::deserialize>"
+        "function_call<user@CheCell::components::worldInfo::WorldInfoSerde::deserialize>"
       ],
       [
         107,
-        "enum_match<core::option::Option::<CHECell::components::worldInfo::WorldInfo>>"
+        "enum_match<core::option::Option::<CheCell::components::worldInfo::WorldInfo>>"
       ],
       [
         108,
-        "struct_deconstruct<CHECell::components::worldInfo::WorldInfo>"
+        "struct_deconstruct<CheCell::components::worldInfo::WorldInfo>"
       ],
       [
         109,
@@ -1626,15 +1626,15 @@
       ],
       [
         121,
-        "struct_construct<CHECell::components::worldInfo::WorldInfo>"
+        "struct_construct<CheCell::components::worldInfo::WorldInfo>"
       ],
       [
         122,
-        "snapshot_take<CHECell::components::worldInfo::WorldInfo>"
+        "snapshot_take<CheCell::components::worldInfo::WorldInfo>"
       ],
       [
         123,
-        "drop<CHECell::components::worldInfo::WorldInfo>"
+        "drop<CheCell::components::worldInfo::WorldInfo>"
       ],
       [
         124,
@@ -1910,15 +1910,15 @@
       ],
       [
         192,
-        "enum_init<core::option::Option::<CHECell::components::worldInfo::WorldInfo>, 0>"
+        "enum_init<core::option::Option::<CheCell::components::worldInfo::WorldInfo>, 0>"
       ],
       [
         193,
-        "store_temp<core::option::Option::<CHECell::components::worldInfo::WorldInfo>>"
+        "store_temp<core::option::Option::<CheCell::components::worldInfo::WorldInfo>>"
       ],
       [
         194,
-        "enum_init<core::option::Option::<CHECell::components::worldInfo::WorldInfo>, 1>"
+        "enum_init<core::option::Option::<CheCell::components::worldInfo::WorldInfo>, 1>"
       ],
       [
         195,
@@ -2076,11 +2076,11 @@
     "user_func_names": [
       [
         0,
-        "CHECell::systems::game::worldSystem::InitWorld::__external::name"
+        "CheCell::systems::game::worldSystem::InitWorld::__external::name"
       ],
       [
         1,
-        "CHECell::systems::game::worldSystem::InitWorld::__external::execute"
+        "CheCell::systems::game::worldSystem::InitWorld::__external::execute"
       ],
       [
         2,
@@ -2096,7 +2096,7 @@
       ],
       [
         5,
-        "CHECell::systems::game::worldSystem::InitWorld::execute"
+        "CheCell::systems::game::worldSystem::InitWorld::execute"
       ],
       [
         6,
@@ -2132,7 +2132,7 @@
       ],
       [
         14,
-        "CHECell::components::worldInfo::WorldInfoSerde::deserialize"
+        "CheCell::components::worldInfo::WorldInfoSerde::deserialize"
       ],
       [
         15,
@@ -2253,7 +2253,7 @@
     },
     {
       "type": "event",
-      "name": "CHECell::systems::game::worldSystem::InitWorld::Event",
+      "name": "CheCell::systems::game::worldSystem::InitWorld::Event",
       "kind": "enum",
       "variants": []
     }

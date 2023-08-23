@@ -80,7 +80,7 @@ export class CellBodyEnhancePage extends CellBodyEnhancePageBase {
     updateCellPropertyPointImage(seed:number,point_number:number){
 
         this.cell_property_point_panel.removeChildren();
-        Laya.loader.load("resources/prefab/info/P_Cell_Property_Point_Item.lh").then((res)=>{
+        Laya.loader.load("resources/prefab/info/P_Info_Page_Cell_List_Property_Point_Item.lh").then((res)=>{
             const {
                 network:{
                     account,

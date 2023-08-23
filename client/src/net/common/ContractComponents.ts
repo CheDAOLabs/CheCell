@@ -10,7 +10,8 @@ export function defineContractComponents(world: World) {
         world,
         {
           init:RecsType.Boolean,
-          cell_number: RecsType.Number
+          cell_number: RecsType.Number,
+          address:RecsType.Number,
         },
         {
           metadata: {
@@ -45,12 +46,13 @@ export function defineContractComponents(world: World) {
           name:RecsType.BigInt,
           seed: RecsType.BigInt,
           exp:RecsType.Number,
-          bread_count:RecsType.Number,
+          breed_count:RecsType.Number,
           body_size:RecsType.Number,
           category:RecsType.Number,
           state:RecsType.Number,
           explore_time:RecsType.Number,
-          explore_end_time:RecsType.BigInt
+          explore_end_time:RecsType.BigInt,
+          evolution_end_time:RecsType.BigInt
         },
         {
           metadata: {

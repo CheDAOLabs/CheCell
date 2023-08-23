@@ -35,6 +35,14 @@ export function CreateSystemCalls(
         const tx = await execute("CellExploreGain", [c_id]);
         return await syncWorker.sync(tx.transaction_hash);
     }
+    const CellEvolution = async (c_id:number) => {
+        const tx = await execute("CellEvolution", [c_id]);
+        return await syncWorker.sync(tx.transaction_hash);
+    }
+    const CellEvolutionGain = async (c_id:number) => {
+        const tx = await execute("CellEvolutionGain", [c_id]);
+        return await syncWorker.sync(tx.transaction_hash);
+    }
     return {
         InitWorld,
         InitAccount,
@@ -42,6 +50,8 @@ export function CreateSystemCalls(
         AddCellBodySize,
         AddCellProperty,
         CellExplore,
-        CellExploreGain
+        CellExploreGain,
+        CellEvolution,
+        CellEvolutionGain
     };
 }

@@ -46,7 +46,7 @@
     "0x1baeba72e79e9db2587cf44fedb2f3700b2075a5e8e39a562584862c4b71f62",
     "0xf",
     "0x10",
-    "0x388431ace23869c802de6713681f0d133efc42eecd58b9838285eb9df40c9ee",
+    "0x24141642fc5e34f90c53ff3c58b33e188fbe4659934dc8f0b7b98860f737dc6",
     "0x4275696c74696e436f737473",
     "0x9931c641b913035ae674b400b61a51476d506bbe8bba2ff8a6272790aba9e6",
     "0x11",
@@ -405,7 +405,7 @@
       ],
       [
         18,
-        "CHECell::components::worldInfo::world_info::ContractState"
+        "CheCell::components::worldInfo::world_info::ContractState"
       ],
       [
         19,
@@ -539,15 +539,15 @@
       ],
       [
         27,
-        "struct_construct<CHECell::components::worldInfo::world_info::ContractState>"
+        "struct_construct<CheCell::components::worldInfo::world_info::ContractState>"
       ],
       [
         28,
-        "snapshot_take<CHECell::components::worldInfo::world_info::ContractState>"
+        "snapshot_take<CheCell::components::worldInfo::world_info::ContractState>"
       ],
       [
         29,
-        "drop<CHECell::components::worldInfo::world_info::ContractState>"
+        "drop<CheCell::components::worldInfo::world_info::ContractState>"
       ],
       [
         30,
@@ -607,11 +607,11 @@
       ],
       [
         44,
-        "store_temp<CHECell::components::worldInfo::world_info::ContractState>"
+        "store_temp<CheCell::components::worldInfo::world_info::ContractState>"
       ],
       [
         45,
-        "function_call<user@CHECell::components::worldInfo::world_info::schema>"
+        "function_call<user@CheCell::components::worldInfo::world_info::schema>"
       ],
       [
         46,
@@ -817,15 +817,15 @@
     "user_func_names": [
       [
         0,
-        "CHECell::components::worldInfo::world_info::__external::name"
+        "CheCell::components::worldInfo::world_info::__external::name"
       ],
       [
         1,
-        "CHECell::components::worldInfo::world_info::__external::size"
+        "CheCell::components::worldInfo::world_info::__external::size"
       ],
       [
         2,
-        "CHECell::components::worldInfo::world_info::__external::schema"
+        "CheCell::components::worldInfo::world_info::__external::schema"
       ],
       [
         3,
@@ -841,7 +841,7 @@
       ],
       [
         6,
-        "CHECell::components::worldInfo::world_info::schema"
+        "CheCell::components::worldInfo::world_info::schema"
       ],
       [
         7,
@@ -930,7 +930,7 @@
     },
     {
       "type": "event",
-      "name": "CHECell::components::worldInfo::world_info::Event",
+      "name": "CheCell::components::worldInfo::world_info::Event",
       "kind": "enum",
       "variants": []
     }

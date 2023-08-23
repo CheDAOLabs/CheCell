@@ -11,6 +11,8 @@ import { getEntities } from '../net/core/network/graphql';
 import { GetGraphQLUrl } from '../net/core/constants';
 import { MapInfoPage } from '../ui/map/MapInfoPage';
 import { CellInfoPage } from '../ui/info/CellInfoPage';
+import { EvolutionPage } from '../ui/evolution/EvolutionPage';
+import { LeaderBoardPage } from '../ui/leaderboard/LeaderBoardPage';
 @regClass()
 export class Home extends HomeBase {
  
@@ -18,7 +20,9 @@ export class Home extends HomeBase {
         console.log("Home start");
         this.info_button.on(Laya.Event.CLICK,this,this.onInfoButtonEvent.bind(this));
        // this.map_button.on(Laya.Event.CLICK,this,this.onMapButtonEvent.bind(this));
-       this.evolution_button.on(Laya.Event.CLICK,this,this.onEvolutionButtonEvent.bind(this));
+        this.evolution_button.on(Laya.Event.CLICK,this,this.onEvolutionButtonEvent.bind(this));
+        this.ranking_button.on(Laya.Event.CLICK,this,this.onRankingButtonEvent.bind(this));
+        this.market_button.on(Laya.Event.CLICK,this,this.onMarketButtonEvent.bind(this));
         this.onSelect(0);
 
         Laya.stage.on(HomeManagerEvent.OnCreateCell,this,this.onCreateCellEvent.bind(this));
@@ -27,6 +31,8 @@ export class Home extends HomeBase {
         Laya.stage.on(HomeManagerEvent.OnEnhanceCellPropertyConfirm,this,this.onEnhanceCellPropertyConfirmEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnExplore,this,this.onExploreEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnGain,this,this.onGainEvent.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnEvolutionGain,this,this.onEvolutionGainEvent.bind(this));
+         
 
          
     }
@@ -53,12 +59,22 @@ export class Home extends HomeBase {
     }
     onEvolutionButtonEvent(param: any): void {
         this.onSelect(2);
+        (this.page_stack.selection as EvolutionPage).onRefresh();
     }
+    onRankingButtonEvent(param: any): void {
+        this.onSelect(3);
+        (this.page_stack.selection as LeaderBoardPage).onRefresh();
+    }
+    onMarketButtonEvent(param: any): void {
+        this.onSelect(4);
+       // (this.page_stack.selection as EvolutionPage).onRefresh();
+    }
+     
     private onSelect(index: number): void {
         this.info_button.selected = false;
         this.map_button.selected = false;
         this.evolution_button.selected = false;
-        this.leaderborad_button.selected = false;
+        this.ranking_button.selected = false;
         this.market_button.selected = false;
         switch (index) {
             case 0:
@@ -71,7 +87,7 @@ export class Home extends HomeBase {
                 this.evolution_button.selected = true;
                 break;
             case 3:
-                this.leaderborad_button.selected = true;
+                this.ranking_button.selected = true;
                 break;
             case 4:
                 this.market_button.selected = true;
@@ -89,7 +105,7 @@ export class Home extends HomeBase {
                 CreateCell
             }
            } = NetMgr.GetInstance().GetNet();
-           console.log('add---');
+ 
            let property = data.color.r;
            property += data.color.g<<8;
            property += data.color.b<<16;
@@ -149,9 +165,22 @@ export class Home extends HomeBase {
                 CellExploreGain
             }
            } = NetMgr.GetInstance().GetNet();
-           console.log('-------------',param);
+ 
            const result = await CellExploreGain(param);
            Laya.stage.event(NetManagerEvent.OnGainCB,result);
     }
+    async onEvolutionGainEvent(param: any){
+       
+        const {
+            systemCalls:{
+                CellEvolutionGain
+            }
+           } = NetMgr.GetInstance().GetNet();
+ 
+           const result = await CellEvolutionGain(param);
+           Laya.stage.event(NetManagerEvent.OnEvolutionGainCB,result);
+    }
+
+     
 }
  

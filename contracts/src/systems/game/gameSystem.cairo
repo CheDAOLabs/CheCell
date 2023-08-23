@@ -9,13 +9,13 @@ mod CellExplore {
     use poseidon::poseidon_hash_span;
 
 
-    use CHECell::utils::constants::{GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE};  
-    use CHECell::utils::math::{decodePackage};  
-    use CHECell::utils::cal::{getAttrCost,getSizeCost}; 
+    use CheCell::utils::constants::{GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE};  
+    use CheCell::utils::math::{decodePackage};  
+    use CheCell::utils::cal::{getAttrCost,getSizeCost}; 
 
-    use CHECell::components::account::{Account};
-    use CHECell::components::worldInfo::{WorldInfo};
-    use CHECell::components::cell::{Cell,CellProperty};
+    use CheCell::components::account::{Account};
+    use CheCell::components::worldInfo::{WorldInfo};
+    use CheCell::components::cell::{Cell,CellProperty};
 
     fn execute(ctx: Context,c_id:u32,time:u32) {
 
@@ -88,13 +88,13 @@ mod CellExploreGain {
     use poseidon::poseidon_hash_span;
 
 
-    use CHECell::utils::constants::{GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE};  
-    use CHECell::utils::math::{decodePackage};  
-    use CHECell::utils::cal::{getAttrCost,getSizeCost}; 
+    use CheCell::utils::constants::{GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE};  
+    use CheCell::utils::math::{decodePackage};  
+    use CheCell::utils::cal::{getAttrCost,getSizeCost}; 
 
-    use CHECell::components::account::{Account};
-    use CHECell::components::worldInfo::{WorldInfo};
-    use CHECell::components::cell::{Cell,CellProperty};
+    use CheCell::components::account::{Account};
+    use CheCell::components::worldInfo::{WorldInfo};
+    use CheCell::components::cell::{Cell,CellProperty};
 
     fn execute(ctx: Context,c_id:u32) {
 

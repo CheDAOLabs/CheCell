@@ -32,13 +32,14 @@ export class Login extends LoginBase {
          } = NetMgr.GetInstance().GetNet();
          console.log('init----');
          const world = getComponentValue(WorldInfo,Utils.getEntityIdFromKeys([GAMEID,WORLDID]));
-         if(world === undefined){
+         if(world == undefined){
             await InitWorld();
          }
          const entityid = account.address;
          console.log('entity    ',entityid);
          const ac = getComponentValue(Account,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid)]));
-         if(ac === undefined){
+         
+         if(ac == undefined){
             await InitAccount();
          }
         this.onChangeScene();

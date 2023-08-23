@@ -35,4 +35,24 @@ export function secondsToMinutes(seconds:number) {
 
 export function getCurrentTimestamp() {
     return Math.floor(Date.now() / 1000);
+}
+
+export function isBitSet(number:number, n:number) {
+  const mask = 1 << n;
+  return (number & mask) !== 0;
+}
+
+export function insertDataDescendingOrder(dataArray:any[], newData:any) {
+  let inserted = false;
+  for (let i = 0; i < dataArray.length; i++) {
+    if (newData.cell_number > dataArray[i].cell_number) {
+      dataArray.splice(i, 0, newData);
+      inserted = true;
+      break;
+    }
   }
+  if (!inserted) {
+    dataArray.push(newData);
+  }
+  return dataArray;
+}

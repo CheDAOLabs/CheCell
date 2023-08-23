@@ -1,6 +1,6 @@
 const { regClass, property } = Laya;
  
-import { GAMEID, HomeManagerEvent, WORLDID } from '../../common/Config';
+import { CellListPageType, GAMEID, HomeManagerEvent, WORLDID } from '../../common/Config';
 import { getCellInfo1,getCellInfo2 } from '../../logic/gamelogic';
 import { NetMgr } from '../../net/NetMgr';
 import { Utils } from '../../net/core';
@@ -8,7 +8,7 @@ import { felt252ToStr } from '../../net/core/utils';
 import { CellAttributeEnhancePage } from './CellAttributeEnhancePage';
 import { CellBodyEnhancePage } from './CellBodyEnhancePage';
 import { CellInfoSubPage } from './CellInfoSubPage';
-import { CellListItem } from './CellListItem';
+import { CellListItem } from '../common/CellListItem';
 import { CellListPageBase } from './CellListPage.generated';
 import { EntityIndex, getComponentValue } from '@latticexyz/recs';
 
@@ -16,7 +16,7 @@ import { EntityIndex, getComponentValue } from '@latticexyz/recs';
 export class CellListPage extends CellListPageBase {
     selected_node:Laya.Node;
     onAwake() {
-        Laya.stage.on(HomeManagerEvent.OnTouchCellListButton,this,this.onTouchCellItemEvent.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnTouchInfoCell,this,this.onTouchInfoCellEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnUpdateCellList,this,this.onUpdateCellList.bind(this));
         Laya.stage.on(HomeManagerEvent.OnEnhanceCellBodySize,this,this.onEnhanceCellBodySize.bind(this));
         Laya.stage.on(HomeManagerEvent.OnEnhanceCellProperty,this,this.onEnhanceCellProperty.bind(this));
@@ -33,7 +33,7 @@ export class CellListPage extends CellListPageBase {
     onUpdateCellList(param: any): void {
         this.cell_list.removeChildren();
 
-        Laya.loader.load("resources/prefab/info/P_Cell_List_Item.lh").then((res)=>{
+        Laya.loader.load("resources/prefab/common/P_Common_Page_Cell_List_Item.lh").then((res)=>{
             const {
                 network:{
                     account,
@@ -55,22 +55,25 @@ export class CellListPage extends CellListPageBase {
                     let item = res.create();
                     let script = item.getComponent(Laya.Script) as CellListItem;
                     const cell_info = getComponentValue(Cell,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid),BigInt(i+1)]));
-                   
-                    script.SetIndex(i);
-                    script.SetName(felt252ToStr(cell_info.name));
+                    let data = {
+                        name:felt252ToStr(cell_info.name),
+                        index:i,
+                        type:CellListPageType.Info
+                    }
+                    script.SetData(data);
                      
                     this.cell_list.addChildAt(item,i);
                     if(i == 0){
                         this.selected_node = this.cell_list.getChildAt(0);
                         this.onSelect(0);
-                        this.onTouchCellItemEvent(0);
+                        this.onTouchInfoCellEvent(0);
                         script.onSelected(true);
                     };
                 }
         });
         
      }
-    onTouchCellItemEvent(param: any): void {
+     onTouchInfoCellEvent(param: any): void {
         
         (this.selected_node.getComponent(Laya.Script) as CellListItem).onSelected(false);
          

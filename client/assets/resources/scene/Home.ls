@@ -146,7 +146,7 @@
               "_$id": "46qwj49z",
               "_$var": true,
               "_$type": "Button",
-              "name": "leaderborad_button",
+              "name": "ranking_button",
               "x": 1052,
               "width": 396,
               "height": 56,
@@ -218,6 +218,33 @@
               "_$id": "7s0es3js",
               "_$prefab": "9b252579-b714-4e5b-937f-4230ed01d035",
               "name": "item1",
+              "active": true,
+              "x": 0,
+              "y": 0,
+              "visible": false
+            },
+            {
+              "_$id": "mx8z1637",
+              "_$prefab": "992b89e8-7fc7-4720-a3b2-bf57eda96c95",
+              "name": "item2",
+              "active": true,
+              "x": 0,
+              "y": 0,
+              "visible": false
+            },
+            {
+              "_$id": "3zsg5xwn",
+              "_$prefab": "0564dbf2-b41a-4e14-a2c9-585808185233",
+              "name": "item3",
+              "active": true,
+              "x": 0,
+              "y": 0,
+              "visible": false
+            },
+            {
+              "_$id": "181109mg",
+              "_$prefab": "795cf9b9-75e9-4099-8af1-d43c719fe74f",
+              "name": "item4",
               "active": true,
               "x": 0,
               "y": 0,

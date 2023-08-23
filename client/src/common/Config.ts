@@ -8,7 +8,10 @@ export const enum CommonManagerEvent {
 
 
 export const enum HomeManagerEvent {
-    OnTouchCellListButton = 'OnTouchCellListButton',
+    OnTouchInfoCell = 'OnTouchInfoCell',
+    OnTouchEvolutionCell = 'OnTouchEvolutionCell',
+    OnTouchMarketCell = 'OnTouchMarketCell',
+    
     OnCreateCell = 'OnCreateCell',
     OnUpdateCreateCell = 'OnUpdateCreateCell',
     OnUpdateCellList = 'OnUpdateCellList',
@@ -20,6 +23,7 @@ export const enum HomeManagerEvent {
     OnPlayGame = 'OnPlayGame',
     OnExplore = 'OnExplore',
     OnGain = 'OnGain',
+    OnEvolutionGain = 'OnEvolutionGain'
 };
 
 export const enum NetManagerEvent {
@@ -28,7 +32,20 @@ export const enum NetManagerEvent {
       OnEnhanceCellPropertyCB = 'OnEnhanceCellPropertyCB',
       OnExploreCB = 'OnExploreCB',
       OnGainCB = 'OnGainCB',
+      OnEvolutionGainCB = 'OnEvolutionGain'
   };
+
+export const enum CellState{
+      Normal = 0,
+      Exploring = 1,
+      Evolving = 2
+};
+
+export const enum CellListPageType{
+      Info = 0,
+      Evolving = 1,
+      Market = 2
+};
 export interface Color{
 
       r:number;

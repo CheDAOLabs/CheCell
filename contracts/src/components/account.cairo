@@ -5,5 +5,6 @@ struct Account {
     
     init:bool,
     cell_number:u32,
+    address:felt252,
 }
  

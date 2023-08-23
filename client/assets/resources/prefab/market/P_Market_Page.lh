@@ -1,0 +1,68 @@
+{
+  "_$ver": 1,
+  "_$id": "u3tm61ux8d",
+  "_$runtime": "res://f7ea9fc9-f0be-47bf-b29e-3d07abac9490",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 1920,
+  "height": 880,
+  "mouseEnabled": true,
+  "_$child": [
+    {
+      "_$id": "9lgtlk6y",
+      "_$var": true,
+      "_$type": "Tab",
+      "name": "item0Tab",
+      "x": 50,
+      "width": 272,
+      "height": null,
+      "mouseEnabled": true,
+      "skin": "res://37380fbc-6d3a-4689-8160-18c0b04c7ada",
+      "stateNum": null,
+      "labels": "Ask,Bid",
+      "space": 8,
+      "direction": "vertical",
+      "selectedIndex": 0,
+      "labelFont": "res://138f23ad-1310-42de-8811-0055f0a577a5",
+      "labelSize": 28,
+      "labelColors": "#7b67b7,#7b67b7,#f6daff",
+      "labelStroke": null,
+      "labelStrokeColor": null,
+      "labelAlign": null,
+      "strokeColors": null
+    },
+    {
+      "_$id": "3swu86p0",
+      "_$var": true,
+      "_$type": "ViewStack",
+      "name": "item0Page",
+      "x": 338,
+      "width": 1528,
+      "height": 800,
+      "mouseEnabled": true,
+      "left": 338,
+      "top": 0,
+      "selectedIndex": 0,
+      "_$child": [
+        {
+          "_$id": "tnsrdasa",
+          "_$prefab": "18e48a7e-ac42-4267-aca9-46021234a225",
+          "name": "item0",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": true
+        },
+        {
+          "_$id": "i6gbb7xq",
+          "_$prefab": "6e43b141-b665-4e4b-ae3b-681011f890ab",
+          "name": "item1",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": false
+        }
+      ]
+    }
+  ]
+}

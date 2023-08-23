@@ -7,10 +7,10 @@ mod InitAccount {
 
     use dojo::world::Context;
 
-    use CHECell::utils::constants::{GAME_ID,WORLD_ID};  
+    use CheCell::utils::constants::{GAME_ID,WORLD_ID};  
  
-    use CHECell::components::worldInfo::{WorldInfo};
-    use CHECell::components::account::{Account};
+    use CheCell::components::worldInfo::{WorldInfo};
+    use CheCell::components::account::{Account};
 
     fn execute(ctx: Context) {
 
@@ -31,6 +31,7 @@ mod InitAccount {
         assert(account.init == false, 'account already register');
 
         account.init = true;
+        account.address = ctx.origin.into();
         set!(
             ctx.world,
             (account)

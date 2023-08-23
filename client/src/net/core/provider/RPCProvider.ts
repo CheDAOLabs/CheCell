@@ -83,7 +83,7 @@ export class RPCProvider extends IProvider {
             from_block: {block_number: 0},
             to_block: {block_number: lastBlock.block_number},
             chunk_size: 400,
-            keys:null
+            keys:[['0x1a2f334228cee715f1f0f54053bb6b5eac54fa336e0bc1aacf7516decb0471d']]
         });
      //   console.log(list);
         return list.events;

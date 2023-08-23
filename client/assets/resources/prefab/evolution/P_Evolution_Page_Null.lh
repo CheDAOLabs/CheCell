@@ -1,0 +1,42 @@
+{
+  "_$ver": 1,
+  "_$id": "r75a4u1aqw",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 1480,
+  "height": 800,
+  "mouseEnabled": true,
+  "_$child": [
+    {
+      "_$id": "82dqp01g",
+      "_$type": "Image",
+      "name": "Image",
+      "x": 588,
+      "y": 208,
+      "width": 304,
+      "height": 224,
+      "top": 208,
+      "centerX": 0,
+      "skin": "res://304727e3-e7cd-42f9-a04b-2bcc1742ac30",
+      "useSourceSize": true,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "0srum56r",
+      "_$type": "Label",
+      "name": "Label",
+      "x": 407,
+      "y": 482,
+      "width": 666,
+      "height": 92,
+      "bottom": 226,
+      "centerX": 0,
+      "text": "Currently there are no cells that are not in the state\n of reproduction, you can go to the market to place \norders for reproduction according to demand.",
+      "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "fontSize": 32,
+      "color": "rgba(117, 91, 160, 1)",
+      "leading": 2,
+      "padding": "0,0,0,0"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "_$ver": 1,
+  "_$id": "o8lrsc2j",
+  "_$runtime": "res://bf2bf7a7-afd2-446a-a118-cb322a1d0423",
+  "_$type": "Box",
+  "name": "item1",
+  "width": 1520,
+  "height": 800,
+  "mouseEnabled": true,
+  "_$child": [
+    {
+      "_$id": "ck9elsma",
+      "_$type": "Image",
+      "name": "bg",
+      "x": 5.684341886080802e-14,
+      "width": 1528,
+      "height": 800,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#252641"
+    },
+    {
+      "_$id": "1ar9ikxz",
+      "_$var": true,
+      "_$type": "VBox",
+      "name": "cell_list",
+      "y": 32,
+      "width": 438,
+      "height": 764,
+      "mouseEnabled": true,
+      "left": 0,
+      "top": 32,
+      "space": 8,
+      "align": "center"
+    },
+    {
+      "_$id": "55741u2k",
+      "_$type": "Image",
+      "name": "ledger_image",
+      "x": 438,
+      "y": 13,
+      "width": 2,
+      "height": 772,
+      "left": 438,
+      "top": 13,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#663c9c"
+    },
+    {
+      "_$id": "9zzugmk0",
+      "_$var": true,
+      "_$type": "ViewStack",
+      "name": "item0Page",
+      "x": 440,
+      "width": 1088,
+      "height": 800,
+      "mouseEnabled": true,
+      "left": 440,
+      "centerY": 0,
+      "selectedIndex": null,
+      "_$child": [
+        {
+          "_$id": "pa7u032t",
+          "_$prefab": "3195efd2-e3e6-4582-b580-38a649b84130",
+          "name": "item0",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": false
+        },
+        {
+          "_$id": "dbxw5v6n",
+          "_$prefab": "598669e6-cace-4049-b185-d788811de07e",
+          "name": "item1",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": false
+        },
+        {
+          "_$id": "i0rq9xz3",
+          "_$prefab": "f80dfd86-135f-4335-868d-8fdb02df541f",
+          "name": "item2",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": false
+        }
+      ]
+    }
+  ]
+}

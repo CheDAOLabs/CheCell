@@ -1,0 +1,57 @@
+{
+  "_$ver": 1,
+  "_$id": "380r9c7d42",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 44,
+  "height": 32,
+  "mouseEnabled": true,
+  "_$comp": [
+    {
+      "_$type": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+      "scriptPath": "../src/ui/market/MarketPageAskCategorySelectedItem.ts",
+      "button": {
+        "_$ref": "7uz7bo8e"
+      },
+      "index": null
+    }
+  ],
+  "_$child": [
+    {
+      "_$id": "7uz7bo8e",
+      "_$type": "Button",
+      "name": "Button",
+      "y": 4,
+      "width": 24,
+      "height": 24,
+      "mouseEnabled": true,
+      "left": 0,
+      "centerY": 0,
+      "toggle": true,
+      "skin": "res://22cb4df9-f9b4-4ef5-a30e-445d8f9bc9c7",
+      "label": "",
+      "labelSize": 20,
+      "labelAlign": "left",
+      "labelVAlign": "middle",
+      "labelStrokeColor": "#32556b",
+      "strokeColors": "#32556b,#32cc6b,#ff0000"
+    },
+    {
+      "_$id": "d6cbsczq",
+      "_$type": "Label",
+      "name": "Label",
+      "x": 34,
+      "y": -2,
+      "width": 10,
+      "height": 28,
+      "right": 0,
+      "bottom": 6,
+      "text": "A",
+      "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "fontSize": 32,
+      "color": "rgba(246, 218, 255, 1)",
+      "leading": 2,
+      "padding": "0,0,0,0"
+    }
+  ]
+}

@@ -1,0 +1,632 @@
+{
+  "_$ver": 1,
+  "_$id": "o8lrsc2j",
+  "_$runtime": "res://d032e494-c2fb-405d-b572-00d7d9215c7d",
+  "_$type": "Box",
+  "name": "item1",
+  "width": 1480,
+  "height": 800,
+  "mouseEnabled": true,
+  "_$child": [
+    {
+      "_$id": "ck9elsma",
+      "_$type": "Image",
+      "name": "bg",
+      "x": 5.684341886080802e-14,
+      "width": 1480,
+      "height": 800,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#252641"
+    },
+    {
+      "_$id": "1ar9ikxz",
+      "_$var": true,
+      "_$type": "VBox",
+      "name": "cell_list",
+      "y": 32,
+      "width": 438,
+      "height": 764,
+      "mouseEnabled": true,
+      "left": 0,
+      "top": 32,
+      "space": 8,
+      "align": "center"
+    },
+    {
+      "_$id": "55741u2k",
+      "_$type": "Image",
+      "name": "ledger_image",
+      "x": 438,
+      "y": 13,
+      "width": 2,
+      "height": 772,
+      "left": 438,
+      "top": 13,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#663c9c"
+    },
+    {
+      "_$id": "kjvmuzfa",
+      "_$type": "Box",
+      "name": "Box",
+      "x": 439,
+      "width": 1088,
+      "height": 800,
+      "mouseEnabled": true,
+      "centerY": 0,
+      "_$child": [
+        {
+          "_$id": "738slvil",
+          "_$type": "Image",
+          "name": "line_1",
+          "x": 462,
+          "y": 224,
+          "width": 546,
+          "height": 2,
+          "right": 80,
+          "top": 224,
+          "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+          "color": "#4a4b7a"
+        },
+        {
+          "_$id": "fucqqllt",
+          "_$type": "Image",
+          "name": "line_2",
+          "x": 462,
+          "y": 166,
+          "width": 546,
+          "height": 2,
+          "right": 80,
+          "top": 166,
+          "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+          "color": "#4a4b7a"
+        },
+        {
+          "_$id": "zmplit0g",
+          "_$var": true,
+          "_$type": "Image",
+          "name": "cell_bg_img",
+          "x": 54,
+          "y": 110,
+          "width": 376,
+          "height": 376,
+          "left": 54,
+          "top": 110,
+          "skin": "res://79b81769-0207-4880-91cd-9930cded61d1",
+          "color": "#fffeff"
+        },
+        {
+          "_$id": "zkyt9xue",
+          "_$type": "Image",
+          "name": "coin_icon",
+          "x": 801,
+          "y": 633,
+          "width": 26,
+          "height": 26,
+          "bottom": 141,
+          "centerX": 270,
+          "skin": "res://9fe2076e-9cb0-4ce6-92bd-86dd0c6af8a6",
+          "useSourceSize": true,
+          "color": "#ffffff"
+        },
+        {
+          "_$id": "lpwnu9r4",
+          "_$type": "List",
+          "name": "line_list",
+          "x": 587,
+          "y": 25,
+          "width": 200,
+          "height": 33,
+          "mouseEnabled": true,
+          "left": 587,
+          "top": 25,
+          "itemTemplate": {
+            "_$ref": "twixnvrt",
+            "_$tmpl": "itemRender"
+          },
+          "repeatX": 16,
+          "repeatY": 1
+        },
+        {
+          "_$id": "pak35esx",
+          "_$type": "Label",
+          "name": "title_label",
+          "x": 54,
+          "y": 27,
+          "width": 527,
+          "height": 33,
+          "left": 54,
+          "top": 27,
+          "text": "pending order evolution",
+          "font": "res://138f23ad-1310-42de-8811-0055f0a577a5",
+          "fontSize": 32,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "align": "center",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0",
+          "underlineColor": "rgba(255, 255, 255, 1)"
+        },
+        {
+          "_$id": "yb89ei0g",
+          "_$type": "Label",
+          "name": "breed_count_label",
+          "x": 459,
+          "y": 172,
+          "width": 216,
+          "height": 33,
+          "left": 459,
+          "top": 172,
+          "text": "Breed Count:",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 32,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "posrrd7v",
+          "_$var": true,
+          "_$type": "Label",
+          "name": "breed_count_value_label",
+          "x": 700,
+          "y": 178,
+          "width": 118,
+          "height": 33,
+          "left": 700,
+          "top": 178,
+          "text": "Text Here",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(246, 218, 255, 1)",
+          "fitContent": "yes",
+          "ubb": true,
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "w2r3cke4",
+          "_$var": true,
+          "_$type": "Label",
+          "name": "consume_value_llabel",
+          "x": 853,
+          "y": 628,
+          "width": 14,
+          "height": 33,
+          "bottom": 139,
+          "centerX": 316,
+          "text": "0",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(246, 218, 255, 1)",
+          "fitContent": "yes",
+          "ubb": true,
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "6prcs46q",
+          "_$type": "Label",
+          "name": "consume_label",
+          "x": 656,
+          "y": 622,
+          "width": 144,
+          "height": 33,
+          "bottom": 145,
+          "centerX": 184,
+          "text": "consume:",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 32,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "fhfjh9q1",
+          "_$type": "Label",
+          "name": "desc_label",
+          "x": 128,
+          "y": 522,
+          "width": 784,
+          "height": 66,
+          "bottom": 212,
+          "centerX": -24,
+          "text": "After confirmation, HP and filled gold coins will be withheld and \ndeducted. If the order is cancelled, it will be returned.",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(246, 218, 255, 1)",
+          "fitContent": "yes",
+          "align": "center",
+          "valign": "middle",
+          "leading": 0,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "o2zq6yw9",
+          "_$type": "Label",
+          "name": "type_filter_label_1",
+          "x": 459,
+          "y": 229,
+          "width": 324,
+          "height": 33,
+          "left": 459,
+          "top": 229,
+          "text": "type requirements:",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 32,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "c5bvvb4f",
+          "_$type": "Label",
+          "name": "type_filter_label_2",
+          "x": 783,
+          "y": 235,
+          "width": 160,
+          "height": 33,
+          "left": 783,
+          "top": 235,
+          "text": "(multi-choice)",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(117, 91, 160, 1)",
+          "fitContent": "yes",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "bf4cw9hy",
+          "_$type": "Label",
+          "name": "cost_label",
+          "x": 458,
+          "y": 390,
+          "width": 270,
+          "height": 33,
+          "left": 458,
+          "top": 390,
+          "text": "evolution cost:",
+          "font": "res://cc6cf29d-859a-4547-a3d3-1f884d4c14cb",
+          "fontSize": 32,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "8b4aoysf",
+          "_$type": "Label",
+          "name": "stock_value_label_1",
+          "x": 459,
+          "y": 438,
+          "width": 84,
+          "height": 33,
+          "left": 459,
+          "top": 438,
+          "text": "(Stock:",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "is94yp69",
+          "_$type": "Image",
+          "name": "coin_icon_1",
+          "x": 557,
+          "y": 444.00000000000006,
+          "width": 26,
+          "height": 26,
+          "skin": "res://9fe2076e-9cb0-4ce6-92bd-86dd0c6af8a6",
+          "useSourceSize": true,
+          "color": "#ffffff"
+        },
+        {
+          "_$id": "44k93lt4",
+          "_$type": "Label",
+          "name": "stock_value_label_2",
+          "x": 590,
+          "y": 438,
+          "width": 138,
+          "height": 33,
+          "left": 590,
+          "top": 438,
+          "text": "999,999,99)",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "yes",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        },
+        {
+          "_$id": "vkumwp1t",
+          "_$var": true,
+          "_$type": "Button",
+          "name": "cancel_button",
+          "x": 77,
+          "y": 675,
+          "width": 396,
+          "height": 56,
+          "mouseEnabled": true,
+          "bottom": 69,
+          "centerX": -269,
+          "skin": "res://bacb2124-d8ef-48ef-bf93-ae98c8bd0159",
+          "sizeGrid": "27,25,27,25,0",
+          "label": "cancel",
+          "labelFont": "res://c7747e07-2ae7-432e-b483-8e180593f3df",
+          "labelSize": 32,
+          "labelColors": "#ffffff,#ffffff,#ffffff",
+          "labelVAlign": "middle",
+          "labelPadding": "16,0,0,0"
+        },
+        {
+          "_$id": "iyt29elg",
+          "_$var": true,
+          "_$type": "Button",
+          "name": "confirm_button",
+          "x": 571,
+          "y": 675,
+          "width": 396,
+          "height": 56,
+          "mouseEnabled": true,
+          "bottom": 69,
+          "centerX": 225,
+          "skin": "res://64238b73-db3d-499c-a125-943ab61e1341",
+          "sizeGrid": "0,25,0,25,0",
+          "label": "CONFIRM",
+          "labelFont": "res://c7747e07-2ae7-432e-b483-8e180593f3df",
+          "labelSize": 28,
+          "labelColors": "#ffffff,#ffffff,#ffffff",
+          "labelVAlign": "middle",
+          "labelPadding": "14,0,0,0"
+        },
+        {
+          "_$id": "pjyzsw14",
+          "_$var": true,
+          "_$type": "TextInput",
+          "name": "cost_input",
+          "x": 735,
+          "y": 391,
+          "width": 272,
+          "height": 44,
+          "mouseEnabled": true,
+          "left": 735,
+          "top": 391,
+          "text": "0",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(246, 218, 255, 1)",
+          "valign": "middle",
+          "overflow": "scroll",
+          "leading": 2,
+          "padding": "3,6,2,47",
+          "skin": "res://dfe4c8b4-877f-40b5-8137-f3b79ff7acdb",
+          "sizeGrid": "10,10,10,10,0",
+          "type": "text",
+          "maxChars": 0,
+          "prompt": "",
+          "promptColor": "#A9A9A9"
+        },
+        {
+          "_$id": "05uveh4v",
+          "_$type": "Image",
+          "name": "coin_icon_2",
+          "x": 741.9999999999999,
+          "y": 401.0000000000001,
+          "width": 26,
+          "height": 26,
+          "skin": "res://9fe2076e-9cb0-4ce6-92bd-86dd0c6af8a6",
+          "useSourceSize": true,
+          "color": "#ffffff"
+        },
+        {
+          "_$id": "g08brk9i",
+          "_$var": true,
+          "_$type": "Panel",
+          "name": "category_group",
+          "x": 463,
+          "y": 281,
+          "width": 500,
+          "height": 100,
+          "mouseEnabled": true,
+          "_$child": [
+            {
+              "_$id": "g08eb65a",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item0",
+              "active": true,
+              "x": 0,
+              "y": 0,
+              "visible": true
+            },
+            {
+              "_$id": "tbnvwba7",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item1",
+              "active": true,
+              "x": 84,
+              "y": 0,
+              "visible": true,
+              "_$comp": [
+                {
+                  "_$override": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+                  "index": 1
+                }
+              ],
+              "_$child": [
+                {
+                  "_$override": "d6cbsczq",
+                  "text": "B"
+                }
+              ]
+            },
+            {
+              "_$id": "hlid3601",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item2",
+              "active": true,
+              "x": 168,
+              "y": 0,
+              "visible": true,
+              "_$comp": [
+                {
+                  "_$override": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+                  "index": 2
+                }
+              ],
+              "_$child": [
+                {
+                  "_$override": "d6cbsczq",
+                  "text": "C"
+                }
+              ]
+            },
+            {
+              "_$id": "mwzkab4a",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item3",
+              "active": true,
+              "x": 252,
+              "y": 0,
+              "visible": true,
+              "_$comp": [
+                {
+                  "_$override": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+                  "index": 3
+                }
+              ],
+              "_$child": [
+                {
+                  "_$override": "d6cbsczq",
+                  "text": "D"
+                }
+              ]
+            },
+            {
+              "_$id": "dtcsktdj",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item4",
+              "active": true,
+              "x": 336,
+              "y": 0,
+              "visible": true,
+              "_$comp": [
+                {
+                  "_$override": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+                  "index": 4
+                }
+              ],
+              "_$child": [
+                {
+                  "_$override": "d6cbsczq",
+                  "text": "E"
+                }
+              ]
+            },
+            {
+              "_$id": "muydv79z",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item5",
+              "active": true,
+              "x": 419.9999999999999,
+              "y": 0,
+              "visible": true,
+              "_$comp": [
+                {
+                  "_$override": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+                  "index": 5
+                }
+              ],
+              "_$child": [
+                {
+                  "_$override": "d6cbsczq",
+                  "text": "F"
+                }
+              ]
+            },
+            {
+              "_$id": "a6mjlzq3",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item6",
+              "active": true,
+              "x": -5.684341886080802e-14,
+              "y": 42,
+              "visible": true,
+              "_$comp": [
+                {
+                  "_$override": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+                  "index": 6
+                }
+              ],
+              "_$child": [
+                {
+                  "_$override": "d6cbsczq",
+                  "text": "G"
+                }
+              ]
+            },
+            {
+              "_$id": "xz4n32oc",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item7",
+              "active": true,
+              "x": 83.99999999999977,
+              "y": 42,
+              "visible": true,
+              "_$comp": [
+                {
+                  "_$override": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+                  "index": 7
+                }
+              ],
+              "_$child": [
+                {
+                  "_$override": "d6cbsczq",
+                  "text": "H"
+                }
+              ]
+            },
+            {
+              "_$id": "pthxo4wc",
+              "_$prefab": "766c3fd6-a91d-4249-9fa3-1f147802171e",
+              "name": "item8",
+              "active": true,
+              "x": 168,
+              "y": 44,
+              "visible": true,
+              "_$comp": [
+                {
+                  "_$override": "b7e92c31-9c4a-457a-83ad-f20dc41cdc4f",
+                  "index": 8
+                }
+              ],
+              "_$child": [
+                {
+                  "_$override": "d6cbsczq",
+                  "text": "I"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

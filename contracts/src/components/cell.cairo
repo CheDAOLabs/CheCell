@@ -11,10 +11,12 @@ struct Cell {
     exp:u32,
     breed_count:u32,
     body_size:u8,
-    category:u8,
+    category:u32,
     state:u8,
     explore_time:u32,
-    explore_end_time:u64
+    explore_end_time:u64,
+    evolution_end_time:u64,
+    breed_cost:u32,
 }
 
 #[derive(Component, Copy, Drop, Serde, SerdeLen)]
