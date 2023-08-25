@@ -120,6 +120,7 @@ mod CreateCell {
             (cell_property)
         );
         emit !(ctx.world,CreateCellEvent{address:ctx.origin.into(),number:1_u32});
+        emit !(ctx.world,CreateCellEvent{address:ctx.origin.into(),number:1_u32});
         return ();
     }
     

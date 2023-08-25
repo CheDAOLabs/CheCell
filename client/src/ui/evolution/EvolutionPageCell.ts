@@ -5,7 +5,6 @@ import { Utils } from "../../net/core";
 import { CellListPageType, CellState, GAMEID, HomeManagerEvent, WORLDID } from "../../common/Config";
 import { EvolutionPageCellBase } from "./EvolutionPageCell.generated";
 import { felt252ToStr } from "../../net/core/utils";
-import { EvolutionPageCellItem } from "./EvolutionPageCellItem";
 import { getCurrentTimestamp, secondsToMinutes } from "../../common/Tool";
 import { CellListItem } from "../common/CellListItem";
 
@@ -16,14 +15,16 @@ export class EvolutionPageCell extends EvolutionPageCellBase {
     c_id:number;
     selected_node:Laya.Node;
     onAwake() {
-        this.result_button.on(Laya.Event.CLICK,this,this.onReusltButtonEvent.bind(this));
+        this.result_button.on(Laya.Event.CLICK,this,this.onResultButtonEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnTouchEvolutionCell,this,this.onTouchEvolutionCellEvent.bind(this));
+     
     }
-    onReusltButtonEvent(param: any): void {
+    onResultButtonEvent(param: any): void {
         Laya.stage.event(HomeManagerEvent.OnEvolutionGain,this.c_id);  
          
      }
     onUpdateCellList(): void {
+        this.selected_node = undefined;
         this.cell_list.removeChildren();
 
         Laya.loader.load("resources/prefab/common/P_Common_Page_Cell_List_Item.lh").then((res)=>{
@@ -44,6 +45,7 @@ export class EvolutionPageCell extends EvolutionPageCellBase {
                     return;
                 }
                 const cell_max = Number(value.cell_number);
+                let index = 0;
                 for (var i: number = 0; i < cell_max; i++) {
                     let item = res.create();
                     let script = item.getComponent(Laya.Script) as CellListItem;
@@ -51,18 +53,17 @@ export class EvolutionPageCell extends EvolutionPageCellBase {
                     if(cell_info.state == CellState.Evolving){
                         let data = {
                             name:felt252ToStr(cell_info.name),
-                            index:i,
+                            index:i+1,
                             type:CellListPageType.Evolving
                         }
                         script.SetData(data);
                          
-                        this.cell_list.addChildAt(item,i);
-                        if(i == 0){
-                            this.selected_node = this.cell_list.getChildAt(0);
-                          
-                            this.onTouchEvolutionCellEvent(0);
+                        this.cell_list.addChildAt(item,index);
+                        if(index == 0){
+                            this.onTouchEvolutionCellEvent(1);
                             script.onSelected(true);
                         };
+                        index++;
                     }
                      
                 }
@@ -70,14 +71,15 @@ export class EvolutionPageCell extends EvolutionPageCellBase {
         
      }
      onTouchEvolutionCellEvent(param: any): void {
-        
-        (this.selected_node.getComponent(Laya.Script) as EvolutionPageCellItem).onSelected(false);
-         
-        this.selected_node =  this.cell_list.getChildAt(param);
-        (this.selected_node.getComponent(Laya.Script) as EvolutionPageCellItem).onSelected(true);
- 
+        if(this.selected_node != undefined){
+            (this.selected_node.getComponent(Laya.Script) as CellListItem).onSelected(false);
+        }
+          
+        this.selected_node = this.cell_list.getChildAt(param-1);
+        (this.selected_node.getComponent(Laya.Script) as CellListItem).onSelected(true);
+        const index = (this.selected_node.getComponent(Laya.Script) as CellListItem).index;
      
-        this.SetData(param+1);
+        this.SetData(index);
 
      }
      SetData(c_id:number){

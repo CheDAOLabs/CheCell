@@ -42,6 +42,11 @@ export function isBitSet(number:number, n:number) {
   return (number & mask) !== 0;
 }
 
+export function isBit(number:number, n:number) {
+  return (number & n) !== 0;
+}
+
+
 export function insertDataDescendingOrder(dataArray:any[], newData:any) {
   let inserted = false;
   for (let i = 0; i < dataArray.length; i++) {
@@ -55,4 +60,30 @@ export function insertDataDescendingOrder(dataArray:any[], newData:any) {
     dataArray.push(newData);
   }
   return dataArray;
+}
+
+export function getRandomEnumValue(enumObject:any) {
+  const enumValues = Object.values(enumObject);
+  const randomIndex = Math.floor(Math.random() * enumValues.length);
+  return enumValues[randomIndex];
+}
+
+export function setBitToZero(number:number, position:number) {
+  const mask = ~(1 << position);
+  return number & mask;
+}
+
+export function setBitToOne(number:number, position:number) {
+  const mask = 1 << position;
+  return number | mask;
+}
+
+export function bitToCategory(category:number):string {
+  let result = ''
+  for (let i = 0; i < 9; i++) {
+    if(isBitSet(category,i)){
+      result += String.fromCharCode(65 + i);
+    }
+  }
+  return result;
 }

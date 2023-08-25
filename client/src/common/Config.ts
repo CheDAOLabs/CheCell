@@ -11,7 +11,11 @@ export const enum HomeManagerEvent {
     OnTouchInfoCell = 'OnTouchInfoCell',
     OnTouchEvolutionCell = 'OnTouchEvolutionCell',
     OnTouchMarketCell = 'OnTouchMarketCell',
-    
+    OnTouchMarketBidCell = 'OnTouchMarketBidCell',
+
+    OnTouchMarketBidItem = 'OnTouchMarketBidItem',
+    OnTouchMarketAskItem = 'OnTouchMarketAskItem',
+
     OnCreateCell = 'OnCreateCell',
     OnUpdateCreateCell = 'OnUpdateCreateCell',
     OnUpdateCellList = 'OnUpdateCellList',
@@ -23,7 +27,10 @@ export const enum HomeManagerEvent {
     OnPlayGame = 'OnPlayGame',
     OnExplore = 'OnExplore',
     OnGain = 'OnGain',
-    OnEvolutionGain = 'OnEvolutionGain'
+    OnEvolutionGain = 'OnEvolutionGain',
+    OnCellBreedAsk = 'OnCellBreedAsk',
+    OnCellBreedBid = 'OnCellBreedBid',
+    OnCellBreedBidCancel = 'OnCellBreedBidCancel',
 };
 
 export const enum NetManagerEvent {
@@ -32,8 +39,21 @@ export const enum NetManagerEvent {
       OnEnhanceCellPropertyCB = 'OnEnhanceCellPropertyCB',
       OnExploreCB = 'OnExploreCB',
       OnGainCB = 'OnGainCB',
-      OnEvolutionGainCB = 'OnEvolutionGain'
+      OnEvolutionGainCB = 'OnEvolutionGainCB',
+      OnCellBreedAskCB = 'OnCellBreedAskCB',
+      OnCellBreedBidCB = 'OnCellBreedBidCB',
   };
+
+export const enum CCMapType{
+      Null = '0b0720',
+      Desert = 'F3D899',
+      StoneTemple = '967E67',
+      ForestRuins = '2F590E',
+      MountainDeep = '36230F',
+      UnderwaterKeep = '006669',
+      EmbersGlow = '340D07'
+
+}
 
 export const enum CellState{
       Normal = 0,
@@ -44,7 +64,8 @@ export const enum CellState{
 export const enum CellListPageType{
       Info = 0,
       Evolving = 1,
-      Market = 2
+      Market = 2,
+      MarketBid = 3
 };
 export interface Color{
 

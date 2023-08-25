@@ -2,10 +2,11 @@ import { getComponentValue } from "@latticexyz/recs";
 import { NetMgr } from "../../net/NetMgr";
 import { MapInfoPageBase } from "./MapInfoPage.generated";
 import { Utils } from "../../net/core";
-import { GAMEID, HomeManagerEvent, NetManagerEvent, WORLDID } from "../../common/Config";
+import { CCMapType, GAMEID, HomeManagerEvent, NetManagerEvent, WORLDID } from "../../common/Config";
 import { felt252ToStr } from "../../net/core/utils";
 import { random } from "../../logic/rand";
-import { getCurrentTimestamp, secondsToMinutes } from "../../common/Tool";
+import { getCurrentTimestamp, getRandomEnumValue, secondsToMinutes } from "../../common/Tool";
+import { MapSquareItem } from "./MapSquareItem";
 
 const { regClass, property } = Laya;
  
@@ -19,7 +20,9 @@ export class MapInfoPage extends MapInfoPageBase {
        Laya.stage.on(NetManagerEvent.OnExploreCB,this,this.onExploreCBEvent.bind(this));
        Laya.stage.on(NetManagerEvent.OnGainCB,this,this.onGainCBEvent.bind(this));
     }
+    
     SetData(c_id:number){
+
         this.c_id = c_id;
         const {
             network:{
@@ -63,6 +66,8 @@ export class MapInfoPage extends MapInfoPageBase {
         }else{
             this.onExploreUI(0);
         }
+        let type = getRandomEnumValue(CCMapType);
+        this.UpdateMap(type as CCMapType);
     }
     onExploreUI(type:number){
         if(type == 0){
@@ -85,7 +90,13 @@ export class MapInfoPage extends MapInfoPageBase {
     onGainButtonEvent(param: any): void {
         Laya.stage.event(HomeManagerEvent.OnGain,this.c_id);  
     }
-
+    UpdateMap(type:CCMapType){
+        const cells = this.map_list.cells;
+       
+        for (let item of cells){
+            (item.getComponent(Laya.Script) as MapSquareItem).SetColor(type);
+        }
+    }
      
     onExploreCBEvent(param: any){
         let message ='';

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash 
+
+sudo sozo migrate --name CheCell
+
+sozo auth writer Account InitAccount --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+sozo auth writer Account CreateCell --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+
+sozo auth writer Cell CreateCell --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+sozo auth writer CellProperty CreateCell --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+
+sozo auth writer Cell AddCellBodySize --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+sozo auth writer CellProperty AddCellBodySize --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+
+sozo auth writer Cell AddCellProperty --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+sozo auth writer CellProperty AddCellProperty --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+
+sozo auth writer Cell CellExplore --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+sozo auth writer Cell CellExploreGain --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+
+sozo auth writer Cell CellEvolution --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+sozo auth writer Cell CellEvolutionGain --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+
+sozo auth writer Cell CellBreedAsk --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
+sozo auth writer Cell CellBreedCancel --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338

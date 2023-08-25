@@ -13,6 +13,7 @@ import { MapInfoPage } from '../ui/map/MapInfoPage';
 import { CellInfoPage } from '../ui/info/CellInfoPage';
 import { EvolutionPage } from '../ui/evolution/EvolutionPage';
 import { LeaderBoardPage } from '../ui/leaderboard/LeaderBoardPage';
+import { MarketPage } from '../ui/market/MarketPage';
 @regClass()
 export class Home extends HomeBase {
  
@@ -32,7 +33,8 @@ export class Home extends HomeBase {
         Laya.stage.on(HomeManagerEvent.OnExplore,this,this.onExploreEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnGain,this,this.onGainEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnEvolutionGain,this,this.onEvolutionGainEvent.bind(this));
-         
+        Laya.stage.on(HomeManagerEvent.OnCellBreedAsk,this,this.onCellBreedAskEvent.bind(this));
+        Laya.stage.on(HomeManagerEvent.OnCellBreedBid,this,this.onCellBreedBidEvent.bind(this));
 
          
     }
@@ -67,7 +69,7 @@ export class Home extends HomeBase {
     }
     onMarketButtonEvent(param: any): void {
         this.onSelect(4);
-       // (this.page_stack.selection as EvolutionPage).onRefresh();
+        (this.page_stack.selection as MarketPage).onRefresh();
     }
      
     private onSelect(index: number): void {
@@ -176,11 +178,33 @@ export class Home extends HomeBase {
                 CellEvolutionGain
             }
            } = NetMgr.GetInstance().GetNet();
- 
+           console.log('onEvolutionGainEvent',param);
            const result = await CellEvolutionGain(param);
            Laya.stage.event(NetManagerEvent.OnEvolutionGainCB,result);
     }
-
+    async onCellBreedAskEvent(param: any){
+       
+        const {
+            systemCalls:{
+                CellBreedAsk
+            }
+           } = NetMgr.GetInstance().GetNet();
+ 
+           const result = await CellBreedAsk(param.c_id,param.category,param.pay_number);
+           Laya.stage.event(NetManagerEvent.OnCellBreedAskCB,result);
+    }
+    async onCellBreedBidEvent(param: any){
+       
+        const {
+            systemCalls:{
+                CellBreedBid
+            }
+           } = NetMgr.GetInstance().GetNet();
+           console.log(param);
+           const result = await CellBreedBid(param.c_id,param.category,param.t_id);
+           Laya.stage.event(NetManagerEvent.OnCellBreedBidCB,result);
+    }
+     
      
 }
  

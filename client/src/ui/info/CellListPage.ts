@@ -32,7 +32,7 @@ export class CellListPage extends CellListPageBase {
     }
     onUpdateCellList(param: any): void {
         this.cell_list.removeChildren();
-
+        this.selected_node  = undefined;
         Laya.loader.load("resources/prefab/common/P_Common_Page_Cell_List_Item.lh").then((res)=>{
             const {
                 network:{
@@ -51,23 +51,23 @@ export class CellListPage extends CellListPageBase {
                     return;
                 }
                 const cell_max = Number(value.cell_number);
+
                 for (var i: number = 0; i < cell_max; i++) {
                     let item = res.create();
                     let script = item.getComponent(Laya.Script) as CellListItem;
                     const cell_info = getComponentValue(Cell,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid),BigInt(i+1)]));
                     let data = {
                         name:felt252ToStr(cell_info.name),
-                        index:i,
+                        index:i+1,
                         type:CellListPageType.Info
                     }
                     script.SetData(data);
                      
                     this.cell_list.addChildAt(item,i);
                     if(i == 0){
-                        this.selected_node = this.cell_list.getChildAt(0);
                         this.onSelect(0);
-                        this.onTouchInfoCellEvent(0);
-                        script.onSelected(true);
+                        this.onTouchInfoCellEvent(1);
+             
                     };
                 }
         });
@@ -75,14 +75,16 @@ export class CellListPage extends CellListPageBase {
      }
      onTouchInfoCellEvent(param: any): void {
         
-        (this.selected_node.getComponent(Laya.Script) as CellListItem).onSelected(false);
+       if(this.selected_node != undefined){
+         (this.selected_node.getComponent(Laya.Script) as CellListItem).onSelected(false);
+       }
          
-        this.selected_node =  this.cell_list.getChildAt(param);
+        this.selected_node = this.cell_list.getChildAt(param-1);
         (this.selected_node.getComponent(Laya.Script) as CellListItem).onSelected(true);
-        this.onSelect(0);
-        const cell_data =  getCellInfo1(param+1);
+        const index =   (this.selected_node.getComponent(Laya.Script) as CellListItem).index;
+        const cell_data =  getCellInfo1(index);
         
-        (this.item0Page.selection as CellInfoSubPage).SetData(param+1,cell_data.cell_info,cell_data.property_info);
+        (this.item0Page.selection as CellInfoSubPage).SetData(index,cell_data.cell_info,cell_data.property_info);
      }
      onEnhanceCellBodySize(param: any): void {
         this.item0Page.selectedIndex = 1;

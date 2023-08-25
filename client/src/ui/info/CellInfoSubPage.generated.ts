@@ -2,7 +2,7 @@
 
 
 /**
- * resources/prefab/P_Cell_Info_SubPage.lh
+ * resources/prefab/info/P_Info_Page_Cell_List_Info.lh
  */
 export class CellInfoSubPageBase extends Laya.Box {
     public cell_bg_img!: Laya.Image;
@@ -13,7 +13,7 @@ export class CellInfoSubPageBase extends Laya.Box {
     public agility_cur_value_label!: Laya.Label;
     public attack_cur_value_label!: Laya.Label;
     public bodysize_cur_value_label!: Laya.Label;
-    public type_cur_value_label!: Laya.Label;
+    public category_cur_value_label!: Laya.Label;
     public exp_cur_value_label!: Laya.Label;
     public add_button!: Laya.Button;
     public play_button!: Laya.Button;

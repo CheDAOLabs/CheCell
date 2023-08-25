@@ -15,7 +15,7 @@
       "name": "item0Tab",
       "x": 50,
       "width": 272,
-      "height": null,
+      "height": 136,
       "mouseEnabled": true,
       "skin": "res://37380fbc-6d3a-4689-8160-18c0b04c7ada",
       "stateNum": null,

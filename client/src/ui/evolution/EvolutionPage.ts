@@ -2,7 +2,7 @@ import { HasValue, getComponentValue } from "@latticexyz/recs";
 import { NetMgr } from "../../net/NetMgr";
 import { Utils } from "../../net/core";
  
-import { CellState, GAMEID, WORLDID } from "../../common/Config";
+import { CellState, GAMEID, NetManagerEvent, WORLDID } from "../../common/Config";
 import { EvolutionPageBase } from "./EvolutionPage.generated";
 import { EvolutionPageCell } from "./EvolutionPageCell";
 
@@ -12,8 +12,8 @@ const { regClass, property } = Laya;
 export class EvolutionPage extends EvolutionPageBase {
     index:number;
     onAwake() {
-        this.onSelect(0);
-        this.onRefresh();
+        this.index = 0;
+        Laya.stage.on(NetManagerEvent.OnEvolutionGainCB,this,this.onEvolutionGainCBEvent.bind(this));
     }
     public onRefresh(){
          
@@ -56,5 +56,16 @@ export class EvolutionPage extends EvolutionPageBase {
             (this.item0Page.selection as EvolutionPageCell).onUpdateCellList();
         }
     }
+    onEvolutionGainCBEvent(param: any): void {
+        let message ='';
+        if(param){
+            message = 'Evolution Gain success!';
+        }else{
+            message = 'Evolution Gain error!';
+        }
+         
+        Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, {"text":message});
+        this.onRefresh();
+     }
 }
  

@@ -1,6 +1,6 @@
 import { Components } from "@latticexyz/recs";
 import { Providers } from "..";
-import { setComponentFromEntitiesQuery, setComponentFromEvent } from "../utils";
+import { setComponentFromEntitiesGraphqlQuery, setComponentFromEntitiesQuery, setComponentFromEvent } from "../utils";
 import { Event } from "starknet";
 import { getEntities } from "../network/graphql";
 import { GetGraphQLUrl } from "../constants";
@@ -40,9 +40,10 @@ export class SyncWorker<C extends Components> {
              const component = this.components[key];
              if (component.metadata && component.metadata.name) {
                  // call provider.entities for each component to get all entities linked to that component
-                 
-                const data = await getEntities(GetGraphQLUrl(),component.metadata.name as String,component.schema);
-                console.log(data);
+                  
+                const entities = await getEntities(GetGraphQLUrl(),component.metadata.name as String,component.schema);
+                setComponentFromEntitiesGraphqlQuery(component, entities);
+               // console.log(data);
               //  const entities = await this.provider.entities(component.metadata.name as string, "0", Object.keys(component.schema).length);
              //    setComponentFromEntitiesQuery(component, entities);
                  }
@@ -51,14 +52,15 @@ export class SyncWorker<C extends Components> {
          }
     public async sync(txHash: string):Promise<boolean> {
         const receipt = await this.provider.provider.getTransactionReceipt(txHash);
-        console.log(receipt);
+        console.log('sync: ',receipt);
         receipt.events.filter((event) => {
-            return event.keys.length === 1 &&
-            event.keys[0] === this.event_key;
+           // return true;
+            return event.keys.length === 1 && event.keys[0] === this.event_key;
         }).map((event: Event) => {
-            console.log("event    ---  ",event);
             setComponentFromEvent(this.components, event.data);
         });
+
+
         return receipt.events.length != 0;
     }
 }

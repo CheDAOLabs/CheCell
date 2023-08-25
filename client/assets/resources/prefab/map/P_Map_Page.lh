@@ -10,8 +10,9 @@
   "_$child": [
     {
       "_$id": "mprrxq51",
+      "_$var": true,
       "_$type": "List",
-      "name": "map_lst",
+      "name": "map_list",
       "width": 1920,
       "height": 860,
       "mouseEnabled": true,
@@ -19,23 +20,11 @@
         "_$ref": "t0fo2o3k"
       },
       "itemTemplate": {
-        "_$ref": "xzd41c1i",
+        "_$ref": "fpzivp3s",
         "_$tmpl": "itemRender"
       },
       "repeatX": 18,
       "repeatY": 8
-    },
-    {
-      "_$id": "t0fo2o3k",
-      "_$type": "Image",
-      "name": "map_bg",
-      "x": 43.000000000000014,
-      "y": 67.00000000000003,
-      "width": 1825,
-      "height": 724,
-      "skin": "res://5fe85fdd-27eb-43f8-95c1-82567413d21b",
-      "sizeGrid": "0,90,0,90,0",
-      "color": "#ffffff"
     },
     {
       "_$id": "kpxi1xjd",
@@ -52,6 +41,19 @@
       "color": "#ffffff"
     },
     {
+      "_$id": "t0fo2o3k",
+      "_$type": "Image",
+      "name": "map_bg",
+      "x": 43.00000000000001,
+      "y": 67.00000000000004,
+      "width": 1825,
+      "height": 724,
+      "visible": false,
+      "skin": "res://5fe85fdd-27eb-43f8-95c1-82567413d21b",
+      "sizeGrid": "0,90,0,90,0",
+      "color": "#ffffff"
+    },
+    {
       "_$id": "uv4ju94v",
       "_$type": "ProgressBar",
       "name": "hp_bar",
@@ -64,22 +66,13 @@
       "value": 0.5
     },
     {
-      "_$id": "xzd41c1i",
-      "_$type": "Box",
-      "name": "Box",
-      "width": 106,
-      "height": 106,
-      "_$child": [
-        {
-          "_$id": "c86h9dam",
-          "_$prefab": "b17ae31d-17dc-48e8-ac22-83cb8b7049be",
-          "name": "P_Map_Square_Item",
-          "active": true,
-          "x": 0,
-          "y": 0,
-          "visible": true
-        }
-      ]
+      "_$id": "fpzivp3s",
+      "_$prefab": "b17ae31d-17dc-48e8-ac22-83cb8b7049be",
+      "_$var": true,
+      "name": "map_item",
+      "active": true,
+      "x": 0,
+      "y": 0
     },
     {
       "_$id": "kl6bkdha",

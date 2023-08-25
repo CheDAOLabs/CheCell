@@ -16,7 +16,8 @@
     "graphql-request": "^6.1.0",
     "graphql-tag": "^2.12.6",
     "starknet": "^5.19.2",
-    "ws": "^8.8.1"
+    "ws": "^8.8.1",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/events": "^3.0.0"

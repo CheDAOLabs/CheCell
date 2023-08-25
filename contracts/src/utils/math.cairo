@@ -34,12 +34,16 @@ fn min(a:u256,b:u256)->u256{
     return b;
 }
 
+fn checkBit(bit:u256,n:u256)->bool{
+    return bit & n != 0;
+}
+
 fn checkBitOne(bit:u256,i:u256)->bool{
-    return bit & pow(2,i) == 0;
+    return bit & pow(2,i) != 0;
 }
 
 fn checkBitZero(bit:u256,i:u256)->bool{
-    return bit & pow(2,i) != 0;
+    return bit & pow(2,i) == 0;
 }
 
 fn setBitZero(bit:u256,i:u256)->u256{

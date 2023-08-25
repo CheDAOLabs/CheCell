@@ -535,7 +535,7 @@
   "executor": {
     "name": "executor",
     "address": null,
-    "class_hash": "0x7b79892389a0c9fe22f74b1d28a9e9185c7b6d2c60cc1df814053e47e9078c2",
+    "class_hash": "0x6ac7478eec43bd66aacf829f58dcb4694d0e241dc52b332f64de2b736c24137",
     "abi": [
       {
         "type": "impl",
@@ -687,89 +687,6 @@
       ]
     },
     {
-      "name": "CellEvolution",
-      "inputs": [
-        {
-          "name": "self",
-          "type": "@CheCell::systems::game::evolutionSystem::CellEvolution::ContractState"
-        },
-        {
-          "name": "c_id",
-          "type": "core::integer::u32"
-        }
-      ],
-      "outputs": [],
-      "class_hash": "0x79085d4b31c7f570a07675b49d06bd781e5be75912c332be75301fdf7463cdf",
-      "dependencies": [],
-      "abi": [
-        {
-          "type": "function",
-          "name": "name",
-          "inputs": [],
-          "outputs": [
-            {
-              "type": "core::felt252"
-            }
-          ],
-          "state_mutability": "view"
-        },
-        {
-          "type": "struct",
-          "name": "dojo::world::IWorldDispatcher",
-          "members": [
-            {
-              "name": "contract_address",
-              "type": "core::starknet::contract_address::ContractAddress"
-            }
-          ]
-        },
-        {
-          "type": "struct",
-          "name": "dojo::world::Context",
-          "members": [
-            {
-              "name": "world",
-              "type": "dojo::world::IWorldDispatcher"
-            },
-            {
-              "name": "origin",
-              "type": "core::starknet::contract_address::ContractAddress"
-            },
-            {
-              "name": "system",
-              "type": "core::felt252"
-            },
-            {
-              "name": "system_class_hash",
-              "type": "core::starknet::class_hash::ClassHash"
-            }
-          ]
-        },
-        {
-          "type": "function",
-          "name": "execute",
-          "inputs": [
-            {
-              "name": "c_id",
-              "type": "core::integer::u32"
-            },
-            {
-              "name": "ctx",
-              "type": "dojo::world::Context"
-            }
-          ],
-          "outputs": [],
-          "state_mutability": "view"
-        },
-        {
-          "type": "event",
-          "name": "CheCell::systems::game::evolutionSystem::CellEvolution::Event",
-          "kind": "enum",
-          "variants": []
-        }
-      ]
-    },
-    {
       "name": "CellEvolutionGain",
       "inputs": [
         {
@@ -782,7 +699,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x17137abeb95900f3d43b995ea296d4e5b90e815546e8b06c6be954221eba7dd",
+      "class_hash": "0x7557f89b8979f44d001a3988245870a39c4f5ee8c2bc32512a50851ab8c3750",
       "dependencies": [],
       "abi": [
         {
@@ -853,180 +770,6 @@
       ]
     },
     {
-      "name": "CellExplore",
-      "inputs": [
-        {
-          "name": "self",
-          "type": "@CheCell::systems::game::gameSystem::CellExplore::ContractState"
-        },
-        {
-          "name": "c_id",
-          "type": "core::integer::u32"
-        },
-        {
-          "name": "time",
-          "type": "core::integer::u32"
-        }
-      ],
-      "outputs": [],
-      "class_hash": "0x1524528d14921fa52ff0a23b800f4a6ba444aa82ae5351c61a7f4deb67821b9",
-      "dependencies": [],
-      "abi": [
-        {
-          "type": "function",
-          "name": "name",
-          "inputs": [],
-          "outputs": [
-            {
-              "type": "core::felt252"
-            }
-          ],
-          "state_mutability": "view"
-        },
-        {
-          "type": "struct",
-          "name": "dojo::world::IWorldDispatcher",
-          "members": [
-            {
-              "name": "contract_address",
-              "type": "core::starknet::contract_address::ContractAddress"
-            }
-          ]
-        },
-        {
-          "type": "struct",
-          "name": "dojo::world::Context",
-          "members": [
-            {
-              "name": "world",
-              "type": "dojo::world::IWorldDispatcher"
-            },
-            {
-              "name": "origin",
-              "type": "core::starknet::contract_address::ContractAddress"
-            },
-            {
-              "name": "system",
-              "type": "core::felt252"
-            },
-            {
-              "name": "system_class_hash",
-              "type": "core::starknet::class_hash::ClassHash"
-            }
-          ]
-        },
-        {
-          "type": "function",
-          "name": "execute",
-          "inputs": [
-            {
-              "name": "c_id",
-              "type": "core::integer::u32"
-            },
-            {
-              "name": "time",
-              "type": "core::integer::u32"
-            },
-            {
-              "name": "ctx",
-              "type": "dojo::world::Context"
-            }
-          ],
-          "outputs": [],
-          "state_mutability": "view"
-        },
-        {
-          "type": "event",
-          "name": "CheCell::systems::game::gameSystem::CellExplore::Event",
-          "kind": "enum",
-          "variants": []
-        }
-      ]
-    },
-    {
-      "name": "CellExploreGain",
-      "inputs": [
-        {
-          "name": "self",
-          "type": "@CheCell::systems::game::gameSystem::CellExploreGain::ContractState"
-        },
-        {
-          "name": "c_id",
-          "type": "core::integer::u32"
-        }
-      ],
-      "outputs": [],
-      "class_hash": "0x3e6b9ad8f27b63bf69a0c8dbf1e38b26a953fdb3895d48ea8bd823ad8ee8dbe",
-      "dependencies": [],
-      "abi": [
-        {
-          "type": "function",
-          "name": "name",
-          "inputs": [],
-          "outputs": [
-            {
-              "type": "core::felt252"
-            }
-          ],
-          "state_mutability": "view"
-        },
-        {
-          "type": "struct",
-          "name": "dojo::world::IWorldDispatcher",
-          "members": [
-            {
-              "name": "contract_address",
-              "type": "core::starknet::contract_address::ContractAddress"
-            }
-          ]
-        },
-        {
-          "type": "struct",
-          "name": "dojo::world::Context",
-          "members": [
-            {
-              "name": "world",
-              "type": "dojo::world::IWorldDispatcher"
-            },
-            {
-              "name": "origin",
-              "type": "core::starknet::contract_address::ContractAddress"
-            },
-            {
-              "name": "system",
-              "type": "core::felt252"
-            },
-            {
-              "name": "system_class_hash",
-              "type": "core::starknet::class_hash::ClassHash"
-            }
-          ]
-        },
-        {
-          "type": "function",
-          "name": "execute",
-          "inputs": [
-            {
-              "name": "c_id",
-              "type": "core::integer::u32"
-            },
-            {
-              "name": "ctx",
-              "type": "dojo::world::Context"
-            }
-          ],
-          "outputs": [],
-          "state_mutability": "view"
-        },
-        {
-          "type": "event",
-          "name": "CheCell::systems::game::gameSystem::CellExploreGain::Event",
-          "kind": "enum",
-          "variants": []
-        }
-      ]
-    },
-    {
       "name": "CreateCell",
       "inputs": [
         {
@@ -1047,7 +790,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x1085b2eac3abf7be63000d9419bf2a69e477f5aa78da35df8366918c5ee1eaa",
+      "class_hash": "0x31a2458b18758da5319921d0fb246a536bdc26dbf5d60c24c85b5706a17ea36",
       "dependencies": [],
       "abi": [
         {
@@ -1138,7 +881,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0xc2ccdeb9eb465fb8a5f0c7ca2b1069983329e166c84ea9687f72761411b830",
+      "class_hash": "0x799fb5fa38f39ae27aae5f8c85d93f8f762ed12e28ea5c63664b7c1871913ed",
       "dependencies": [],
       "abi": [
         {
@@ -1229,7 +972,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x3450fe2b2a559adeb099d6437b968e5a252c97c885990c8deb4eeb3f8e8415d",
+      "class_hash": "0x68f5b13e284a5dc19b438b2d25694531a4516fc40fcc6eacff687ff6ef3ac25",
       "dependencies": [],
       "abi": [
         {
@@ -1302,6 +1045,477 @@
         {
           "type": "event",
           "name": "CheCell::systems::game::infoSystem::AddCellProperty::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "CellExplore",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@CheCell::systems::game::mapSystem::CellExplore::ContractState"
+        },
+        {
+          "name": "c_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "time",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x17f71450ee070100b8b7d1e5d0ebe020e084d2a721db57529d55def8fb00d25",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "c_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "time",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "CheCell::systems::game::mapSystem::CellExplore::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "CellExploreGain",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@CheCell::systems::game::mapSystem::CellExploreGain::ContractState"
+        },
+        {
+          "name": "c_id",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x5519ccd9eaafc43cb3f6901d2ee1db6e2924e843bbd9d69eae3cc7f1885dd88",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "c_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "CheCell::systems::game::mapSystem::CellExploreGain::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "CellBreedAsk",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@CheCell::systems::game::marketSystem::CellBreedAsk::ContractState"
+        },
+        {
+          "name": "c_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "category",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "pay_number",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x5d22a1733402c65050953af02342d0e0ea3f5d5087fbce0e49f8b87dd131c8a",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "c_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "category",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "pay_number",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "CheCell::systems::game::marketSystem::CellBreedAsk::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "CellBreedBid",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@CheCell::systems::game::marketSystem::CellBreedBid::ContractState"
+        },
+        {
+          "name": "c_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "target_category",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "t_id",
+          "type": "core::felt252"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x652353cb66470d52e4ef23742e2f062be642ec0967c8bd85baf13a8e644e6df",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "c_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "target_category",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "t_id",
+              "type": "core::felt252"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "CheCell::systems::game::marketSystem::CellBreedBid::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "CellBreedCancel",
+      "inputs": [
+        {
+          "name": "self",
+          "type": "@CheCell::systems::game::marketSystem::CellBreedCancel::ContractState"
+        },
+        {
+          "name": "c_id",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "category",
+          "type": "core::integer::u32"
+        },
+        {
+          "name": "pay_number",
+          "type": "core::integer::u32"
+        }
+      ],
+      "outputs": [],
+      "class_hash": "0x7c1e9f23b3bbb635e7d31052122f82596682deb18e8341dd0616329ef928557",
+      "dependencies": [],
+      "abi": [
+        {
+          "type": "function",
+          "name": "name",
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "core::felt252"
+            }
+          ],
+          "state_mutability": "view"
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::IWorldDispatcher",
+          "members": [
+            {
+              "name": "contract_address",
+              "type": "core::starknet::contract_address::ContractAddress"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::world::Context",
+          "members": [
+            {
+              "name": "world",
+              "type": "dojo::world::IWorldDispatcher"
+            },
+            {
+              "name": "origin",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "system",
+              "type": "core::felt252"
+            },
+            {
+              "name": "system_class_hash",
+              "type": "core::starknet::class_hash::ClassHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "execute",
+          "inputs": [
+            {
+              "name": "c_id",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "category",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "pay_number",
+              "type": "core::integer::u32"
+            },
+            {
+              "name": "ctx",
+              "type": "dojo::world::Context"
+            }
+          ],
+          "outputs": [],
+          "state_mutability": "view"
+        },
+        {
+          "type": "event",
+          "name": "CheCell::systems::game::marketSystem::CellBreedCancel::Event",
           "kind": "enum",
           "variants": []
         }
@@ -1612,11 +1826,6 @@
           "key": false
         },
         {
-          "name": "breed_count",
-          "type": "u32",
-          "key": false
-        },
-        {
           "name": "body_size",
           "type": "u8",
           "key": false
@@ -1647,12 +1856,27 @@
           "key": false
         },
         {
+          "name": "breed_count",
+          "type": "u32",
+          "key": false
+        },
+        {
           "name": "breed_cost",
+          "type": "u32",
+          "key": false
+        },
+        {
+          "name": "breed_category",
+          "type": "u32",
+          "key": false
+        },
+        {
+          "name": "target_category",
           "type": "u32",
           "key": false
         }
       ],
-      "class_hash": "0x350f2e0ab2a4e3181063c3fdce247a89c02f06e92cc4ef8021a794b33bf1ca8",
+      "class_hash": "0x7451a4ea553e783417d0076026605ca21468d0562ed7880ec40decada526f78",
       "abi": [
         {
           "type": "function",

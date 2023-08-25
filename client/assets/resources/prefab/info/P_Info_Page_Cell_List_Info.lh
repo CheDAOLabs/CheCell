@@ -364,7 +364,7 @@
       "_$id": "4ba4t6ft",
       "_$var": true,
       "_$type": "Label",
-      "name": "type_cur_value_label",
+      "name": "category_cur_value_label",
       "x": 1010,
       "y": 191,
       "width": 42,

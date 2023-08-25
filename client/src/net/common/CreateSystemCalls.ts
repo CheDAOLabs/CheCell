@@ -35,12 +35,21 @@ export function CreateSystemCalls(
         const tx = await execute("CellExploreGain", [c_id]);
         return await syncWorker.sync(tx.transaction_hash);
     }
-    const CellEvolution = async (c_id:number) => {
-        const tx = await execute("CellEvolution", [c_id]);
-        return await syncWorker.sync(tx.transaction_hash);
-    }
+ 
     const CellEvolutionGain = async (c_id:number) => {
         const tx = await execute("CellEvolutionGain", [c_id]);
+        return await syncWorker.sync(tx.transaction_hash);
+    }
+    const CellBreedAsk = async (c_id:number,category:number,pay_number:number) => {
+        const tx = await execute("CellBreedAsk", [c_id,category,pay_number]);
+        return await syncWorker.sync(tx.transaction_hash);
+    }
+    const CellBreedBid = async (c_id:number,category:number,t_id:bigint) => {
+        const tx = await execute("CellBreedBid", [c_id,category,t_id]);
+        return await syncWorker.sync(tx.transaction_hash);
+    }
+    const CellBreedCancel = async (c_id:number) => {
+        const tx = await execute("CellBreedCancel", [c_id]);
         return await syncWorker.sync(tx.transaction_hash);
     }
     return {
@@ -51,7 +60,9 @@ export function CreateSystemCalls(
         AddCellProperty,
         CellExplore,
         CellExploreGain,
-        CellEvolution,
-        CellEvolutionGain
+        CellEvolutionGain,
+        CellBreedAsk,
+        CellBreedBid,
+        CellBreedCancel
     };
 }

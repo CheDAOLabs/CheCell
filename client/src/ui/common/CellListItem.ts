@@ -6,8 +6,8 @@ import { CellListPageType, HomeManagerEvent } from '../../common/Config';
 export class CellListItem extends Laya.Script {
     @property( { type: Laya.Button } )
     private button:Laya.Button;
-    index:number;
-    type:number;
+    public index:number;
+    public type:number;
     onAwake() {
         this.button.on(Laya.Event.CLICK,this,this.onButtonEvent.bind(this));
       
@@ -31,6 +31,9 @@ export class CellListItem extends Laya.Script {
                 break;
             case CellListPageType.Market:
                 Laya.stage.event(HomeManagerEvent.OnTouchMarketCell,this.index);  
+                break;
+            case CellListPageType.MarketBid:
+                Laya.stage.event(HomeManagerEvent.OnTouchMarketBidCell,this.index);  
                 break;
             default:
                 break;

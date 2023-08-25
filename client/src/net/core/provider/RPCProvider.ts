@@ -47,13 +47,11 @@ export class RPCProvider extends IProvider {
         const call: Call = {
             entrypoint: WorldEntryPoints.entities,
             contractAddress: this.getWorldAddress(),
-            calldata: [strTofelt252Felt(component),0,length]
+            calldata: [strTofelt252Felt(component),partition,length]
         }
- 
  
         try {
             const response = await this.provider.callContract(call);
-           console.log('response:  ',response);
             return response.result as unknown as Array<bigint>;
         } catch (error) {
             throw error;

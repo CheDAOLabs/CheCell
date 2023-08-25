@@ -6,12 +6,11 @@
  */
 export class MarketPageAskBase extends Laya.Box {
     public cell_list!: Laya.VBox;
+    public cell_info!: Laya.Box;
     public cell_bg_img!: Laya.Image;
     public breed_count_value_label!: Laya.Label;
-    public consume_value_llabel!: Laya.Label;
-    public cancel_button!: Laya.Button;
     public confirm_button!: Laya.Button;
-    public cost_input!: Laya.TextInput;
+    public pay_input!: Laya.TextInput;
     public category_group!: Laya.Panel;
 }
 

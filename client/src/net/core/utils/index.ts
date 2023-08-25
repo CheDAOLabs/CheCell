@@ -1,6 +1,7 @@
 import { EntityIndex, setComponent, Component, Schema, Components } from "@latticexyz/recs";
 import { Event } from "starknet";
 import { poseidonHashMany } from 'micro-starknet';
+import { Entity } from "../network/graphql";
 
 export function strTofelt252Felt(str: string): string {
   const encoder = new TextEncoder();
@@ -44,18 +45,39 @@ export function getAllSystemNamesAsFelt(manifest: any): any {
 
 // DISCUSSION: MUD expects Numbers, but entities in Starknet are BigInts (from poseidon hash)
 // so I am converting them to Numbers here, but it means that there is a bigger risk of collisions
-export function getEntityIdFromKeys(keys: bigint[]): EntityIndex {
+export function getEntityIdFromKeys(keys: bigint[]): bigint {
   if (keys.length === 1) {
+    return keys[0];
    return parseInt(keys[0].toString()) as EntityIndex;
   }
   // calculate the poseidon hash of the keys
   let poseidon = poseidonHashMany([BigInt(keys.length), ...keys]);
+  return poseidon;
   return parseInt(poseidon.toString()) as EntityIndex;
+}
+export function setComponentFromEntitiesGraphqlQuery(component: Component, entities: Entity[]) {
+ 
+  entities.forEach((entity) => {
+    //console.log( entity.node.keys);
+    const keys = entity.node.keys.map((key) => BigInt(key));
+    //keys.pop();
+    const entityIndex = getEntityIdFromKeys(keys);
+    entity.node.components.forEach((comp) => {
+      if (comp.__typename === component.metadata?.name) {
+        const componentValues = Object.keys(component.schema).reduce((acc: Schema, key) => {
+          const value = comp[key];
+          acc[key] = BigInt(value);
+          return acc;
+        }, {});
+        setComponent(component, entityIndex, componentValues);
+      }
+    });
+  });
 }
 
 export function setComponentFromEntitiesQuery(component: Component, entities: bigint[]) {
-    console.log("setComponentFromEntitiesQuery");
-    
+    console.log("setComponentFromEntitiesQuery",entities);
+  
     let index = 0;
     console.log(entities);
     // Retrieve the number of entityIds
@@ -92,10 +114,10 @@ export function setComponentFromEvent(components: Components, eventData: string[
     // retrieve the component name
     
     const componentName = hex_to_ascii(eventData[0]);
-     
+ 
     // retrieve the component from name
     const component = components[componentName];
-
+    
     // get keys
     const keysNumber = parseInt(eventData[1]);
     let index = 2 + keysNumber + 1;

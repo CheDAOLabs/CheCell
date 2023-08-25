@@ -10,7 +10,7 @@ mod InitAccount {
     use CheCell::utils::constants::{GAME_ID,WORLD_ID};  
  
     use CheCell::components::worldInfo::{WorldInfo};
-    use CheCell::components::account::{Account};
+    use CheCell::components::account::{Account,CreateAccountEvent};
 
     fn execute(ctx: Context) {
 
@@ -36,7 +36,7 @@ mod InitAccount {
             ctx.world,
             (account)
         )
-
+         
         return ();
     }
 }

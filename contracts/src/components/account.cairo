@@ -8,3 +8,10 @@ struct Account {
     address:felt252,
 }
  
+ #[derive(Drop, starknet::Event)]
+struct CreateAccountEvent {
+    address: felt252,
+    number:u32,
+    test:u32
+} 
+ 

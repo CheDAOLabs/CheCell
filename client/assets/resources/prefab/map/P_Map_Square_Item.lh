@@ -5,7 +5,27 @@
   "name": "Box",
   "width": 106,
   "height": 106,
+  "_$comp": [
+    {
+      "_$type": "dea390e9-354f-4c5a-ba15-bae43b0c3c4f",
+      "scriptPath": "../src/ui/map/MapSquareItem.ts",
+      "bg": {
+        "_$ref": "69utbgff"
+      }
+    }
+  ],
   "_$child": [
+    {
+      "_$id": "69utbgff",
+      "_$type": "Image",
+      "name": "bg",
+      "width": 106,
+      "height": 106,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://8f5c26f8-8e85-48eb-a24f-1bcde6040222",
+      "color": "#0b0720"
+    },
     {
       "_$id": "p7b8stid",
       "_$type": "Image",

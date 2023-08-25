@@ -5,6 +5,8 @@
  * resources/prefab/map/P_Map_Page.lh
  */
 export class MapInfoPageBase extends Laya.Box {
+    public map_list!: Laya.List;
+    public map_item!: Laya.Box;
     public name_cur_value_label!: Laya.Label;
     public explore_button!: Laya.Button;
     public count_down_image!: Laya.Image;

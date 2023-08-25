@@ -9,14 +9,20 @@ struct Cell {
     name:felt252,
     seed:felt252,
     exp:u32,
-    breed_count:u32,
+ 
     body_size:u8,
     category:u32,
+    
     state:u8,
     explore_time:u32,
     explore_end_time:u64,
     evolution_end_time:u64,
+
+    breed_count:u32,
     breed_cost:u32,
+    breed_category:u32,
+    
+    target_category:u32
 }
 
 #[derive(Component, Copy, Drop, Serde, SerdeLen)]
@@ -35,4 +41,5 @@ struct CreateCellEvent {
     address: felt252,
     number:u32,
 } 
+ 
  

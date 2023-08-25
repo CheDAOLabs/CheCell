@@ -46,13 +46,20 @@ export function defineContractComponents(world: World) {
           name:RecsType.BigInt,
           seed: RecsType.BigInt,
           exp:RecsType.Number,
-          breed_count:RecsType.Number,
+           
           body_size:RecsType.Number,
           category:RecsType.Number,
+
           state:RecsType.Number,
           explore_time:RecsType.Number,
           explore_end_time:RecsType.BigInt,
-          evolution_end_time:RecsType.BigInt
+          evolution_end_time:RecsType.BigInt,
+
+          breed_count:RecsType.Number,
+          breed_cost:RecsType.Number,
+          breed_category:RecsType.Number,
+
+          target_category:RecsType.Number
         },
         {
           metadata: {

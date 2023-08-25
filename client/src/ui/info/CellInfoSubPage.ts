@@ -1,6 +1,7 @@
 const { regClass, property } = Laya;
 
 import { HomeManagerEvent } from '../../common/Config';
+import { bitToCategory } from '../../common/Tool';
 import { felt252ToStr } from '../../net/core/utils';
 import { CellInfoSubPageBase } from './CellInfoSubPage.generated';
  
@@ -16,7 +17,7 @@ export class CellInfoSubPage extends CellInfoSubPageBase {
         this.index = index;
         this.name_cur_value_label.text = felt252ToStr(baseInfo.name);
         this.exp_cur_value_label.text = baseInfo.exp;
-        this.type_cur_value_label.text = baseInfo.category;
+        this.category_cur_value_label.text = bitToCategory(Number(baseInfo.category));
         this.bodysize_cur_value_label.text = baseInfo.body_size;
         this.bread_count_cur_value_label.text = baseInfo.bread_count;
 
