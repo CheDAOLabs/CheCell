@@ -15,10 +15,10 @@
       "player_name_label": {
         "_$ref": "we72wf7r"
       },
-      "cell_number_label": {
+      "cell_name_label": {
         "_$ref": "yolwrv4p"
       },
-      "exp_number_label": {
+      "value_label": {
         "_$ref": "wcx3f3il"
       }
     }
@@ -82,43 +82,44 @@
       "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
       "fontSize": 32,
       "color": "rgba(246, 218, 255, 1)",
-      "fitContent": "yes",
       "leading": 2,
       "padding": "0,0,0,0"
     },
     {
       "_$id": "yolwrv4p",
       "_$type": "Label",
-      "name": "cell_number_value_label",
-      "x": 662,
+      "name": "cell_name_value_label",
+      "x": 620,
       "y": 12,
-      "width": 22,
+      "width": 72,
       "height": 33,
-      "left": 662,
+      "left": 620,
       "centerY": 0,
-      "text": "10",
+      "text": "abdcd",
       "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
       "fontSize": 32,
       "color": "rgba(246, 218, 255, 1)",
-      "fitContent": "yes",
+      "align": "center",
+      "valign": "middle",
       "leading": 2,
       "padding": "0,0,0,0"
     },
     {
       "_$id": "wcx3f3il",
       "_$type": "Label",
-      "name": "exp_rank_value_label",
+      "name": "value_label",
       "x": 920,
       "y": 12,
-      "width": 56,
+      "width": 86,
       "height": 33,
       "left": 920,
       "centerY": 0,
-      "text": "9999",
+      "text": "abcdeg",
       "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
       "fontSize": 32,
       "color": "rgba(246, 218, 255, 1)",
-      "fitContent": "yes",
+      "align": "center",
+      "valign": "middle",
       "leading": 2,
       "padding": "0,0,0,0"
     },

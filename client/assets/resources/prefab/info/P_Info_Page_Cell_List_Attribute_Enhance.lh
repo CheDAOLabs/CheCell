@@ -338,7 +338,7 @@
       "height": 33,
       "left": 55,
       "top": 358,
-      "text": "Every [color=#f6daff]5[/color] points of EXP can strengthen [color=#f6daff]1[/color] point of [color=#f6daff]attribute[/color]",
+      "text": "Every [color=#f6daff]2[/color] points of EXP can strengthen [color=#f6daff]1[/color] point of [color=#f6daff]attribute[/color]",
       "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
       "fontSize": 32,
       "color": "rgba(117, 91, 160, 1)",

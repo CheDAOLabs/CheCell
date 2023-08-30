@@ -68,7 +68,8 @@ export class MarketPageBidSelected extends MarketPageBidSelectedBase {
                             type:CellListPageType.MarketBid
                         }
                         script.SetData(data);
-                         
+                        item.x = 10;
+                        item.y = 5+index*70;
                         this.cell_list.addChildAt(item,index);
                         if(index == 0){
                             this.onTouchMarketBidCellEvent(1);

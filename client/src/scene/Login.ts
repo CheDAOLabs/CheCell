@@ -6,6 +6,7 @@ import { Utils } from '../net/core';
 import { LoginBase } from './Login.generated';
 import { GAMEID, WORLDID } from '../common/Config';
  
+ 
 
 @regClass()
 export class Login extends LoginBase {
@@ -15,7 +16,8 @@ export class Login extends LoginBase {
 
     }
     async onLoginButtonEvent(param: any): Promise<void> {
-      await NetMgr.GetInstance().setup();
+ 
+      await NetMgr.GetInstance().setup(this.address_input.text,this.private_input.text);
       const {    
           network:{
               account,

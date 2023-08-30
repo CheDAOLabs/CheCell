@@ -1,4 +1,8 @@
 use array::{ArrayTrait, SpanTrait};
+use serde::Serde;
+use clone::Clone;
+use option::OptionTrait;
+use traits::{Into, TryInto};
 
 #[derive(Component, Copy, Drop, Serde, SerdeLen)]
 struct Cell {
@@ -21,8 +25,10 @@ struct Cell {
     breed_count:u32,
     breed_cost:u32,
     breed_category:u32,
-    
-    target_category:u32
+
+    target_category:u32,
+    map:u32,
+    bonus:u32
 }
 
 #[derive(Component, Copy, Drop, Serde, SerdeLen)]
@@ -37,9 +43,8 @@ struct CellProperty {
 }
 
 #[derive(Drop, starknet::Event)]
-struct CreateCellEvent {
-    address: felt252,
-    number:u32,
-} 
- 
+struct ExploreGainEvent {
+    address:felt252,
+    bonus:u32
+}
  

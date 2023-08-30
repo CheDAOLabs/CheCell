@@ -1,6 +1,7 @@
 
  export function GetBaseUrl(){ 
-    return 'http://127.0.0.1:5050';
+   
+    return 'http://localhost:5050';
  }
 
  export function GetGraphQLUrl(){ 

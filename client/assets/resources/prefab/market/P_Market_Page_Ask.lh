@@ -19,18 +19,19 @@
       "color": "#252641"
     },
     {
-      "_$id": "1ar9ikxz",
+      "_$id": "ej4dqzy0",
       "_$var": true,
-      "_$type": "VBox",
+      "_$type": "Panel",
       "name": "cell_list",
-      "y": 32,
-      "width": 438,
+      "x": 10,
+      "y": 30,
+      "width": 420,
       "height": 764,
       "mouseEnabled": true,
-      "left": 0,
-      "top": 32,
-      "space": 8,
-      "align": "center"
+      "left": 10,
+      "top": 30,
+      "scrollType": 2,
+      "elasticEnabled": true
     },
     {
       "_$id": "55741u2k",
@@ -281,6 +282,7 @@
         },
         {
           "_$id": "44k93lt4",
+          "_$var": true,
           "_$type": "Label",
           "name": "stock_value_label_2",
           "x": 590,
@@ -331,7 +333,7 @@
           "mouseEnabled": true,
           "left": 735,
           "top": 391,
-          "text": "0",
+          "text": "100",
           "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
           "fontSize": 32,
           "color": "rgba(246, 218, 255, 1)",

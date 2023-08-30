@@ -2,7 +2,7 @@
 
 
 /**
- * resources/prefab/P_Cell_Body_Enhance.lh
+ * resources/prefab/info/P_Info_Page_Cell_List_Body_Enhance.lh
  */
 export class CellBodyEnhancePageBase extends Laya.Box {
     public cell_property_point_panel!: Laya.Panel;

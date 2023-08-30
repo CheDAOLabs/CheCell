@@ -62,6 +62,8 @@ mod CellBreedAsk {
  
         assert(cell.init == true , 'cell is invaild');
         assert(cell.state == 0_u8, 'cell state is invaild');
+        assert(category != 0_u32, 'category is invaild');
+
         let mut count = 9_u256;
         let mut i = 0_u256;
         loop{
@@ -115,7 +117,7 @@ mod CellBreedBid {
         world_key_arr.append(WORLD_ID);
  
         let world_key = poseidon::poseidon_hash_span(world_key_arr.span());
-        let mut world = get !(
+        let world = get !(
             ctx.world,
             world_key, 
             WorldInfo
@@ -129,7 +131,7 @@ mod CellBreedBid {
         account_key_arr.append(ctx.origin.into());
  
         let account_key = poseidon::poseidon_hash_span(account_key_arr.span());
-        let mut account = get !(
+        let account = get !(
             ctx.world,
             account_key, 
             Account
@@ -206,7 +208,7 @@ mod CellBreedCancel {
     use CheCell::components::worldInfo::{WorldInfo};
     use CheCell::components::cell::{Cell,CellProperty};
 
-    fn execute(ctx: Context,c_id:u32,category:u32,pay_number:u32) {
+    fn execute(ctx: Context,c_id:u32) {
 
         let mut world_key_arr:Array<felt252> = ArrayTrait::new();
         world_key_arr.append(2);

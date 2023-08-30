@@ -35,9 +35,10 @@ export const getEntities = async (url: string, componentName: string, componentS
     `;
 
     try {
-        const response: {entities: Entity[]} = await request(url, GET_ENTITIES_QUERY);
+        const response: {entities: any[]} = await request(url, GET_ENTITIES_QUERY);
         return response.entities.edges;
       } catch (error) {
         console.error(error);
+        return null;
       }
 }

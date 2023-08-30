@@ -76,6 +76,31 @@ export class RPCProvider extends IProvider {
     }
     public async eventsList(){
         const lastBlock = await this.provider.getBlock('latest');
+        let result:any[] = [];
+        const max = parseInt(lastBlock.block_number/400);
+        const dx = parseInt(lastBlock.block_number%400);
+        
+        for (let i = 0; i < max; i++) {
+            const list =  await this.provider.getEvents({
+                address: this.getWorldAddress(),
+                from_block: {block_number: i*400},
+                to_block: {block_number: (i+1)*400},
+                chunk_size: 400,
+                keys:[['0x1a2f334228cee715f1f0f54053bb6b5eac54fa336e0bc1aacf7516decb0471d']]
+            });
+            result.push(...list.events);
+        }   
+        if(dx != 0){
+             const list =  await this.provider.getEvents({
+                address: this.getWorldAddress(),
+                from_block: {block_number: lastBlock.block_number-dx},
+                to_block: {block_number: lastBlock.block_number},
+                chunk_size: dx,
+                keys:[['0x1a2f334228cee715f1f0f54053bb6b5eac54fa336e0bc1aacf7516decb0471d']]
+            });
+            result.push(...list.events);
+        }
+        /*
         const list =  await this.provider.getEvents({
             address: this.getWorldAddress(),
             from_block: {block_number: 0},
@@ -85,14 +110,10 @@ export class RPCProvider extends IProvider {
         });
      //   console.log(list);
         return list.events;
+        */
+       return result;
     }
     public async execute(account: Account, system: string, call_data:BigNumberish[]): Promise<InvokeFunctionResponse> {
-
-        // DISCUSS: is this needed?
-        // let call_data_obj = call_data.reduce((obj: any, item, index) => {
-        //     obj[index] = item;
-        //     return obj;
-        // }, {});
 
         try {
 

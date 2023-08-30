@@ -59,7 +59,9 @@ export function defineContractComponents(world: World) {
           breed_cost:RecsType.Number,
           breed_category:RecsType.Number,
 
-          target_category:RecsType.Number
+          target_category:RecsType.Number,
+          map:RecsType.Number,
+          bonus:RecsType.Number
         },
         {
           metadata: {

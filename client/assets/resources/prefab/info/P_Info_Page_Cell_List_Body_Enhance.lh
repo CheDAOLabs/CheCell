@@ -41,7 +41,6 @@
       "name": "item_img",
       "width": 26,
       "height": 26,
-      "visible": false,
       "skin": "res://4d6cb8e3-db6c-4abb-bc81-06e99e796465",
       "useSourceSize": true,
       "color": "#ffffff"
@@ -379,7 +378,7 @@
       "height": 68,
       "left": 52,
       "top": 351,
-      "text": "Every [color=#f6daff]5[/color] points of EXP can \nstrengthen [color=#f6daff]1[/color] point of [color=#f6daff]body size[/color]",
+      "text": "Every [color=#f6daff]100[/color] points of EXP can \nstrengthen [color=#f6daff]1[/color] point of [color=#f6daff]body size[/color]",
       "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
       "fontSize": 32,
       "color": "rgba(117, 91, 160, 1)",

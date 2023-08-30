@@ -32,6 +32,8 @@ export class CreateCellPage extends CreateCellPageBase {
        this.baseColor = {r:0,g:0,b:0};
 
        this.confirm_button.on(Laya.Event.CLICK,this,this.onConfirmButtonEvent.bind(this));
+
+        
     }
     private onUpdateCreateCellEvent(param: any){
 
@@ -194,11 +196,11 @@ export class CreateCellPage extends CreateCellPageBase {
         }
         if(this.seed_input.text == ''){
             console.log('seed void');
-            return;
+         //   return;
         }
         let data = {
             name:this.name_input.text,
-            seed:this.seed_input.text,
+            seed:'123123',
             color:this.baseColor
         } as CreateCellData;
         Laya.stage.event(HomeManagerEvent.OnCreateCell,data);  

@@ -1,6 +1,6 @@
 const { regClass, property } = Laya;
  
-import { CellListPageType, GAMEID, HomeManagerEvent, WORLDID } from '../../common/Config';
+import { CellListPageType, GAMEID, HomeManagerEvent, NetManagerEvent, WORLDID } from '../../common/Config';
 import { getCellInfo1,getCellInfo2 } from '../../logic/gamelogic';
 import { NetMgr } from '../../net/NetMgr';
 import { Utils } from '../../net/core';
@@ -20,17 +20,16 @@ export class CellListPage extends CellListPageBase {
         Laya.stage.on(HomeManagerEvent.OnUpdateCellList,this,this.onUpdateCellList.bind(this));
         Laya.stage.on(HomeManagerEvent.OnEnhanceCellBodySize,this,this.onEnhanceCellBodySize.bind(this));
         Laya.stage.on(HomeManagerEvent.OnEnhanceCellProperty,this,this.onEnhanceCellProperty.bind(this));
+        Laya.stage.on(NetManagerEvent.OnCellBreedCancelCB,this,this.onCellBreedCancelEvent.bind(this));
 
-
+       
         this.item0Page.selectedIndex = -1;
     }
     onEnable(): void {
        
     }
-    onOpened(param: any):void{
-
-    }
-    onUpdateCellList(param: any): void {
+   
+    onUpdateCellList(): void {
         this.cell_list.removeChildren();
         this.selected_node  = undefined;
         Laya.loader.load("resources/prefab/common/P_Common_Page_Cell_List_Item.lh").then((res)=>{
@@ -62,7 +61,8 @@ export class CellListPage extends CellListPageBase {
                         type:CellListPageType.Info
                     }
                     script.SetData(data);
-                     
+                    item.x = 10;
+                    item.y = 5+i*70;
                     this.cell_list.addChildAt(item,i);
                     if(i == 0){
                         this.onSelect(0);
@@ -93,6 +93,18 @@ export class CellListPage extends CellListPageBase {
      onEnhanceCellProperty(param: any): void {
         this.item0Page.selectedIndex = 2;
         (this.item0Page.selection as CellAttributeEnhancePage).SetData(param.c_id,param.p_id);
+     }
+     onCellBreedCancelEvent(param: any){
+        let message ='';
+        if(param){
+            message = 'Cell put off shelves success!';
+        }else{
+            message = 'Cell put off shelves error!';
+        }
+         
+        Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, {"text":message});
+ 
+        this.onUpdateCellList();
      }
     private onSelect(index: number): void {
         this.item0Page.selectedIndex = index;

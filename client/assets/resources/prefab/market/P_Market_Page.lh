@@ -61,6 +61,15 @@
           "x": 0,
           "y": 0,
           "visible": false
+        },
+        {
+          "_$id": "2nizayki",
+          "_$prefab": "b06abd02-8008-43d2-aad2-1b351071b9cd",
+          "name": "item2",
+          "active": true,
+          "x": 0,
+          "y": 0,
+          "visible": false
         }
       ]
     }

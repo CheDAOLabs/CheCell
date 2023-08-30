@@ -27,10 +27,13 @@ export const enum HomeManagerEvent {
     OnPlayGame = 'OnPlayGame',
     OnExplore = 'OnExplore',
     OnGain = 'OnGain',
+    OnCellBreedCancel = 'OnCellBreedCancel',
+
     OnEvolutionGain = 'OnEvolutionGain',
     OnCellBreedAsk = 'OnCellBreedAsk',
     OnCellBreedBid = 'OnCellBreedBid',
     OnCellBreedBidCancel = 'OnCellBreedBidCancel',
+
 };
 
 export const enum NetManagerEvent {
@@ -42,6 +45,8 @@ export const enum NetManagerEvent {
       OnEvolutionGainCB = 'OnEvolutionGainCB',
       OnCellBreedAskCB = 'OnCellBreedAskCB',
       OnCellBreedBidCB = 'OnCellBreedBidCB',
+
+      OnCellBreedCancelCB = 'OnCellBreedCancelCB',
   };
 
 export const enum CCMapType{

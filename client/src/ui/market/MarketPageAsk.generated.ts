@@ -5,10 +5,11 @@
  * resources/prefab/market/P_Market_Page_Ask.lh
  */
 export class MarketPageAskBase extends Laya.Box {
-    public cell_list!: Laya.VBox;
+    public cell_list!: Laya.Panel;
     public cell_info!: Laya.Box;
     public cell_bg_img!: Laya.Image;
     public breed_count_value_label!: Laya.Label;
+    public stock_value_label_2!: Laya.Label;
     public confirm_button!: Laya.Button;
     public pay_input!: Laya.TextInput;
     public category_group!: Laya.Panel;

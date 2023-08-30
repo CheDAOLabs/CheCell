@@ -46,8 +46,8 @@ export class NetMgr {
         }
         return NetMgr.GetInstance().net;
     }
-    public async setup(){
-        const network = await SetupNetwork();
+    public async setup(address?:any,privatkey?:any){
+        const network = await SetupNetwork(address,privatkey);
         const components = CreateClientComponents(network);
         const systemCalls = CreateSystemCalls(network);
         NetMgr.GetInstance().net = {  

@@ -8,13 +8,13 @@ mod CreateCell {
     use poseidon::poseidon_hash_span;
 
 
-    use CheCell::utils::constants::{CATEGORY_COUNT,CELL_SIZE_MAX,GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE,PROPERTY_VALUE_MAX,PROPERTY_INIT_MAX,PROPERTY_INIT_TOTAL_VALUE};  
+    use CheCell::utils::constants::{MAX_CREATE_CELL,CATEGORY_COUNT,CELL_SIZE_MAX,GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE,PROPERTY_VALUE_MAX,PROPERTY_INIT_MAX,PROPERTY_INIT_TOTAL_VALUE};  
     use CheCell::utils::math::{pow,decodePackage};  
     use CheCell::utils::random::{random_s};  
  
     use CheCell::components::account::{Account};
     use CheCell::components::worldInfo::{WorldInfo};
-    use CheCell::components::cell::{Cell,CellProperty,CreateCellEvent};
+    use CheCell::components::cell::{Cell,CellProperty};
 
     fn execute(ctx: Context,nickName:felt252,initSeed:felt252,property:u32) {
 
@@ -44,7 +44,8 @@ mod CreateCell {
             Account
         );
         assert(account.init == true , 'account is invaild');
- 
+        assert(account.cell_number <= MAX_CREATE_CELL , 'CELL MAX ');
+  
         account.cell_number += 1_u32;
 
         let mut cell_key_arr:Array<felt252> = ArrayTrait::new();
@@ -60,7 +61,7 @@ mod CreateCell {
             Cell
         );
         cell.init = true;
-        cell.exp = 100000_u32;
+        cell.exp = 100_u32;
         cell.name = nickName;
         cell.seed = initSeed;
         cell.breed_count = 9;
@@ -119,8 +120,7 @@ mod CreateCell {
             ctx.world,
             (cell_property)
         );
-        emit !(ctx.world,CreateCellEvent{address:ctx.origin.into(),number:1_u32});
-        emit !(ctx.world,CreateCellEvent{address:ctx.origin.into(),number:1_u32});
+      
         return ();
     }
     

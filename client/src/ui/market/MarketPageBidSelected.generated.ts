@@ -5,7 +5,7 @@
  * resources/prefab/market/P_Market_Page_Bid_Selected.lh
  */
 export class MarketPageBidSelectedBase extends Laya.Box {
-    public cell_list!: Laya.VBox;
+    public cell_list!: Laya.Panel;
     public cell_info!: Laya.Box;
     public cell_bg_img!: Laya.Image;
     public category_value_label!: Laya.Label;

@@ -6,7 +6,8 @@
  */
 export class CellInfoSubPageBase extends Laya.Box {
     public cell_bg_img!: Laya.Image;
-    public breading_bg_img!: Laya.Image;
+    public state_bg_img!: Laya.Image;
+    public state_label!: Laya.Label;
     public name_cur_value_label!: Laya.Label;
     public bread_count_cur_value_label!: Laya.Label;
     public perception_cur_value_label!: Laya.Label;

@@ -14,6 +14,9 @@ export class MarketPageAskCategorySelectedItem extends Laya.Script {
       
     }
     SetGray(disabled:boolean){
+        if(disabled){
+            this.button.selected = false;
+        }
         this.button.disabled = disabled;
     }
     onButtonEvent(param:any){

@@ -2,6 +2,8 @@
   "resolution": {
     "designWidth": 1920,
     "designHeight": 1080,
+    "scaleMode": "fixedauto",
+    "screenMode": "horizontal",
     "alignH": "center"
   },
   "3D": {

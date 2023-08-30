@@ -2,7 +2,7 @@
 
 
 /**
- * resources/prefab/P_Cell_Create.lh
+ * resources/prefab/info/P_Info_Page_Create_Cell.lh
  */
 export class CreateCellPageBase extends Laya.Box {
     public cell_image!: Laya.Image;

@@ -1,5 +1,6 @@
 import { number } from "starknet";
 import { Color } from "./Config";
+import { getCellInfo0, getCellInfo1 } from "../logic/gamelogic";
 
 export function rgbToHex(r:number, g:number, b:number) {
     const hex = ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
@@ -46,19 +47,40 @@ export function isBit(number:number, n:number) {
   return (number & n) !== 0;
 }
 
+export function getCategoryCount(category:number) {
+  let result = 0;
+    for (let i = 0; i < 9; i++) {
+      result += isBitSet(category,i)?1:0;
+    }
+    return result;
+}
 
-export function insertDataDescendingOrder(dataArray:any[], newData:any) {
+export function insertDataDescendingOrder(dataArray:any[], newData:any,type:number) {
   let inserted = false;
-  for (let i = 0; i < dataArray.length; i++) {
-    if (newData.cell_number > dataArray[i].cell_number) {
-      dataArray.splice(i, 0, newData);
-      inserted = true;
-      break;
+  if(type == 0){
+    for (let i = 0; i < dataArray.length; i++) {
+      if (getCategoryCount(Number(newData.cell_info.base_info.category)) > getCategoryCount(Number(dataArray[i].cell_info.base_info.category))) {
+        dataArray.splice(i, 0, newData);
+        inserted = true;
+        break;
+      }
+    }
+    if (!inserted) {
+      dataArray.push(newData);
+    }
+  }else{
+    for (let i = 0; i < dataArray.length; i++) {
+      if (Number(newData.cell_info.property_info.p1)+Number(newData.cell_info.property_info.p2)+Number(newData.cell_info.property_info.p3) > Number(dataArray[i].cell_info.property_info.p1)+Number(dataArray[i].cell_info.property_info.p2)+Number(dataArray[i].cell_info.property_info.p3)) {
+        dataArray.splice(i, 0, newData);
+        inserted = true;
+        break;
+      }
+    }
+    if (!inserted) {
+      dataArray.push(newData);
     }
   }
-  if (!inserted) {
-    dataArray.push(newData);
-  }
+  
   return dataArray;
 }
 
@@ -86,4 +108,8 @@ export function bitToCategory(category:number):string {
     }
   }
   return result;
+}
+
+export function isNumericString(str:string) {
+  return /^\d+$/.test(str);
 }

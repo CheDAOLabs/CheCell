@@ -2,7 +2,7 @@
 
 
 /**
- * resources/prefab/P_Exploration_Setup_Dialog.lh
+ * resources/prefab/map/P_Exploration_Setup_Dialog.lh
  */
 export class ExplorationSetupDialogBase extends Laya.Dialog {
     public time_cur_label!: Laya.Label;

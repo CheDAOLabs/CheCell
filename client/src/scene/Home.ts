@@ -35,7 +35,7 @@ export class Home extends HomeBase {
         Laya.stage.on(HomeManagerEvent.OnEvolutionGain,this,this.onEvolutionGainEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnCellBreedAsk,this,this.onCellBreedAskEvent.bind(this));
         Laya.stage.on(HomeManagerEvent.OnCellBreedBid,this,this.onCellBreedBidEvent.bind(this));
-
+        Laya.stage.on(HomeManagerEvent.OnCellBreedCancel,this,this.onCellBreedCancelEvent.bind(this));
          
     }
  
@@ -204,7 +204,16 @@ export class Home extends HomeBase {
            const result = await CellBreedBid(param.c_id,param.category,param.t_id);
            Laya.stage.event(NetManagerEvent.OnCellBreedBidCB,result);
     }
-     
-     
+    async onCellBreedCancelEvent(param: any){
+       
+        const {
+            systemCalls:{
+                CellBreedCancel
+            }
+           } = NetMgr.GetInstance().GetNet();
+ 
+           const result = await CellBreedCancel(param);
+           Laya.stage.event(NetManagerEvent.OnCellBreedCancelCB,result);
+    }
 }
  

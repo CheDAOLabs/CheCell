@@ -5,7 +5,7 @@
  * resources/prefab/info/P_Info_Page_Cell_List.lh
  */
 export class CellListPageBase extends Laya.Box {
-    public cell_list!: Laya.VBox;
+    public cell_list!: Laya.Panel;
     public item0Page!: Laya.ViewStack;
 }
 

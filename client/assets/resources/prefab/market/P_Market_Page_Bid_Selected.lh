@@ -19,18 +19,19 @@
       "color": "#252641"
     },
     {
-      "_$id": "1ar9ikxz",
+      "_$id": "d5qlvzq9",
       "_$var": true,
-      "_$type": "VBox",
+      "_$type": "Panel",
       "name": "cell_list",
-      "y": 32,
-      "width": 438,
+      "x": 10,
+      "y": 30,
+      "width": 420,
       "height": 764,
       "mouseEnabled": true,
-      "left": 0,
-      "top": 32,
-      "space": 8,
-      "align": "center"
+      "left": 10,
+      "top": 30,
+      "scrollType": 2,
+      "elasticEnabled": true
     },
     {
       "_$id": "55741u2k",

@@ -12,6 +12,7 @@ mod CellExplore {
     use CheCell::utils::constants::{GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE};  
     use CheCell::utils::math::{decodePackage};  
     use CheCell::utils::cal::{getAttrCost,getSizeCost}; 
+    use CheCell::utils::random::{random_s}; 
 
     use CheCell::components::account::{Account};
     use CheCell::components::worldInfo::{WorldInfo};
@@ -67,6 +68,7 @@ mod CellExplore {
         cell.state = 1;
         cell.explore_time = time;
         cell.explore_end_time = starknet::get_block_timestamp() + 60_u64 * time.into();
+        cell.map = getEnvironment(starknet::get_block_timestamp());
         
         set !(
             ctx.world,
@@ -74,6 +76,24 @@ mod CellExplore {
         );
  
         return ();
+    }
+
+    fn getEnvironment(seed:u64)->u32{
+        let rand = random_s(seed.into(), 0, 100);
+
+        if(rand >= 70) {
+            return 0;
+        } else if(rand >= 45) {
+            return 1;
+        } else if(rand >= 25) {
+            return 2;
+        } else if(rand >= 13) {
+            return 3;
+        } else if(rand >= 4) {
+            return 4;
+        } else {
+            return 5;
+        }
     }
     fn getCCMap(ref self: ContractState,
             address: starknet::ContractAddress,
@@ -97,10 +117,11 @@ mod CellExploreGain {
     use CheCell::utils::constants::{GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE};  
     use CheCell::utils::math::{decodePackage};  
     use CheCell::utils::cal::{getAttrCost,getSizeCost}; 
+    use CheCell::utils::random::{random_s};  
 
     use CheCell::components::account::{Account};
     use CheCell::components::worldInfo::{WorldInfo};
-    use CheCell::components::cell::{Cell,CellProperty};
+    use CheCell::components::cell::{ExploreGainEvent,Cell,CellProperty};
 
     fn execute(ctx: Context,c_id:u32) {
 
@@ -173,16 +194,21 @@ mod CellExploreGain {
         }else{
             exp = 6;
         }
-        cell.exp += exp;
-
+        let value:u32 = exp*cell.explore_time*100;
+        cell.exp += value;
+        cell.bonus = value;
         cell.state = 0;
         cell.explore_end_time = 0;
-         
+        cell.explore_time = 0;
+        
         set !(
             ctx.world,
             (cell)
         );
- 
+
+       
+       // emit!(ctx.world,ExploreGainEvent{address:ctx.origin,value});
+
         return ();
     }
     

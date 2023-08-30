@@ -699,7 +699,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x7557f89b8979f44d001a3988245870a39c4f5ee8c2bc32512a50851ab8c3750",
+      "class_hash": "0x2f141419b155df039102bf1f30e0dda478541de7a3fdc8251e72d6fcc139d09",
       "dependencies": [],
       "abi": [
         {
@@ -790,7 +790,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x31a2458b18758da5319921d0fb246a536bdc26dbf5d60c24c85b5706a17ea36",
+      "class_hash": "0x4796bf40ac9e613f0a39c57659863f567ce053a67bbc65993c66c269b0848e2",
       "dependencies": [],
       "abi": [
         {
@@ -881,7 +881,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x799fb5fa38f39ae27aae5f8c85d93f8f762ed12e28ea5c63664b7c1871913ed",
+      "class_hash": "0x482a08149e6e2911534284936e2b25d01e642a85b35a17e53daeabc80974699",
       "dependencies": [],
       "abi": [
         {
@@ -972,7 +972,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x68f5b13e284a5dc19b438b2d25694531a4516fc40fcc6eacff687ff6ef3ac25",
+      "class_hash": "0x5bdfa68db7e4efebb4f3346970a0a53eb2028db726ab2ff6915828d811bb0fe",
       "dependencies": [],
       "abi": [
         {
@@ -1067,7 +1067,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x17f71450ee070100b8b7d1e5d0ebe020e084d2a721db57529d55def8fb00d25",
+      "class_hash": "0x11b077b42e40d872e8bdb1aeff892d88d1fac0bffca2abc22e4a07441273cff",
       "dependencies": [],
       "abi": [
         {
@@ -1154,7 +1154,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x5519ccd9eaafc43cb3f6901d2ee1db6e2924e843bbd9d69eae3cc7f1885dd88",
+      "class_hash": "0x3d9a80469ab1ad9775870c1ecbe4f4a41cb378cacb94e395475afa397cbe70f",
       "dependencies": [],
       "abi": [
         {
@@ -1245,7 +1245,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x5d22a1733402c65050953af02342d0e0ea3f5d5087fbce0e49f8b87dd131c8a",
+      "class_hash": "0x4d476a1164f1d1afad6d7eba49391d31054abfd25bcf1d74a69c3c70fd8f9e3",
       "dependencies": [],
       "abi": [
         {
@@ -1344,7 +1344,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x652353cb66470d52e4ef23742e2f062be642ec0967c8bd85baf13a8e644e6df",
+      "class_hash": "0x37259adde97ee97d81304ee4d9dc1565e7f37614ada91bf323d21eab641552c",
       "dependencies": [],
       "abi": [
         {
@@ -1432,18 +1432,10 @@
         {
           "name": "c_id",
           "type": "core::integer::u32"
-        },
-        {
-          "name": "category",
-          "type": "core::integer::u32"
-        },
-        {
-          "name": "pay_number",
-          "type": "core::integer::u32"
         }
       ],
       "outputs": [],
-      "class_hash": "0x7c1e9f23b3bbb635e7d31052122f82596682deb18e8341dd0616329ef928557",
+      "class_hash": "0x650a206e9f552b6955cc6d6e563f02b7c261bd62d30d1e16bfc473fa3544145",
       "dependencies": [],
       "abi": [
         {
@@ -1495,14 +1487,6 @@
           "inputs": [
             {
               "name": "c_id",
-              "type": "core::integer::u32"
-            },
-            {
-              "name": "category",
-              "type": "core::integer::u32"
-            },
-            {
-              "name": "pay_number",
               "type": "core::integer::u32"
             },
             {
@@ -1874,9 +1858,19 @@
           "name": "target_category",
           "type": "u32",
           "key": false
+        },
+        {
+          "name": "map",
+          "type": "u32",
+          "key": false
+        },
+        {
+          "name": "bonus",
+          "type": "u32",
+          "key": false
         }
       ],
-      "class_hash": "0x7451a4ea553e783417d0076026605ca21468d0562ed7880ec40decada526f78",
+      "class_hash": "0x342e7239539e9f2d8d4ce463d3a12811272d0b9edff8688c35a029daa6c7a7d",
       "abi": [
         {
           "type": "function",

@@ -1,11 +1,11 @@
 {
   "name": "client",
-  "startupScene": "res://44fbec65-02d3-410a-a084-7e428e98e047",
+  "startupScene": "res://350f34ae-7ec8-4307-afd8-6a060b3dc161",
   "includedScenes": [
     "res://a7a0d0f2-7020-4797-b42d-68e6794b162f",
-    "res://44fbec65-02d3-410a-a084-7e428e98e047"
+    "res://350f34ae-7ec8-4307-afd8-6a060b3dc161"
   ],
   "alwaysIncluded": [
-    "res://f5"
+    "resources"
   ]
 }

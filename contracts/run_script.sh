@@ -20,5 +20,6 @@ sozo auth writer Cell CellExploreGain --world 0x162c09952c4e7235fd05497168b81138
 sozo auth writer Cell CellEvolution --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
 sozo auth writer Cell CellEvolutionGain --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
 
+sozo auth writer Cell CellBreedBid --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
 sozo auth writer Cell CellBreedAsk --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338
 sozo auth writer Cell CellBreedCancel --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338

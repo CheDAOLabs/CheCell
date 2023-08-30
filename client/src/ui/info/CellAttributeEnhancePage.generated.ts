@@ -2,7 +2,7 @@
 
 
 /**
- * resources/prefab/P_Cell_Attribute_Enhance.lh
+ * resources/prefab/info/P_Info_Page_Cell_List_Attribute_Enhance.lh
  */
 export class CellAttributeEnhancePageBase extends Laya.Box {
     public cell_image!: Laya.Image;

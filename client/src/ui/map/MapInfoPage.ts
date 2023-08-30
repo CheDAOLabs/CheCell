@@ -7,6 +7,7 @@ import { felt252ToStr } from "../../net/core/utils";
 import { random } from "../../logic/rand";
 import { getCurrentTimestamp, getRandomEnumValue, secondsToMinutes } from "../../common/Tool";
 import { MapSquareItem } from "./MapSquareItem";
+import { getCCMapRender } from "../../logic/gamelogic";
 
 const { regClass, property } = Laya;
  
@@ -43,7 +44,7 @@ export class MapInfoPage extends MapInfoPageBase {
         Laya.Tween.clearAll(this.cell_avatar);
         Laya.timer.clearAll(this);
         if(cell_info.state == 1){
-            this.explore_button.disabled = true;
+            
             this.count_down_value_label.text = secondsToMinutes(Number(cell_info.explore_end_time)-getCurrentTimestamp());
             this.count_down_image.visible = true;
             this.onCellAvatarAction1();
@@ -62,14 +63,15 @@ export class MapInfoPage extends MapInfoPageBase {
             }else{
                 this.onExploreUI(2);
             }
-             
+            this.UpdateMap(getCCMapRender(Number(cell_info.map)));
         }else{
             this.onExploreUI(0);
         }
-        let type = getRandomEnumValue(CCMapType);
-        this.UpdateMap(type as CCMapType);
+ 
+    
     }
     onExploreUI(type:number){
+        console.log(type);
         if(type == 0){
             this.explore_button.visible = true;
             this.gain_button.visible = false;
@@ -90,7 +92,7 @@ export class MapInfoPage extends MapInfoPageBase {
     onGainButtonEvent(param: any): void {
         Laya.stage.event(HomeManagerEvent.OnGain,this.c_id);  
     }
-    UpdateMap(type:CCMapType){
+    UpdateMap(type:string){
         const cells = this.map_list.cells;
        
         for (let item of cells){
@@ -111,8 +113,23 @@ export class MapInfoPage extends MapInfoPageBase {
     }
     onGainCBEvent(param: any){
         let message ='';
+      
+        const {
+            network:{
+                account,
+            },
+            components:{
+                
+                Cell,
+            },
+   
+           } = NetMgr.GetInstance().GetNet();
+        const entityid = account.address;
+           
+        const cell_info = getComponentValue(Cell,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid),BigInt(this.c_id)]));
+
         if(param){
-            message = 'Get reword success!';
+            message = 'Get reword '+Number(cell_info.bonus).toString()+" exp !";
         }else{
             message = 'Get reword error!';
         }

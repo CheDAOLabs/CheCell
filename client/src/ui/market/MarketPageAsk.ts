@@ -9,7 +9,7 @@ import { CellListItem } from '../common/CellListItem';
 import { felt252ToStr } from '../../net/core/utils';
 import { MarketPageAskBase } from './MarketPageAsk.generated';
 import { MarketPageAskCategorySelectedItem } from './MarketPageAskCategorySelectedItem';
-import { isBitSet, setBitToOne, setBitToZero } from '../../common/Tool';
+import { isBitSet, isNumericString, setBitToOne, setBitToZero } from '../../common/Tool';
  
 @regClass()
 export class MarketPageAsk extends MarketPageAskBase {
@@ -62,8 +62,11 @@ export class MarketPageAsk extends MarketPageAskBase {
                             type:CellListPageType.Market
                         }
                         script.SetData(data);
+                        item.x = 10;
+                        item.y = 5+index*70;
+
                         this.cell_list.addChildAt(item,index);
-                         
+                 
                         if(index == 0){
                             this.onTouchMarketCellEvent(1);
                             script.onSelected(true);
@@ -91,6 +94,7 @@ export class MarketPageAsk extends MarketPageAskBase {
         this.cell_info.visible = true;
         const info = getCellInfo1(c_id);
         this.breed_count_value_label.text = (info.cell_info.breed_count).toString();
+        this.stock_value_label_2.text = info.cell_info.exp.toString()+')';
         for (let i = 0; i < 9; i++) {
             if(isBitSet(Number(info.cell_info.category),i)){
                 (this.category_group.getChildAt(i).getComponent(Laya.Script) as MarketPageAskCategorySelectedItem).SetGray(false);
@@ -100,6 +104,12 @@ export class MarketPageAsk extends MarketPageAskBase {
          } 
     }
     onConfirmButtonEvent(param:any){
+        if(isNumericString(this.pay_input.text) == false || this.pay_input.text == '0'){
+            let message = 'cost set error'; 
+            Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, {"text":message});
+            return;
+        }
+        
         (this.selected_node.getComponent(Laya.Script) as CellListItem).index;
         let data = {
             c_id:(this.selected_node.getComponent(Laya.Script) as CellListItem).index,

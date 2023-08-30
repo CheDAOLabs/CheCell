@@ -5,7 +5,7 @@
  * resources/prefab/evolution/P_Evolution_Page_Cell_List.lh
  */
 export class EvolutionPageCellBase extends Laya.Box {
-    public cell_list!: Laya.VBox;
+    public cell_list!: Laya.Panel;
     public cell_bg_img!: Laya.Image;
     public evolution_bg!: Laya.Image;
     public count_down_label!: Laya.Label;
