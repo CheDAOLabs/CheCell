@@ -63,7 +63,8 @@ export const enum CCMapType{
 export const enum CellState{
       Normal = 0,
       Exploring = 1,
-      Evolving = 2
+      Evolving = 2,
+      Onshelves = 3
 };
 
 export const enum CellListPageType{

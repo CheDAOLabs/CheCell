@@ -7,7 +7,7 @@ fn random(ref seed: u128, minNum: u128, maxNum: u128) -> u128 {
 
 fn random_s(seed: felt252, minNum: u128, maxNum: u128) -> u128 {
     let t: u256 = seed.into();
-    let range = maxNum - minNum;
+    let range = maxNum - minNum + 1;
 
     return (t.low % range) + minNum;
 }

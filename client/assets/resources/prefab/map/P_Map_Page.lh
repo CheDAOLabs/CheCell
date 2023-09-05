@@ -89,6 +89,7 @@
       "fontSize": 32,
       "color": "rgba(217, 132, 255, 1)",
       "fitContent": "yes",
+      "valign": "top",
       "leading": 2,
       "padding": "0,0,0,0"
     },
@@ -107,6 +108,7 @@
       "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
       "fontSize": 32,
       "color": "rgba(246, 218, 255, 1)",
+      "valign": "top",
       "leading": 2,
       "padding": "0,0,0,0"
     },
@@ -182,6 +184,7 @@
           "fontSize": 36,
           "color": "rgba(55, 255, 242, 1)",
           "fitContent": "height",
+          "valign": "top",
           "leading": 2,
           "padding": "0,0,0,0",
           "underlineColor": "rgba(255, 255, 255, 1)"
@@ -197,7 +200,7 @@
       "y": 318.00000000000006,
       "width": 106,
       "height": 106,
-      "skin": "res://79b81769-0207-4880-91cd-9930cded61d1",
+      "skin": "res://c841dc5b-7e3e-453b-b464-4619a8805fb9",
       "color": "#ffffff"
     },
     {

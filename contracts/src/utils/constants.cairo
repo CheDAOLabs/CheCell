@@ -40,8 +40,9 @@ impl CellStateTypeIntoFelt252 of Into<CellStateTypes, felt252> {
     }
 }
 
-const ADMIN_ADRESS:felt252 = 0x3ee9e18edc71a6df30ac3aca2e0b02a198fbce19b7480a63a0d71cbd76652e0;
+const ADMIN_ADRESS:felt252 = 0x517ececd29116499f4a1b64b094da79ba08dfd54a3edaa316134c41f8160973;
 
+const AVATAR_COUNT:u8 = 6_u8;
 const CATEGORY_COUNT:u8 = 9_u8;
 const GAME_ID:felt252 = 1261689743971040193644;
 const WORLD_ID:felt252 = 512970878052;

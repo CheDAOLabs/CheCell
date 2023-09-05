@@ -10,6 +10,7 @@ import { felt252ToStr } from '../../net/core/utils';
 import { MarketPageAskCategorySelectedItem } from './MarketPageAskCategorySelectedItem';
 import { bitToCategory, isBitSet, setBitToOne, setBitToZero } from '../../common/Tool';
 import { MarketPageBidSelectedBase } from './MarketPageBidSelected.generated';
+import { CellAvatar } from '../common/CellAvatar';
  
 @regClass()
 export class MarketPageBidSelected extends MarketPageBidSelectedBase {
@@ -95,6 +96,7 @@ export class MarketPageBidSelected extends MarketPageBidSelectedBase {
     onUpdateCellInfo(c_id:number){
         this.cell_info.visible = true;
         const info = getCellInfo1(c_id);
+        (this.cell_avatar as CellAvatar).SetAvatar(Number(info.cell_info.avatar));
         this.category_value_label.text = bitToCategory(Number(info.cell_info.category));
         this.cost_value_label.text = this.cost.toString();
     }

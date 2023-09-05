@@ -37,6 +37,7 @@
       "color": "#FFFFFF",
       "fitContent": "yes",
       "align": "center",
+      "valign": "top",
       "leading": 2,
       "padding": "0,0,0,0"
     },
@@ -60,6 +61,7 @@
       "fitContent": "yes",
       "ubb": true,
       "align": "center",
+      "valign": "top",
       "leading": 2,
       "padding": "0,0,0,0"
     },

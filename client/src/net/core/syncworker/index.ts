@@ -1,7 +1,7 @@
 import { Components } from "@latticexyz/recs";
 import { Providers } from "..";
 import { setComponentFromEntitiesGraphqlQuery, setComponentFromEntitiesQuery, setComponentFromEvent } from "../utils";
-import { Event } from "starknet";
+import { Account, Event } from "starknet";
 import { getEntities } from "../network/graphql";
 import { GetGraphQLUrl } from "../constants";
 
@@ -9,6 +9,7 @@ export class SyncWorker<C extends Components> {
   private provider: Providers.RPCProvider;
   private components: C;
   private event_key: String;
+  private account:Account;
 
 
   constructor(provider: Providers.RPCProvider, components: C, event_key: String) {
@@ -51,7 +52,9 @@ export class SyncWorker<C extends Components> {
          console.log('SyncWorker initialized');
          }
     public async sync(txHash: string):Promise<boolean> {
+        console.log(txHash);
         const receipt = await this.provider.provider.getTransactionReceipt(txHash);
+      //  const receipt = await this.account.waitForTransaction(txHash);
         console.log('sync: ',receipt);
         receipt.events.filter((event) => {
            // return true;

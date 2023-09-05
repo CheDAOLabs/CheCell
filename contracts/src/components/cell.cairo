@@ -16,6 +16,7 @@ struct Cell {
  
     body_size:u8,
     category:u32,
+    avatar:u32,
     
     state:u8,
     explore_time:u32,

@@ -1,0 +1,218 @@
+{
+  "_$ver": 1,
+  "_$id": "0nkkv55pi8",
+  "_$runtime": "res://a7fe9eb0-62a0-4df8-89ca-9de72fdbd6f4",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 376,
+  "height": 376,
+  "_$child": [
+    {
+      "_$id": "5asy6nzt",
+      "_$type": "Image",
+      "name": "bg",
+      "width": 376,
+      "height": 376,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://3b7e1e2c-3ea1-486f-a376-aac858e09476",
+      "sizeGrid": "2,2,2,2,0",
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "kh8fs7vo",
+      "_$type": "Image",
+      "name": "up_image",
+      "x": 136,
+      "y": 24,
+      "width": 104,
+      "height": 104,
+      "top": 24,
+      "centerX": 0,
+      "skin": "res://f57a954e-de0b-4c04-bf24-94efaf2fe800",
+      "sizeGrid": "2,2,2,2,0",
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "sv3zq5uf",
+          "_$var": true,
+          "_$type": "Image",
+          "name": "up_part_image",
+          "x": 44,
+          "y": 44,
+          "width": 16,
+          "height": 16,
+          "centerX": 0,
+          "centerY": 0,
+          "skin": "res://3b7e1e2c-3ea1-486f-a376-aac858e09476",
+          "useSourceSize": true,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "_$id": "yf3f3goc",
+      "_$type": "Image",
+      "name": "down_image",
+      "x": 136,
+      "y": 248,
+      "width": 104,
+      "height": 104,
+      "bottom": 24,
+      "centerX": 0,
+      "skin": "res://f57a954e-de0b-4c04-bf24-94efaf2fe800",
+      "sizeGrid": "2,2,2,2,0",
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "dqswm4am",
+          "_$var": true,
+          "_$type": "Image",
+          "name": "down_part_image",
+          "x": 44,
+          "y": 44,
+          "width": 16,
+          "height": 16,
+          "centerX": 0,
+          "centerY": 0,
+          "skin": "res://3b7e1e2c-3ea1-486f-a376-aac858e09476",
+          "useSourceSize": true,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "_$id": "04lg9ttb",
+      "_$type": "Image",
+      "name": "center_image",
+      "x": 136,
+      "y": 136,
+      "width": 104,
+      "height": 104,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://f57a954e-de0b-4c04-bf24-94efaf2fe800",
+      "sizeGrid": "2,2,2,2,0",
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "za88s6a3",
+          "_$var": true,
+          "_$type": "Image",
+          "name": "center_part_image",
+          "x": 44,
+          "y": 44,
+          "width": 16,
+          "height": 16,
+          "centerX": 0,
+          "centerY": 0,
+          "skin": "res://3b7e1e2c-3ea1-486f-a376-aac858e09476",
+          "useSourceSize": true,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "_$id": "gf96hxwn",
+      "_$type": "Image",
+      "name": "left_image",
+      "x": 24,
+      "y": 136,
+      "width": 104,
+      "height": 104,
+      "left": 24,
+      "centerY": 0,
+      "skin": "res://f57a954e-de0b-4c04-bf24-94efaf2fe800",
+      "sizeGrid": "2,2,2,2,0",
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "s9rxzg67",
+          "_$var": true,
+          "_$type": "Image",
+          "name": "left_part_image",
+          "x": 44,
+          "y": 44,
+          "width": 16,
+          "height": 16,
+          "centerX": 0,
+          "centerY": 0,
+          "skin": "res://3b7e1e2c-3ea1-486f-a376-aac858e09476",
+          "useSourceSize": true,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "_$id": "bgc1xymu",
+      "_$type": "Image",
+      "name": "right_image",
+      "x": 248,
+      "y": 136,
+      "width": 104,
+      "height": 104,
+      "right": 24,
+      "centerY": 0,
+      "skin": "res://f57a954e-de0b-4c04-bf24-94efaf2fe800",
+      "sizeGrid": "2,2,2,2,0",
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "croyn2pc",
+          "_$var": true,
+          "_$type": "Image",
+          "name": "right_part_image",
+          "x": 44,
+          "y": 44,
+          "width": 16,
+          "height": 16,
+          "centerX": 0,
+          "centerY": 0,
+          "skin": "res://3b7e1e2c-3ea1-486f-a376-aac858e09476",
+          "useSourceSize": true,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "_$id": "kesilgp2",
+      "_$var": true,
+      "_$type": "Image",
+      "name": "state_bg_img",
+      "x": 376,
+      "width": 108,
+      "height": 28,
+      "anchorX": 1,
+      "visible": false,
+      "right": 0,
+      "top": 0,
+      "skin": "res://5a6f994b-e518-42cd-801d-08183e0de2ba",
+      "sizeGrid": "10,4,10,11,0",
+      "color": "#ffffff",
+      "_$child": [
+        {
+          "_$id": "swki5zsq",
+          "_$var": true,
+          "_$type": "Label",
+          "name": "state_label",
+          "x": 109,
+          "y": -6,
+          "width": 102,
+          "height": 33,
+          "anchorX": 1,
+          "left": 7,
+          "top": -6,
+          "text": "breeding",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(47, 37, 100, 1)",
+          "fitContent": "yes",
+          "align": "right",
+          "valign": "middle",
+          "leading": 2,
+          "padding": "0,0,0,0"
+        }
+      ]
+    }
+  ]
+}

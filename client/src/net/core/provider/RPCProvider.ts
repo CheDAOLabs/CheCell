@@ -86,7 +86,7 @@ export class RPCProvider extends IProvider {
                 from_block: {block_number: i*400},
                 to_block: {block_number: (i+1)*400},
                 chunk_size: 400,
-                keys:[['0x1a2f334228cee715f1f0f54053bb6b5eac54fa336e0bc1aacf7516decb0471d']]
+                keys:[]
             });
             result.push(...list.events);
         }   
@@ -96,7 +96,7 @@ export class RPCProvider extends IProvider {
                 from_block: {block_number: lastBlock.block_number-dx},
                 to_block: {block_number: lastBlock.block_number},
                 chunk_size: dx,
-                keys:[['0x1a2f334228cee715f1f0f54053bb6b5eac54fa336e0bc1aacf7516decb0471d']]
+                keys:[]
             });
             result.push(...list.events);
         }

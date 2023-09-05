@@ -55,7 +55,7 @@ mod CellExplore {
         cell_key_arr.append(ctx.origin.into());
         cell_key_arr.append(c_id.into());
         let cell_key = poseidon::poseidon_hash_span(cell_key_arr.span());
-        let mut cell = get !(
+        let mut cell:Cell = get !(
             ctx.world,
             cell_key, 
             Cell
@@ -115,7 +115,7 @@ mod CellExploreGain {
 
 
     use CheCell::utils::constants::{GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE};  
-    use CheCell::utils::math::{decodePackage};  
+    use CheCell::utils::math::{checkBitZero};  
     use CheCell::utils::cal::{getAttrCost,getSizeCost}; 
     use CheCell::utils::random::{random_s};  
 
@@ -160,7 +160,7 @@ mod CellExploreGain {
         cell_key_arr.append(ctx.origin.into());
         cell_key_arr.append(c_id.into());
         let cell_key = poseidon::poseidon_hash_span(cell_key_arr.span());
-        let mut cell = get !(
+        let mut cell:Cell = get !(
             ctx.world,
             cell_key, 
             Cell
@@ -200,6 +200,23 @@ mod CellExploreGain {
         cell.state = 0;
         cell.explore_end_time = 0;
         cell.explore_time = 0;
+
+        let avatar:u32 = cell.avatar%16;
+        if(avatar != 15){
+            let s = random_s(category_seed,0_u128,10_u128);
+            if(s == 1){
+                if(checkBitZero(avatar.into(),0)){
+                    cell.avatar += 1;
+                }else if (checkBitZero(avatar.into(),1)){
+                    cell.avatar += 2;
+                }else if (checkBitZero(avatar.into(),2)){
+                    cell.avatar += 4;
+                }else if (checkBitZero(avatar.into(),3)){
+                    cell.avatar += 8;
+                }
+            }
+        }
+         
         
         set !(
             ctx.world,

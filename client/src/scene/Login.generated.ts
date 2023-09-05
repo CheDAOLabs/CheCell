@@ -8,7 +8,6 @@ export class LoginBase extends Laya.Scene {
     public login_button!: Laya.Button;
     public social_button!: Laya.Button;
     public whitepaper_button!: Laya.Button;
-    public address_input!: Laya.TextInput;
-    public private_input!: Laya.TextInput;
+    public input!: Laya.TextInput;
 }
 

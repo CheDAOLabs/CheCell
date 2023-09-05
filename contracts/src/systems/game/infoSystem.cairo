@@ -8,7 +8,7 @@ mod CreateCell {
     use poseidon::poseidon_hash_span;
 
 
-    use CheCell::utils::constants::{MAX_CREATE_CELL,CATEGORY_COUNT,CELL_SIZE_MAX,GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE,PROPERTY_VALUE_MAX,PROPERTY_INIT_MAX,PROPERTY_INIT_TOTAL_VALUE};  
+    use CheCell::utils::constants::{AVATAR_COUNT,MAX_CREATE_CELL,CATEGORY_COUNT,CELL_SIZE_MAX,GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE,PROPERTY_VALUE_MAX,PROPERTY_INIT_MAX,PROPERTY_INIT_TOTAL_VALUE};  
     use CheCell::utils::math::{pow,decodePackage};  
     use CheCell::utils::random::{random_s};  
  
@@ -55,7 +55,7 @@ mod CreateCell {
         cell_key_arr.append(ctx.origin.into());
         cell_key_arr.append(account.cell_number.into());
         let cell_key = poseidon::poseidon_hash_span(cell_key_arr.span());
-        let mut cell = get !(
+        let mut cell:Cell = get !(
             ctx.world,
             cell_key, 
             Cell
@@ -78,7 +78,7 @@ mod CreateCell {
         let category_seed = poseidon::poseidon_hash_span(category_seed_arr.span());
  
         cell.category = pow(2,random_s(category_seed,0_u128,CATEGORY_COUNT.into()).into()).try_into().unwrap();
-       
+        cell.avatar = random_s(category_seed,0_u128,AVATAR_COUNT.into()).try_into().unwrap()*16_u32;
  
         let mut cell_property_key_arr:Array<felt252> = ArrayTrait::new();
         cell_property_key_arr.append(5);
@@ -88,7 +88,7 @@ mod CreateCell {
         cell_property_key_arr.append(account.cell_number.into());
         cell_property_key_arr.append(cell.body_size.into());
         let cell_property_key:felt252 = poseidon::poseidon_hash_span(cell_property_key_arr.span());
-        let mut cell_property = get !(
+        let mut cell_property:CellProperty = get !(
             ctx.world,
             cell_property_key, 
             CellProperty
@@ -203,7 +203,7 @@ mod AddCellBodySize {
         cell_property_key_arr.append(c_id.into());
         cell_property_key_arr.append(cell.body_size.into());
         let cell_property_key:felt252 = poseidon::poseidon_hash_span(cell_property_key_arr.span());
-        let mut cell_property = get !(
+        let mut cell_property:CellProperty = get !(
             ctx.world,
             cell_property_key, 
             CellProperty

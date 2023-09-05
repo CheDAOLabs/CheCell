@@ -18,7 +18,7 @@ export class MarketPageBid extends MarketPageBidBase {
     category:number;
     market_arr:any[];
     onAwake() {
-        this.category = 1;
+        this.category = 0;
         this.category_selected_list.selectHandler = new Laya.Handler(this, this.onSelectChange);
         this.left_button.on(Laya.Event.CLICK,this,this.onLeftButtonEvent.bind(this));
         this.right_button.on(Laya.Event.CLICK,this,this.onRightButtonEvent.bind(this));

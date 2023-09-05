@@ -1,0 +1,41 @@
+{
+  "_$ver": 1,
+  "_$id": "fxwxduyq",
+  "_$type": "Dialog",
+  "name": "Dialog",
+  "width": 400,
+  "height": 400,
+  "autoDestroyAtClosed": true,
+  "_$child": [
+    {
+      "_$id": "zgzemd4j",
+      "_$type": "Image",
+      "name": "Image",
+      "x": 152,
+      "y": 152,
+      "width": 96,
+      "height": 96,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://440e8077-5ef9-44d6-9a3d-2dfacb259ecb",
+      "useSourceSize": true,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "r2xr8wr8",
+      "_$type": "Label",
+      "name": "Label",
+      "x": 156,
+      "y": 269,
+      "width": 120,
+      "height": 28,
+      "text": "LOADING",
+      "font": "res://138f23ad-1310-42de-8811-0055f0a577a5",
+      "fontSize": 18,
+      "color": "rgba(217, 132, 255, 1)",
+      "valign": "top",
+      "leading": 2,
+      "padding": "0,0,0,0"
+    }
+  ]
+}

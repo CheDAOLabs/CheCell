@@ -40,7 +40,7 @@ export class MapInfoPage extends MapInfoPageBase {
         const cell_info = getComponentValue(Cell,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid),BigInt(c_id)]));
 
         this.name_cur_value_label.text = felt252ToStr(cell_info.name);
-
+        this.cell_avatar.skin = 'resources/ui/cell/cell_00'+(Number(cell_info.avatar)/16).toString()+'00.png';
         Laya.Tween.clearAll(this.cell_avatar);
         Laya.timer.clearAll(this);
         if(cell_info.state == 1){

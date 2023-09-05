@@ -85,18 +85,16 @@
           "color": "#4a4b7a"
         },
         {
-          "_$id": "efx4mshn",
+          "_$id": "7fez8mil",
+          "_$prefab": "2ac048b9-1192-4f98-9b7a-8ab3fc5f6ddc",
           "_$var": true,
-          "_$type": "Image",
-          "name": "cell_bg_img",
+          "name": "cell_avatar",
+          "active": true,
           "x": 54,
-          "y": 110,
-          "width": 376,
-          "height": 376,
+          "y": 100,
+          "visible": true,
           "left": 54,
-          "top": 110,
-          "skin": "res://79b81769-0207-4880-91cd-9930cded61d1",
-          "color": "#fffeff"
+          "top": 100
         },
         {
           "_$id": "2t9q8icf",

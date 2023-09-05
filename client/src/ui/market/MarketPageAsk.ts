@@ -10,6 +10,7 @@ import { felt252ToStr } from '../../net/core/utils';
 import { MarketPageAskBase } from './MarketPageAsk.generated';
 import { MarketPageAskCategorySelectedItem } from './MarketPageAskCategorySelectedItem';
 import { isBitSet, isNumericString, setBitToOne, setBitToZero } from '../../common/Tool';
+import { CellAvatar } from '../common/CellAvatar';
  
 @regClass()
 export class MarketPageAsk extends MarketPageAskBase {
@@ -93,6 +94,7 @@ export class MarketPageAsk extends MarketPageAskBase {
     onUpdateCellInfo(c_id:number){
         this.cell_info.visible = true;
         const info = getCellInfo1(c_id);
+        (this.cell_avatar as CellAvatar).SetAvatar(Number(info.cell_info.avatar));
         this.breed_count_value_label.text = (info.cell_info.breed_count).toString();
         this.stock_value_label_2.text = info.cell_info.exp.toString()+')';
         for (let i = 0; i < 9; i++) {
