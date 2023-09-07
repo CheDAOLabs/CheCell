@@ -3,19 +3,19 @@
 CheCell is an evolutionary onchain game featuring living cells that players can customize,evolve,adn breed.
 
  
-
 ## Dependencies
--layabox
-https://www.layaair.com/#/engineDownload
-
--dojo 
+layabox
+- https://www.layaair.com/#/engineDownload
+- https://github.com/layabox/LayaAir
+  
+dojo
 https://github.com/dojoengine/dojo
 
 ## Tutorial && Documents
 todo
 
 ## IF YOU CAN NOT BUILD THE DEPENDENCIES THEN PLEASE RUN THE CMDS BELOW TO SET UP THE ENVIRONMENT:
-# contract:
+# Contract:
 - Install [Rust](https://www.rust-lang.org/tools/install)
 - Setup Rust:
 ```bash
@@ -41,11 +41,12 @@ This will install Dojoup, then simply follow the instructions on-screen, which w
 ```bash
 dojoup
 ```
-# client
-Please refer to this link： https://www.layaair.com/#/doc
-
+# Client
+Please refer to this link：
+- https://www.layaair.com/#/doc
+- https://github.com/layabox/LayaAir
 ## Build and Run
-# contract
+# Contract
 
 Enter the contract folder and run:
 ```bash
@@ -61,12 +62,12 @@ build is used to compile the cairo contracts, generating the necessary artifacts
 ```
 This script is used to deploy contracts to local katana and open contract permissions for interaction
 
-### some warning
+### Some warning
 The world address may change, you need to modify the configuration in the script e.g:
 - sozo auth writer Account InitAccount --world 0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338 #here
 
 After the bash finish,you can connect the local katana and play the game.
-# client
+# Client
 - Select the client folder in the project
 - Click Import Project to import 3.x projects created on other computers or projects removed from the list to the project list. The operation is as shown in the figure.
 ![image](https://github.com/CheDAOLabs/CheCell/assets/7781044/fa93795e-463e-4283-8e91-5de35d1889bd)
@@ -75,7 +76,7 @@ After the bash finish,you can connect the local katana and play the game.
 - click the 2 button and the game will run in the local web
  ![微信图片_20230907204850](https://github.com/CheDAOLabs/CheCell/assets/7781044/dbb7d6fb-8b14-4f8f-8301-0dae2aa64bd2)
 
-### some tips
+### Some tips
 -The world address you can find in client/src/net/common/SetupNetwork.ts 
 ```
 export const WORLD_ADDRESS = "0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338"
