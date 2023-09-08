@@ -50,7 +50,8 @@ Please refer to this link：
 
 Enter the contract folder and run:
 ```bash
-katana --block-time 1000
+katana --block-time 1000 #mac
+katana --block-time 1 #ubuntu
  ```
 Then open a new bash:
 ```bash
