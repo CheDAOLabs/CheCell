@@ -16710,9 +16710,7 @@ ${res.tx_failure_reason.error_message}`;
   }
   __name(setComponentFromEntitiesGraphqlQuery, "setComponentFromEntitiesGraphqlQuery");
   function setComponentFromEntitiesQuery(component, entities) {
-    console.log("setComponentFromEntitiesQuery", entities);
     let index = 0;
-    console.log(entities);
     const numEntityIds = Number(entities[index++]);
     const entityIds = entities.slice(index, index + numEntityIds);
     index += numEntityIds;
@@ -20728,7 +20726,6 @@ spurious results.`);
     event_key;
     account;
     constructor(provider, components, event_key) {
-      console.log("Creating SyncWorker...");
       this.provider = provider;
       this.components = components;
       this.event_key = event_key;
@@ -20746,7 +20743,6 @@ spurious results.`);
         const tx_hash = events[i].transaction_hash;
         await this.sync(tx_hash);
       }
-      console.log("SyncWorker initialized");
     }
     async initGQL() {
       for (const key of Object.keys(this.components)) {
@@ -20756,12 +20752,9 @@ spurious results.`);
           setComponentFromEntitiesGraphqlQuery(component, entities);
         }
       }
-      console.log("SyncWorker initialized");
     }
     async sync(txHash) {
-      console.log(txHash);
       const receipt = await this.provider.provider.getTransactionReceipt(txHash);
-      console.log("sync: ", receipt);
       receipt.events.filter((event) => {
         return event.keys.length === 1 && event.keys[0] === this.event_key;
       }).map((event) => {
@@ -20772,7 +20765,7 @@ spurious results.`);
   };
 
   // src/net/common/SetupNetwork.ts
-  var WORLD_ADDRESS = "0x162c09952c4e7235fd05497168b8113851e8942177c8bc60fc1cbaff423c338";
+  var WORLD_ADDRESS = "0x5cd07924cb446725c558d07a38fd1cbabbce0053b21c1356545e7edd7cd2841";
   var EVENT_KEY = "0x1a2f334228cee715f1f0f54053bb6b5eac54fa336e0bc1aacf7516decb0471d";
   async function SetupNetwork(address, privatekey) {
     const contractComponents = defineContractComponents(world);
@@ -20921,6 +20914,24 @@ spurious results.`);
   var InitCellPoint = 100;
   var GAMEID = BigInt("1261689743971040193644");
   var WORLDID = BigInt("512970878052");
+  var CellAvatarTitleEnum = /* @__PURE__ */ ((CellAvatarTitleEnum2) => {
+    CellAvatarTitleEnum2["CAT1"] = "Cthulhu";
+    CellAvatarTitleEnum2["CAT2"] = "Ubbo-Sathla";
+    CellAvatarTitleEnum2["CAT3"] = "Yog-Sothoth";
+    CellAvatarTitleEnum2["CAT4"] = "Yig";
+    CellAvatarTitleEnum2["CAT5"] = "Elder Thing";
+    CellAvatarTitleEnum2["CAT6"] = "Star Vampire";
+    return CellAvatarTitleEnum2;
+  })(CellAvatarTitleEnum || {});
+  var CellAvatarInfoEnum = /* @__PURE__ */ ((CellAvatarInfoEnum2) => {
+    CellAvatarInfoEnum2["CAI1"] = "Cthulhu is a sleeping god and the lord of R'lyeh, one of the beings symbolizing 'water'. It has the appearance of an octopus head and human body, with bat-like wings on its back. Cthulhu occasionally makes contact with unspecified humans through telepathy. Humans who come into contact with Cthulhu are generally very sensitive, and many of them go mad due to mental contact. However, sometimes some artists become famous because they get inspiration from this madness.";
+    CellAvatarInfoEnum2["CAI2"] = "At the dark beginning of the Earth, the huge and intangible Ubbo-Sathla rested in the mud and steam. It had no head, organs, or limbs, and its slimy body flowed slowly and steadily like a wave. This worm-like form is the prototype of all life on earth. Scattered around it are magnificent stone tablets carved from extraterrestrial stones, recording the strange wisdom of the gods before creation.";
+    CellAvatarInfoEnum2["CAI3"] = "Yog-Sothoth knows where the gate is. Because Yog-Sothoth is the gate, Yog-Sothoth is the key to the gate, and the watcher. In the past, now, and in the future, everything is in Yog-Sothoth. He knows where the Old Ones broke through in the past and where they will break through again. He knows which lands in this world have been trampled by them and which lands still bear their footsteps. He also knows why no one can see their appearance when they trample on the suffering land... Yog-Sothoth is the key to the gate, and countless spaces converge here by this gate.";
+    CellAvatarInfoEnum2["CAI4"] = "The Shantak bird is not like any other bird or bat known to earth or the dreamland, because they are larger than elephants and have horse-like heads. Carter knew they must be the snake gods mentioned by the tribes living on the central plain of Yuggoth, which may have evolved into the god of the feathered serpent or Kukulkan, widely worshipped in the southern region. This god is a humanoid and capricious devil, extremely capricious and changeable... The horrifying stories circulating in secret suggest what kind of revenge mortals will face when they despise him or deliberately harm his offspring wriggling. His favorite revenge is to torture his victim appropriately before turning his enemy into a spotted snake.";
+    CellAvatarInfoEnum2["CAI5"] = "Their bodies are like folds of undulating barrels, with thin tentacles extending horizontally from the middle of the barrel body like spokes on a wheel. They have prominent nodular protrusions at the top and bottom of the barrel, and five flat, elongated arms extending from the nodules, which taper off like starfish at the ends.";
+    CellAvatarInfoEnum2["CAI6"] = "I saw the vague outline of something. The invisible creature from the stars takes on a visible form after sucking blood. It is all red and dripping with blood, pulsating with countless tentacles on its deep red body, like a constantly wriggling, pulsating jelly. At the tips of the tentacles are sucker-like mouthpieces that open and close greedily... This monster is bloated and repulsive: it has no head, no face, no eyes, only an insatiable mouth and sharp claws befitting its identity as a star-spawned creature. After sucking human blood, it finally takes form.";
+    return CellAvatarInfoEnum2;
+  })(CellAvatarInfoEnum || {});
 
   // src/common/Tool.ts
   function rgbToHex(r, g, b) {
@@ -21007,6 +21018,11 @@ spurious results.`);
     return /^\d+$/.test(str);
   }
   __name(isNumericString, "isNumericString");
+  function getNthEnumValue(enumObj, n) {
+    const enumValues = Object.values(enumObj);
+    return enumValues[n];
+  }
+  __name(getNthEnumValue, "getNthEnumValue");
 
   // src/scene/Home.ts
   var { regClass, property } = Laya;
@@ -21035,7 +21051,6 @@ spurious results.`);
           account
         }
       } = NetMgr.GetInstance().GetNet();
-      console.log("net  ", NetMgr.GetInstance().GetNet());
       const entityid = account.address;
       this.address_text.text = truncateString(entityid, 10);
     }
@@ -21096,7 +21111,7 @@ spurious results.`);
       property28 += data.color.g << 8;
       property28 += data.color.b << 16;
       const name = utils_exports2.strTofelt252Felt(data.name);
-      const seed = utils_exports2.strTofelt252Felt(data.seed);
+      const seed = "checell";
       Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
       const result = await CreateCell(name, seed, property28);
       Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
@@ -21241,15 +21256,12 @@ spurious results.`);
           InitAccount
         }
       } = NetMgr.GetInstance().GetNet();
-      console.log("init----");
       const world2 = getComponentValue(WorldInfo, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID]));
       if (world2 == void 0) {
-        console.log("init world");
         await InitWorld();
       }
       const ac = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(account.address)]));
       if (ac == void 0) {
-        console.log("init account");
         await InitAccount();
       }
       this.onChangeScene();
@@ -21437,7 +21449,6 @@ spurious results.`);
       this.SetData(index);
     }
     SetData(c_id) {
-      console.log(c_id);
       this.c_id = c_id;
       const {
         network: {
@@ -21484,17 +21495,168 @@ spurious results.`);
     regClass4("87615f63-a843-421c-bd6f-505cc6c646ce", "../src/ui/evolution/EvolutionPageCell.ts")
   ], EvolutionPageCell);
 
-  // src/ui/leaderboard/LeaderBoardPage.generated.ts
-  var LeaderBoardPageBase = class extends Laya.Box {
+  // src/ui/common/CellAvatar.generated.ts
+  var CellAvatarBase = class extends Laya.Box {
     static {
-      __name(this, "LeaderBoardPageBase");
+      __name(this, "CellAvatarBase");
     }
-    item0Tab;
-    top_list;
-    normal_list;
-    self_info;
-    left_button;
-    right_button;
+    up_part_image;
+    down_part_image;
+    center_part_image;
+    left_part_image;
+    right_part_image;
+    state_bg_img;
+    state_label;
+  };
+
+  // src/ui/common/CellAvatar.ts
+  var { regClass: regClass5, property: property5 } = Laya;
+  var CellAvatar = class extends CellAvatarBase {
+    index;
+    onAwake() {
+      this.index = -1;
+    }
+    SetState(type) {
+      if (type == 1 /* Exploring */) {
+        this.state_bg_img.visible = true;
+        this.state_label.text = "exploring";
+      } else if (type == 2 /* Evolving */) {
+        this.state_bg_img.visible = true;
+        this.state_label.text = "evolving";
+      } else if (type == 3 /* Onshelves */) {
+        this.state_bg_img.visible = true;
+        this.state_label.text = "on shelves";
+      } else {
+        this.state_bg_img.visible = false;
+      }
+    }
+    SetAvatar(index) {
+      this.index = index;
+      const center = Math.floor(index / 16);
+      this.center_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "01.png";
+      if (isBitSet(index, 0)) {
+        this.up_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "02.png";
+      } else {
+        this.up_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
+      }
+      if (isBitSet(index, 1)) {
+        this.left_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "03.png";
+      } else {
+        this.left_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
+      }
+      if (isBitSet(index, 2)) {
+        this.right_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "04.png";
+      } else {
+        this.right_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
+      }
+      if (isBitSet(index, 3)) {
+        this.down_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "05.png";
+      } else {
+        this.down_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
+      }
+    }
+  };
+  __name(CellAvatar, "CellAvatar");
+  CellAvatar = __decorateClass([
+    regClass5("a7fe9eb0-62a0-4df8-89ca-9de72fdbd6f4", "../src/ui/common/CellAvatar.ts")
+  ], CellAvatar);
+
+  // src/ui/common/CellListItem.ts
+  var { regClass: regClass6, property: property6 } = Laya;
+  var CellListItem = class extends Laya.Script {
+    button;
+    index;
+    type;
+    onAwake() {
+      this.button.on(Laya.Event.CLICK, this, this.onButtonEvent.bind(this));
+    }
+    SetData(data) {
+      this.button.label = data.name;
+      this.index = data.index;
+      this.type = data.type;
+    }
+    onSelected(selected) {
+      this.button.selected = selected;
+    }
+    onButtonEvent(param) {
+      switch (this.type) {
+        case 0 /* Info */:
+          Laya.stage.event("OnTouchInfoCell" /* OnTouchInfoCell */, this.index);
+          break;
+        case 1 /* Evolving */:
+          Laya.stage.event("OnTouchEvolutionCell" /* OnTouchEvolutionCell */, this.index);
+          break;
+        case 2 /* Market */:
+          Laya.stage.event("OnTouchMarketCell" /* OnTouchMarketCell */, this.index);
+          break;
+        case 3 /* MarketBid */:
+          Laya.stage.event("OnTouchMarketBidCell" /* OnTouchMarketBidCell */, this.index);
+          break;
+        default:
+          break;
+      }
+    }
+  };
+  __name(CellListItem, "CellListItem");
+  __decorateClass([
+    property6({ type: Laya.Button })
+  ], CellListItem.prototype, "button", 2);
+  CellListItem = __decorateClass([
+    regClass6("9d83bd3a-b532-4ee5-8dac-8a73102c3bf3", "../src/ui/common/CellListItem.ts")
+  ], CellListItem);
+
+  // src/ui/common/CommonDialog.generated.ts
+  var CommonDialogBase = class extends Laya.Dialog {
+    static {
+      __name(this, "CommonDialogBase");
+    }
+    content_label;
+    cancel_button;
+    confirm_button;
+  };
+
+  // src/ui/common/CommonDialog.ts
+  var { regClass: regClass7, property: property7 } = Laya;
+  var CommonDialog = class extends CommonDialogBase {
+    onAwake() {
+      this.cancel_button.on(Laya.Event.CLICK, this, this.onCancelButtonEvent.bind(this));
+      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
+    }
+    onOpened(param) {
+      this.content_label.text = param.text;
+    }
+    onCancelButtonEvent(param) {
+      this.close();
+    }
+    onConfirmButtonEvent(param) {
+      this.close();
+    }
+  };
+  __name(CommonDialog, "CommonDialog");
+  CommonDialog = __decorateClass([
+    regClass7("b982027a-d103-4874-92ef-15525f742200", "../src/ui/common/CommonDialog.ts")
+  ], CommonDialog);
+
+  // src/ui/info/CellAttributeEnhancePage.generated.ts
+  var CellAttributeEnhancePageBase = class extends Laya.Box {
+    static {
+      __name(this, "CellAttributeEnhancePageBase");
+    }
+    cell_image;
+    name_value_label;
+    perception_total_value_label;
+    agility_total_value_label;
+    attack_total_value_label;
+    category_value_label;
+    cost_cur_value_label;
+    exp_cur_value_label;
+    perception_cur_value_label;
+    agility_cur_value_label;
+    attack_cur_value_label;
+    attack_bar;
+    agility_bar;
+    perception_bar;
+    confirm_button;
   };
 
   // src/logic/gamelogic.ts
@@ -21590,978 +21752,8 @@ spurious results.`);
   }
   __name(getCellInfo1, "getCellInfo1");
 
-  // src/ui/leaderboard/LeaderBoardPage.ts
-  var { regClass: regClass5, property: property5 } = Laya;
-  var LeaderBoardPage = class extends LeaderBoardPageBase {
-    selected_node;
-    index;
-    page_index;
-    leaderboard_arr;
-    onAwake() {
-      this.index = 0;
-      this.item0Tab.selectHandler = new Laya.Handler(this, this.onSelect);
-      this.left_button.on(Laya.Event.CLICK, this, this.onLeftButtonEvent.bind(this));
-      this.right_button.on(Laya.Event.CLICK, this, this.onRightButtonEvent.bind(this));
-    }
-    onRefresh() {
-      this.onSelect(this.index);
-    }
-    onSelect(index) {
-      this.index = index;
-      this.UpdateList();
-    }
-    UpdateList() {
-      const {
-        network: {
-          account
-        },
-        components: {
-          Account: Account3,
-          Cell
-        }
-      } = NetMgr.GetInstance().GetNet();
-      this.leaderboard_arr = [];
-      this.page_index = 3;
-      for (let [key, value] of Account3.values.address) {
-        const account_info = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, value]));
-        const cell_number = Number(account_info.cell_number);
-        for (let i = 0; i < cell_number; i++) {
-          const cell_info = getCellInfo0(value, i + 1);
-          let data = {
-            account_info,
-            cell_info,
-            index: i + 1
-          };
-          this.leaderboard_arr = insertDataDescendingOrder(this.leaderboard_arr, data, this.index);
-        }
-      }
-      this.UpdateTop();
-      this.UpdateNormal();
-      let self_index = 0;
-      for (let i = 0; i < this.leaderboard_arr.length; i++) {
-        const element = this.leaderboard_arr[i];
-        if (element.account_info.address == BigInt(account.address)) {
-          self_index = i;
-          break;
-        }
-      }
-    }
-    UpdateTop() {
-      let max = Math.min(3, this.leaderboard_arr.length);
-      if (this.index == 0) {
-        for (let i = 0; i < max; i++) {
-          console.log(this.leaderboard_arr[i]);
-          let data = {
-            name: truncateString("0x" + this.leaderboard_arr[i].account_info.address.toString(16), 10),
-            cell_name: felt252ToStr(this.leaderboard_arr[i].cell_info.base_info.name),
-            value: bitToCategory(Number(this.leaderboard_arr[i].cell_info.base_info.category))
-          };
-          this.top_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-        }
-        for (let i = max; i < 3; i++) {
-          let data = {
-            name: "",
-            cell_name: "",
-            value: ""
-          };
-          this.top_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-        }
-      } else {
-        for (let i = 0; i < max; i++) {
-          let data = {
-            name: truncateString("0x" + this.leaderboard_arr[i].account_info.address.toString(16), 10),
-            cell_name: felt252ToStr(this.leaderboard_arr[i].cell_info.base_info.name),
-            value: (Number(this.leaderboard_arr[i].cell_info.property_info.p1) + Number(this.leaderboard_arr[i].cell_info.property_info.p2) + Number(this.leaderboard_arr[i].cell_info.property_info.p3)).toString()
-          };
-          this.top_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-        }
-        for (let i = max; i < 3; i++) {
-          let data = {
-            name: "",
-            cell_name: "",
-            value: ""
-          };
-          this.top_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-        }
-      }
-    }
-    UpdateNormal() {
-      let max = Math.min(7, Math.max(0, this.leaderboard_arr.length - this.page_index));
-      if (this.index == 0) {
-        for (let i = 0; i < max; i++) {
-          let data = {
-            index: this.page_index + i + 1,
-            name: truncateString("0x" + this.leaderboard_arr[this.page_index + i].account_info.address.toString(16), 10),
-            cell_name: felt252ToStr(this.leaderboard_arr[this.page_index + i].cell_info.base_info.name),
-            value: bitToCategory(Number(this.leaderboard_arr[this.page_index + i].cell_info.base_info.category))
-          };
-          this.normal_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-        }
-        for (let i = max; i < 7; i++) {
-          let data = {
-            index: "",
-            name: "",
-            cell_name: "",
-            value: ""
-          };
-          this.normal_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-        }
-      } else {
-        for (let i = 0; i < max; i++) {
-          let data = {
-            index: this.page_index + i,
-            name: truncateString("0x" + this.leaderboard_arr[this.page_index + i].account_info.address.toString(16), 10),
-            cell_name: felt252ToStr(this.leaderboard_arr[this.page_index + i].cell_info.base_info.name),
-            value: (Number(this.leaderboard_arr[i].cell_info.property_info.p1) + Number(this.leaderboard_arr[i].cell_info.property_info.p2) + Number(this.leaderboard_arr[i].cell_info.property_info.p3)).toString()
-          };
-          this.normal_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-        }
-        for (let i = max; i < 7; i++) {
-          let data = {
-            index: "",
-            name: "",
-            cell_name: "",
-            value: ""
-          };
-          this.normal_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-        }
-      }
-    }
-    UpdateSelf(index) {
-      let data = {
-        index: 0,
-        name: "",
-        cell_name: "",
-        value: ""
-      };
-      if (this.index == 0) {
-        data.index = index + 1;
-        data.name = truncateString("0x" + this.leaderboard_arr[index].account_info.address.toString(16), 10);
-        data.cell_name = felt252ToStr(this.leaderboard_arr[index].cell_info.base_info.name);
-        data.value = bitToCategory(Number(this.leaderboard_arr[index].cell_info.base_info.category));
-      } else {
-        data.index = index + 1;
-        data.name = truncateString("0x" + this.leaderboard_arr[index].account_info.address.toString(16), 10);
-        data.cell_name = felt252ToStr(this.leaderboard_arr[index].cell_info.base_info.name);
-        data.value = (Number(this.leaderboard_arr[index].cell_info.property_info.p1) + Number(this.leaderboard_arr[index].cell_info.property_info.p2) + Number(this.leaderboard_arr[index].cell_info.property_info.p3)).toString();
-      }
-      this.self_info.getComponent(Laya.Script).SetData(data);
-    }
-    onLeftButtonEvent(param) {
-      this.page_index = Math.max(3, this.page_index - 7);
-      this.UpdateNormal();
-    }
-    onRightButtonEvent(param) {
-      if (this.page_index + 7 > this.leaderboard_arr.length) {
-      } else {
-        this.page_index += 7;
-      }
-      this.UpdateNormal();
-    }
-  };
-  __name(LeaderBoardPage, "LeaderBoardPage");
-  LeaderBoardPage = __decorateClass([
-    regClass5("ef3c4680-953e-4f27-9072-69bc6e18abd3", "../src/ui/leaderboard/LeaderBoardPage.ts")
-  ], LeaderBoardPage);
-
-  // src/ui/leaderboard/LeaderBoardPageItem1.ts
-  var { regClass: regClass6, property: property6 } = Laya;
-  var LeaderBoardPageItem1 = class extends Laya.Script {
-    rank_number_label;
-    player_name_label;
-    cell_name_label;
-    value_label;
-    onAwake() {
-    }
-    SetData(data) {
-      this.player_name_label.text = data.name;
-      this.cell_name_label.text = data.cell_name;
-      this.value_label.text = data.value;
-    }
-  };
-  __name(LeaderBoardPageItem1, "LeaderBoardPageItem1");
-  __decorateClass([
-    property6({ type: Laya.Label })
-  ], LeaderBoardPageItem1.prototype, "rank_number_label", 2);
-  __decorateClass([
-    property6({ type: Laya.Label })
-  ], LeaderBoardPageItem1.prototype, "player_name_label", 2);
-  __decorateClass([
-    property6({ type: Laya.Label })
-  ], LeaderBoardPageItem1.prototype, "cell_name_label", 2);
-  __decorateClass([
-    property6({ type: Laya.Label })
-  ], LeaderBoardPageItem1.prototype, "value_label", 2);
-  LeaderBoardPageItem1 = __decorateClass([
-    regClass6("68ed8af8-4d5b-4ea8-b3f1-388a32b40d91", "../src/ui/leaderboard/LeaderBoardPageItem1.ts")
-  ], LeaderBoardPageItem1);
-
-  // src/ui/leaderboard/LeaderBoardPageItem2.ts
-  var { regClass: regClass7, property: property7 } = Laya;
-  var LeaderBoardPageItem2 = class extends Laya.Script {
-    rank_number_label;
-    player_name_label;
-    cell_name_label;
-    value_label;
-    onAwake() {
-    }
-    SetData(data) {
-      this.rank_number_label.text = data.index;
-      this.player_name_label.text = data.name;
-      this.cell_name_label.text = data.cell_name;
-      this.value_label.text = data.value;
-    }
-  };
-  __name(LeaderBoardPageItem2, "LeaderBoardPageItem2");
-  __decorateClass([
-    property7({ type: Laya.Label })
-  ], LeaderBoardPageItem2.prototype, "rank_number_label", 2);
-  __decorateClass([
-    property7({ type: Laya.Label })
-  ], LeaderBoardPageItem2.prototype, "player_name_label", 2);
-  __decorateClass([
-    property7({ type: Laya.Label })
-  ], LeaderBoardPageItem2.prototype, "cell_name_label", 2);
-  __decorateClass([
-    property7({ type: Laya.Label })
-  ], LeaderBoardPageItem2.prototype, "value_label", 2);
-  LeaderBoardPageItem2 = __decorateClass([
-    regClass7("44c62272-25f5-43e7-aee5-7c6a2d2c9147", "../src/ui/leaderboard/LeaderBoardPageItem2.ts")
-  ], LeaderBoardPageItem2);
-
-  // src/ui/map/ExplorationSetupDialog.generated.ts
-  var ExplorationSetupDialogBase = class extends Laya.Dialog {
-    static {
-      __name(this, "ExplorationSetupDialogBase");
-    }
-    time_cur_label;
-    time_bar;
-    confirm_button;
-    cancel_button;
-  };
-
-  // src/ui/map/ExplorationSetupDialog.ts
-  var { regClass: regClass8, property: property8 } = Laya;
-  var ExplorationSetupDialog = class extends ExplorationSetupDialogBase {
-    c_id;
-    onAwake() {
-      this.cancel_button.on(Laya.Event.CLICK, this, this.onCancelButtonEvent.bind(this));
-      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
-      this.time_bar.changeHandler = new Laya.Handler(this, this.onChange);
-    }
-    onOpened(param) {
-      this.c_id = param;
-    }
-    onCancelButtonEvent(param) {
-      this.close();
-    }
-    onConfirmButtonEvent(param) {
-      let data = {
-        c_id: this.c_id,
-        time: Number(this.time_cur_label.text)
-      };
-      Laya.stage.event("OnExplore" /* OnExplore */, data);
-      this.close();
-    }
-    onChange(value) {
-      let v = Math.trunc(value);
-      this.time_cur_label.text = v.toString();
-    }
-  };
-  __name(ExplorationSetupDialog, "ExplorationSetupDialog");
-  ExplorationSetupDialog = __decorateClass([
-    regClass8("300ca383-3e20-4124-a237-6ccc87f8ef68", "../src/ui/map/ExplorationSetupDialog.ts")
-  ], ExplorationSetupDialog);
-
-  // src/ui/map/MapInfoPage.generated.ts
-  var MapInfoPageBase = class extends Laya.Box {
-    static {
-      __name(this, "MapInfoPageBase");
-    }
-    map_list;
-    map_item;
-    name_cur_value_label;
-    explore_button;
-    count_down_image;
-    count_down_value_label;
-    cell_avatar;
-    gain_button;
-  };
-
-  // src/ui/map/MapInfoPage.ts
-  var { regClass: regClass9, property: property9 } = Laya;
-  var MapInfoPage = class extends MapInfoPageBase {
-    c_id;
-    onAwake() {
-      this.explore_button.on(Laya.Event.CLICK, this, this.onExploreButtonEvent.bind(this));
-      this.gain_button.on(Laya.Event.CLICK, this, this.onGainButtonEvent.bind(this));
-      Laya.stage.on("OnExploreCB" /* OnExploreCB */, this, this.onExploreCBEvent.bind(this));
-      Laya.stage.on("OnGainCB" /* OnGainCB */, this, this.onGainCBEvent.bind(this));
-    }
-    SetData(c_id) {
-      this.c_id = c_id;
-      const {
-        network: {
-          account
-        },
-        components: {
-          Cell
-        }
-      } = NetMgr.GetInstance().GetNet();
-      const entityid = account.address;
-      const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(c_id)]));
-      this.name_cur_value_label.text = felt252ToStr(cell_info.name);
-      this.cell_avatar.skin = "resources/ui/cell/cell_00" + (Number(cell_info.avatar) / 16).toString() + "00.png";
-      Laya.Tween.clearAll(this.cell_avatar);
-      Laya.timer.clearAll(this);
-      if (cell_info.state == 1) {
-        this.count_down_value_label.text = secondsToMinutes(Number(cell_info.explore_end_time) - getCurrentTimestamp());
-        this.count_down_image.visible = true;
-        this.onCellAvatarAction1();
-        if (Number(cell_info.explore_end_time) > getCurrentTimestamp()) {
-          this.onExploreUI(1);
-          Laya.timer.loop(1e3, this, () => {
-            if (Number(cell_info.explore_end_time) > getCurrentTimestamp()) {
-              let time = Number(cell_info.explore_end_time) - getCurrentTimestamp();
-              this.count_down_value_label.text = secondsToMinutes(time);
-            } else {
-              Laya.timer.clearAll(this);
-              Laya.Tween.clearAll(this.cell_avatar);
-              this.onExploreUI(2);
-            }
-          });
-        } else {
-          this.onExploreUI(2);
-        }
-        this.UpdateMap(getCCMapRender(Number(cell_info.map)));
-      } else {
-        this.onExploreUI(0);
-      }
-    }
-    onExploreUI(type) {
-      console.log(type);
-      if (type == 0) {
-        this.explore_button.visible = true;
-        this.gain_button.visible = false;
-        this.count_down_image.visible = false;
-      } else if (type == 1) {
-        this.explore_button.visible = false;
-        this.gain_button.visible = false;
-        this.count_down_image.visible = true;
-      } else {
-        this.explore_button.visible = false;
-        this.gain_button.visible = true;
-        this.count_down_image.visible = false;
-      }
-    }
-    onExploreButtonEvent(param) {
-      Laya.Scene.open("resources/prefab/map/P_Exploration_Setup_Dialog.lh", false, this.c_id);
-    }
-    onGainButtonEvent(param) {
-      Laya.stage.event("OnGain" /* OnGain */, this.c_id);
-    }
-    UpdateMap(type) {
-      const cells = this.map_list.cells;
-      for (let item of cells) {
-        item.getComponent(Laya.Script).SetColor(type);
-      }
-    }
-    onExploreCBEvent(param) {
-      let message = "";
-      if (param) {
-        message = "Start explore success!";
-      } else {
-        message = "Start explore error!";
-      }
-      Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
-      this.SetData(this.c_id);
-    }
-    onGainCBEvent(param) {
-      let message = "";
-      const {
-        network: {
-          account
-        },
-        components: {
-          Cell
-        }
-      } = NetMgr.GetInstance().GetNet();
-      const entityid = account.address;
-      const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(this.c_id)]));
-      if (param) {
-        message = "Get reword " + Number(cell_info.bonus).toString() + " exp !";
-      } else {
-        message = "Get reword error!";
-      }
-      Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
-      this.SetData(this.c_id);
-    }
-    onCellAvatarAction1() {
-      Laya.Tween.to(this.cell_avatar, { alpha: 0 }, 2e3, Laya.Ease.expoInOut, Laya.Handler.create(this, this.onCellAvatarAction2.bind(this)));
-    }
-    onCellAvatarAction2(args) {
-      this.cell_avatar.x = Math.ceil(Math.random() * 15) * 106 + 106;
-      this.cell_avatar.y = Math.ceil(Math.random() * 5) * 106 + 106;
-      Laya.Tween.to(this.cell_avatar, { alpha: 1 }, 2e3, Laya.Ease.expoInOut, Laya.Handler.create(this, this.onCellAvatarAction1.bind(this)));
-    }
-  };
-  __name(MapInfoPage, "MapInfoPage");
-  MapInfoPage = __decorateClass([
-    regClass9("f4a816ef-c795-4a66-a280-e163b4de8e9c", "../src/ui/map/MapInfoPage.ts")
-  ], MapInfoPage);
-
-  // src/ui/map/MapSquareItem.ts
-  var { regClass: regClass10, property: property10 } = Laya;
-  var MapSquareItem = class extends Laya.Script {
-    bg;
-    onAwake() {
-    }
-    SetColor(color) {
-      this.bg.color = color;
-    }
-  };
-  __name(MapSquareItem, "MapSquareItem");
-  __decorateClass([
-    property10({ type: Laya.Image })
-  ], MapSquareItem.prototype, "bg", 2);
-  MapSquareItem = __decorateClass([
-    regClass10("dea390e9-354f-4c5a-ba15-bae43b0c3c4f", "../src/ui/map/MapSquareItem.ts")
-  ], MapSquareItem);
-
-  // src/ui/market/MarketPage.generated.ts
-  var MarketPageBase = class extends Laya.Box {
-    static {
-      __name(this, "MarketPageBase");
-    }
-    item0Tab;
-    item0Page;
-  };
-
-  // src/ui/market/MarketPage.ts
-  var { regClass: regClass11, property: property11 } = Laya;
-  var MarketPage = class extends MarketPageBase {
-    index;
-    onAwake() {
-      this.onSelect(this.item0Tab.selectedIndex);
-      this.item0Tab.selectHandler = new Laya.Handler(this, this.onSelect);
-      Laya.stage.on("OnCellBreedAskCB" /* OnCellBreedAskCB */, this, this.onCellBreedAskCBEvent.bind(this));
-      Laya.stage.on("OnCellBreedBidCB" /* OnCellBreedBidCB */, this, this.onCellBreedBidCBEvent.bind(this));
-      Laya.stage.on("OnTouchMarketBidItem" /* OnTouchMarketBidItem */, this, this.OnTouchMarketBidItemEvent.bind(this));
-      Laya.stage.on("OnCellBreedBidCancel" /* OnCellBreedBidCancel */, this, this.onCellBreedBidCancelEvent.bind(this));
-    }
-    onRefresh() {
-      this.index = 0;
-      this.item0Tab.selectedIndex = 0;
-      this.onSelect(this.index);
-    }
-    onSelect(index) {
-      this.index = index;
-      this.item0Page.selectedIndex = index;
-      switch (index) {
-        case 0:
-          this.item0Page.selection.onRefresh();
-          break;
-        case 1:
-          this.item0Page.selection.onRefresh();
-          break;
-        default:
-          break;
-      }
-    }
-    onCellBreedAskCBEvent(param) {
-      let message = "";
-      if (param) {
-        message = "Cell ask success!";
-      } else {
-        message = "Cell ask error!";
-      }
-      Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
-      this.onRefresh();
-    }
-    onCellBreedBidCBEvent(param) {
-      let message = "";
-      if (param) {
-        message = "Cell bid success!";
-      } else {
-        message = "Cell bid error!";
-      }
-      Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
-      this.item0Page.selection.UpdateCellList();
-    }
-    OnTouchMarketBidItemEvent(param) {
-      this.onSelect(2);
-      this.item0Page.selection.onSetData(param);
-    }
-    onCellBreedBidCancelEvent(param) {
-      this.onSelect(0);
-    }
-  };
-  __name(MarketPage, "MarketPage");
-  MarketPage = __decorateClass([
-    regClass11("f7ea9fc9-f0be-47bf-b29e-3d07abac9490", "../src/ui/market/MarketPage.ts")
-  ], MarketPage);
-
-  // src/ui/market/MarketPageAsk.generated.ts
-  var MarketPageAskBase = class extends Laya.Box {
-    static {
-      __name(this, "MarketPageAskBase");
-    }
-    cell_list;
-    cell_info;
-    cell_avatar;
-    breed_count_value_label;
-    stock_value_label_2;
-    confirm_button;
-    pay_input;
-    category_group;
-  };
-
-  // src/ui/market/MarketPageAsk.ts
-  var { regClass: regClass12, property: property12 } = Laya;
-  var MarketPageAsk = class extends MarketPageAskBase {
-    selected_node;
-    category;
-    onAwake() {
-      Laya.stage.on("OnTouchMarketCell" /* OnTouchMarketCell */, this, this.onTouchMarketCellEvent.bind(this));
-      Laya.stage.on("OnTouchMarketAskItem" /* OnTouchMarketAskItem */, this, this.onTouchMarketAskItemEvent.bind(this));
-      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
-    }
-    onRefresh() {
-      this.UpdateCellList();
-    }
-    UpdateCellList() {
-      this.category = 0;
-      this.cell_info.visible = false;
-      this.selected_node = void 0;
-      this.cell_list.removeChildren();
-      Laya.loader.load("resources/prefab/common/P_Common_Page_Cell_List_Item.lh").then((res) => {
-        const {
-          network: {
-            account
-          },
-          components: {
-            Account: Account3,
-            Cell
-          }
-        } = NetMgr.GetInstance().GetNet();
-        const entityid = account.address;
-        const value = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid)]));
-        if (value === void 0) {
-          return;
-        }
-        const cell_max = Number(value.cell_number);
-        let index = 0;
-        for (var i = 0; i < cell_max; i++) {
-          let item = res.create();
-          let script = item.getComponent(Laya.Script);
-          const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(i + 1)]));
-          if (cell_info.state == 0) {
-            let data = {
-              name: felt252ToStr(cell_info.name),
-              index: i + 1,
-              type: 2 /* Market */
-            };
-            script.SetData(data);
-            item.x = 10;
-            item.y = 5 + index * 70;
-            this.cell_list.addChildAt(item, index);
-            if (index == 0) {
-              this.onTouchMarketCellEvent(1);
-              script.onSelected(true);
-            }
-            ;
-            index++;
-          }
-        }
-      });
-    }
-    onTouchMarketCellEvent(param) {
-      if (this.selected_node != void 0) {
-        this.selected_node.getComponent(Laya.Script).onSelected(false);
-      }
-      this.selected_node = this.cell_list.getChildAt(param - 1);
-      this.selected_node.getComponent(Laya.Script).onSelected(true);
-      const index = this.selected_node.getComponent(Laya.Script).index;
-      this.onUpdateCellInfo(index);
-    }
-    onTouchMarketAskItemEvent(param) {
-      this.category = setBitToOne(this.category, param);
-    }
-    onUpdateCellInfo(c_id) {
-      this.cell_info.visible = true;
-      const info = getCellInfo1(c_id);
-      this.cell_avatar.SetAvatar(Number(info.cell_info.avatar));
-      this.breed_count_value_label.text = info.cell_info.breed_count.toString();
-      this.stock_value_label_2.text = info.cell_info.exp.toString() + ")";
-      for (let i = 0; i < 9; i++) {
-        if (isBitSet(Number(info.cell_info.category), i)) {
-          this.category_group.getChildAt(i).getComponent(Laya.Script).SetGray(false);
-        } else {
-          this.category_group.getChildAt(i).getComponent(Laya.Script).SetGray(true);
-        }
-      }
-    }
-    onConfirmButtonEvent(param) {
-      if (isNumericString(this.pay_input.text) == false || this.pay_input.text == "0") {
-        let message = "cost set error";
-        Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
-        return;
-      }
-      this.selected_node.getComponent(Laya.Script).index;
-      let data = {
-        c_id: this.selected_node.getComponent(Laya.Script).index,
-        category: this.category,
-        pay_number: Number(this.pay_input.text)
-      };
-      console.log(data);
-      Laya.stage.event("OnCellBreedAsk" /* OnCellBreedAsk */, data);
-    }
-  };
-  __name(MarketPageAsk, "MarketPageAsk");
-  MarketPageAsk = __decorateClass([
-    regClass12("d032e494-c2fb-405d-b572-00d7d9215c7d", "../src/ui/market/MarketPageAsk.ts")
-  ], MarketPageAsk);
-
-  // src/ui/market/MarketPageAskCategorySelectedItem.ts
-  var { regClass: regClass13, property: property13 } = Laya;
-  var MarketPageAskCategorySelectedItem = class extends Laya.Script {
-    button;
-    index;
-    onAwake() {
-      this.button.on(Laya.Event.CLICK, this, this.onButtonEvent.bind(this));
-    }
-    SetGray(disabled) {
-      if (disabled) {
-        this.button.selected = false;
-      }
-      this.button.disabled = disabled;
-    }
-    onButtonEvent(param) {
-      Laya.stage.event("OnTouchMarketAskItem" /* OnTouchMarketAskItem */, this.index);
-    }
-  };
-  __name(MarketPageAskCategorySelectedItem, "MarketPageAskCategorySelectedItem");
-  __decorateClass([
-    property13({ type: Laya.Button })
-  ], MarketPageAskCategorySelectedItem.prototype, "button", 2);
-  __decorateClass([
-    property13({ type: Number })
-  ], MarketPageAskCategorySelectedItem.prototype, "index", 2);
-  MarketPageAskCategorySelectedItem = __decorateClass([
-    regClass13("b7e92c31-9c4a-457a-83ad-f20dc41cdc4f", "../src/ui/market/MarketPageAskCategorySelectedItem.ts")
-  ], MarketPageAskCategorySelectedItem);
-
-  // src/ui/market/MarketPageBid.generated.ts
-  var MarketPageBidBase = class extends Laya.Box {
-    static {
-      __name(this, "MarketPageBidBase");
-    }
-    reload_button;
-    category_selected_list;
-    market_list;
-    left_button;
-    right_button;
-  };
-
-  // src/ui/market/MarketPageBid.ts
-  var { regClass: regClass14, property: property14 } = Laya;
-  var MarketPageBid = class extends MarketPageBidBase {
-    selected_node;
-    page_index;
-    category;
-    market_arr;
-    onAwake() {
-      this.category = 0;
-      this.category_selected_list.selectHandler = new Laya.Handler(this, this.onSelectChange);
-      this.left_button.on(Laya.Event.CLICK, this, this.onLeftButtonEvent.bind(this));
-      this.right_button.on(Laya.Event.CLICK, this, this.onRightButtonEvent.bind(this));
-      this.reload_button.on(Laya.Event.CLICK, this, this.onReloadButtonEvent.bind(this));
-    }
-    onRefresh() {
-      this.UpdateList();
-    }
-    onSelectChange(index) {
-      this.category = index;
-      const result = this.GetCategoryArr(index);
-      this.UpdateNormal(result);
-    }
-    UpdateList() {
-      const {
-        network: {
-          account
-        },
-        components: {
-          Account: Account3,
-          Cell
-        }
-      } = NetMgr.GetInstance().GetNet();
-      this.market_arr = [];
-      this.category_selected_list.selectedIndex = 0;
-      this.page_index = 0;
-      for (let [key, value] of Account3.values.address) {
-        const account_info = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, value]));
-        const max = Number(account_info.cell_number);
-        for (let i = 1; i <= max; i++) {
-          const cell_info = getCellInfo0(BigInt(account_info.address), BigInt(i));
-          if (cell_info.base_info.state == BigInt(3)) {
-            let data = {
-              account_info,
-              cell_info,
-              index: i
-            };
-            this.market_arr.push(data);
-          }
-        }
-      }
-      const result = this.GetCategoryArr(this.category);
-      this.UpdateNormal(result);
-    }
-    GetCategoryArr(category) {
-      let result = [];
-      for (let index = 0; index < this.market_arr.length; index++) {
-        const data = this.market_arr[index];
-        if (isBitSet(Number(data.cell_info.base_info.breed_category), category)) {
-          result.push(data);
-        }
-      }
-      return result;
-    }
-    UpdateNormal(arr) {
-      let max = Math.min(8, Math.max(0, arr.length - this.page_index));
-      for (let i = 0; i < max; i++) {
-        let data = {
-          index: this.page_index + i,
-          c_id: utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(arr[this.page_index + i].account_info.address), BigInt(arr[this.page_index + i].index)]),
-          player_address: truncateString("0x" + arr[this.page_index + i].account_info.address.toString(16), 10),
-          cell_name: felt252ToStr(arr[this.page_index + i].cell_info.base_info.name),
-          breed_number: arr[this.page_index + i].cell_info.base_info.breed_count,
-          pay_number: arr[this.page_index + i].cell_info.base_info.breed_cost,
-          category: this.category
-        };
-        this.market_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-      }
-      for (let i = max; i < 8; i++) {
-        let data = {
-          index: i,
-          player_address: "",
-          cell_name: "",
-          breed_number: "",
-          pay_number: ""
-        };
-        this.market_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
-      }
-    }
-    onLeftButtonEvent(param) {
-      this.page_index = Math.max(0, this.page_index - 7);
-      const result = this.GetCategoryArr(this.category);
-      this.UpdateNormal(result);
-    }
-    onRightButtonEvent(param) {
-      const result = this.GetCategoryArr(this.category);
-      if (this.page_index + 8 > result.length) {
-      } else {
-        this.page_index += 8;
-      }
-      this.UpdateNormal(result);
-    }
-    onReloadButtonEvent(param) {
-      this.UpdateList();
-    }
-  };
-  __name(MarketPageBid, "MarketPageBid");
-  MarketPageBid = __decorateClass([
-    regClass14("5c345d01-044a-4a03-a518-dea474cde402", "../src/ui/market/MarketPageBid.ts")
-  ], MarketPageBid);
-
-  // src/ui/market/MarketPageBidItem.ts
-  var { regClass: regClass15, property: property15 } = Laya;
-  var MarketPageBidItem = class extends Laya.Script {
-    player_address_label;
-    cell_name_label;
-    breed_number_label;
-    pay_number_label;
-    button;
-    index;
-    c_id;
-    category;
-    onAwake() {
-      this.button.on(Laya.Event.CLICK, this, this.onButtonEvent.bind(this));
-    }
-    SetData(data) {
-      this.index = data.index;
-      this.c_id = data.c_id;
-      this.category = data.category;
-      this.player_address_label.text = data.player_address;
-      this.cell_name_label.text = data.cell_name;
-      this.breed_number_label.text = data.breed_number;
-      this.pay_number_label.text = data.pay_number;
-    }
-    onButtonEvent(param) {
-      let data = {
-        t_id: this.c_id,
-        category: this.category,
-        cost: Number(this.pay_number_label.text)
-      };
-      Laya.stage.event("OnTouchMarketBidItem" /* OnTouchMarketBidItem */, data);
-    }
-  };
-  __name(MarketPageBidItem, "MarketPageBidItem");
-  __decorateClass([
-    property15({ type: Laya.Label })
-  ], MarketPageBidItem.prototype, "player_address_label", 2);
-  __decorateClass([
-    property15({ type: Laya.Label })
-  ], MarketPageBidItem.prototype, "cell_name_label", 2);
-  __decorateClass([
-    property15({ type: Laya.Label })
-  ], MarketPageBidItem.prototype, "breed_number_label", 2);
-  __decorateClass([
-    property15({ type: Laya.Label })
-  ], MarketPageBidItem.prototype, "pay_number_label", 2);
-  __decorateClass([
-    property15({ type: Laya.Button })
-  ], MarketPageBidItem.prototype, "button", 2);
-  MarketPageBidItem = __decorateClass([
-    regClass15("f391a66b-6d4f-4ed1-b588-bc793d604fad", "../src/ui/market/MarketPageBidItem.ts")
-  ], MarketPageBidItem);
-
-  // src/ui/market/MarketPageBidSelected.generated.ts
-  var MarketPageBidSelectedBase = class extends Laya.Box {
-    static {
-      __name(this, "MarketPageBidSelectedBase");
-    }
-    cell_list;
-    cell_info;
-    cell_avatar;
-    category_value_label;
-    cost_value_label;
-    cancel_button;
-    confirm_button;
-  };
-
-  // src/ui/market/MarketPageBidSelected.ts
-  var { regClass: regClass16, property: property16 } = Laya;
-  var MarketPageBidSelected = class extends MarketPageBidSelectedBase {
-    selected_node;
-    t_id;
-    cost;
-    category;
-    onAwake() {
-      Laya.stage.on("OnTouchMarketBidCell" /* OnTouchMarketBidCell */, this, this.onTouchMarketBidCellEvent.bind(this));
-      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
-      this.cancel_button.on(Laya.Event.CLICK, this, this.onCancelButtonEvent.bind(this));
-    }
-    onSetData(data) {
-      this.t_id = data.t_id;
-      this.cost = data.cost;
-      this.category = data.category;
-      this.UpdateCellList();
-    }
-    onRefresh() {
-      this.UpdateCellList();
-    }
-    UpdateCellList() {
-      this.cell_info.visible = false;
-      this.selected_node = void 0;
-      this.cell_list.removeChildren();
-      Laya.loader.load("resources/prefab/common/P_Common_Page_Cell_List_Item.lh").then((res) => {
-        const {
-          network: {
-            account
-          },
-          components: {
-            Account: Account3,
-            Cell
-          }
-        } = NetMgr.GetInstance().GetNet();
-        const entityid = account.address;
-        const value = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid)]));
-        if (value === void 0) {
-          return;
-        }
-        const cell_max = Number(value.cell_number);
-        let index = 0;
-        for (var i = 0; i < cell_max; i++) {
-          let item = res.create();
-          let script = item.getComponent(Laya.Script);
-          const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(i + 1)]));
-          if (cell_info.state == 0) {
-            let data = {
-              name: felt252ToStr(cell_info.name),
-              index: i + 1,
-              type: 3 /* MarketBid */
-            };
-            script.SetData(data);
-            item.x = 10;
-            item.y = 5 + index * 70;
-            this.cell_list.addChildAt(item, index);
-            if (index == 0) {
-              this.onTouchMarketBidCellEvent(1);
-              script.onSelected(true);
-            }
-            ;
-            index++;
-          }
-        }
-      });
-    }
-    onTouchMarketBidCellEvent(param) {
-      if (this.selected_node != void 0) {
-        this.selected_node.getComponent(Laya.Script).onSelected(false);
-      }
-      this.selected_node = this.cell_list.getChildAt(param - 1);
-      this.selected_node.getComponent(Laya.Script).onSelected(true);
-      const index = this.selected_node.getComponent(Laya.Script).index;
-      this.onUpdateCellInfo(index);
-    }
-    onUpdateCellInfo(c_id) {
-      this.cell_info.visible = true;
-      const info = getCellInfo1(c_id);
-      this.cell_avatar.SetAvatar(Number(info.cell_info.avatar));
-      this.category_value_label.text = bitToCategory(Number(info.cell_info.category));
-      this.cost_value_label.text = this.cost.toString();
-    }
-    onConfirmButtonEvent(param) {
-      let data = {
-        c_id: this.selected_node.getComponent(Laya.Script).index,
-        category: this.category,
-        t_id: this.t_id
-      };
-      Laya.stage.event("OnCellBreedBid" /* OnCellBreedBid */, data);
-    }
-    onCancelButtonEvent(param) {
-      Laya.stage.event("OnCellBreedBidCancel" /* OnCellBreedBidCancel */);
-    }
-  };
-  __name(MarketPageBidSelected, "MarketPageBidSelected");
-  MarketPageBidSelected = __decorateClass([
-    regClass16("fea52df9-73f4-4ab8-ab0a-251da9ea6aa9", "../src/ui/market/MarketPageBidSelected.ts")
-  ], MarketPageBidSelected);
-
-  // src/ui/info/CellAttributeEnhancePage.generated.ts
-  var CellAttributeEnhancePageBase = class extends Laya.Box {
-    static {
-      __name(this, "CellAttributeEnhancePageBase");
-    }
-    cell_image;
-    name_value_label;
-    perception_total_value_label;
-    agility_total_value_label;
-    attack_total_value_label;
-    category_value_label;
-    cost_cur_value_label;
-    exp_cur_value_label;
-    perception_cur_value_label;
-    agility_cur_value_label;
-    attack_cur_value_label;
-    attack_bar;
-    agility_bar;
-    perception_bar;
-    confirm_button;
-  };
-
   // src/ui/info/CellAttributeEnhancePage.ts
-  var { regClass: regClass17, property: property17 } = Laya;
+  var { regClass: regClass8, property: property8 } = Laya;
   var CellAttributeEnhancePage = class extends CellAttributeEnhancePageBase {
     c_id;
     p_id;
@@ -22688,7 +21880,6 @@ spurious results.`);
       this.UpdateCost();
     }
     SetData(c_id, p_id) {
-      console.log("----");
       this.c_id = c_id;
       this.p_id = p_id;
       const data = getCellInfo1(c_id);
@@ -22735,7 +21926,7 @@ spurious results.`);
   };
   __name(CellAttributeEnhancePage, "CellAttributeEnhancePage");
   CellAttributeEnhancePage = __decorateClass([
-    regClass17("82dd6225-405f-432c-a620-ed8ca338eb5d", "../src/ui/info/CellAttributeEnhancePage.ts")
+    regClass8("82dd6225-405f-432c-a620-ed8ca338eb5d", "../src/ui/info/CellAttributeEnhancePage.ts")
   ], CellAttributeEnhancePage);
 
   // src/ui/info/CellBodyEnhancePage.generated.ts
@@ -22771,7 +21962,7 @@ spurious results.`);
   __name(random, "random");
 
   // src/ui/info/CellBodyEnhancePage.ts
-  var { regClass: regClass18, property: property18 } = Laya;
+  var { regClass: regClass9, property: property9 } = Laya;
   var CellBodyEnhancePage = class extends CellBodyEnhancePageBase {
     index;
     selected_property_node;
@@ -22851,7 +22042,6 @@ spurious results.`);
           let item = res.create();
           let script = item.getComponent(Laya.Script);
           const property_info = getComponentValue(CellProperty, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(this.index.toString()), BigInt(i + 1)]));
-          console.log("property_info   ", property_info);
           script.SetData(i, rgbToHex(Number(property_info.p1), Number(property_info.p2), Number(property_info.p3)));
           if (i == 0) {
             random_arr[64] = random_arr[random_arr.length - 1];
@@ -22875,7 +22065,7 @@ spurious results.`);
   };
   __name(CellBodyEnhancePage, "CellBodyEnhancePage");
   CellBodyEnhancePage = __decorateClass([
-    regClass18("061652ef-83a4-4744-b84c-80374c6155cd", "../src/ui/info/CellBodyEnhancePage.ts")
+    regClass9("061652ef-83a4-4744-b84c-80374c6155cd", "../src/ui/info/CellBodyEnhancePage.ts")
   ], CellBodyEnhancePage);
 
   // src/ui/info/CellInfoPage.generated.ts
@@ -22888,7 +22078,7 @@ spurious results.`);
   };
 
   // src/ui/info/CellInfoPage.ts
-  var { regClass: regClass19, property: property19 } = Laya;
+  var { regClass: regClass10, property: property10 } = Laya;
   var CellInfoPage = class extends CellInfoPageBase {
     index;
     onAwake() {
@@ -22901,7 +22091,6 @@ spurious results.`);
     onSelect(index) {
       this.index = index;
       this.item0Page.selectedIndex = index;
-      console.log("----onSelect  ");
       switch (index) {
         case 0:
           Laya.stage.event("OnUpdateCreateCell" /* OnUpdateCreateCell */);
@@ -22916,7 +22105,7 @@ spurious results.`);
   };
   __name(CellInfoPage, "CellInfoPage");
   CellInfoPage = __decorateClass([
-    regClass19("9161308f-1a38-4f24-8fc5-fe984ee70a6b", "../src/ui/info/CellInfoPage.ts")
+    regClass10("9161308f-1a38-4f24-8fc5-fe984ee70a6b", "../src/ui/info/CellInfoPage.ts")
   ], CellInfoPage);
 
   // src/ui/info/CellInfoSubPage.generated.ts
@@ -22940,7 +22129,7 @@ spurious results.`);
   };
 
   // src/ui/info/CellInfoSubPage.ts
-  var { regClass: regClass20, property: property20 } = Laya;
+  var { regClass: regClass11, property: property11 } = Laya;
   var CellInfoSubPage = class extends CellInfoSubPageBase {
     index;
     baseInfo;
@@ -22986,12 +22175,13 @@ spurious results.`);
       }
     }
     onInfoButtonEvent(param) {
-      Laya.Scene.open("resources/prefab/info/P_Info_Page_Cell_List_Cell_Info.lh", false, { index: 1 });
+      const index = this.cell_avatar.index >> 4;
+      Laya.Scene.open("resources/prefab/info/P_Info_Page_Cell_List_Cell_Info.lh", false, { index });
     }
   };
   __name(CellInfoSubPage, "CellInfoSubPage");
   CellInfoSubPage = __decorateClass([
-    regClass20("1e141417-30b8-4ce7-b0d2-9b851bf407a5", "../src/ui/info/CellInfoSubPage.ts")
+    regClass11("1e141417-30b8-4ce7-b0d2-9b851bf407a5", "../src/ui/info/CellInfoSubPage.ts")
   ], CellInfoSubPage);
 
   // src/ui/info/CellListPage.generated.ts
@@ -23004,7 +22194,7 @@ spurious results.`);
   };
 
   // src/ui/info/CellListPage.ts
-  var { regClass: regClass21, property: property21 } = Laya;
+  var { regClass: regClass12, property: property12 } = Laya;
   var CellListPage = class extends CellListPageBase {
     selected_node;
     onAwake() {
@@ -23091,11 +22281,11 @@ spurious results.`);
   };
   __name(CellListPage, "CellListPage");
   CellListPage = __decorateClass([
-    regClass21("bf2bf7a7-afd2-446a-a118-cb322a1d0423", "../src/ui/info/CellListPage.ts")
+    regClass12("bf2bf7a7-afd2-446a-a118-cb322a1d0423", "../src/ui/info/CellListPage.ts")
   ], CellListPage);
 
   // src/ui/info/CellPropertyPointItem.ts
-  var { regClass: regClass22, property: property22 } = Laya;
+  var { regClass: regClass13, property: property13 } = Laya;
   var CellPropertyPointItem = class extends Laya.Script {
     bg_image;
     selected_image;
@@ -23104,7 +22294,6 @@ spurious results.`);
       this.bg_image.on(Laya.Event.CLICK, this, this.onClickEvent.bind(this));
     }
     SetData(index, color) {
-      console.log("color", color);
       this.index = index;
       this.bg_image.color = color;
     }
@@ -23120,13 +22309,13 @@ spurious results.`);
   };
   __name(CellPropertyPointItem, "CellPropertyPointItem");
   __decorateClass([
-    property22({ type: Laya.Image })
+    property13({ type: Laya.Image })
   ], CellPropertyPointItem.prototype, "bg_image", 2);
   __decorateClass([
-    property22({ type: Laya.Image })
+    property13({ type: Laya.Image })
   ], CellPropertyPointItem.prototype, "selected_image", 2);
   CellPropertyPointItem = __decorateClass([
-    regClass22("43e59e28-6664-484f-abde-2012a0cec5ca", "../src/ui/info/CellPropertyPointItem.ts")
+    regClass13("43e59e28-6664-484f-abde-2012a0cec5ca", "../src/ui/info/CellPropertyPointItem.ts")
   ], CellPropertyPointItem);
 
   // src/ui/info/CreateCellPage.generated.ts
@@ -23148,7 +22337,7 @@ spurious results.`);
   };
 
   // src/ui/info/CreateCellPage.ts
-  var { regClass: regClass23, property: property23 } = Laya;
+  var { regClass: regClass14, property: property14 } = Laya;
   var CreateCellPage = class extends CreateCellPageBase {
     baseColor;
     onAwake() {
@@ -23190,7 +22379,6 @@ spurious results.`);
       this.seed_input.text = "";
     }
     onCreateCellCBEvent(param) {
-      console.log("onCreateCellCBEvent", param);
       let message = "";
       if (param) {
         message = "Create Cell success!";
@@ -23305,12 +22493,8 @@ spurious results.`);
         console.log("name void");
         return;
       }
-      if (this.seed_input.text == "") {
-        console.log("seed void");
-      }
       let data = {
         name: this.name_input.text,
-        seed: "123123",
         color: this.baseColor
       };
       Laya.stage.event("OnCreateCell" /* OnCreateCell */, data);
@@ -23318,7 +22502,7 @@ spurious results.`);
   };
   __name(CreateCellPage, "CreateCellPage");
   CreateCellPage = __decorateClass([
-    regClass23("ce81901f-d9c5-44f7-b178-065ff256a7fd", "../src/ui/info/CreateCellPage.ts")
+    regClass14("ce81901f-d9c5-44f7-b178-065ff256a7fd", "../src/ui/info/CreateCellPage.ts")
   ], CreateCellPage);
 
   // src/ui/info/InfoPageCellListCellInfo.generated.ts
@@ -23333,7 +22517,7 @@ spurious results.`);
   };
 
   // src/ui/info/InfoPageCellListCellInfo.ts
-  var { regClass: regClass24, property: property24 } = Laya;
+  var { regClass: regClass15, property: property15 } = Laya;
   var InfoPageCellListCellInfo = class extends InfoPageCellListCellInfoBase {
     onAwake() {
       this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
@@ -23347,156 +22531,974 @@ spurious results.`);
       this.info_label.text = this.GetInfo(param.index);
     }
     GetSubTitle(index) {
-      return "";
+      return getNthEnumValue(CellAvatarTitleEnum, index);
     }
     GetInfo(index) {
-      return "";
+      return getNthEnumValue(CellAvatarInfoEnum, index);
     }
   };
   __name(InfoPageCellListCellInfo, "InfoPageCellListCellInfo");
   InfoPageCellListCellInfo = __decorateClass([
-    regClass24("9058b3dc-e964-43f6-8a09-de9bb047d65c", "../src/ui/info/InfoPageCellListCellInfo.ts")
+    regClass15("9058b3dc-e964-43f6-8a09-de9bb047d65c", "../src/ui/info/InfoPageCellListCellInfo.ts")
   ], InfoPageCellListCellInfo);
 
-  // src/ui/common/CellAvatar.generated.ts
-  var CellAvatarBase = class extends Laya.Box {
+  // src/ui/leaderboard/LeaderBoardPage.generated.ts
+  var LeaderBoardPageBase = class extends Laya.Box {
     static {
-      __name(this, "CellAvatarBase");
+      __name(this, "LeaderBoardPageBase");
     }
-    up_part_image;
-    down_part_image;
-    center_part_image;
-    left_part_image;
-    right_part_image;
-    state_bg_img;
-    state_label;
+    item0Tab;
+    top_list;
+    normal_list;
+    self_info;
+    left_button;
+    right_button;
   };
 
-  // src/ui/common/CellAvatar.ts
-  var { regClass: regClass25, property: property25 } = Laya;
-  var CellAvatar = class extends CellAvatarBase {
-    onAwake() {
-    }
-    SetState(type) {
-      if (type == 1 /* Exploring */) {
-        this.state_bg_img.visible = true;
-        this.state_label.text = "exploring";
-      } else if (type == 2 /* Evolving */) {
-        this.state_bg_img.visible = true;
-        this.state_label.text = "evolving";
-      } else if (type == 3 /* Onshelves */) {
-        this.state_bg_img.visible = true;
-        this.state_label.text = "on shelves";
-      } else {
-        this.state_bg_img.visible = false;
-      }
-    }
-    SetAvatar(index) {
-      console.log("avatar :  ", index);
-      const center = Math.floor(index / 16);
-      this.center_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "01.png";
-      if (isBitSet(index, 0)) {
-        this.up_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "02.png";
-      } else {
-        this.up_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
-      }
-      if (isBitSet(index, 1)) {
-        this.left_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "03.png";
-      } else {
-        this.left_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
-      }
-      if (isBitSet(index, 2)) {
-        this.right_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "04.png";
-      } else {
-        this.right_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
-      }
-      if (isBitSet(index, 3)) {
-        this.down_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "05.png";
-      } else {
-        this.down_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
-      }
-    }
-  };
-  __name(CellAvatar, "CellAvatar");
-  CellAvatar = __decorateClass([
-    regClass25("a7fe9eb0-62a0-4df8-89ca-9de72fdbd6f4", "../src/ui/common/CellAvatar.ts")
-  ], CellAvatar);
-
-  // src/ui/common/CellListItem.ts
-  var { regClass: regClass26, property: property26 } = Laya;
-  var CellListItem = class extends Laya.Script {
-    button;
+  // src/ui/leaderboard/LeaderBoardPage.ts
+  var { regClass: regClass16, property: property16 } = Laya;
+  var LeaderBoardPage = class extends LeaderBoardPageBase {
+    selected_node;
     index;
-    type;
+    page_index;
+    leaderboard_arr;
     onAwake() {
-      this.button.on(Laya.Event.CLICK, this, this.onButtonEvent.bind(this));
+      this.index = 0;
+      this.item0Tab.selectHandler = new Laya.Handler(this, this.onSelect);
+      this.left_button.on(Laya.Event.CLICK, this, this.onLeftButtonEvent.bind(this));
+      this.right_button.on(Laya.Event.CLICK, this, this.onRightButtonEvent.bind(this));
+    }
+    onRefresh() {
+      this.onSelect(this.index);
+    }
+    onSelect(index) {
+      this.index = index;
+      this.UpdateList();
+    }
+    UpdateList() {
+      const {
+        network: {
+          account
+        },
+        components: {
+          Account: Account3,
+          Cell
+        }
+      } = NetMgr.GetInstance().GetNet();
+      this.leaderboard_arr = [];
+      this.page_index = 3;
+      for (let [key, value] of Account3.values.address) {
+        const account_info = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, value]));
+        const cell_number = Number(account_info.cell_number);
+        for (let i = 0; i < cell_number; i++) {
+          const cell_info = getCellInfo0(value, i + 1);
+          let data = {
+            account_info,
+            cell_info,
+            index: i + 1
+          };
+          this.leaderboard_arr = insertDataDescendingOrder(this.leaderboard_arr, data, this.index);
+        }
+      }
+      this.UpdateTop();
+      this.UpdateNormal();
+      let self_index = 0;
+      for (let i = 0; i < this.leaderboard_arr.length; i++) {
+        const element = this.leaderboard_arr[i];
+        if (element.account_info.address == BigInt(account.address)) {
+          self_index = i;
+          break;
+        }
+      }
+    }
+    UpdateTop() {
+      let max = Math.min(3, this.leaderboard_arr.length);
+      if (this.index == 0) {
+        for (let i = 0; i < max; i++) {
+          let data = {
+            name: truncateString("0x" + this.leaderboard_arr[i].account_info.address.toString(16), 10),
+            cell_name: felt252ToStr(this.leaderboard_arr[i].cell_info.base_info.name),
+            value: bitToCategory(Number(this.leaderboard_arr[i].cell_info.base_info.category))
+          };
+          this.top_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+        }
+        for (let i = max; i < 3; i++) {
+          let data = {
+            name: "",
+            cell_name: "",
+            value: ""
+          };
+          this.top_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+        }
+      } else {
+        for (let i = 0; i < max; i++) {
+          let data = {
+            name: truncateString("0x" + this.leaderboard_arr[i].account_info.address.toString(16), 10),
+            cell_name: felt252ToStr(this.leaderboard_arr[i].cell_info.base_info.name),
+            value: (Number(this.leaderboard_arr[i].cell_info.property_info.p1) + Number(this.leaderboard_arr[i].cell_info.property_info.p2) + Number(this.leaderboard_arr[i].cell_info.property_info.p3)).toString()
+          };
+          this.top_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+        }
+        for (let i = max; i < 3; i++) {
+          let data = {
+            name: "",
+            cell_name: "",
+            value: ""
+          };
+          this.top_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+        }
+      }
+    }
+    UpdateNormal() {
+      let max = Math.min(7, Math.max(0, this.leaderboard_arr.length - this.page_index));
+      if (this.index == 0) {
+        for (let i = 0; i < max; i++) {
+          let data = {
+            index: this.page_index + i + 1,
+            name: truncateString("0x" + this.leaderboard_arr[this.page_index + i].account_info.address.toString(16), 10),
+            cell_name: felt252ToStr(this.leaderboard_arr[this.page_index + i].cell_info.base_info.name),
+            value: bitToCategory(Number(this.leaderboard_arr[this.page_index + i].cell_info.base_info.category))
+          };
+          this.normal_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+        }
+        for (let i = max; i < 7; i++) {
+          let data = {
+            index: "",
+            name: "",
+            cell_name: "",
+            value: ""
+          };
+          this.normal_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+        }
+      } else {
+        for (let i = 0; i < max; i++) {
+          let data = {
+            index: this.page_index + i,
+            name: truncateString("0x" + this.leaderboard_arr[this.page_index + i].account_info.address.toString(16), 10),
+            cell_name: felt252ToStr(this.leaderboard_arr[this.page_index + i].cell_info.base_info.name),
+            value: (Number(this.leaderboard_arr[i].cell_info.property_info.p1) + Number(this.leaderboard_arr[i].cell_info.property_info.p2) + Number(this.leaderboard_arr[i].cell_info.property_info.p3)).toString()
+          };
+          this.normal_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+        }
+        for (let i = max; i < 7; i++) {
+          let data = {
+            index: "",
+            name: "",
+            cell_name: "",
+            value: ""
+          };
+          this.normal_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+        }
+      }
+    }
+    UpdateSelf(index) {
+      let data = {
+        index: 0,
+        name: "",
+        cell_name: "",
+        value: ""
+      };
+      if (this.index == 0) {
+        data.index = index + 1;
+        data.name = truncateString("0x" + this.leaderboard_arr[index].account_info.address.toString(16), 10);
+        data.cell_name = felt252ToStr(this.leaderboard_arr[index].cell_info.base_info.name);
+        data.value = bitToCategory(Number(this.leaderboard_arr[index].cell_info.base_info.category));
+      } else {
+        data.index = index + 1;
+        data.name = truncateString("0x" + this.leaderboard_arr[index].account_info.address.toString(16), 10);
+        data.cell_name = felt252ToStr(this.leaderboard_arr[index].cell_info.base_info.name);
+        data.value = (Number(this.leaderboard_arr[index].cell_info.property_info.p1) + Number(this.leaderboard_arr[index].cell_info.property_info.p2) + Number(this.leaderboard_arr[index].cell_info.property_info.p3)).toString();
+      }
+      this.self_info.getComponent(Laya.Script).SetData(data);
+    }
+    onLeftButtonEvent(param) {
+      this.page_index = Math.max(3, this.page_index - 7);
+      this.UpdateNormal();
+    }
+    onRightButtonEvent(param) {
+      if (this.page_index + 7 > this.leaderboard_arr.length) {
+      } else {
+        this.page_index += 7;
+      }
+      this.UpdateNormal();
+    }
+  };
+  __name(LeaderBoardPage, "LeaderBoardPage");
+  LeaderBoardPage = __decorateClass([
+    regClass16("ef3c4680-953e-4f27-9072-69bc6e18abd3", "../src/ui/leaderboard/LeaderBoardPage.ts")
+  ], LeaderBoardPage);
+
+  // src/ui/leaderboard/LeaderBoardPageItem1.ts
+  var { regClass: regClass17, property: property17 } = Laya;
+  var LeaderBoardPageItem1 = class extends Laya.Script {
+    rank_number_label;
+    player_name_label;
+    cell_name_label;
+    value_label;
+    onAwake() {
     }
     SetData(data) {
-      this.button.label = data.name;
-      this.index = data.index;
-      this.type = data.type;
-    }
-    onSelected(selected) {
-      this.button.selected = selected;
-    }
-    onButtonEvent(param) {
-      switch (this.type) {
-        case 0 /* Info */:
-          Laya.stage.event("OnTouchInfoCell" /* OnTouchInfoCell */, this.index);
-          break;
-        case 1 /* Evolving */:
-          Laya.stage.event("OnTouchEvolutionCell" /* OnTouchEvolutionCell */, this.index);
-          break;
-        case 2 /* Market */:
-          Laya.stage.event("OnTouchMarketCell" /* OnTouchMarketCell */, this.index);
-          break;
-        case 3 /* MarketBid */:
-          Laya.stage.event("OnTouchMarketBidCell" /* OnTouchMarketBidCell */, this.index);
-          break;
-        default:
-          break;
-      }
+      this.player_name_label.text = data.name;
+      this.cell_name_label.text = data.cell_name;
+      this.value_label.text = data.value;
     }
   };
-  __name(CellListItem, "CellListItem");
+  __name(LeaderBoardPageItem1, "LeaderBoardPageItem1");
   __decorateClass([
-    property26({ type: Laya.Button })
-  ], CellListItem.prototype, "button", 2);
-  CellListItem = __decorateClass([
-    regClass26("9d83bd3a-b532-4ee5-8dac-8a73102c3bf3", "../src/ui/common/CellListItem.ts")
-  ], CellListItem);
+    property17({ type: Laya.Label })
+  ], LeaderBoardPageItem1.prototype, "rank_number_label", 2);
+  __decorateClass([
+    property17({ type: Laya.Label })
+  ], LeaderBoardPageItem1.prototype, "player_name_label", 2);
+  __decorateClass([
+    property17({ type: Laya.Label })
+  ], LeaderBoardPageItem1.prototype, "cell_name_label", 2);
+  __decorateClass([
+    property17({ type: Laya.Label })
+  ], LeaderBoardPageItem1.prototype, "value_label", 2);
+  LeaderBoardPageItem1 = __decorateClass([
+    regClass17("68ed8af8-4d5b-4ea8-b3f1-388a32b40d91", "../src/ui/leaderboard/LeaderBoardPageItem1.ts")
+  ], LeaderBoardPageItem1);
 
-  // src/ui/common/CommonDialog.generated.ts
-  var CommonDialogBase = class extends Laya.Dialog {
-    static {
-      __name(this, "CommonDialogBase");
+  // src/ui/leaderboard/LeaderBoardPageItem2.ts
+  var { regClass: regClass18, property: property18 } = Laya;
+  var LeaderBoardPageItem2 = class extends Laya.Script {
+    rank_number_label;
+    player_name_label;
+    cell_name_label;
+    value_label;
+    onAwake() {
     }
-    content_label;
-    cancel_button;
+    SetData(data) {
+      this.rank_number_label.text = data.index;
+      this.player_name_label.text = data.name;
+      this.cell_name_label.text = data.cell_name;
+      this.value_label.text = data.value;
+    }
+  };
+  __name(LeaderBoardPageItem2, "LeaderBoardPageItem2");
+  __decorateClass([
+    property18({ type: Laya.Label })
+  ], LeaderBoardPageItem2.prototype, "rank_number_label", 2);
+  __decorateClass([
+    property18({ type: Laya.Label })
+  ], LeaderBoardPageItem2.prototype, "player_name_label", 2);
+  __decorateClass([
+    property18({ type: Laya.Label })
+  ], LeaderBoardPageItem2.prototype, "cell_name_label", 2);
+  __decorateClass([
+    property18({ type: Laya.Label })
+  ], LeaderBoardPageItem2.prototype, "value_label", 2);
+  LeaderBoardPageItem2 = __decorateClass([
+    regClass18("44c62272-25f5-43e7-aee5-7c6a2d2c9147", "../src/ui/leaderboard/LeaderBoardPageItem2.ts")
+  ], LeaderBoardPageItem2);
+
+  // src/ui/map/ExplorationSetupDialog.generated.ts
+  var ExplorationSetupDialogBase = class extends Laya.Dialog {
+    static {
+      __name(this, "ExplorationSetupDialogBase");
+    }
+    time_cur_label;
+    time_bar;
     confirm_button;
+    cancel_button;
   };
 
-  // src/ui/common/CommonDialog.ts
-  var { regClass: regClass27, property: property27 } = Laya;
-  var CommonDialog = class extends CommonDialogBase {
+  // src/ui/map/ExplorationSetupDialog.ts
+  var { regClass: regClass19, property: property19 } = Laya;
+  var ExplorationSetupDialog = class extends ExplorationSetupDialogBase {
+    c_id;
     onAwake() {
       this.cancel_button.on(Laya.Event.CLICK, this, this.onCancelButtonEvent.bind(this));
       this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
+      this.time_bar.changeHandler = new Laya.Handler(this, this.onChange);
     }
     onOpened(param) {
-      this.content_label.text = param.text;
+      this.c_id = param;
     }
     onCancelButtonEvent(param) {
       this.close();
     }
     onConfirmButtonEvent(param) {
+      let data = {
+        c_id: this.c_id,
+        time: Number(this.time_cur_label.text)
+      };
+      Laya.stage.event("OnExplore" /* OnExplore */, data);
       this.close();
     }
+    onChange(value) {
+      let v = Math.trunc(value);
+      this.time_cur_label.text = v.toString();
+    }
   };
-  __name(CommonDialog, "CommonDialog");
-  CommonDialog = __decorateClass([
-    regClass27("b982027a-d103-4874-92ef-15525f742200", "../src/ui/common/CommonDialog.ts")
-  ], CommonDialog);
+  __name(ExplorationSetupDialog, "ExplorationSetupDialog");
+  ExplorationSetupDialog = __decorateClass([
+    regClass19("300ca383-3e20-4124-a237-6ccc87f8ef68", "../src/ui/map/ExplorationSetupDialog.ts")
+  ], ExplorationSetupDialog);
+
+  // src/ui/map/MapInfoPage.generated.ts
+  var MapInfoPageBase = class extends Laya.Box {
+    static {
+      __name(this, "MapInfoPageBase");
+    }
+    map_list;
+    map_item;
+    name_cur_value_label;
+    explore_button;
+    count_down_image;
+    count_down_value_label;
+    cell_avatar;
+    gain_button;
+  };
+
+  // src/ui/map/MapInfoPage.ts
+  var { regClass: regClass20, property: property20 } = Laya;
+  var MapInfoPage = class extends MapInfoPageBase {
+    c_id;
+    onAwake() {
+      this.explore_button.on(Laya.Event.CLICK, this, this.onExploreButtonEvent.bind(this));
+      this.gain_button.on(Laya.Event.CLICK, this, this.onGainButtonEvent.bind(this));
+      Laya.stage.on("OnExploreCB" /* OnExploreCB */, this, this.onExploreCBEvent.bind(this));
+      Laya.stage.on("OnGainCB" /* OnGainCB */, this, this.onGainCBEvent.bind(this));
+    }
+    SetData(c_id) {
+      this.c_id = c_id;
+      const {
+        network: {
+          account
+        },
+        components: {
+          Cell
+        }
+      } = NetMgr.GetInstance().GetNet();
+      const entityid = account.address;
+      const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(c_id)]));
+      this.name_cur_value_label.text = felt252ToStr(cell_info.name);
+      this.cell_avatar.skin = "resources/ui/cell/cell_00" + (Number(cell_info.avatar) / 16).toString() + "00.png";
+      Laya.Tween.clearAll(this.cell_avatar);
+      Laya.timer.clearAll(this);
+      if (cell_info.state == 1) {
+        this.count_down_value_label.text = secondsToMinutes(Number(cell_info.explore_end_time) - getCurrentTimestamp());
+        this.count_down_image.visible = true;
+        this.onCellAvatarAction1();
+        if (Number(cell_info.explore_end_time) > getCurrentTimestamp()) {
+          this.onExploreUI(1);
+          Laya.timer.loop(1e3, this, () => {
+            if (Number(cell_info.explore_end_time) > getCurrentTimestamp()) {
+              let time = Number(cell_info.explore_end_time) - getCurrentTimestamp();
+              this.count_down_value_label.text = secondsToMinutes(time);
+            } else {
+              Laya.timer.clearAll(this);
+              Laya.Tween.clearAll(this.cell_avatar);
+              this.onExploreUI(2);
+            }
+          });
+        } else {
+          this.onExploreUI(2);
+        }
+        this.UpdateMap(getCCMapRender(Number(cell_info.map)));
+      } else {
+        this.onExploreUI(0);
+      }
+    }
+    onExploreUI(type) {
+      if (type == 0) {
+        this.explore_button.visible = true;
+        this.gain_button.visible = false;
+        this.count_down_image.visible = false;
+      } else if (type == 1) {
+        this.explore_button.visible = false;
+        this.gain_button.visible = false;
+        this.count_down_image.visible = true;
+      } else {
+        this.explore_button.visible = false;
+        this.gain_button.visible = true;
+        this.count_down_image.visible = false;
+      }
+    }
+    onExploreButtonEvent(param) {
+      Laya.Scene.open("resources/prefab/map/P_Exploration_Setup_Dialog.lh", false, this.c_id);
+    }
+    onGainButtonEvent(param) {
+      Laya.stage.event("OnGain" /* OnGain */, this.c_id);
+    }
+    UpdateMap(type) {
+      const cells = this.map_list.cells;
+      for (let item of cells) {
+        item.getComponent(Laya.Script).SetColor(type);
+      }
+    }
+    onExploreCBEvent(param) {
+      let message = "";
+      if (param) {
+        message = "Start explore success!";
+      } else {
+        message = "Start explore error!";
+      }
+      Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
+      this.SetData(this.c_id);
+    }
+    onGainCBEvent(param) {
+      let message = "";
+      const {
+        network: {
+          account
+        },
+        components: {
+          Cell
+        }
+      } = NetMgr.GetInstance().GetNet();
+      const entityid = account.address;
+      const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(this.c_id)]));
+      if (param) {
+        message = "Get reword " + Number(cell_info.bonus).toString() + " exp !";
+      } else {
+        message = "Get reword error!";
+      }
+      Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
+      this.SetData(this.c_id);
+    }
+    onCellAvatarAction1() {
+      Laya.Tween.to(this.cell_avatar, { alpha: 0 }, 2e3, Laya.Ease.expoInOut, Laya.Handler.create(this, this.onCellAvatarAction2.bind(this)));
+    }
+    onCellAvatarAction2(args) {
+      this.cell_avatar.x = Math.ceil(Math.random() * 15) * 106 + 106;
+      this.cell_avatar.y = Math.ceil(Math.random() * 5) * 106 + 106;
+      Laya.Tween.to(this.cell_avatar, { alpha: 1 }, 2e3, Laya.Ease.expoInOut, Laya.Handler.create(this, this.onCellAvatarAction1.bind(this)));
+    }
+  };
+  __name(MapInfoPage, "MapInfoPage");
+  MapInfoPage = __decorateClass([
+    regClass20("f4a816ef-c795-4a66-a280-e163b4de8e9c", "../src/ui/map/MapInfoPage.ts")
+  ], MapInfoPage);
+
+  // src/ui/map/MapSquareItem.ts
+  var { regClass: regClass21, property: property21 } = Laya;
+  var MapSquareItem = class extends Laya.Script {
+    bg;
+    onAwake() {
+    }
+    SetColor(color) {
+      this.bg.color = color;
+    }
+  };
+  __name(MapSquareItem, "MapSquareItem");
+  __decorateClass([
+    property21({ type: Laya.Image })
+  ], MapSquareItem.prototype, "bg", 2);
+  MapSquareItem = __decorateClass([
+    regClass21("dea390e9-354f-4c5a-ba15-bae43b0c3c4f", "../src/ui/map/MapSquareItem.ts")
+  ], MapSquareItem);
+
+  // src/ui/market/MarketPage.generated.ts
+  var MarketPageBase = class extends Laya.Box {
+    static {
+      __name(this, "MarketPageBase");
+    }
+    item0Tab;
+    item0Page;
+  };
+
+  // src/ui/market/MarketPage.ts
+  var { regClass: regClass22, property: property22 } = Laya;
+  var MarketPage = class extends MarketPageBase {
+    index;
+    onAwake() {
+      this.onSelect(this.item0Tab.selectedIndex);
+      this.item0Tab.selectHandler = new Laya.Handler(this, this.onSelect);
+      Laya.stage.on("OnCellBreedAskCB" /* OnCellBreedAskCB */, this, this.onCellBreedAskCBEvent.bind(this));
+      Laya.stage.on("OnCellBreedBidCB" /* OnCellBreedBidCB */, this, this.onCellBreedBidCBEvent.bind(this));
+      Laya.stage.on("OnTouchMarketBidItem" /* OnTouchMarketBidItem */, this, this.OnTouchMarketBidItemEvent.bind(this));
+      Laya.stage.on("OnCellBreedBidCancel" /* OnCellBreedBidCancel */, this, this.onCellBreedBidCancelEvent.bind(this));
+    }
+    onRefresh() {
+      this.index = 0;
+      this.item0Tab.selectedIndex = 0;
+      this.onSelect(this.index);
+    }
+    onSelect(index) {
+      this.index = index;
+      this.item0Page.selectedIndex = index;
+      switch (index) {
+        case 0:
+          this.item0Page.selection.onRefresh();
+          break;
+        case 1:
+          this.item0Page.selection.onRefresh();
+          break;
+        default:
+          break;
+      }
+    }
+    onCellBreedAskCBEvent(param) {
+      let message = "";
+      if (param) {
+        message = "Cell ask success!";
+      } else {
+        message = "Cell ask error!";
+      }
+      Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
+      this.onRefresh();
+    }
+    onCellBreedBidCBEvent(param) {
+      let message = "";
+      if (param) {
+        message = "Cell bid success!";
+      } else {
+        message = "Cell bid error!";
+      }
+      Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
+      this.item0Page.selection.UpdateCellList();
+    }
+    OnTouchMarketBidItemEvent(param) {
+      this.onSelect(2);
+      this.item0Page.selection.onSetData(param);
+    }
+    onCellBreedBidCancelEvent(param) {
+      this.onSelect(0);
+    }
+  };
+  __name(MarketPage, "MarketPage");
+  MarketPage = __decorateClass([
+    regClass22("f7ea9fc9-f0be-47bf-b29e-3d07abac9490", "../src/ui/market/MarketPage.ts")
+  ], MarketPage);
+
+  // src/ui/market/MarketPageAsk.generated.ts
+  var MarketPageAskBase = class extends Laya.Box {
+    static {
+      __name(this, "MarketPageAskBase");
+    }
+    cell_list;
+    cell_info;
+    cell_avatar;
+    breed_count_value_label;
+    stock_value_label_2;
+    confirm_button;
+    pay_input;
+    category_group;
+  };
+
+  // src/ui/market/MarketPageAsk.ts
+  var { regClass: regClass23, property: property23 } = Laya;
+  var MarketPageAsk = class extends MarketPageAskBase {
+    selected_node;
+    category;
+    onAwake() {
+      Laya.stage.on("OnTouchMarketCell" /* OnTouchMarketCell */, this, this.onTouchMarketCellEvent.bind(this));
+      Laya.stage.on("OnTouchMarketAskItem" /* OnTouchMarketAskItem */, this, this.onTouchMarketAskItemEvent.bind(this));
+      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
+    }
+    onRefresh() {
+      this.UpdateCellList();
+    }
+    UpdateCellList() {
+      this.category = 0;
+      this.cell_info.visible = false;
+      this.selected_node = void 0;
+      this.cell_list.removeChildren();
+      Laya.loader.load("resources/prefab/common/P_Common_Page_Cell_List_Item.lh").then((res) => {
+        const {
+          network: {
+            account
+          },
+          components: {
+            Account: Account3,
+            Cell
+          }
+        } = NetMgr.GetInstance().GetNet();
+        const entityid = account.address;
+        const value = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid)]));
+        if (value === void 0) {
+          return;
+        }
+        const cell_max = Number(value.cell_number);
+        let index = 0;
+        for (var i = 0; i < cell_max; i++) {
+          let item = res.create();
+          let script = item.getComponent(Laya.Script);
+          const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(i + 1)]));
+          if (cell_info.state == 0) {
+            let data = {
+              name: felt252ToStr(cell_info.name),
+              index: i + 1,
+              type: 2 /* Market */
+            };
+            script.SetData(data);
+            item.x = 10;
+            item.y = 5 + index * 70;
+            this.cell_list.addChildAt(item, index);
+            if (index == 0) {
+              this.onTouchMarketCellEvent(1);
+              script.onSelected(true);
+            }
+            ;
+            index++;
+          }
+        }
+      });
+    }
+    onTouchMarketCellEvent(param) {
+      if (this.selected_node != void 0) {
+        this.selected_node.getComponent(Laya.Script).onSelected(false);
+      }
+      this.selected_node = this.cell_list.getChildAt(param - 1);
+      this.selected_node.getComponent(Laya.Script).onSelected(true);
+      const index = this.selected_node.getComponent(Laya.Script).index;
+      this.onUpdateCellInfo(index);
+    }
+    onTouchMarketAskItemEvent(param) {
+      this.category = setBitToOne(this.category, param);
+    }
+    onUpdateCellInfo(c_id) {
+      this.cell_info.visible = true;
+      const info = getCellInfo1(c_id);
+      this.cell_avatar.SetAvatar(Number(info.cell_info.avatar));
+      this.breed_count_value_label.text = info.cell_info.breed_count.toString();
+      this.stock_value_label_2.text = info.cell_info.exp.toString() + ")";
+      for (let i = 0; i < 9; i++) {
+        if (isBitSet(Number(info.cell_info.category), i)) {
+          this.category_group.getChildAt(i).getComponent(Laya.Script).SetGray(false);
+        } else {
+          this.category_group.getChildAt(i).getComponent(Laya.Script).SetGray(true);
+        }
+      }
+    }
+    onConfirmButtonEvent(param) {
+      if (isNumericString(this.pay_input.text) == false || this.pay_input.text == "0") {
+        let message = "cost set error";
+        Laya.Scene.open("resources/prefab/common/P_Common_Dialog.lh", false, { "text": message });
+        return;
+      }
+      this.selected_node.getComponent(Laya.Script).index;
+      let data = {
+        c_id: this.selected_node.getComponent(Laya.Script).index,
+        category: this.category,
+        pay_number: Number(this.pay_input.text)
+      };
+      Laya.stage.event("OnCellBreedAsk" /* OnCellBreedAsk */, data);
+    }
+  };
+  __name(MarketPageAsk, "MarketPageAsk");
+  MarketPageAsk = __decorateClass([
+    regClass23("d032e494-c2fb-405d-b572-00d7d9215c7d", "../src/ui/market/MarketPageAsk.ts")
+  ], MarketPageAsk);
+
+  // src/ui/market/MarketPageAskCategorySelectedItem.ts
+  var { regClass: regClass24, property: property24 } = Laya;
+  var MarketPageAskCategorySelectedItem = class extends Laya.Script {
+    button;
+    index;
+    onAwake() {
+      this.button.on(Laya.Event.CLICK, this, this.onButtonEvent.bind(this));
+    }
+    SetGray(disabled) {
+      if (disabled) {
+        this.button.selected = false;
+      }
+      this.button.disabled = disabled;
+    }
+    onButtonEvent(param) {
+      Laya.stage.event("OnTouchMarketAskItem" /* OnTouchMarketAskItem */, this.index);
+    }
+  };
+  __name(MarketPageAskCategorySelectedItem, "MarketPageAskCategorySelectedItem");
+  __decorateClass([
+    property24({ type: Laya.Button })
+  ], MarketPageAskCategorySelectedItem.prototype, "button", 2);
+  __decorateClass([
+    property24({ type: Number })
+  ], MarketPageAskCategorySelectedItem.prototype, "index", 2);
+  MarketPageAskCategorySelectedItem = __decorateClass([
+    regClass24("b7e92c31-9c4a-457a-83ad-f20dc41cdc4f", "../src/ui/market/MarketPageAskCategorySelectedItem.ts")
+  ], MarketPageAskCategorySelectedItem);
+
+  // src/ui/market/MarketPageBid.generated.ts
+  var MarketPageBidBase = class extends Laya.Box {
+    static {
+      __name(this, "MarketPageBidBase");
+    }
+    reload_button;
+    category_selected_list;
+    market_list;
+    left_button;
+    right_button;
+  };
+
+  // src/ui/market/MarketPageBid.ts
+  var { regClass: regClass25, property: property25 } = Laya;
+  var MarketPageBid = class extends MarketPageBidBase {
+    selected_node;
+    page_index;
+    category;
+    market_arr;
+    onAwake() {
+      this.category = 0;
+      this.category_selected_list.selectHandler = new Laya.Handler(this, this.onSelectChange);
+      this.left_button.on(Laya.Event.CLICK, this, this.onLeftButtonEvent.bind(this));
+      this.right_button.on(Laya.Event.CLICK, this, this.onRightButtonEvent.bind(this));
+      this.reload_button.on(Laya.Event.CLICK, this, this.onReloadButtonEvent.bind(this));
+    }
+    onRefresh() {
+      this.UpdateList();
+    }
+    onSelectChange(index) {
+      this.category = index;
+      const result = this.GetCategoryArr(index);
+      this.UpdateNormal(result);
+    }
+    UpdateList() {
+      const {
+        network: {
+          account
+        },
+        components: {
+          Account: Account3,
+          Cell
+        }
+      } = NetMgr.GetInstance().GetNet();
+      this.market_arr = [];
+      this.category_selected_list.selectedIndex = 0;
+      this.page_index = 0;
+      for (let [key, value] of Account3.values.address) {
+        const account_info = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, value]));
+        const max = Number(account_info.cell_number);
+        for (let i = 1; i <= max; i++) {
+          const cell_info = getCellInfo0(BigInt(account_info.address), BigInt(i));
+          if (cell_info.base_info.state == BigInt(3)) {
+            let data = {
+              account_info,
+              cell_info,
+              index: i
+            };
+            this.market_arr.push(data);
+          }
+        }
+      }
+      const result = this.GetCategoryArr(this.category);
+      this.UpdateNormal(result);
+    }
+    GetCategoryArr(category) {
+      let result = [];
+      for (let index = 0; index < this.market_arr.length; index++) {
+        const data = this.market_arr[index];
+        if (isBitSet(Number(data.cell_info.base_info.breed_category), category)) {
+          result.push(data);
+        }
+      }
+      return result;
+    }
+    UpdateNormal(arr) {
+      let max = Math.min(8, Math.max(0, arr.length - this.page_index));
+      for (let i = 0; i < max; i++) {
+        let data = {
+          index: this.page_index + i,
+          c_id: utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(arr[this.page_index + i].account_info.address), BigInt(arr[this.page_index + i].index)]),
+          player_address: truncateString("0x" + arr[this.page_index + i].account_info.address.toString(16), 10),
+          cell_name: felt252ToStr(arr[this.page_index + i].cell_info.base_info.name),
+          breed_number: arr[this.page_index + i].cell_info.base_info.breed_count,
+          pay_number: arr[this.page_index + i].cell_info.base_info.breed_cost,
+          category: this.category
+        };
+        this.market_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+      }
+      for (let i = max; i < 8; i++) {
+        let data = {
+          index: i,
+          player_address: "",
+          cell_name: "",
+          breed_number: "",
+          pay_number: ""
+        };
+        this.market_list.getChildAt(i).getComponent(Laya.Script).SetData(data);
+      }
+    }
+    onLeftButtonEvent(param) {
+      this.page_index = Math.max(0, this.page_index - 7);
+      const result = this.GetCategoryArr(this.category);
+      this.UpdateNormal(result);
+    }
+    onRightButtonEvent(param) {
+      const result = this.GetCategoryArr(this.category);
+      if (this.page_index + 8 > result.length) {
+      } else {
+        this.page_index += 8;
+      }
+      this.UpdateNormal(result);
+    }
+    onReloadButtonEvent(param) {
+      this.UpdateList();
+    }
+  };
+  __name(MarketPageBid, "MarketPageBid");
+  MarketPageBid = __decorateClass([
+    regClass25("5c345d01-044a-4a03-a518-dea474cde402", "../src/ui/market/MarketPageBid.ts")
+  ], MarketPageBid);
+
+  // src/ui/market/MarketPageBidItem.ts
+  var { regClass: regClass26, property: property26 } = Laya;
+  var MarketPageBidItem = class extends Laya.Script {
+    player_address_label;
+    cell_name_label;
+    breed_number_label;
+    pay_number_label;
+    button;
+    index;
+    c_id;
+    category;
+    onAwake() {
+      this.button.on(Laya.Event.CLICK, this, this.onButtonEvent.bind(this));
+    }
+    SetData(data) {
+      this.index = data.index;
+      this.c_id = data.c_id;
+      this.category = data.category;
+      this.player_address_label.text = data.player_address;
+      this.cell_name_label.text = data.cell_name;
+      this.breed_number_label.text = data.breed_number;
+      this.pay_number_label.text = data.pay_number;
+    }
+    onButtonEvent(param) {
+      let data = {
+        t_id: this.c_id,
+        category: this.category,
+        cost: Number(this.pay_number_label.text)
+      };
+      Laya.stage.event("OnTouchMarketBidItem" /* OnTouchMarketBidItem */, data);
+    }
+  };
+  __name(MarketPageBidItem, "MarketPageBidItem");
+  __decorateClass([
+    property26({ type: Laya.Label })
+  ], MarketPageBidItem.prototype, "player_address_label", 2);
+  __decorateClass([
+    property26({ type: Laya.Label })
+  ], MarketPageBidItem.prototype, "cell_name_label", 2);
+  __decorateClass([
+    property26({ type: Laya.Label })
+  ], MarketPageBidItem.prototype, "breed_number_label", 2);
+  __decorateClass([
+    property26({ type: Laya.Label })
+  ], MarketPageBidItem.prototype, "pay_number_label", 2);
+  __decorateClass([
+    property26({ type: Laya.Button })
+  ], MarketPageBidItem.prototype, "button", 2);
+  MarketPageBidItem = __decorateClass([
+    regClass26("f391a66b-6d4f-4ed1-b588-bc793d604fad", "../src/ui/market/MarketPageBidItem.ts")
+  ], MarketPageBidItem);
+
+  // src/ui/market/MarketPageBidSelected.generated.ts
+  var MarketPageBidSelectedBase = class extends Laya.Box {
+    static {
+      __name(this, "MarketPageBidSelectedBase");
+    }
+    cell_list;
+    cell_info;
+    cell_avatar;
+    category_value_label;
+    cost_value_label;
+    cancel_button;
+    confirm_button;
+  };
+
+  // src/ui/market/MarketPageBidSelected.ts
+  var { regClass: regClass27, property: property27 } = Laya;
+  var MarketPageBidSelected = class extends MarketPageBidSelectedBase {
+    selected_node;
+    t_id;
+    cost;
+    category;
+    onAwake() {
+      Laya.stage.on("OnTouchMarketBidCell" /* OnTouchMarketBidCell */, this, this.onTouchMarketBidCellEvent.bind(this));
+      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
+      this.cancel_button.on(Laya.Event.CLICK, this, this.onCancelButtonEvent.bind(this));
+    }
+    onSetData(data) {
+      this.t_id = data.t_id;
+      this.cost = data.cost;
+      this.category = data.category;
+      this.UpdateCellList();
+    }
+    onRefresh() {
+      this.UpdateCellList();
+    }
+    UpdateCellList() {
+      this.cell_info.visible = false;
+      this.selected_node = void 0;
+      this.cell_list.removeChildren();
+      Laya.loader.load("resources/prefab/common/P_Common_Page_Cell_List_Item.lh").then((res) => {
+        const {
+          network: {
+            account
+          },
+          components: {
+            Account: Account3,
+            Cell
+          }
+        } = NetMgr.GetInstance().GetNet();
+        const entityid = account.address;
+        const value = getComponentValue(Account3, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid)]));
+        if (value === void 0) {
+          return;
+        }
+        const cell_max = Number(value.cell_number);
+        let index = 0;
+        for (var i = 0; i < cell_max; i++) {
+          let item = res.create();
+          let script = item.getComponent(Laya.Script);
+          const cell_info = getComponentValue(Cell, utils_exports2.getEntityIdFromKeys([GAMEID, WORLDID, BigInt(entityid), BigInt(i + 1)]));
+          if (cell_info.state == 0) {
+            let data = {
+              name: felt252ToStr(cell_info.name),
+              index: i + 1,
+              type: 3 /* MarketBid */
+            };
+            script.SetData(data);
+            item.x = 10;
+            item.y = 5 + index * 70;
+            this.cell_list.addChildAt(item, index);
+            if (index == 0) {
+              this.onTouchMarketBidCellEvent(1);
+              script.onSelected(true);
+            }
+            ;
+            index++;
+          }
+        }
+      });
+    }
+    onTouchMarketBidCellEvent(param) {
+      if (this.selected_node != void 0) {
+        this.selected_node.getComponent(Laya.Script).onSelected(false);
+      }
+      this.selected_node = this.cell_list.getChildAt(param - 1);
+      this.selected_node.getComponent(Laya.Script).onSelected(true);
+      const index = this.selected_node.getComponent(Laya.Script).index;
+      this.onUpdateCellInfo(index);
+    }
+    onUpdateCellInfo(c_id) {
+      this.cell_info.visible = true;
+      const info = getCellInfo1(c_id);
+      this.cell_avatar.SetAvatar(Number(info.cell_info.avatar));
+      this.category_value_label.text = bitToCategory(Number(info.cell_info.category));
+      this.cost_value_label.text = this.cost.toString();
+    }
+    onConfirmButtonEvent(param) {
+      let data = {
+        c_id: this.selected_node.getComponent(Laya.Script).index,
+        category: this.category,
+        t_id: this.t_id
+      };
+      Laya.stage.event("OnCellBreedBid" /* OnCellBreedBid */, data);
+    }
+    onCancelButtonEvent(param) {
+      Laya.stage.event("OnCellBreedBidCancel" /* OnCellBreedBidCancel */);
+    }
+  };
+  __name(MarketPageBidSelected, "MarketPageBidSelected");
+  MarketPageBidSelected = __decorateClass([
+    regClass27("fea52df9-73f4-4ab8-ab0a-251da9ea6aa9", "../src/ui/market/MarketPageBidSelected.ts")
+  ], MarketPageBidSelected);
 })();
 /*! Bundled license information:
 

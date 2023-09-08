@@ -63,7 +63,7 @@ export class CreateCellPage extends CreateCellPageBase {
        this.seed_input.text = '';
     }
     private onCreateCellCBEvent(param: any){
-        console.log('onCreateCellCBEvent',param);
+       
         let message ='';
         if(param){
             message = 'Create Cell success!';
@@ -194,13 +194,9 @@ export class CreateCellPage extends CreateCellPageBase {
             console.log('name void');
             return;
         }
-        if(this.seed_input.text == ''){
-            console.log('seed void');
-         //   return;
-        }
+    
         let data = {
             name:this.name_input.text,
-            seed:'123123',
             color:this.baseColor
         } as CreateCellData;
         Laya.stage.event(HomeManagerEvent.OnCreateCell,data);  

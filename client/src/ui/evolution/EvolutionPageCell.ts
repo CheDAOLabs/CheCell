@@ -84,7 +84,7 @@ export class EvolutionPageCell extends EvolutionPageCellBase {
 
      }
      SetData(c_id:number){
-        console.log(c_id);
+        
         this.c_id = c_id;
         const {
             network:{

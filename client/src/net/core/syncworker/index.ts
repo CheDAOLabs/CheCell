@@ -13,7 +13,7 @@ export class SyncWorker<C extends Components> {
 
 
   constructor(provider: Providers.RPCProvider, components: C, event_key: String) {
-    console.log("Creating SyncWorker...");
+    //console.log("Creating SyncWorker...");
     this.provider = provider;
     this.components = components;
     this.event_key = event_key;
@@ -34,7 +34,7 @@ export class SyncWorker<C extends Components> {
             const tx_hash = events[i].transaction_hash;
             await this.sync(tx_hash);
         }
-        console.log('SyncWorker initialized');
+       // console.log('SyncWorker initialized');
     }
     public async initGQL() {
         for (const key of Object.keys(this.components)) {
@@ -49,13 +49,13 @@ export class SyncWorker<C extends Components> {
              //    setComponentFromEntitiesQuery(component, entities);
                  }
              }
-         console.log('SyncWorker initialized');
+       //  console.log('SyncWorker initialized');
          }
     public async sync(txHash: string):Promise<boolean> {
-        console.log(txHash);
+       // console.log(txHash);
         const receipt = await this.provider.provider.getTransactionReceipt(txHash);
       //  const receipt = await this.account.waitForTransaction(txHash);
-        console.log('sync: ',receipt);
+      //  console.log('sync: ',receipt);
         receipt.events.filter((event) => {
            // return true;
             return event.keys.length === 1 && event.keys[0] === this.event_key;

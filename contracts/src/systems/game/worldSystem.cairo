@@ -22,9 +22,9 @@ mod InitWorld {
  
         let world_key = poseidon::poseidon_hash_span(world_key_arr.span());
 
-        world_key.print();
+        //world_key.print();
        
-        let mut world = get !(
+        let mut world:WorldInfo = get !(
             ctx.world,
             world_key, 
             WorldInfo
@@ -35,7 +35,8 @@ mod InitWorld {
         set!(
             ctx.world,
             (world)
-        )
+        );
+
         return ();
     }
 }

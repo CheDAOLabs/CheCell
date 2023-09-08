@@ -22,7 +22,7 @@ mod InitAccount {
  
         let account_key = poseidon::poseidon_hash_span(account_key_arr.span());
         
-        let mut account = get !(
+        let mut account:Account = get !(
             ctx.world,
             account_key, 
             Account
@@ -32,10 +32,11 @@ mod InitAccount {
 
         account.init = true;
         account.address = ctx.origin.into();
+
         set!(
             ctx.world,
             (account)
-        )
+        );
          
         return ();
     }

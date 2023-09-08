@@ -57,6 +57,7 @@ export class CellInfoSubPage extends CellInfoSubPageBase {
         }
     }
     onInfoButtonEvent(param: any):void{
-        Laya.Scene.open("resources/prefab/info/P_Info_Page_Cell_List_Cell_Info.lh", false,{index:1});
+        const index = (this.cell_avatar as CellAvatar).index>>4;
+        Laya.Scene.open("resources/prefab/info/P_Info_Page_Cell_List_Cell_Info.lh", false,{index:index});
     }
 }

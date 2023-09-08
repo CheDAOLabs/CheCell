@@ -99,8 +99,8 @@ mod CellExplore {
             address: starknet::ContractAddress,
             selector: felt252,
             calldata: Array<felt252>){
-        let mut res = starknet::call_contract_syscall(address, selector, calldata.span()).unwrap_syscall();
-        let result = Serde::<bool>::deserialize(ref res).unwrap();
+     //   let mut res = starknet::call_contract_syscall(address, selector, calldata.span()).unwrap_syscall();
+     //   let result = Serde::<bool>::deserialize(ref res).unwrap();
     } 
 }
      

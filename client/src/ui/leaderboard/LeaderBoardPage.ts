@@ -83,9 +83,7 @@ export class LeaderBoardPage extends LeaderBoardPageBase {
         let max = Math.min(3,this.leaderboard_arr.length);
         if(this.index == 0){
             for (let i = 0; i < max; i++) {
-
-                console.log(this.leaderboard_arr[i]);
-
+ 
                 let data = {
                     name:truncateString('0x'+this.leaderboard_arr[i].account_info.address.toString(16),10),
                     cell_name:felt252ToStr(this.leaderboard_arr[i].cell_info.base_info.name),

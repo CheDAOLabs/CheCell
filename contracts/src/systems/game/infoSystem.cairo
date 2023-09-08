@@ -15,15 +15,16 @@ mod CreateCell {
     use CheCell::components::account::{Account};
     use CheCell::components::worldInfo::{WorldInfo};
     use CheCell::components::cell::{Cell,CellProperty};
-
+   
     fn execute(ctx: Context,nickName:felt252,initSeed:felt252,property:u32) {
 
         let mut world_key_arr:Array<felt252> = ArrayTrait::new();
         world_key_arr.append(2);
         world_key_arr.append(GAME_ID);
         world_key_arr.append(WORLD_ID);
- 
+         
         let world_key = poseidon::poseidon_hash_span(world_key_arr.span());
+        
         let mut world = get !(
             ctx.world,
             world_key, 
@@ -78,7 +79,7 @@ mod CreateCell {
         let category_seed = poseidon::poseidon_hash_span(category_seed_arr.span());
  
         cell.category = pow(2,random_s(category_seed,0_u128,CATEGORY_COUNT.into()).into()).try_into().unwrap();
-        cell.avatar = random_s(category_seed,0_u128,AVATAR_COUNT.into()).try_into().unwrap()*16_u32;
+        cell.avatar = random_s(category_seed,1_u128,AVATAR_COUNT.into()).try_into().unwrap()*16_u32;
  
         let mut cell_property_key_arr:Array<felt252> = ArrayTrait::new();
         cell_property_key_arr.append(5);

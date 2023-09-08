@@ -16,7 +16,7 @@ export class CellInfoPage extends CellInfoPageBase {
     private onSelect(index: number): void {
         this.index = index;
         this.item0Page.selectedIndex = index;
-        console.log('----onSelect  ');
+
         switch (index) {
             case 0:
                 Laya.stage.event(HomeManagerEvent.OnUpdateCreateCell);

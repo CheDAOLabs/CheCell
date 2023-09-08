@@ -156,7 +156,7 @@ mod CellBreedBid {
         assert(cell.state == 0_u8, 'cell state is invaild');
         assert(cell.evolution_end_time == 0, 'cell evolution is invaild');
 
-        let mut target_cell = get !(
+        let mut target_cell:Cell = get !(
             ctx.world,
             t_id, 
             Cell

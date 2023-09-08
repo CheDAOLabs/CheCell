@@ -1,3 +1,5 @@
+import { CellAvatarInfoEnum, CellAvatarTitleEnum } from "../../common/Config";
+import { getNthEnumValue } from "../../common/Tool";
 import { InfoPageCellListCellInfoBase } from "./InfoPageCellListCellInfo.generated";
 
  
@@ -17,15 +19,17 @@ export class InfoPageCellListCellInfo extends InfoPageCellListCellInfoBase {
        // this.onGetButtonEvent();
     }
     onOpened(param:any){
+      
         this.avatar_image.skin = 'resources/ui/cell/cell_00'+param.index.toString()+'00.png';
         this.sub_title_label.text = this.GetSubTitle(param.index);
         this.info_label.text = this.GetInfo(param.index);
+ 
     }
     GetSubTitle(index:number):string{
-        return "";
+        return getNthEnumValue(CellAvatarTitleEnum,index) as string;
     }
     GetInfo(index:number):string{
-        return "";
+        return getNthEnumValue(CellAvatarInfoEnum,index) as string;
     }
 }
  

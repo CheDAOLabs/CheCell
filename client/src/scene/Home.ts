@@ -47,7 +47,7 @@ export class Home extends HomeBase {
             },
   
            } = NetMgr.GetInstance().GetNet();
-            console.log('net  ',NetMgr.GetInstance().GetNet());
+           
             const entityid = account.address;
             this.address_text.text = truncateString(entityid,10);    
     }
@@ -113,7 +113,7 @@ export class Home extends HomeBase {
            property += data.color.b<<16;
   
            const name = Utils.strTofelt252Felt(data.name);
-           const seed = Utils.strTofelt252Felt(data.seed);
+           const seed = 'checell';
            Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
            const result = await CreateCell(name,seed,property);
            Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");

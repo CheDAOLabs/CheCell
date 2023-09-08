@@ -105,7 +105,7 @@ export class CellBodyEnhancePage extends CellBodyEnhancePageBase {
                     
                     let script = item.getComponent(Laya.Script) as CellPropertyPointItem;
                     const property_info = getComponentValue(CellProperty,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(entityid),BigInt(this.index.toString()),BigInt(i+1)]));
-                    console.log('property_info   ',property_info);
+                
                     script.SetData(i,rgbToHex(Number(property_info.p1),Number(property_info.p2),Number(property_info.p3)));
                 
                     if(i == 0){

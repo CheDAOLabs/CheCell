@@ -15,7 +15,7 @@ export class CellPropertyPointItem extends Laya.Script {
     }
     
     SetData(index:number,color:string){
-        console.log('color',color);
+       
         this.index = index;
         this.bg_image.color = color;
     }

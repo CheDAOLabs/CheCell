@@ -71,7 +71,7 @@ export class MapInfoPage extends MapInfoPageBase {
     
     }
     onExploreUI(type:number){
-        console.log(type);
+        
         if(type == 0){
             this.explore_button.visible = true;
             this.gain_button.visible = false;

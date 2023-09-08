@@ -76,10 +76,9 @@ export function setComponentFromEntitiesGraphqlQuery(component: Component, entit
 }
 
 export function setComponentFromEntitiesQuery(component: Component, entities: bigint[]) {
-    console.log("setComponentFromEntitiesQuery",entities);
-  
+    
     let index = 0;
-    console.log(entities);
+     
     // Retrieve the number of entityIds
     const numEntityIds = Number(entities[index++]);
   

@@ -118,7 +118,7 @@ export class MarketPageAsk extends MarketPageAskBase {
             category:this.category,
             pay_number:Number(this.pay_input.text),
         }
-        console.log(data);
+        
         Laya.stage.event(HomeManagerEvent.OnCellBreedAsk,data);  
     }
 }

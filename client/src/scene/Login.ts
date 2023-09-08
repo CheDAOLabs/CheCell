@@ -37,17 +37,17 @@ export class Login extends LoginBase {
               InitAccount,
           }
          } = NetMgr.GetInstance().GetNet();
-         console.log('init----');
+         
          const world = getComponentValue(WorldInfo,Utils.getEntityIdFromKeys([GAMEID,WORLDID]));
          if(world == undefined){
-            console.log('init world');
+          //  console.log('init world');
             await InitWorld();
          }
  
          const ac = getComponentValue(Account,Utils.getEntityIdFromKeys([GAMEID,WORLDID,BigInt(account.address)]));
          
          if(ac == undefined){
-          console.log('init account');
+         // console.log('init account');
             await InitAccount();
          }
         this.onChangeScene();

@@ -113,3 +113,10 @@ export function bitToCategory(category:number):string {
 export function isNumericString(str:string) {
   return /^\d+$/.test(str);
 }
+
+// 获取第n个枚举值
+export function getNthEnumValue(enumObj:any, n:number) {
+  const enumValues = Object.values(enumObj);
+  return enumValues[n];
+}
+ 

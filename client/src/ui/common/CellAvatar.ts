@@ -6,8 +6,9 @@ const { regClass, property } = Laya;
  
 @regClass()
 export class CellAvatar extends CellAvatarBase {
+    public index:number;
     onAwake() {
-     
+        this.index = -1;
     }
     SetState(type:CellState){
         if(type == CellState.Exploring){
@@ -25,7 +26,8 @@ export class CellAvatar extends CellAvatarBase {
         } 
     }
     SetAvatar(index:number){
-        console.log('avatar :  ',index);
+        
+        this.index = index;
         const center = Math.floor(index/16);
         this.center_part_image.skin = 'resources/ui/cell/cell_00'+center.toString()+'01.png';
         if(isBitSet(index,0)){

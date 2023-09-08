@@ -159,7 +159,7 @@ export class CellAttributeEnhancePage extends CellAttributeEnhancePageBase {
         
     }
     SetData(c_id:number,p_id:number){
-        console.log('----');
+      
         this.c_id = c_id;
         this.p_id = p_id;
 
