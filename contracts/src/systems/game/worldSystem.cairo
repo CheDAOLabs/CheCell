@@ -14,7 +14,7 @@ mod InitWorld {
  
     fn execute(ctx: Context) {
 
-        assert(ctx.origin.into() == ADMIN_ADRESS, 'admin is invaild');
+     //  assert(ctx.origin.into() == ADMIN_ADRESS, 'admin is invaild');
         let mut world_key_arr:Array<felt252> = ArrayTrait::new();
         world_key_arr.append(2);
         world_key_arr.append(GAME_ID);
