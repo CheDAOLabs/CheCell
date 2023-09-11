@@ -114,10 +114,12 @@ export class Home extends HomeBase {
   
            const name = Utils.strTofelt252Felt(data.name);
            const seed = 'checell';
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
-           const result = await CreateCell(name,seed,property);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
-           Laya.stage.event(NetManagerEvent.OnCreateCellCB,result);
+           await Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
+           
+            const result = await CreateCell(name,seed,property);
+            Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
+            Laya.stage.event(NetManagerEvent.OnCreateCellCB,result);
+           
  
           
      }
@@ -132,9 +134,9 @@ export class Home extends HomeBase {
                 AddCellBodySize
             }
            } = NetMgr.GetInstance().GetNet();
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+           await Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false,null,);
            const result = await AddCellBodySize(param);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+           Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
            Laya.stage.event(NetManagerEvent.OnEnhanceCellBodySizeCB,result);
          
     }
@@ -148,9 +150,9 @@ export class Home extends HomeBase {
            let property = param.color.r;
            property += param.color.g<<8;
            property += param.color.b<<16;
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+           await Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
            const result = await AddCellProperty(param.c_id,param.p_id,property);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+           Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
            Laya.stage.event(NetManagerEvent.OnEnhanceCellPropertyCB,result);
 
     }
@@ -161,9 +163,9 @@ export class Home extends HomeBase {
                 CellExplore
             }
            } = NetMgr.GetInstance().GetNet();
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+           await Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
            const result = await CellExplore(param.c_id,param.time);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+           Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
            Laya.stage.event(NetManagerEvent.OnExploreCB,result);
     }
     async onGainEvent(param: any){
@@ -173,10 +175,11 @@ export class Home extends HomeBase {
                 CellExploreGain
             }
            } = NetMgr.GetInstance().GetNet();
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
-           const result = await CellExploreGain(param);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
-           Laya.stage.event(NetManagerEvent.OnGainCB,result);
+           await Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
+           const result = await  CellExploreGain(param);
+            Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
+            Laya.stage.event(NetManagerEvent.OnGainCB,result);
+           
     }
     async onEvolutionGainEvent(param: any){
        
@@ -185,9 +188,9 @@ export class Home extends HomeBase {
                 CellEvolutionGain
             }
            } = NetMgr.GetInstance().GetNet();
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+           await Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
            const result = await CellEvolutionGain(param);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+           Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
            Laya.stage.event(NetManagerEvent.OnEvolutionGainCB,result);
     }
     async onCellBreedAskEvent(param: any){
@@ -197,9 +200,9 @@ export class Home extends HomeBase {
                 CellBreedAsk
             }
            } = NetMgr.GetInstance().GetNet();
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+           await  Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
            const result = await CellBreedAsk(param.c_id,param.category,param.pay_number);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+           Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
            Laya.stage.event(NetManagerEvent.OnCellBreedAskCB,result);
     }
     async onCellBreedBidEvent(param: any){
@@ -209,9 +212,9 @@ export class Home extends HomeBase {
                 CellBreedBid
             }
            } = NetMgr.GetInstance().GetNet();
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+           await Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
            const result = await CellBreedBid(param.c_id,param.category,param.t_id);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+           Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
            Laya.stage.event(NetManagerEvent.OnCellBreedBidCB,result);
     }
     async onCellBreedCancelEvent(param: any){
@@ -221,9 +224,9 @@ export class Home extends HomeBase {
                 CellBreedCancel
             }
            } = NetMgr.GetInstance().GetNet();
-           Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+           await Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
            const result = await CellBreedCancel(param);
-           Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+           Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
            Laya.stage.event(NetManagerEvent.OnCellBreedCancelCB,result);
            
     }

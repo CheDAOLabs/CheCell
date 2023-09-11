@@ -20804,16 +20804,16 @@ spurious results.`);
       const tx = await execute("InitAccount", []);
       return await syncWorker.sync(tx.transaction_hash);
     }, "InitAccount");
-    const CreateCell = /* @__PURE__ */ __name(async (nickname, seed, property28) => {
-      const tx = await execute("CreateCell", [nickname, seed, property28]);
+    const CreateCell = /* @__PURE__ */ __name(async (nickname, seed, property29) => {
+      const tx = await execute("CreateCell", [nickname, seed, property29]);
       return await syncWorker.sync(tx.transaction_hash);
     }, "CreateCell");
     const AddCellBodySize = /* @__PURE__ */ __name(async (c_id) => {
       const tx = await execute("AddCellBodySize", [c_id]);
       return await syncWorker.sync(tx.transaction_hash);
     }, "AddCellBodySize");
-    const AddCellProperty = /* @__PURE__ */ __name(async (c_id, p_id, property28) => {
-      const tx = await execute("AddCellProperty", [c_id, p_id, property28]);
+    const AddCellProperty = /* @__PURE__ */ __name(async (c_id, p_id, property29) => {
+      const tx = await execute("AddCellProperty", [c_id, p_id, property29]);
       return await syncWorker.sync(tx.transaction_hash);
     }, "AddCellProperty");
     const CellExplore = /* @__PURE__ */ __name(async (c_id, time) => {
@@ -21107,14 +21107,14 @@ spurious results.`);
           CreateCell
         }
       } = NetMgr.GetInstance().GetNet();
-      let property28 = data.color.r;
-      property28 += data.color.g << 8;
-      property28 += data.color.b << 16;
+      let property29 = data.color.r;
+      property29 += data.color.g << 8;
+      property29 += data.color.b << 16;
       const name = utils_exports2.strTofelt252Felt(data.name);
       const seed = "checell";
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
-      const result = await CreateCell(name, seed, property28);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
+      const result = await CreateCell(name, seed, property29);
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnCreateCellCB" /* OnCreateCellCB */, result);
     }
     onOnPlayGameEvent(param) {
@@ -21127,9 +21127,9 @@ spurious results.`);
           AddCellBodySize
         }
       } = NetMgr.GetInstance().GetNet();
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false, null);
       const result = await AddCellBodySize(param);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnEnhanceCellBodySizeCB" /* OnEnhanceCellBodySizeCB */, result);
     }
     async onEnhanceCellPropertyConfirmEvent(param) {
@@ -21138,12 +21138,12 @@ spurious results.`);
           AddCellProperty
         }
       } = NetMgr.GetInstance().GetNet();
-      let property28 = param.color.r;
-      property28 += param.color.g << 8;
-      property28 += param.color.b << 16;
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
-      const result = await AddCellProperty(param.c_id, param.p_id, property28);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      let property29 = param.color.r;
+      property29 += param.color.g << 8;
+      property29 += param.color.b << 16;
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
+      const result = await AddCellProperty(param.c_id, param.p_id, property29);
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnEnhanceCellPropertyCB" /* OnEnhanceCellPropertyCB */, result);
     }
     async onExploreEvent(param) {
@@ -21152,9 +21152,9 @@ spurious results.`);
           CellExplore
         }
       } = NetMgr.GetInstance().GetNet();
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
       const result = await CellExplore(param.c_id, param.time);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnExploreCB" /* OnExploreCB */, result);
     }
     async onGainEvent(param) {
@@ -21163,9 +21163,9 @@ spurious results.`);
           CellExploreGain
         }
       } = NetMgr.GetInstance().GetNet();
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
       const result = await CellExploreGain(param);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnGainCB" /* OnGainCB */, result);
     }
     async onEvolutionGainEvent(param) {
@@ -21174,9 +21174,9 @@ spurious results.`);
           CellEvolutionGain
         }
       } = NetMgr.GetInstance().GetNet();
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
       const result = await CellEvolutionGain(param);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnEvolutionGainCB" /* OnEvolutionGainCB */, result);
     }
     async onCellBreedAskEvent(param) {
@@ -21185,9 +21185,9 @@ spurious results.`);
           CellBreedAsk
         }
       } = NetMgr.GetInstance().GetNet();
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
       const result = await CellBreedAsk(param.c_id, param.category, param.pay_number);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnCellBreedAskCB" /* OnCellBreedAskCB */, result);
     }
     async onCellBreedBidEvent(param) {
@@ -21196,9 +21196,9 @@ spurious results.`);
           CellBreedBid
         }
       } = NetMgr.GetInstance().GetNet();
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
       const result = await CellBreedBid(param.c_id, param.category, param.t_id);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnCellBreedBidCB" /* OnCellBreedBidCB */, result);
     }
     async onCellBreedCancelEvent(param) {
@@ -21207,9 +21207,9 @@ spurious results.`);
           CellBreedCancel
         }
       } = NetMgr.GetInstance().GetNet();
-      Laya.Scene.open("resources/prefab/common/P_Common_loading.lh", false);
+      Laya.Scene.open("resources/prefab/common/P_Common_Loading.lh", false);
       const result = await CellBreedCancel(param);
-      Laya.Scene.close("resources/prefab/common/P_Common_loading.lh");
+      Laya.Scene.close("resources/prefab/common/P_Common_Loading.lh");
       Laya.stage.event("OnCellBreedCancelCB" /* OnCellBreedCancelCB */, result);
     }
   };
@@ -21223,10 +21223,14 @@ spurious results.`);
     static {
       __name(this, "LoginBase");
     }
+    base;
     login_button;
     social_button;
     whitepaper_button;
     input;
+    story_image;
+    message_label;
+    skip_button;
   };
 
   // src/scene/Login.ts
@@ -21235,6 +21239,18 @@ spurious results.`);
     net;
     onAwake() {
       this.login_button.on(Laya.Event.CLICK, this, this.onLoginButtonEvent.bind(this));
+      this.skip_button.on(Laya.Event.CLICK, this, this.onSkipButtonEvent.bind(this));
+      this.onStoryScroll();
+    }
+    onStoryScroll() {
+      Laya.timer.loop(100, this, () => {
+        this.message_label.y -= 2;
+      });
+    }
+    onSkipButtonEvent(param) {
+      Laya.timer.clearAll(this);
+      this.story_image.visible = false;
+      this.base.visible = true;
     }
     async onLoginButtonEvent(param) {
       if (!isNumericString(this.input.text)) {
@@ -21282,14 +21298,14 @@ spurious results.`);
         data.address = "0x517ececd29116499f4a1b64b094da79ba08dfd54a3edaa316134c41f8160973";
         data.privatekey = "0x1800000000300000180000000000030000000000003006001800006600";
       } else if (index == 1) {
-        data.address = "0x5686a647a9cdd63ade617e0baf3b364856b813b508f03903eb58a7e622d5855";
-        data.privatekey = "0x33003003001800009900180300d206308b0070db00121318d17b5e6262150b";
+        data.address = "0x33c627a3e5213790e246a917770ce23d7e562baa5b4d2917c23b1be6d91961c";
+        data.privatekey = "0x333803103001800039980190300d206608b0070db0012135bd1fb5f6282170b";
       } else if (index == 2) {
-        data.address = "0x765149d6bc63271df7b0316537888b81aa021523f9516a05306f10fd36914da";
-        data.privatekey = "0x1c9053c053edf324aec366a34c6901b1095b07af69495bffec7d7fe21effb1b";
+        data.address = "0x1d98d835e43b032254ffbef0f150c5606fa9c5c9310b1fae370ab956a7919f5";
+        data.privatekey = "0x7ca856005bee0329def368d34a6711b2d95b09ef9740ebf2c7c7e3b16c1ca9c";
       } else if (index == 3) {
-        data.address = "0x5006399928dad095cc39818cae15dc022592d47d883701e7814c9db19e96efc";
-        data.privatekey = "0x736adbbcdac7cc600f89051db1abbc16b9996b46f6b58a9752a11c1028a8ec8";
+        data.address = "0x697aaeb6fb12665ced647f7efa57c8f466dc3048556dd265e4774c546caa059";
+        data.privatekey = "0x9f6d7a28c0aec0bb42b11600b2fdc4f20042ab6adeac0ca9e6696aabc5bc95";
       }
       return data;
     }
@@ -21298,6 +21314,173 @@ spurious results.`);
   Login = __decorateClass([
     regClass2("b33edd45-b3d0-4823-b4f3-d9d1f05f0101", "../src/scene/Login.ts")
   ], Login);
+
+  // src/ui/common/CellAvatar.generated.ts
+  var CellAvatarBase = class extends Laya.Box {
+    static {
+      __name(this, "CellAvatarBase");
+    }
+    up_part_image;
+    down_part_image;
+    center_part_image;
+    left_part_image;
+    right_part_image;
+    state_bg_img;
+    state_label;
+  };
+
+  // src/ui/common/CellAvatar.ts
+  var { regClass: regClass3, property: property3 } = Laya;
+  var CellAvatar = class extends CellAvatarBase {
+    index;
+    onAwake() {
+      this.index = -1;
+    }
+    SetState(type) {
+      if (type == 1 /* Exploring */) {
+        this.state_bg_img.visible = true;
+        this.state_label.text = "exploring";
+      } else if (type == 2 /* Evolving */) {
+        this.state_bg_img.visible = true;
+        this.state_label.text = "evolving";
+      } else if (type == 3 /* Onshelves */) {
+        this.state_bg_img.visible = true;
+        this.state_label.text = "on shelves";
+      } else {
+        this.state_bg_img.visible = false;
+      }
+    }
+    SetAvatar(index) {
+      this.index = index;
+      const center = Math.floor(index / 16);
+      this.center_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "01.png";
+      if (isBitSet(index, 0)) {
+        this.up_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "02.png";
+      } else {
+        this.up_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
+      }
+      if (isBitSet(index, 1)) {
+        this.left_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "03.png";
+      } else {
+        this.left_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
+      }
+      if (isBitSet(index, 2)) {
+        this.right_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "04.png";
+      } else {
+        this.right_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
+      }
+      if (isBitSet(index, 3)) {
+        this.down_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "05.png";
+      } else {
+        this.down_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
+      }
+    }
+  };
+  __name(CellAvatar, "CellAvatar");
+  CellAvatar = __decorateClass([
+    regClass3("a7fe9eb0-62a0-4df8-89ca-9de72fdbd6f4", "../src/ui/common/CellAvatar.ts")
+  ], CellAvatar);
+
+  // src/ui/common/CellListItem.ts
+  var { regClass: regClass4, property: property4 } = Laya;
+  var CellListItem = class extends Laya.Script {
+    button;
+    index;
+    type;
+    onAwake() {
+      this.button.on(Laya.Event.CLICK, this, this.onButtonEvent.bind(this));
+    }
+    SetData(data) {
+      this.button.label = data.name;
+      this.index = data.index;
+      this.type = data.type;
+    }
+    onSelected(selected) {
+      this.button.selected = selected;
+    }
+    onButtonEvent(param) {
+      switch (this.type) {
+        case 0 /* Info */:
+          Laya.stage.event("OnTouchInfoCell" /* OnTouchInfoCell */, this.index);
+          break;
+        case 1 /* Evolving */:
+          Laya.stage.event("OnTouchEvolutionCell" /* OnTouchEvolutionCell */, this.index);
+          break;
+        case 2 /* Market */:
+          Laya.stage.event("OnTouchMarketCell" /* OnTouchMarketCell */, this.index);
+          break;
+        case 3 /* MarketBid */:
+          Laya.stage.event("OnTouchMarketBidCell" /* OnTouchMarketBidCell */, this.index);
+          break;
+        default:
+          break;
+      }
+    }
+  };
+  __name(CellListItem, "CellListItem");
+  __decorateClass([
+    property4({ type: Laya.Button })
+  ], CellListItem.prototype, "button", 2);
+  CellListItem = __decorateClass([
+    regClass4("9d83bd3a-b532-4ee5-8dac-8a73102c3bf3", "../src/ui/common/CellListItem.ts")
+  ], CellListItem);
+
+  // src/ui/common/CommonDialog.generated.ts
+  var CommonDialogBase = class extends Laya.Dialog {
+    static {
+      __name(this, "CommonDialogBase");
+    }
+    content_label;
+    cancel_button;
+    confirm_button;
+  };
+
+  // src/ui/common/CommonDialog.ts
+  var { regClass: regClass5, property: property5 } = Laya;
+  var CommonDialog = class extends CommonDialogBase {
+    onAwake() {
+      this.cancel_button.on(Laya.Event.CLICK, this, this.onCancelButtonEvent.bind(this));
+      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
+    }
+    onOpened(param) {
+      this.content_label.text = param.text;
+    }
+    onCancelButtonEvent(param) {
+      this.close();
+    }
+    onConfirmButtonEvent(param) {
+      this.close();
+    }
+  };
+  __name(CommonDialog, "CommonDialog");
+  CommonDialog = __decorateClass([
+    regClass5("b982027a-d103-4874-92ef-15525f742200", "../src/ui/common/CommonDialog.ts")
+  ], CommonDialog);
+
+  // src/ui/common/CommonLoading.generated.ts
+  var CommonLoadingBase = class extends Laya.Dialog {
+    static {
+      __name(this, "CommonLoadingBase");
+    }
+    loading_image;
+  };
+
+  // src/ui/common/CommonLoading.ts
+  var { regClass: regClass6, property: property6 } = Laya;
+  var CommonLoading = class extends CommonLoadingBase {
+    onAwake() {
+      Laya.timer.loop(100, this, () => {
+        this.loading_image.rotation += 2;
+      });
+    }
+    onDestroy() {
+      Laya.timer.clearAll(this);
+    }
+  };
+  __name(CommonLoading, "CommonLoading");
+  CommonLoading = __decorateClass([
+    regClass6("e959b151-226b-4a55-ab55-8c84c8fbfca3", "../src/ui/common/CommonLoading.ts")
+  ], CommonLoading);
 
   // src/ui/evolution/EvolutionPage.generated.ts
   var EvolutionPageBase = class extends Laya.Box {
@@ -21309,7 +21492,7 @@ spurious results.`);
   };
 
   // src/ui/evolution/EvolutionPage.ts
-  var { regClass: regClass3, property: property3 } = Laya;
+  var { regClass: regClass7, property: property7 } = Laya;
   var EvolutionPage = class extends EvolutionPageBase {
     index;
     onAwake() {
@@ -21367,7 +21550,7 @@ spurious results.`);
   };
   __name(EvolutionPage, "EvolutionPage");
   EvolutionPage = __decorateClass([
-    regClass3("d99aec04-9eb8-4796-8b82-5dc9412638bb", "../src/ui/evolution/EvolutionPage.ts")
+    regClass7("d99aec04-9eb8-4796-8b82-5dc9412638bb", "../src/ui/evolution/EvolutionPage.ts")
   ], EvolutionPage);
 
   // src/ui/evolution/EvolutionPageCell.generated.ts
@@ -21384,7 +21567,7 @@ spurious results.`);
   };
 
   // src/ui/evolution/EvolutionPageCell.ts
-  var { regClass: regClass4, property: property4 } = Laya;
+  var { regClass: regClass8, property: property8 } = Laya;
   var EvolutionPageCell = class extends EvolutionPageCellBase {
     c_id;
     selected_node;
@@ -21492,150 +21675,8 @@ spurious results.`);
   };
   __name(EvolutionPageCell, "EvolutionPageCell");
   EvolutionPageCell = __decorateClass([
-    regClass4("87615f63-a843-421c-bd6f-505cc6c646ce", "../src/ui/evolution/EvolutionPageCell.ts")
+    regClass8("87615f63-a843-421c-bd6f-505cc6c646ce", "../src/ui/evolution/EvolutionPageCell.ts")
   ], EvolutionPageCell);
-
-  // src/ui/common/CellAvatar.generated.ts
-  var CellAvatarBase = class extends Laya.Box {
-    static {
-      __name(this, "CellAvatarBase");
-    }
-    up_part_image;
-    down_part_image;
-    center_part_image;
-    left_part_image;
-    right_part_image;
-    state_bg_img;
-    state_label;
-  };
-
-  // src/ui/common/CellAvatar.ts
-  var { regClass: regClass5, property: property5 } = Laya;
-  var CellAvatar = class extends CellAvatarBase {
-    index;
-    onAwake() {
-      this.index = -1;
-    }
-    SetState(type) {
-      if (type == 1 /* Exploring */) {
-        this.state_bg_img.visible = true;
-        this.state_label.text = "exploring";
-      } else if (type == 2 /* Evolving */) {
-        this.state_bg_img.visible = true;
-        this.state_label.text = "evolving";
-      } else if (type == 3 /* Onshelves */) {
-        this.state_bg_img.visible = true;
-        this.state_label.text = "on shelves";
-      } else {
-        this.state_bg_img.visible = false;
-      }
-    }
-    SetAvatar(index) {
-      this.index = index;
-      const center = Math.floor(index / 16);
-      this.center_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "01.png";
-      if (isBitSet(index, 0)) {
-        this.up_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "02.png";
-      } else {
-        this.up_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
-      }
-      if (isBitSet(index, 1)) {
-        this.left_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "03.png";
-      } else {
-        this.left_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
-      }
-      if (isBitSet(index, 2)) {
-        this.right_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "04.png";
-      } else {
-        this.right_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
-      }
-      if (isBitSet(index, 3)) {
-        this.down_part_image.skin = "resources/ui/cell/cell_00" + center.toString() + "05.png";
-      } else {
-        this.down_part_image.skin = "resources/ui/common/common_frame_cell_avatar.png";
-      }
-    }
-  };
-  __name(CellAvatar, "CellAvatar");
-  CellAvatar = __decorateClass([
-    regClass5("a7fe9eb0-62a0-4df8-89ca-9de72fdbd6f4", "../src/ui/common/CellAvatar.ts")
-  ], CellAvatar);
-
-  // src/ui/common/CellListItem.ts
-  var { regClass: regClass6, property: property6 } = Laya;
-  var CellListItem = class extends Laya.Script {
-    button;
-    index;
-    type;
-    onAwake() {
-      this.button.on(Laya.Event.CLICK, this, this.onButtonEvent.bind(this));
-    }
-    SetData(data) {
-      this.button.label = data.name;
-      this.index = data.index;
-      this.type = data.type;
-    }
-    onSelected(selected) {
-      this.button.selected = selected;
-    }
-    onButtonEvent(param) {
-      switch (this.type) {
-        case 0 /* Info */:
-          Laya.stage.event("OnTouchInfoCell" /* OnTouchInfoCell */, this.index);
-          break;
-        case 1 /* Evolving */:
-          Laya.stage.event("OnTouchEvolutionCell" /* OnTouchEvolutionCell */, this.index);
-          break;
-        case 2 /* Market */:
-          Laya.stage.event("OnTouchMarketCell" /* OnTouchMarketCell */, this.index);
-          break;
-        case 3 /* MarketBid */:
-          Laya.stage.event("OnTouchMarketBidCell" /* OnTouchMarketBidCell */, this.index);
-          break;
-        default:
-          break;
-      }
-    }
-  };
-  __name(CellListItem, "CellListItem");
-  __decorateClass([
-    property6({ type: Laya.Button })
-  ], CellListItem.prototype, "button", 2);
-  CellListItem = __decorateClass([
-    regClass6("9d83bd3a-b532-4ee5-8dac-8a73102c3bf3", "../src/ui/common/CellListItem.ts")
-  ], CellListItem);
-
-  // src/ui/common/CommonDialog.generated.ts
-  var CommonDialogBase = class extends Laya.Dialog {
-    static {
-      __name(this, "CommonDialogBase");
-    }
-    content_label;
-    cancel_button;
-    confirm_button;
-  };
-
-  // src/ui/common/CommonDialog.ts
-  var { regClass: regClass7, property: property7 } = Laya;
-  var CommonDialog = class extends CommonDialogBase {
-    onAwake() {
-      this.cancel_button.on(Laya.Event.CLICK, this, this.onCancelButtonEvent.bind(this));
-      this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
-    }
-    onOpened(param) {
-      this.content_label.text = param.text;
-    }
-    onCancelButtonEvent(param) {
-      this.close();
-    }
-    onConfirmButtonEvent(param) {
-      this.close();
-    }
-  };
-  __name(CommonDialog, "CommonDialog");
-  CommonDialog = __decorateClass([
-    regClass7("b982027a-d103-4874-92ef-15525f742200", "../src/ui/common/CommonDialog.ts")
-  ], CommonDialog);
 
   // src/ui/info/CellAttributeEnhancePage.generated.ts
   var CellAttributeEnhancePageBase = class extends Laya.Box {
@@ -21665,7 +21706,7 @@ spurious results.`);
   }
   __name(getEnhanceAttrCost, "getEnhanceAttrCost");
   function getEnhanceBodyCost(body) {
-    return 5;
+    return 100;
   }
   __name(getEnhanceBodyCost, "getEnhanceBodyCost");
   function getCCMapRender(type) {
@@ -21753,7 +21794,7 @@ spurious results.`);
   __name(getCellInfo1, "getCellInfo1");
 
   // src/ui/info/CellAttributeEnhancePage.ts
-  var { regClass: regClass8, property: property8 } = Laya;
+  var { regClass: regClass9, property: property9 } = Laya;
   var CellAttributeEnhancePage = class extends CellAttributeEnhancePageBase {
     c_id;
     p_id;
@@ -21926,7 +21967,7 @@ spurious results.`);
   };
   __name(CellAttributeEnhancePage, "CellAttributeEnhancePage");
   CellAttributeEnhancePage = __decorateClass([
-    regClass8("82dd6225-405f-432c-a620-ed8ca338eb5d", "../src/ui/info/CellAttributeEnhancePage.ts")
+    regClass9("82dd6225-405f-432c-a620-ed8ca338eb5d", "../src/ui/info/CellAttributeEnhancePage.ts")
   ], CellAttributeEnhancePage);
 
   // src/ui/info/CellBodyEnhancePage.generated.ts
@@ -21962,7 +22003,7 @@ spurious results.`);
   __name(random, "random");
 
   // src/ui/info/CellBodyEnhancePage.ts
-  var { regClass: regClass9, property: property9 } = Laya;
+  var { regClass: regClass10, property: property10 } = Laya;
   var CellBodyEnhancePage = class extends CellBodyEnhancePageBase {
     index;
     selected_property_node;
@@ -22065,7 +22106,7 @@ spurious results.`);
   };
   __name(CellBodyEnhancePage, "CellBodyEnhancePage");
   CellBodyEnhancePage = __decorateClass([
-    regClass9("061652ef-83a4-4744-b84c-80374c6155cd", "../src/ui/info/CellBodyEnhancePage.ts")
+    regClass10("061652ef-83a4-4744-b84c-80374c6155cd", "../src/ui/info/CellBodyEnhancePage.ts")
   ], CellBodyEnhancePage);
 
   // src/ui/info/CellInfoPage.generated.ts
@@ -22078,7 +22119,7 @@ spurious results.`);
   };
 
   // src/ui/info/CellInfoPage.ts
-  var { regClass: regClass10, property: property10 } = Laya;
+  var { regClass: regClass11, property: property11 } = Laya;
   var CellInfoPage = class extends CellInfoPageBase {
     index;
     onAwake() {
@@ -22105,7 +22146,7 @@ spurious results.`);
   };
   __name(CellInfoPage, "CellInfoPage");
   CellInfoPage = __decorateClass([
-    regClass10("9161308f-1a38-4f24-8fc5-fe984ee70a6b", "../src/ui/info/CellInfoPage.ts")
+    regClass11("9161308f-1a38-4f24-8fc5-fe984ee70a6b", "../src/ui/info/CellInfoPage.ts")
   ], CellInfoPage);
 
   // src/ui/info/CellInfoSubPage.generated.ts
@@ -22129,7 +22170,7 @@ spurious results.`);
   };
 
   // src/ui/info/CellInfoSubPage.ts
-  var { regClass: regClass11, property: property11 } = Laya;
+  var { regClass: regClass12, property: property12 } = Laya;
   var CellInfoSubPage = class extends CellInfoSubPageBase {
     index;
     baseInfo;
@@ -22181,7 +22222,7 @@ spurious results.`);
   };
   __name(CellInfoSubPage, "CellInfoSubPage");
   CellInfoSubPage = __decorateClass([
-    regClass11("1e141417-30b8-4ce7-b0d2-9b851bf407a5", "../src/ui/info/CellInfoSubPage.ts")
+    regClass12("1e141417-30b8-4ce7-b0d2-9b851bf407a5", "../src/ui/info/CellInfoSubPage.ts")
   ], CellInfoSubPage);
 
   // src/ui/info/CellListPage.generated.ts
@@ -22194,7 +22235,7 @@ spurious results.`);
   };
 
   // src/ui/info/CellListPage.ts
-  var { regClass: regClass12, property: property12 } = Laya;
+  var { regClass: regClass13, property: property13 } = Laya;
   var CellListPage = class extends CellListPageBase {
     selected_node;
     onAwake() {
@@ -22281,11 +22322,11 @@ spurious results.`);
   };
   __name(CellListPage, "CellListPage");
   CellListPage = __decorateClass([
-    regClass12("bf2bf7a7-afd2-446a-a118-cb322a1d0423", "../src/ui/info/CellListPage.ts")
+    regClass13("bf2bf7a7-afd2-446a-a118-cb322a1d0423", "../src/ui/info/CellListPage.ts")
   ], CellListPage);
 
   // src/ui/info/CellPropertyPointItem.ts
-  var { regClass: regClass13, property: property13 } = Laya;
+  var { regClass: regClass14, property: property14 } = Laya;
   var CellPropertyPointItem = class extends Laya.Script {
     bg_image;
     selected_image;
@@ -22309,13 +22350,13 @@ spurious results.`);
   };
   __name(CellPropertyPointItem, "CellPropertyPointItem");
   __decorateClass([
-    property13({ type: Laya.Image })
+    property14({ type: Laya.Image })
   ], CellPropertyPointItem.prototype, "bg_image", 2);
   __decorateClass([
-    property13({ type: Laya.Image })
+    property14({ type: Laya.Image })
   ], CellPropertyPointItem.prototype, "selected_image", 2);
   CellPropertyPointItem = __decorateClass([
-    regClass13("43e59e28-6664-484f-abde-2012a0cec5ca", "../src/ui/info/CellPropertyPointItem.ts")
+    regClass14("43e59e28-6664-484f-abde-2012a0cec5ca", "../src/ui/info/CellPropertyPointItem.ts")
   ], CellPropertyPointItem);
 
   // src/ui/info/CreateCellPage.generated.ts
@@ -22337,7 +22378,7 @@ spurious results.`);
   };
 
   // src/ui/info/CreateCellPage.ts
-  var { regClass: regClass14, property: property14 } = Laya;
+  var { regClass: regClass15, property: property15 } = Laya;
   var CreateCellPage = class extends CreateCellPageBase {
     baseColor;
     onAwake() {
@@ -22502,7 +22543,7 @@ spurious results.`);
   };
   __name(CreateCellPage, "CreateCellPage");
   CreateCellPage = __decorateClass([
-    regClass14("ce81901f-d9c5-44f7-b178-065ff256a7fd", "../src/ui/info/CreateCellPage.ts")
+    regClass15("ce81901f-d9c5-44f7-b178-065ff256a7fd", "../src/ui/info/CreateCellPage.ts")
   ], CreateCellPage);
 
   // src/ui/info/InfoPageCellListCellInfo.generated.ts
@@ -22517,7 +22558,7 @@ spurious results.`);
   };
 
   // src/ui/info/InfoPageCellListCellInfo.ts
-  var { regClass: regClass15, property: property15 } = Laya;
+  var { regClass: regClass16, property: property16 } = Laya;
   var InfoPageCellListCellInfo = class extends InfoPageCellListCellInfoBase {
     onAwake() {
       this.confirm_button.on(Laya.Event.CLICK, this, this.onConfirmButtonEvent.bind(this));
@@ -22526,20 +22567,21 @@ spurious results.`);
       this.close();
     }
     onOpened(param) {
+      console.log(param.index);
       this.avatar_image.skin = "resources/ui/cell/cell_00" + param.index.toString() + "00.png";
       this.sub_title_label.text = this.GetSubTitle(param.index);
       this.info_label.text = this.GetInfo(param.index);
     }
     GetSubTitle(index) {
-      return getNthEnumValue(CellAvatarTitleEnum, index);
+      return getNthEnumValue(CellAvatarTitleEnum, index - 1);
     }
     GetInfo(index) {
-      return getNthEnumValue(CellAvatarInfoEnum, index);
+      return getNthEnumValue(CellAvatarInfoEnum, index - 1);
     }
   };
   __name(InfoPageCellListCellInfo, "InfoPageCellListCellInfo");
   InfoPageCellListCellInfo = __decorateClass([
-    regClass15("9058b3dc-e964-43f6-8a09-de9bb047d65c", "../src/ui/info/InfoPageCellListCellInfo.ts")
+    regClass16("9058b3dc-e964-43f6-8a09-de9bb047d65c", "../src/ui/info/InfoPageCellListCellInfo.ts")
   ], InfoPageCellListCellInfo);
 
   // src/ui/leaderboard/LeaderBoardPage.generated.ts
@@ -22556,7 +22598,7 @@ spurious results.`);
   };
 
   // src/ui/leaderboard/LeaderBoardPage.ts
-  var { regClass: regClass16, property: property16 } = Laya;
+  var { regClass: regClass17, property: property17 } = Laya;
   var LeaderBoardPage = class extends LeaderBoardPageBase {
     selected_node;
     index;
@@ -22725,11 +22767,11 @@ spurious results.`);
   };
   __name(LeaderBoardPage, "LeaderBoardPage");
   LeaderBoardPage = __decorateClass([
-    regClass16("ef3c4680-953e-4f27-9072-69bc6e18abd3", "../src/ui/leaderboard/LeaderBoardPage.ts")
+    regClass17("ef3c4680-953e-4f27-9072-69bc6e18abd3", "../src/ui/leaderboard/LeaderBoardPage.ts")
   ], LeaderBoardPage);
 
   // src/ui/leaderboard/LeaderBoardPageItem1.ts
-  var { regClass: regClass17, property: property17 } = Laya;
+  var { regClass: regClass18, property: property18 } = Laya;
   var LeaderBoardPageItem1 = class extends Laya.Script {
     rank_number_label;
     player_name_label;
@@ -22745,23 +22787,23 @@ spurious results.`);
   };
   __name(LeaderBoardPageItem1, "LeaderBoardPageItem1");
   __decorateClass([
-    property17({ type: Laya.Label })
+    property18({ type: Laya.Label })
   ], LeaderBoardPageItem1.prototype, "rank_number_label", 2);
   __decorateClass([
-    property17({ type: Laya.Label })
+    property18({ type: Laya.Label })
   ], LeaderBoardPageItem1.prototype, "player_name_label", 2);
   __decorateClass([
-    property17({ type: Laya.Label })
+    property18({ type: Laya.Label })
   ], LeaderBoardPageItem1.prototype, "cell_name_label", 2);
   __decorateClass([
-    property17({ type: Laya.Label })
+    property18({ type: Laya.Label })
   ], LeaderBoardPageItem1.prototype, "value_label", 2);
   LeaderBoardPageItem1 = __decorateClass([
-    regClass17("68ed8af8-4d5b-4ea8-b3f1-388a32b40d91", "../src/ui/leaderboard/LeaderBoardPageItem1.ts")
+    regClass18("68ed8af8-4d5b-4ea8-b3f1-388a32b40d91", "../src/ui/leaderboard/LeaderBoardPageItem1.ts")
   ], LeaderBoardPageItem1);
 
   // src/ui/leaderboard/LeaderBoardPageItem2.ts
-  var { regClass: regClass18, property: property18 } = Laya;
+  var { regClass: regClass19, property: property19 } = Laya;
   var LeaderBoardPageItem2 = class extends Laya.Script {
     rank_number_label;
     player_name_label;
@@ -22778,19 +22820,19 @@ spurious results.`);
   };
   __name(LeaderBoardPageItem2, "LeaderBoardPageItem2");
   __decorateClass([
-    property18({ type: Laya.Label })
+    property19({ type: Laya.Label })
   ], LeaderBoardPageItem2.prototype, "rank_number_label", 2);
   __decorateClass([
-    property18({ type: Laya.Label })
+    property19({ type: Laya.Label })
   ], LeaderBoardPageItem2.prototype, "player_name_label", 2);
   __decorateClass([
-    property18({ type: Laya.Label })
+    property19({ type: Laya.Label })
   ], LeaderBoardPageItem2.prototype, "cell_name_label", 2);
   __decorateClass([
-    property18({ type: Laya.Label })
+    property19({ type: Laya.Label })
   ], LeaderBoardPageItem2.prototype, "value_label", 2);
   LeaderBoardPageItem2 = __decorateClass([
-    regClass18("44c62272-25f5-43e7-aee5-7c6a2d2c9147", "../src/ui/leaderboard/LeaderBoardPageItem2.ts")
+    regClass19("44c62272-25f5-43e7-aee5-7c6a2d2c9147", "../src/ui/leaderboard/LeaderBoardPageItem2.ts")
   ], LeaderBoardPageItem2);
 
   // src/ui/map/ExplorationSetupDialog.generated.ts
@@ -22805,7 +22847,7 @@ spurious results.`);
   };
 
   // src/ui/map/ExplorationSetupDialog.ts
-  var { regClass: regClass19, property: property19 } = Laya;
+  var { regClass: regClass20, property: property20 } = Laya;
   var ExplorationSetupDialog = class extends ExplorationSetupDialogBase {
     c_id;
     onAwake() {
@@ -22834,7 +22876,7 @@ spurious results.`);
   };
   __name(ExplorationSetupDialog, "ExplorationSetupDialog");
   ExplorationSetupDialog = __decorateClass([
-    regClass19("300ca383-3e20-4124-a237-6ccc87f8ef68", "../src/ui/map/ExplorationSetupDialog.ts")
+    regClass20("300ca383-3e20-4124-a237-6ccc87f8ef68", "../src/ui/map/ExplorationSetupDialog.ts")
   ], ExplorationSetupDialog);
 
   // src/ui/map/MapInfoPage.generated.ts
@@ -22853,7 +22895,7 @@ spurious results.`);
   };
 
   // src/ui/map/MapInfoPage.ts
-  var { regClass: regClass20, property: property20 } = Laya;
+  var { regClass: regClass21, property: property21 } = Laya;
   var MapInfoPage = class extends MapInfoPageBase {
     c_id;
     onAwake() {
@@ -22970,11 +23012,11 @@ spurious results.`);
   };
   __name(MapInfoPage, "MapInfoPage");
   MapInfoPage = __decorateClass([
-    regClass20("f4a816ef-c795-4a66-a280-e163b4de8e9c", "../src/ui/map/MapInfoPage.ts")
+    regClass21("f4a816ef-c795-4a66-a280-e163b4de8e9c", "../src/ui/map/MapInfoPage.ts")
   ], MapInfoPage);
 
   // src/ui/map/MapSquareItem.ts
-  var { regClass: regClass21, property: property21 } = Laya;
+  var { regClass: regClass22, property: property22 } = Laya;
   var MapSquareItem = class extends Laya.Script {
     bg;
     onAwake() {
@@ -22985,10 +23027,10 @@ spurious results.`);
   };
   __name(MapSquareItem, "MapSquareItem");
   __decorateClass([
-    property21({ type: Laya.Image })
+    property22({ type: Laya.Image })
   ], MapSquareItem.prototype, "bg", 2);
   MapSquareItem = __decorateClass([
-    regClass21("dea390e9-354f-4c5a-ba15-bae43b0c3c4f", "../src/ui/map/MapSquareItem.ts")
+    regClass22("dea390e9-354f-4c5a-ba15-bae43b0c3c4f", "../src/ui/map/MapSquareItem.ts")
   ], MapSquareItem);
 
   // src/ui/market/MarketPage.generated.ts
@@ -23001,7 +23043,7 @@ spurious results.`);
   };
 
   // src/ui/market/MarketPage.ts
-  var { regClass: regClass22, property: property22 } = Laya;
+  var { regClass: regClass23, property: property23 } = Laya;
   var MarketPage = class extends MarketPageBase {
     index;
     onAwake() {
@@ -23061,7 +23103,7 @@ spurious results.`);
   };
   __name(MarketPage, "MarketPage");
   MarketPage = __decorateClass([
-    regClass22("f7ea9fc9-f0be-47bf-b29e-3d07abac9490", "../src/ui/market/MarketPage.ts")
+    regClass23("f7ea9fc9-f0be-47bf-b29e-3d07abac9490", "../src/ui/market/MarketPage.ts")
   ], MarketPage);
 
   // src/ui/market/MarketPageAsk.generated.ts
@@ -23080,7 +23122,7 @@ spurious results.`);
   };
 
   // src/ui/market/MarketPageAsk.ts
-  var { regClass: regClass23, property: property23 } = Laya;
+  var { regClass: regClass24, property: property24 } = Laya;
   var MarketPageAsk = class extends MarketPageAskBase {
     selected_node;
     category;
@@ -23181,11 +23223,11 @@ spurious results.`);
   };
   __name(MarketPageAsk, "MarketPageAsk");
   MarketPageAsk = __decorateClass([
-    regClass23("d032e494-c2fb-405d-b572-00d7d9215c7d", "../src/ui/market/MarketPageAsk.ts")
+    regClass24("d032e494-c2fb-405d-b572-00d7d9215c7d", "../src/ui/market/MarketPageAsk.ts")
   ], MarketPageAsk);
 
   // src/ui/market/MarketPageAskCategorySelectedItem.ts
-  var { regClass: regClass24, property: property24 } = Laya;
+  var { regClass: regClass25, property: property25 } = Laya;
   var MarketPageAskCategorySelectedItem = class extends Laya.Script {
     button;
     index;
@@ -23204,13 +23246,13 @@ spurious results.`);
   };
   __name(MarketPageAskCategorySelectedItem, "MarketPageAskCategorySelectedItem");
   __decorateClass([
-    property24({ type: Laya.Button })
+    property25({ type: Laya.Button })
   ], MarketPageAskCategorySelectedItem.prototype, "button", 2);
   __decorateClass([
-    property24({ type: Number })
+    property25({ type: Number })
   ], MarketPageAskCategorySelectedItem.prototype, "index", 2);
   MarketPageAskCategorySelectedItem = __decorateClass([
-    regClass24("b7e92c31-9c4a-457a-83ad-f20dc41cdc4f", "../src/ui/market/MarketPageAskCategorySelectedItem.ts")
+    regClass25("b7e92c31-9c4a-457a-83ad-f20dc41cdc4f", "../src/ui/market/MarketPageAskCategorySelectedItem.ts")
   ], MarketPageAskCategorySelectedItem);
 
   // src/ui/market/MarketPageBid.generated.ts
@@ -23226,7 +23268,7 @@ spurious results.`);
   };
 
   // src/ui/market/MarketPageBid.ts
-  var { regClass: regClass25, property: property25 } = Laya;
+  var { regClass: regClass26, property: property26 } = Laya;
   var MarketPageBid = class extends MarketPageBidBase {
     selected_node;
     page_index;
@@ -23332,11 +23374,11 @@ spurious results.`);
   };
   __name(MarketPageBid, "MarketPageBid");
   MarketPageBid = __decorateClass([
-    regClass25("5c345d01-044a-4a03-a518-dea474cde402", "../src/ui/market/MarketPageBid.ts")
+    regClass26("5c345d01-044a-4a03-a518-dea474cde402", "../src/ui/market/MarketPageBid.ts")
   ], MarketPageBid);
 
   // src/ui/market/MarketPageBidItem.ts
-  var { regClass: regClass26, property: property26 } = Laya;
+  var { regClass: regClass27, property: property27 } = Laya;
   var MarketPageBidItem = class extends Laya.Script {
     player_address_label;
     cell_name_label;
@@ -23369,22 +23411,22 @@ spurious results.`);
   };
   __name(MarketPageBidItem, "MarketPageBidItem");
   __decorateClass([
-    property26({ type: Laya.Label })
+    property27({ type: Laya.Label })
   ], MarketPageBidItem.prototype, "player_address_label", 2);
   __decorateClass([
-    property26({ type: Laya.Label })
+    property27({ type: Laya.Label })
   ], MarketPageBidItem.prototype, "cell_name_label", 2);
   __decorateClass([
-    property26({ type: Laya.Label })
+    property27({ type: Laya.Label })
   ], MarketPageBidItem.prototype, "breed_number_label", 2);
   __decorateClass([
-    property26({ type: Laya.Label })
+    property27({ type: Laya.Label })
   ], MarketPageBidItem.prototype, "pay_number_label", 2);
   __decorateClass([
-    property26({ type: Laya.Button })
+    property27({ type: Laya.Button })
   ], MarketPageBidItem.prototype, "button", 2);
   MarketPageBidItem = __decorateClass([
-    regClass26("f391a66b-6d4f-4ed1-b588-bc793d604fad", "../src/ui/market/MarketPageBidItem.ts")
+    regClass27("f391a66b-6d4f-4ed1-b588-bc793d604fad", "../src/ui/market/MarketPageBidItem.ts")
   ], MarketPageBidItem);
 
   // src/ui/market/MarketPageBidSelected.generated.ts
@@ -23402,7 +23444,7 @@ spurious results.`);
   };
 
   // src/ui/market/MarketPageBidSelected.ts
-  var { regClass: regClass27, property: property27 } = Laya;
+  var { regClass: regClass28, property: property28 } = Laya;
   var MarketPageBidSelected = class extends MarketPageBidSelectedBase {
     selected_node;
     t_id;
@@ -23497,7 +23539,7 @@ spurious results.`);
   };
   __name(MarketPageBidSelected, "MarketPageBidSelected");
   MarketPageBidSelected = __decorateClass([
-    regClass27("fea52df9-73f4-4ab8-ab0a-251da9ea6aa9", "../src/ui/market/MarketPageBidSelected.ts")
+    regClass28("fea52df9-73f4-4ab8-ab0a-251da9ea6aa9", "../src/ui/market/MarketPageBidSelected.ts")
   ], MarketPageBidSelected);
 })();
 /*! Bundled license information:

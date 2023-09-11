@@ -790,7 +790,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x58d4550c19dd8d4541ebb07eca351f7f9f8e9336a65f497d53b42fe7765abac",
+      "class_hash": "0x68a2f3f7a94cba1b67913a85b0aea8cb8e0044da482a662464e27ba2c85b4db",
       "dependencies": [],
       "abi": [
         {
@@ -972,7 +972,7 @@
         }
       ],
       "outputs": [],
-      "class_hash": "0x7c37e16c61b0e1ba32f460d96b06db5a48fe35de4a39b30c14e84c5a28c0608",
+      "class_hash": "0x53c6aa654c3c42f17a81719e15f9abafeceb6cd46d0ab11a22473af53634f39",
       "dependencies": [],
       "abi": [
         {

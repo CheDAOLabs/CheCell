@@ -1,0 +1,86 @@
+{
+  "_$ver": 1,
+  "_$id": "dtq1i5hjud",
+  "_$type": "Box",
+  "name": "Box",
+  "width": 1920,
+  "height": 1080,
+  "mouseEnabled": true,
+  "_$child": [
+    {
+      "_$id": "0hr8yq6y",
+      "_$type": "Image",
+      "name": "bg",
+      "width": 1920,
+      "height": 1080,
+      "centerX": 0,
+      "centerY": 0,
+      "skin": "res://3cc8bede-c61e-4d8a-b79d-dc0bcc078c4c",
+      "useSourceSize": true,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "bxpr3lea",
+      "_$type": "Image",
+      "name": "avatar",
+      "x": 204,
+      "y": 116,
+      "width": 632,
+      "height": 848,
+      "left": 204,
+      "top": 116,
+      "skin": "res://55b68cb0-f49e-4021-92de-e18058e3309f",
+      "useSourceSize": true,
+      "color": "#ffffff"
+    },
+    {
+      "_$id": "0qefb3q4",
+      "_$type": "Panel",
+      "name": "Panel",
+      "x": 1008,
+      "y": 330,
+      "width": 670,
+      "height": 468,
+      "mouseEnabled": true,
+      "right": 242,
+      "top": 330,
+      "scrollType": 2,
+      "_$child": [
+        {
+          "_$id": "u8oa14kr",
+          "_$type": "Label",
+          "name": "Label",
+          "width": 670,
+          "height": 521,
+          "text": "In an alternate universe, Che Guevara did not die in 1967, but was kept frozen until the 23rd century. At this time, the game development industry has been completely controlled by several large companies. They use high-tech means to exercise mind control over players and eliminate their creative and critical thinking. These major companies form a monopolistic oligopoly system that controls the entire game industry and the minds of players.",
+          "font": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+          "fontSize": 32,
+          "color": "rgba(217, 132, 255, 1)",
+          "fitContent": "height",
+          "valign": "top",
+          "wordWrap": true,
+          "leading": 28,
+          "padding": "0,0,0,0"
+        }
+      ]
+    },
+    {
+      "_$id": "ioe9rlky",
+      "_$type": "Button",
+      "name": "skip_button",
+      "x": 1758,
+      "y": 990,
+      "width": 90,
+      "height": 32,
+      "mouseEnabled": true,
+      "right": 72,
+      "bottom": 58,
+      "skin": "res://d4cfd6a8-0d0a-475b-ac93-d85eaa646936",
+      "label": "SKIP",
+      "labelFont": "res://46808cbf-8f83-4ce6-80f1-cbb25a2e9c4b",
+      "labelSize": 32,
+      "labelColors": "#c945f1,#f6daff,#942fb2",
+      "labelVAlign": "middle"
+    }
+  ]
+}

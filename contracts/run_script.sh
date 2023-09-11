@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 
-sudo sozo migrate --name CheCell
+sozo migrate --name CheCell
 
 sozo auth writer Account InitAccount --world 0x5cd07924cb446725c558d07a38fd1cbabbce0053b21c1356545e7edd7cd2841
 sozo auth writer Account CreateCell --world 0x5cd07924cb446725c558d07a38fd1cbabbce0053b21c1356545e7edd7cd2841

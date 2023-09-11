@@ -62,7 +62,7 @@ mod CreateCell {
             Cell
         );
         cell.init = true;
-        cell.exp = 100_u32;
+        cell.exp = 200_u32;
         cell.name = nickName;
         cell.seed = initSeed;
         cell.breed_count = 9;
@@ -239,7 +239,7 @@ mod AddCellProperty {
     use dojo::world::Context;
     use poseidon::poseidon_hash_span;
 
-
+    use debug::PrintTrait;
     use CheCell::utils::constants::{GAME_ID,WORLD_ID,PropertyTypes,PACKAGE_BIT_SIZE,PROPERTY_VALUE_MAX,PROPERTY_INIT_MAX};  
     use CheCell::utils::math::{decodePackage};  
     use CheCell::utils::cal::{getAttrCost,getSizeCost}; 
@@ -317,14 +317,18 @@ mod AddCellProperty {
         add_point += *property_array[2];
         let cost = getAttrCost(add_point.try_into().unwrap());
 
+        cell.exp.print();
+        cost.print();
+
         assert(cell.exp >= cost , 'cost not enough');
-        cell.exp -=cost;
+        
         cell_property.p1 += (*property_array[0]).try_into().unwrap();
         cell_property.p2 += (*property_array[1]).try_into().unwrap();
         cell_property.p3 += (*property_array[2]).try_into().unwrap();
          
         assert(cell_property.p1 <= PROPERTY_INIT_MAX &&  cell_property.p2 <= PROPERTY_INIT_MAX && cell_property.p3 <= PROPERTY_INIT_MAX, 'init property is invaild');
- 
+
+        cell.exp -=cost;
         set !(
             ctx.world,
             (cell)

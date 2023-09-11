@@ -19,17 +19,17 @@ export class InfoPageCellListCellInfo extends InfoPageCellListCellInfoBase {
        // this.onGetButtonEvent();
     }
     onOpened(param:any){
-      
+        console.log(param.index);
         this.avatar_image.skin = 'resources/ui/cell/cell_00'+param.index.toString()+'00.png';
         this.sub_title_label.text = this.GetSubTitle(param.index);
         this.info_label.text = this.GetInfo(param.index);
  
     }
     GetSubTitle(index:number):string{
-        return getNthEnumValue(CellAvatarTitleEnum,index) as string;
+        return getNthEnumValue(CellAvatarTitleEnum,index-1) as string;
     }
     GetInfo(index:number):string{
-        return getNthEnumValue(CellAvatarInfoEnum,index) as string;
+        return getNthEnumValue(CellAvatarInfoEnum,index-1) as string;
     }
 }
  

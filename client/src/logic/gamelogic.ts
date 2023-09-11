@@ -8,7 +8,7 @@ export function getEnhanceAttrCost(base:Color,cur:Color){
 }
 
 export function getEnhanceBodyCost(body:number){
-  return 5;
+  return 100;
 }
 
 export function getCCMapRender(type:number){
